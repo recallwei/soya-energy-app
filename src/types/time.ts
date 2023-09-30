@@ -1,0 +1,12 @@
+export type CommonTimeFormatter = 'YYYY-MM-DD hh:mm:ss' | 'YYYY-MM-DD'
+export type LocalTimeFormatter =
+  | 'LT'
+  | 'LTS'
+  | 'L'
+  | 'LL'
+  | 'LLL'
+  | 'LLLL'
+  | 'l'
+  | 'll'
+  | 'lll'
+  | 'llll'

@@ -1,0 +1,12 @@
+brucesong
+cocoapods
+commitlint
+dosis
+gradlew
+lucide
+noto
+tanstack
+tamagui
+preinstall
+pressable
+Zustand
