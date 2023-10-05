@@ -8,7 +8,6 @@ export interface NavigationItem {
 }
 
 export interface RootStackParamList {
-  [key: string]: undefined
   Tabs: undefined
   I18n: undefined
   Charts: undefined
