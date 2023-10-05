@@ -1,10 +1,10 @@
-import type { PropsWithChildren } from 'react'
 import {
+  Toast,
   ToastProvider,
   ToastViewport,
-  Toast,
   useToastState
 } from '@tamagui/toast'
+import type { PropsWithChildren } from 'react'
 
 export default function GlobalToastProvider(
   props: PropsWithChildren

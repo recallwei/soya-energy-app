@@ -28,7 +28,7 @@ export class AuthUtils {
     }
   }
 
-  static isLogin() {
-    return !!this.getToken()
+  static async isLogin() {
+    return !!(await this.getToken())
   }
 }

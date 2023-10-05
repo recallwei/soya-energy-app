@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react'
 import { Card, Spinner, Text, ToggleGroup, XStack, YStack } from 'tamagui'
 
 import SolarGrid from '../SolarGrid'
@@ -29,7 +29,7 @@ export default function SolarArray(): React.JSX.Element {
         value={currentTimeTab}
         onValueChange={(value: TimeTab) => {
           setCurrentTimeTab(value)
-          refetch()
+          refetch().catch(() => {})
         }}
       >
         <ToggleGroup.Item

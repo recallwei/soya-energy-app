@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react'
-import { Text, ScrollView, View } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
-import { BarChart, PieChart, LineChart } from 'react-native-gifted-charts'
+import { useCallback, useState } from 'react'
+import { ScrollView, Text, View } from 'react-native'
+import { BarChart, LineChart, PieChart } from 'react-native-gifted-charts'
 
 import { TextStyles } from '@/styles'
 

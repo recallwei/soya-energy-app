@@ -1,15 +1,15 @@
-import { SafeAreaView, RefreshControl } from 'react-native'
-import { ScrollView, YStack } from 'tamagui'
 import { useQuery } from '@tanstack/react-query'
+import { RefreshControl, SafeAreaView } from 'react-native'
+import { ScrollView, YStack } from 'tamagui'
 
 import { useRefresh } from '@/hooks'
 
 import {
+  BatteryCard,
   HeaderArea,
-  TotalCard,
   InputCard,
   OutputCard,
-  BatteryCard
+  TotalCard
 } from './components'
 
 export default function StatusScreen() {

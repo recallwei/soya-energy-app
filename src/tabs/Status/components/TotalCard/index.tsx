@@ -1,4 +1,4 @@
-import { XStack, Text, Card, Separator } from 'tamagui'
+import { Card, Separator, Text, XStack } from 'tamagui'
 
 import { SVG } from '@/svg'
 

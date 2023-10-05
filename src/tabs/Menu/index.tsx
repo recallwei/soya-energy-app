@@ -1,20 +1,20 @@
-import { YStack, ScrollView } from 'tamagui'
 import {
-  Power,
-  UserCog,
-  Settings,
-  ServerCog,
-  Gem,
   Compass,
-  Users,
-  Component
+  Component,
+  Gem,
+  Power,
+  ServerCog,
+  Settings,
+  UserCog,
+  Users
 } from '@tamagui/lucide-icons'
-// import { useToastController } from '@tamagui/toast'
+import { SafeAreaView } from 'react-native'
+import { ScrollView, YStack } from 'tamagui'
 
+// import { useToastController } from '@tamagui/toast'
 import { MenuItemCard } from '@/components'
 import { useAuthStore } from '@/store'
 import { AuthUtils } from '@/utils'
-import { SafeAreaView } from 'react-native'
 
 export default function MenuScreen(): React.JSX.Element {
   // const { show } = useToastController()
@@ -23,7 +23,7 @@ export default function MenuScreen(): React.JSX.Element {
 
   const logout = () => {
     authStore.logout()
-    AuthUtils.removeToken()
+    AuthUtils.removeToken().catch(() => {})
   }
 
   const featureNotFinished = () => {

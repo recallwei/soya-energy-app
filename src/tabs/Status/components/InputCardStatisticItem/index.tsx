@@ -1,4 +1,4 @@
-import { YStack, Text } from 'tamagui'
+import { Text, YStack } from 'tamagui'
 
 interface Props {
   size?: 'default' | 'large'

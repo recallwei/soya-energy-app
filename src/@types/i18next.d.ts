@@ -1,4 +1,5 @@
 import 'i18next'
+
 import type { EN } from '../locales'
 
 declare module 'i18next' {

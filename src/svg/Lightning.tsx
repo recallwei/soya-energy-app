@@ -1,5 +1,5 @@
 import type { SvgProps } from 'react-native-svg'
-import Svg, { Path, G } from 'react-native-svg'
+import Svg, { G, Path } from 'react-native-svg'
 
 export default function SVGComponent(props: SvgProps) {
   return (

@@ -1,7 +1,7 @@
+import { Cog } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
 import { Pressable } from 'react-native'
-import { Card, Text, XStack, YStack, Separator } from 'tamagui'
-import { Cog } from '@tamagui/lucide-icons'
+import { Card, Separator, Text, XStack, YStack } from 'tamagui'
 
 import { SVG } from '@/svg'
 

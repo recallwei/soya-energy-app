@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+
 import { primaryFontFamily, secondaryFontFamily } from './variants'
 
 export const TextStyles = StyleSheet.create({

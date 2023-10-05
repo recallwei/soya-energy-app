@@ -1,13 +1,13 @@
-import SolarPanel from './SolarPanel'
-import ElectricalTower from './ElectricalTower'
-import Lightning from './Lightning'
-import Leaf from './Leaf'
+import BatteryVerticalEmpty from './BatteryVerticalEmpty'
 import BatteryVerticalFull from './BatteryVerticalFull'
 import BatteryVerticalHigh from './BatteryVerticalHigh'
-import BatteryVerticalMedium from './BatteryVerticalMedium'
 import BatteryVerticalLow from './BatteryVerticalLow'
-import BatteryVerticalEmpty from './BatteryVerticalEmpty'
+import BatteryVerticalMedium from './BatteryVerticalMedium'
+import ElectricalTower from './ElectricalTower'
 import Home from './Home'
+import Leaf from './Leaf'
+import Lightning from './Lightning'
+import SolarPanel from './SolarPanel'
 
 export const SVG = {
   SolarPanel,

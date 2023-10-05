@@ -1,12 +1,12 @@
-import { View } from 'tamagui'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { CloudLightning, Menu, Grid, BarChart4 } from '@tamagui/lucide-icons'
+import { BarChart4, CloudLightning, Grid, Menu } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
+import { View } from 'tamagui'
 
-import { GlobalStyles } from '@/styles'
-import type { HomeTabParamList } from '@/types'
-import { MenuScreen, StatusScreen, StatisticsScreen, ArrayScreen } from '@/tabs'
 import { useTabsStore } from '@/store'
+import { GlobalStyles } from '@/styles'
+import { ArrayScreen, MenuScreen, StatisticsScreen, StatusScreen } from '@/tabs'
+import type { HomeTabParamList } from '@/types'
 
 const Tab = createBottomTabNavigator<HomeTabParamList>()
 

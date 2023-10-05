@@ -7,11 +7,10 @@ export interface NavigationItem {
   screen: keyof (RootStackParamList & HomeTabParamList)
 }
 
-export type RootStackParamList = {
+export interface RootStackParamList {
+  [key: string]: undefined
   Tabs: undefined
-  ReactQuery: undefined
   I18n: undefined
-  AsyncStorage: undefined
   Charts: undefined
 
   LiveStatus: undefined
@@ -24,7 +23,8 @@ export type RootStackParamList = {
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, T>
 
-export type HomeTabParamList = {
+export interface HomeTabParamList {
+  [key: string]: undefined
   Status: undefined
   Statistics: undefined
   Array: undefined

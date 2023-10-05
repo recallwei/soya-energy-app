@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useCallback, useState } from 'react'
 
 export default function useRefresh<T>(callback?: () => Promise<T>): {
   refreshing: boolean
@@ -8,13 +8,17 @@ export default function useRefresh<T>(callback?: () => Promise<T>): {
 } {
   const [refreshing, setRefreshing] = useState(false)
 
-  const onRefresh = useCallback(async () => {
+  const onRefreshCallback = useCallback(async () => {
     setRefreshing(true)
     if (callback) {
       await callback()
     }
     setRefreshing(false)
   }, [callback])
+
+  const onRefresh = () => {
+    onRefreshCallback().catch(() => {})
+  }
 
   const startRefresh = () => setRefreshing(true)
 

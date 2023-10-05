@@ -1,5 +1,5 @@
 import { Dimensions } from 'react-native'
-import { Svg, Path } from 'react-native-svg'
+import { Path, Svg } from 'react-native-svg'
 
 function Item1() {
   const width = (Dimensions.get('window').width / 8) * 2.5

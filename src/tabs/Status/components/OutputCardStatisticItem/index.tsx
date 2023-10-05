@@ -1,4 +1,4 @@
-import { Text, YStack, View } from 'tamagui'
+import { Text, View, YStack } from 'tamagui'
 
 interface Props {
   textPosition?: 'bottom' | 'right'

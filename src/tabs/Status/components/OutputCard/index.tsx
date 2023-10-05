@@ -1,9 +1,9 @@
-import { Card, XStack, YStack } from 'tamagui'
 import { BatteryMedium, Home } from '@tamagui/lucide-icons'
+import { Card, XStack, YStack } from 'tamagui'
 
-import OutputCardStatisticItem from '../OutputCardStatisticItem'
 import { SVG } from '@/svg'
 
+import OutputCardStatisticItem from '../OutputCardStatisticItem'
 import { LineArrowSVG } from '../SVG'
 
 export default function OutputCard(): React.JSX.Element {

@@ -1,2 +1,2 @@
-export * from './time'
 export * from './auth'
+export * from './time'

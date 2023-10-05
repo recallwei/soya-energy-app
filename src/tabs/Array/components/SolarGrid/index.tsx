@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { View, SizableText } from 'tamagui'
+import { SizableText, View } from 'tamagui'
 
 interface Props {
   width?: string | number
@@ -22,7 +22,11 @@ function Row(props: PropsWithChildren): React.JSX.Element {
   )
 }
 
-function Box({ height }: { height: any }): React.JSX.Element {
+function Box({
+  height
+}: {
+  height: string | number | undefined
+}): React.JSX.Element {
   return (
     <View
       backgroundColor="#0078d7"

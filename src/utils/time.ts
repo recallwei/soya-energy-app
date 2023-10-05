@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
-import type { LocalTimeFormatter, CommonTimeFormatter } from '@/types'
+import type { CommonTimeFormatter, LocalTimeFormatter } from '@/types'
 
 dayjs.extend(localizedFormat)
 

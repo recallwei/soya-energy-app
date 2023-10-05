@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
-import { XStack, Text, Button } from 'tamagui'
-import { CheckCircle2, CloudSun, Activity } from '@tamagui/lucide-icons'
+import { Activity, CheckCircle2, CloudSun } from '@tamagui/lucide-icons'
+import { Button, Text, XStack } from 'tamagui'
 
 import { SVG } from '@/svg'
 

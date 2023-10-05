@@ -1,23 +1,23 @@
-import { SafeAreaView } from 'react-native'
+import { Check, Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { SafeAreaView } from 'react-native'
 import {
   Button,
-  Input,
-  YStack,
-  Text,
-  XStack,
-  View,
   Checkbox,
+  Input,
   Label,
-  Spinner
+  Spinner,
+  Text,
+  View,
+  XStack,
+  YStack
 } from 'tamagui'
-import { User2, Lock, Check, Eye, EyeOff } from '@tamagui/lucide-icons'
-import { useTranslation } from 'react-i18next'
 
-import { SVG } from '@/svg'
 // import { AuthAPI } from '@/api'
 import { useAuthStore } from '@/store'
+import { SVG } from '@/svg'
 
 export default function LoginScreen(): React.JSX.Element {
   const { t } = useTranslation('auth')

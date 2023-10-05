@@ -1,7 +1,7 @@
-import { ScrollView, YStack, Text, View } from 'tamagui'
-import { PieChart } from 'react-native-gifted-charts'
-import { SafeAreaView } from 'react-native'
 import { useState } from 'react'
+import { SafeAreaView } from 'react-native'
+import { PieChart } from 'react-native-gifted-charts'
+import { ScrollView, Text, View, YStack } from 'tamagui'
 
 interface ChartItem {
   value: number

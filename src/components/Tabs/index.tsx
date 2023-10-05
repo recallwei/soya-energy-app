@@ -1,14 +1,13 @@
 import { useState } from 'react'
-
 import type { StackProps, TabLayout, TabsTabProps } from 'tamagui'
 import {
   AnimatePresence,
   H5,
   SizableText,
   Stack,
+  styled,
   Tabs,
-  YStack,
-  styled
+  YStack
 } from 'tamagui'
 
 const AnimatedYStack = styled(YStack, {
@@ -49,9 +48,11 @@ export default function TabsAdvancedBackground() {
     setTabState({ ...tabState, currentTab })
 
   const setIntentIndicator = (intentAt: any) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     setTabState({ ...tabState, intentAt })
 
   const setActiveIndicator = (activeAt: any) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     setTabState({ ...tabState, prevActiveAt: tabState.activeAt, activeAt })
 
   const { activeAt, intentAt, prevActiveAt, currentTab } = tabState

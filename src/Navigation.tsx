@@ -1,22 +1,20 @@
-import { useEffect } from 'react'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { GlobalStyles } from '@/styles'
 import { TabBar } from '@/components'
 import {
   ChartsScreen,
-  ReactQueryScreen,
+  ForgotPasswordScreen,
   I18nScreen,
-  AsyncStorageScreen,
+  LiveStatusScreen,
   LoginScreen,
   SignUpScreen,
-  ForgotPasswordScreen,
-  SplashScreen,
-  LiveStatusScreen
+  SplashScreen
 } from '@/screens'
 import { useAuthStore, useTabsStore } from '@/store'
+import { GlobalStyles } from '@/styles'
 import type { HomeTabParamList, RootStackParamList } from '@/types'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -90,24 +88,10 @@ export default function Navigation(): React.JSX.Element {
               />
 
               <Stack.Screen
-                name="ReactQuery"
-                component={ReactQueryScreen}
-                options={{
-                  title: 'React Query'
-                }}
-              />
-              <Stack.Screen
                 name="I18n"
                 component={I18nScreen}
                 options={{
                   title: 'i18n'
-                }}
-              />
-              <Stack.Screen
-                name="AsyncStorage"
-                component={AsyncStorageScreen}
-                options={{
-                  title: 'Async Storage'
                 }}
               />
               <Stack.Screen
