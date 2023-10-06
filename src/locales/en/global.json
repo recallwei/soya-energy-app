@@ -13,6 +13,13 @@
     "Status": "Status",
     "Statistics": "Statistics",
     "Array": "Array",
-    "Menu": "Menu"
-  }
+    "Menu": "Menu",
+    "Login": "Login",
+    "Signup": "Signup",
+    "ForgotPassword": "Forgot Password",
+    "LiveStatus": "Live Status"
+  },
+  "StillInDevelopment": "This feature still in development...",
+  "Others": "Others",
+  "Submit": "Submit"
 }

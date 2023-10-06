@@ -6,6 +6,8 @@ import { SVG } from '@/svg'
 
 export default function HeaderArea(): React.JSX.Element {
   const navigation = useNavigation()
+
+  const navToLiveStatus = () => navigation.navigate('LiveStatus')
   return (
     <>
       <XStack
@@ -50,7 +52,7 @@ export default function HeaderArea(): React.JSX.Element {
         <Button
           size="$2"
           icon={<Activity />}
-          onPress={() => navigation.navigate('LiveStatus')}
+          onPress={navToLiveStatus}
         >
           Live Status
         </Button>

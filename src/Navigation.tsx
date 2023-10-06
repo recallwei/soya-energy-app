@@ -42,8 +42,7 @@ export default function Navigation(): React.JSX.Element {
   function getTabTitleI18nText(tabName: keyof HomeTabParamList): string {
     switch (tabName) {
       case 'Status':
-        return '123'
-      // return t('Global:Tabs.Status')
+        return t('Global:Tabs.Status')
       case 'Statistics':
         return t('Global:Tabs.Statistics')
       case 'Array':
@@ -96,7 +95,7 @@ export default function Navigation(): React.JSX.Element {
                 name="LiveStatus"
                 component={LiveStatusScreen}
                 options={{
-                  title: 'Live Status'
+                  title: t('Global:Screens.LiveStatus')
                 }}
               />
 
@@ -124,25 +123,26 @@ export default function Navigation(): React.JSX.Element {
                   headerShown: false,
                   animationTypeForReplace: 'pop',
                   statusBarStyle: 'dark',
-                  statusBarColor: '#ffffff'
+                  statusBarColor: '#ffffff',
+                  title: t('Global:Screens.Login')
                 }}
               />
               <Stack.Screen
                 name="SignUp"
                 component={SignUpScreen}
                 options={{
-                  headerShown: false,
                   statusBarStyle: 'dark',
-                  statusBarColor: '#ffffff'
+                  statusBarColor: '#ffffff',
+                  title: t('Global:Screens.Signup')
                 }}
               />
               <Stack.Screen
                 name="ForgotPassword"
                 component={ForgotPasswordScreen}
                 options={{
-                  headerShown: false,
                   statusBarStyle: 'dark',
-                  statusBarColor: '#ffffff'
+                  statusBarColor: '#ffffff',
+                  title: t('Global:Screens.ForgotPassword')
                 }}
               />
             </>

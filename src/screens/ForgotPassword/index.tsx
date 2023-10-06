@@ -1,5 +1,5 @@
-import { Text } from 'react-native'
+import { StillInDevelopment } from '@/components'
 
 export default function ForgotPasswordScreen(): React.JSX.Element {
-  return <Text>TODO...</Text>
+  return <StillInDevelopment />
 }

@@ -1,32 +1,27 @@
-import { Check, Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
+import { useNavigation } from '@react-navigation/native'
+import { Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SafeAreaView } from 'react-native'
-import {
-  Button,
-  Checkbox,
-  Input,
-  Label,
-  Spinner,
-  Text,
-  View,
-  XStack,
-  YStack
-} from 'tamagui'
+import { Button, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
 
+import { SCheckbox } from '@/components'
 // import { AuthAPI } from '@/api'
 import { useAuthStore } from '@/store'
 import { SVG } from '@/svg'
 
 export default function LoginScreen(): React.JSX.Element {
   const { t } = useTranslation(['Auth'])
+
   const authStore = useAuthStore()
+
+  const navigation = useNavigation()
+
   const [formData, setFormData] = useState({
     account: '',
     password: ''
   })
-
   const [showPassword, setShowPassword] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
 
@@ -55,9 +50,9 @@ export default function LoginScreen(): React.JSX.Element {
     mutate()
   }
 
-  const navToForgotPassword = () => {}
+  const navToForgotPassword = () => navigation.navigate('ForgotPassword')
 
-  const navToSignUp = () => {}
+  const navToSignUp = () => navigation.navigate('SignUp')
 
   return (
     <SafeAreaView>
@@ -162,25 +157,15 @@ export default function LoginScreen(): React.JSX.Element {
           )}
         </XStack>
 
-        <XStack
+        <SCheckbox
           width="100%"
-          space="$2"
-          alignItems="center"
-        >
-          <Checkbox
-            checked={rememberPassword}
-            onCheckedChange={(checked: boolean) => {
-              setRememberPassword(checked)
-            }}
-            disabled={isLoading}
-          >
-            <Checkbox.Indicator>
-              <Check />
-            </Checkbox.Indicator>
-          </Checkbox>
-
-          <Label>{t('Auth:RememberPassword')}</Label>
-        </XStack>
+          label={t('Auth:RememberPassword')}
+          disabled={isLoading}
+          checked={rememberPassword}
+          onCheckedChange={(checked: boolean) => {
+            setRememberPassword(checked)
+          }}
+        />
 
         <Button
           width="100%"
