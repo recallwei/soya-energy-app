@@ -17,9 +17,11 @@
     "Login": "Login",
     "Signup": "Signup",
     "ForgotPassword": "Forgot Password",
-    "LiveStatus": "Live Status"
+    "LiveStatus": "Live Status",
+    "Notification": "Notification"
   },
   "StillInDevelopment": "This feature still in development...",
   "Others": "Others",
-  "Submit": "Submit"
+  "Submit": "Submit",
+  "NoData": "No data"
 }

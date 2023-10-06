@@ -10,13 +10,16 @@ export interface NavigationItem {
 export interface RootStackParamList {
   Tabs: undefined
   LiveStatus: undefined
+  Notification: undefined
 
-  I18n: undefined
-  Charts: undefined
   // Don't need auth
   Login: undefined
   SignUp: undefined
   ForgotPassword: undefined
+
+  // Temp
+  I18n: undefined
+  Charts: undefined
 }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

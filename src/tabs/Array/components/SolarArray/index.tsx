@@ -85,7 +85,7 @@ export default function SolarArray(): React.JSX.Element {
               pressStyle={{ scale: 0.95 }}
             >
               <Card.Header padded>
-                <YStack rowGap="$1">
+                <YStack space="$1">
                   <XStack>
                     <Text>Quantity: </Text>
                     <Text>100 PCS</Text>

@@ -1,4 +1,6 @@
+import { useNavigation } from '@react-navigation/native'
 import {
+  Bell,
   Compass,
   Component,
   Gem,
@@ -9,17 +11,26 @@ import {
   Users
 } from '@tamagui/lucide-icons'
 import { useToastController } from '@tamagui/toast'
-import { SafeAreaView } from 'react-native'
-import { ScrollView, YStack } from 'tamagui'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { SafeAreaView, TouchableOpacity } from 'react-native'
+import { ScrollView, Square, Text, XStack, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { useAuthStore } from '@/store'
 import { AuthUtils } from '@/utils'
 
 export default function MenuScreen(): React.JSX.Element {
+  const { t } = useTranslation('Menu')
+
   const toast = useToastController()
 
   const authStore = useAuthStore()
+
+  const navigation = useNavigation()
+
+  const [currentSite] = useState('Bruce')
+  const [siteId] = useState('155224')
 
   const logout = () => {
     authStore.logout()
@@ -36,6 +47,8 @@ export default function MenuScreen(): React.JSX.Element {
     // }, 1500)
   }
 
+  const navToNotification = () => navigation.navigate('Notification')
+
   return (
     <SafeAreaView>
       <ScrollView height="100%">
@@ -43,45 +56,72 @@ export default function MenuScreen(): React.JSX.Element {
           padding="$4"
           space="$3"
         >
+          <XStack
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Text>{t('Hello')}</Text>
+            <Square
+              pressStyle={{
+                scale: 0.9
+              }}
+            >
+              <TouchableOpacity onPress={navToNotification}>
+                <Bell size="$1" />
+              </TouchableOpacity>
+            </Square>
+          </XStack>
+
+          <XStack
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Text>{currentSite}</Text>
+            <Text>
+              {t('SiteId')}
+              {siteId}
+            </Text>
+          </XStack>
+
           <MenuItemCard
-            title="System"
-            description="System configuration"
+            title={t('Title.System')}
+            description={t('Description.System')}
             icon={ServerCog}
             onPress={featureNotFinished}
           />
           <MenuItemCard
-            title="Account"
-            description="User profile"
+            title={t('Title.Account')}
+            description={t('Description.Account')}
             icon={UserCog}
           />
           <MenuItemCard
-            title="Settings"
-            description="Personal custom settings"
+            title={t('Title.Settings')}
+            description={t('Description.Settings')}
             icon={Settings}
           />
           <MenuItemCard
-            title="Services"
-            description="Official services we provide"
+            title={t('Title.Services')}
+            description={t('Description.Services')}
             icon={Component}
           />
           <MenuItemCard
-            title="Support"
-            description="Official supports"
+            title={t('Title.Support')}
+            description={t('Description.Support')}
             icon={Gem}
           />
           <MenuItemCard
-            title="Explore"
-            description="Explore something new"
+            title={t('Title.Explore')}
+            description={t('Description.Explore')}
             icon={Compass}
           />
           <MenuItemCard
-            title="Community"
-            description="Join the community"
+            title={t('Title.Community')}
+            description={t('Description.Community')}
             icon={Users}
           />
           <MenuItemCard
-            title="Sign out"
-            description="Sign out and back to login"
+            title={t('Title.Signout')}
+            description={t('Description.Signout')}
             icon={Power}
             onPress={logout}
           />

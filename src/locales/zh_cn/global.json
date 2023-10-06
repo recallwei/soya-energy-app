@@ -17,9 +17,11 @@
     "Login": "登录",
     "Signup": "注册",
     "ForgotPassword": "忘记密码",
-    "LiveStatus": "实时状态"
+    "LiveStatus": "实时状态",
+    "Notification": "通知"
   },
   "StillInDevelopment": "该功能仍在开发中...",
   "Others": "其他",
-  "Submit": "提交"
+  "Submit": "提交",
+  "NoData": "暂无数据"
 }

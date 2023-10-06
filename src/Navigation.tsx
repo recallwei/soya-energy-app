@@ -15,6 +15,7 @@ import {
   I18nScreen,
   LiveStatusScreen,
   LoginScreen,
+  NotificationScreen,
   SignUpScreen,
   SplashScreen
 } from '@/screens'
@@ -96,6 +97,13 @@ export default function Navigation(): React.JSX.Element {
                 component={LiveStatusScreen}
                 options={{
                   title: t('Global:Screens.LiveStatus')
+                }}
+              />
+              <Stack.Screen
+                name="Notification"
+                component={NotificationScreen}
+                options={{
+                  title: t('Global:Screens.Notification')
                 }}
               />
 

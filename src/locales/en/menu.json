@@ -1,0 +1,24 @@
+{
+  "Hello": "Hi, guest!",
+  "SiteId": "Site ID:",
+  "Title": {
+    "System": "System",
+    "Account": "Account",
+    "Settings": "Settings",
+    "Services": "Services",
+    "Support": "Support",
+    "Explore": "Explore",
+    "Community": "Community",
+    "Signout": "Sign out"
+  },
+  "Description": {
+    "System": "System configuration",
+    "Account": "User profile and account settings",
+    "Settings": "Personal custom settings",
+    "Services": "Official services we provide",
+    "Support": "Official supports",
+    "Explore": "Explore something new",
+    "Community": "Join the community",
+    "Signout": "Sign out and back to login"
+  }
+}
