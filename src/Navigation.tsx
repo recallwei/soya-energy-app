@@ -1,4 +1,9 @@
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import { useFlipper } from '@react-navigation/devtools'
+import {
+  DefaultTheme,
+  NavigationContainer,
+  useNavigationContainerRef
+} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -24,6 +29,9 @@ export default function Navigation(): React.JSX.Element {
   const { currentTab } = useTabsStore()
   const { t } = useTranslation()
 
+  const navigationRef = useNavigationContainerRef()
+  useFlipper(navigationRef)
+
   useEffect(() => {
     setTimeout(() => {
       loaded()
@@ -46,7 +54,10 @@ export default function Navigation(): React.JSX.Element {
   }
 
   return (
-    <NavigationContainer theme={DefaultTheme}>
+    <NavigationContainer
+      ref={navigationRef}
+      theme={DefaultTheme}
+    >
       {isLoading ? (
         <SplashScreen />
       ) : (
