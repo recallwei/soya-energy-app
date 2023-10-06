@@ -10,7 +10,7 @@ export const resources = {
   zh_cn: ZH_CN
 } as const
 
-const ns = ['Global', 'Auth', 'Menu', 'Notification'] as const
+const ns = ['Global', 'Auth', 'Menu', 'Notification', 'Services'] as const
 
 i18n
   .use(initReactI18next)

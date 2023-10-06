@@ -18,7 +18,8 @@
     "Signup": "Signup",
     "ForgotPassword": "Forgot Password",
     "LiveStatus": "Live Status",
-    "Notification": "Notification"
+    "Notification": "Notification",
+    "Services": "Services"
   },
   "StillInDevelopment": "This feature still in development...",
   "Others": "Others",

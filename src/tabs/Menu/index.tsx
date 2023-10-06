@@ -47,7 +47,8 @@ export default function MenuScreen(): React.JSX.Element {
     // }, 1500)
   }
 
-  const navToNotification = () => navigation.navigate('Notification')
+  const navToScreen = (screen: keyof ReactNavigation.RootParamList) =>
+    navigation.navigate(screen)
 
   return (
     <SafeAreaView>
@@ -66,7 +67,7 @@ export default function MenuScreen(): React.JSX.Element {
                 scale: 0.9
               }}
             >
-              <TouchableOpacity onPress={navToNotification}>
+              <TouchableOpacity onPress={() => navToScreen('Notification')}>
                 <Bell size="$1" />
               </TouchableOpacity>
             </Square>
@@ -103,6 +104,7 @@ export default function MenuScreen(): React.JSX.Element {
             title={t('Title.Services')}
             description={t('Description.Services')}
             icon={Component}
+            onPress={() => navToScreen('Services')}
           />
           <MenuItemCard
             title={t('Title.Support')}

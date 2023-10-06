@@ -11,6 +11,7 @@ export interface RootStackParamList {
   Tabs: undefined
   LiveStatus: undefined
   Notification: undefined
+  Services: undefined
 
   // Don't need auth
   Login: undefined

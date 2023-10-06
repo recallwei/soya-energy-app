@@ -1,4 +1,4 @@
-import { ChevronRight, Menu } from '@tamagui/lucide-icons'
+import { ChevronRight } from '@tamagui/lucide-icons'
 import { useState } from 'react'
 import { Card, Text, View, XStack, YStack } from 'tamagui'
 
@@ -37,9 +37,11 @@ export default function MenuItemCard(props: Props) {
           alignItems="center"
           space="$3"
         >
-          <View>
-            {props.icon ? <props.icon size="$1" /> : <Menu size="$1" />}
-          </View>
+          {props.icon && (
+            <View>
+              <props.icon size="$1" />
+            </View>
+          )}
           <YStack rowGap="$2">
             <Text fontSize="$5">{props.title}</Text>
             <Text

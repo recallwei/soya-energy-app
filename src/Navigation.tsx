@@ -16,6 +16,7 @@ import {
   LiveStatusScreen,
   LoginScreen,
   NotificationScreen,
+  ServicesScreen,
   SignUpScreen,
   SplashScreen
 } from '@/screens'
@@ -104,6 +105,13 @@ export default function Navigation(): React.JSX.Element {
                 component={NotificationScreen}
                 options={{
                   title: t('Global:Screens.Notification')
+                }}
+              />
+              <Stack.Screen
+                name="Services"
+                component={ServicesScreen}
+                options={{
+                  title: t('Global:Screens.Services')
                 }}
               />
 
