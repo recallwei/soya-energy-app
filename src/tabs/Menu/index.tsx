@@ -10,7 +10,6 @@ import {
   UserCog,
   Users
 } from '@tamagui/lucide-icons'
-import { useToastController } from '@tamagui/toast'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SafeAreaView, TouchableOpacity } from 'react-native'
@@ -23,8 +22,6 @@ import { AuthUtils } from '@/utils'
 export default function MenuScreen(): React.JSX.Element {
   const { t } = useTranslation('Menu')
 
-  const toast = useToastController()
-
   const authStore = useAuthStore()
 
   const navigation = useNavigation()
@@ -36,19 +33,6 @@ export default function MenuScreen(): React.JSX.Element {
     authStore.logout()
     AuthUtils.removeToken().catch(() => {})
   }
-
-  const featureNotFinished = () => {
-    toast.show('This feature have not finished yet!', {
-      message: '123',
-      native: true
-    })
-    // setTimeout(() => {
-    //   hide()
-    // }, 1500)
-  }
-
-  const navToScreen = (screen: keyof ReactNavigation.RootParamList) =>
-    navigation.navigate(screen)
 
   return (
     <SafeAreaView>
@@ -67,7 +51,9 @@ export default function MenuScreen(): React.JSX.Element {
                 scale: 0.9
               }}
             >
-              <TouchableOpacity onPress={() => navToScreen('Notification')}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Notification')}
+              >
                 <Bell size="$1" />
               </TouchableOpacity>
             </Square>
@@ -88,38 +74,43 @@ export default function MenuScreen(): React.JSX.Element {
             title={t('Title.System')}
             description={t('Description.System')}
             icon={ServerCog}
-            onPress={featureNotFinished}
+            onPress={() => navigation.navigate('System')}
           />
           <MenuItemCard
             title={t('Title.Account')}
             description={t('Description.Account')}
             icon={UserCog}
+            onPress={() => navigation.navigate('Account')}
           />
           <MenuItemCard
             title={t('Title.Settings')}
             description={t('Description.Settings')}
             icon={Settings}
+            onPress={() => navigation.navigate('Settings')}
           />
           <MenuItemCard
             title={t('Title.Services')}
             description={t('Description.Services')}
             icon={Component}
-            onPress={() => navToScreen('Services')}
+            onPress={() => navigation.navigate('Services')}
           />
           <MenuItemCard
             title={t('Title.Support')}
             description={t('Description.Support')}
             icon={Gem}
+            onPress={() => navigation.navigate('Support')}
           />
           <MenuItemCard
             title={t('Title.Explore')}
             description={t('Description.Explore')}
             icon={Compass}
+            onPress={() => navigation.navigate('Explore')}
           />
           <MenuItemCard
             title={t('Title.Community')}
             description={t('Description.Community')}
             icon={Users}
+            onPress={() => navigation.navigate('Community')}
           />
           <MenuItemCard
             title={t('Title.Signout')}

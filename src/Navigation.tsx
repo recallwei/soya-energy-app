@@ -10,15 +10,47 @@ import { useTranslation } from 'react-i18next'
 
 import { TabBar } from '@/components'
 import {
+  AccountMyAccessControlScreen,
+  AccountMyInfoScreen,
+  AccountMyNotificationsScreen,
+  AccountScreen,
   ChartsScreen,
+  CommunityScreen,
+  ExploreScreen,
   ForgotPasswordScreen,
   I18nScreen,
   LiveStatusScreen,
   LoginScreen,
   NotificationScreen,
   ServicesScreen,
+  SettingsAddElectricityExportRateScreen,
+  SettingsBatteryScreen,
+  SettingsConnectivityScreen,
+  SettingsElectricityRateScreen,
+  SettingsElectricityRateStructureEditAutoFillScreen,
+  SettingsElectricityRateStructureEditManualScreen,
+  SettingsElectricityRateStructureEditScreen,
+  SettingsElectricityRateStructureScreen,
+  SettingsLoadControlScreen,
+  SettingsPerformanceCurrencyScreen,
+  SettingsPerformanceEnergyScreen,
+  SettingsPerformanceScreen,
+  SettingsScreen,
   SignUpScreen,
-  SplashScreen
+  SplashScreen,
+  SupportScreen,
+  SystemBackupHistoryScreen,
+  SystemDevicesBatteryScreen,
+  SystemDevicesGatewayScreen,
+  SystemDevicesLoadsScreen,
+  SystemDevicesMicroinvertersScreen,
+  SystemDevicesScreen,
+  SystemDevicesSystemControlScreen,
+  SystemEventHistoryScreen,
+  SystemLiveStatusScreen,
+  SystemLiveVitalsScreen,
+  SystemReportsScreen,
+  SystemSiteDetailsScreen
 } from '@/screens'
 import { useAuthStore, useTabsStore } from '@/store'
 import { GlobalStyles } from '@/styles'
@@ -100,11 +132,26 @@ export default function Navigation(): React.JSX.Element {
                   title: t('Global:Screens.LiveStatus')
                 }}
               />
+              {/* Menu */}
               <Stack.Screen
                 name="Notification"
                 component={NotificationScreen}
                 options={{
                   title: t('Global:Screens.Notification')
+                }}
+              />
+              <Stack.Screen
+                name="Account"
+                component={AccountScreen}
+                options={{
+                  title: t('Global:Screens.Account')
+                }}
+              />
+              <Stack.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{
+                  title: t('Global:Screens.Settings')
                 }}
               />
               <Stack.Screen
@@ -114,7 +161,221 @@ export default function Navigation(): React.JSX.Element {
                   title: t('Global:Screens.Services')
                 }}
               />
+              <Stack.Screen
+                name="Support"
+                component={SupportScreen}
+                options={{
+                  title: t('Global:Screens.Support')
+                }}
+              />
+              <Stack.Screen
+                name="Explore"
+                component={ExploreScreen}
+                options={{
+                  title: t('Global:Screens.Explore')
+                }}
+              />
+              <Stack.Screen
+                name="Community"
+                component={CommunityScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              {/* System */}
+              <Stack.Screen
+                name="SystemSiteDetails"
+                component={SystemSiteDetailsScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemReports"
+                component={SystemReportsScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemDevices"
+                component={SystemDevicesScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemDevicesGateway"
+                component={SystemDevicesGatewayScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemDevicesBattery"
+                component={SystemDevicesBatteryScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemDevicesSystemControl"
+                component={SystemDevicesSystemControlScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemDevicesMicroinverters"
+                component={SystemDevicesMicroinvertersScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemDevicesLoads"
+                component={SystemDevicesLoadsScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemLiveStatus"
+                component={SystemLiveStatusScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemLiveVitals"
+                component={SystemLiveVitalsScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemEventHistory"
+                component={SystemEventHistoryScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SystemBackupHistory"
+                component={SystemBackupHistoryScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              {/* Account */}
+              <Stack.Screen
+                name="AccountMyInfo"
+                component={AccountMyInfoScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="AccountMyNotifications"
+                component={AccountMyNotificationsScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="AccountMyAccessControl"
+                component={AccountMyAccessControlScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              {/* Settings */}
+              <Stack.Screen
+                name="SettingsBattery"
+                component={SettingsBatteryScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsLoadControl"
+                component={SettingsLoadControlScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsElectricityRate"
+                component={SettingsElectricityRateScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsElectricityRateStructure"
+                component={SettingsElectricityRateStructureScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsElectricityRateStructureEdit"
+                component={SettingsElectricityRateStructureEditScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsElectricityRateStructureEditAutoFill"
+                component={SettingsElectricityRateStructureEditAutoFillScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsElectricityRateStructureEditManual"
+                component={SettingsElectricityRateStructureEditManualScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsAddElectricityExportRate"
+                component={SettingsAddElectricityExportRateScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsConnectivity"
+                component={SettingsConnectivityScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsPerformance"
+                component={SettingsPerformanceScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsPerformanceEnergy"
+                component={SettingsPerformanceEnergyScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsPerformanceCurrency"
+                component={SettingsPerformanceCurrencyScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
 
+              {/* Temp */}
               <Stack.Screen
                 name="I18n"
                 component={I18nScreen}

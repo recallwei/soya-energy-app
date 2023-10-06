@@ -10,13 +10,53 @@ export interface NavigationItem {
 export interface RootStackParamList {
   Tabs: undefined
   LiveStatus: undefined
+  // Menu
   Notification: undefined
+  System: undefined
+  Account: undefined
+  Settings: undefined
   Services: undefined
+  Support: undefined
+  Explore: undefined
+  Community: undefined
+
+  // System
+  SystemSiteDetails: undefined
+  SystemReports: undefined
+  SystemDevices: undefined
+  SystemDevicesGateway: undefined
+  SystemDevicesBattery: undefined
+  SystemDevicesSystemControl: undefined
+  SystemDevicesMicroinverters: undefined
+  SystemDevicesLoads: undefined
+  SystemLiveStatus: undefined
+  SystemLiveVitals: undefined
+  SystemEventHistory: undefined
+  SystemBackupHistory: undefined
+
+  // Account
+  AccountMyInfo: undefined
+  AccountMyNotifications: undefined
+  AccountMyAccessControl: undefined
+
+  // Settings
+  SettingsBattery: undefined
+  SettingsLoadControl: undefined
+  SettingsElectricityRate: undefined
+  SettingsElectricityRateStructure: undefined
+  SettingsElectricityRateStructureEdit: undefined
+  SettingsElectricityRateStructureEditAutoFill: undefined
+  SettingsElectricityRateStructureEditManual: undefined
+  SettingsAddElectricityExportRate: undefined
+  SettingsConnectivity: undefined
+  SettingsPerformance: undefined
+  SettingsPerformanceEnergy: undefined
+  SettingsPerformanceCurrency: undefined
 
   // Don't need auth
-  Login: undefined
-  SignUp: undefined
-  ForgotPassword: undefined
+  Login?: undefined
+  SignUp?: undefined
+  ForgotPassword?: undefined
 
   // Temp
   I18n: undefined

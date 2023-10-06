@@ -50,10 +50,6 @@ export default function LoginScreen(): React.JSX.Element {
     mutate()
   }
 
-  const navToForgotPassword = () => navigation.navigate('ForgotPassword')
-
-  const navToSignUp = () => navigation.navigate('SignUp')
-
   return (
     <SafeAreaView>
       <YStack
@@ -180,8 +176,12 @@ export default function LoginScreen(): React.JSX.Element {
           justifyContent="space-between"
           width="100%"
         >
-          <Text onPress={navToForgotPassword}>{t('Auth:ForgotPassword')}</Text>
-          <Text onPress={navToSignUp}>{t('Auth:Signup')}</Text>
+          <Text onPress={() => navigation.navigate('ForgotPassword')}>
+            {t('Auth:ForgotPassword')}
+          </Text>
+          <Text onPress={() => navigation.navigate('SignUp')}>
+            {t('Auth:Signup')}
+          </Text>
         </XStack>
       </YStack>
     </SafeAreaView>

@@ -19,7 +19,13 @@
     "ForgotPassword": "Forgot Password",
     "LiveStatus": "Live Status",
     "Notification": "Notification",
-    "Services": "Services"
+    "System": "System",
+    "Account": "Account",
+    "Settings": "Settings",
+    "Services": "Services",
+    "Support": "Support",
+    "Explore": "Explore",
+    "Community": "Community"
   },
   "StillInDevelopment": "This feature still in development...",
   "Others": "Others",

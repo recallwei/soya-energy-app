@@ -19,7 +19,13 @@
     "ForgotPassword": "忘记密码",
     "LiveStatus": "实时状态",
     "Notification": "通知",
-    "Services": "服务"
+    "System": "系统",
+    "Account": "账户",
+    "Settings": "设置",
+    "Services": "服务",
+    "Support": "支持",
+    "Explore": "探索",
+    "Community": "社区"
   },
   "StillInDevelopment": "该功能仍在开发中...",
   "Others": "其他",
