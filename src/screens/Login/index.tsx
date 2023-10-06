@@ -20,7 +20,7 @@ import { useAuthStore } from '@/store'
 import { SVG } from '@/svg'
 
 export default function LoginScreen(): React.JSX.Element {
-  const { t } = useTranslation('auth')
+  const { t } = useTranslation(['Auth'])
   const authStore = useAuthStore()
   const [formData, setFormData] = useState({
     account: '',
@@ -98,7 +98,7 @@ export default function LoginScreen(): React.JSX.Element {
             width="100%"
             maxLength={16}
             paddingLeft="$7"
-            placeholder={t('Account.Placeholder')}
+            placeholder={t('Auth:Account.Placeholder')}
             autoCapitalize="none"
             value={formData.account}
             onChangeText={(text) => {
@@ -128,7 +128,7 @@ export default function LoginScreen(): React.JSX.Element {
             width="100%"
             maxLength={16}
             paddingHorizontal="$7"
-            placeholder={t('Password.Placeholder')}
+            placeholder={t('Auth:Password.Placeholder')}
             autoCapitalize="none"
             value={formData.password}
             onChangeText={(text) => {
@@ -179,7 +179,7 @@ export default function LoginScreen(): React.JSX.Element {
             </Checkbox.Indicator>
           </Checkbox>
 
-          <Label>{t('RememberPassword')}</Label>
+          <Label>{t('Auth:RememberPassword')}</Label>
         </XStack>
 
         <Button
@@ -188,16 +188,15 @@ export default function LoginScreen(): React.JSX.Element {
           disabled={isLoading}
           icon={isLoading ? <Spinner /> : undefined}
         >
-          {t('Login')}
+          {t('Auth:Login')}
         </Button>
 
         <XStack
           justifyContent="space-between"
           width="100%"
         >
-          <Text onPress={navToForgotPassword}>Forgot password?</Text>
-
-          <Text onPress={navToSignUp}>New account</Text>
+          <Text onPress={navToForgotPassword}>{t('Auth:ForgotPassword')}</Text>
+          <Text onPress={navToSignUp}>{t('Auth:Signup')}</Text>
         </XStack>
       </YStack>
     </SafeAreaView>

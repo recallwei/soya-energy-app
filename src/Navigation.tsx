@@ -25,9 +25,10 @@ import type { HomeTabParamList, RootStackParamList } from '@/types'
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function Navigation(): React.JSX.Element {
+  const { t } = useTranslation(['Global'])
+
   const { isLogin, isLoading, loaded } = useAuthStore()
   const { currentTab } = useTabsStore()
-  const { t } = useTranslation()
 
   const navigationRef = useNavigationContainerRef()
   useFlipper(navigationRef)
@@ -41,15 +42,16 @@ export default function Navigation(): React.JSX.Element {
   function getTabTitleI18nText(tabName: keyof HomeTabParamList): string {
     switch (tabName) {
       case 'Status':
-        return t('Tabs.Status')
+        return '123'
+      // return t('Global:Tabs.Status')
       case 'Statistics':
-        return t('Tabs.Statistics')
+        return t('Global:Tabs.Statistics')
       case 'Array':
-        return t('Tabs.Array')
+        return t('Global:Tabs.Array')
       case 'Menu':
-        return t('Tabs.Menu')
+        return t('Global:Tabs.Menu')
       default:
-        return t('Tabs.Status')
+        return t('Global:Tabs.Status')
     }
   }
 

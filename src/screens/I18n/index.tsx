@@ -9,7 +9,7 @@ import { TextStyles } from '@/styles'
 import type { Lang } from '@/types/lang'
 
 export default function I18nScreen(): React.JSX.Element {
-  const { t } = useTranslation('global')
+  const { t } = useTranslation(['Global'])
 
   const [currentLang, setCurrentLang] = useState<Lang>('en')
 
@@ -45,7 +45,9 @@ export default function I18nScreen(): React.JSX.Element {
           marginBottom: 20
         }}
       >
-        {`${t('Language.CurrentLanguage')} ${t('Language.Current')}`}
+        {`${t('Global:Language.CurrentLanguage')} ${t(
+          'Global:Language.Current'
+        )}`}
       </Text>
 
       <Select
@@ -100,7 +102,9 @@ export default function I18nScreen(): React.JSX.Element {
 
           <Select.Viewport minWidth={200}>
             <Select.Group>
-              <Select.Label>{t('Language.CurrentLanguage')}</Select.Label>
+              <Select.Label>
+                {t('Global:Language.CurrentLanguage')}
+              </Select.Label>
               {languages.map((item, i) => (
                 <Select.Item
                   index={i}

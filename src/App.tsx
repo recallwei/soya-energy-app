@@ -6,7 +6,8 @@ import { Appearance } from 'react-native'
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
-// import { GlobalToastProvider } from '@/providers'
+import { GlobalToast } from '@/components'
+
 import config from '../tamagui.config'
 import Navigation from './Navigation'
 
@@ -23,6 +24,7 @@ export default function App(): JSX.Element {
         config={config}
         defaultTheme="light"
       >
+        <GlobalToast />
         <Navigation />
       </TamaguiProvider>
       <FlipperAsyncStorage />

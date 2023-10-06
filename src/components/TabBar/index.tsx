@@ -11,7 +11,7 @@ import type { HomeTabParamList } from '@/types'
 const Tab = createBottomTabNavigator<HomeTabParamList>()
 
 export default function TabBar(): React.JSX.Element {
-  const { t } = useTranslation('global')
+  const { t } = useTranslation(['Global'])
 
   const { changeTab } = useTabsStore()
 
@@ -34,8 +34,8 @@ export default function TabBar(): React.JSX.Element {
         name="Status"
         component={StatusScreen}
         options={{
-          headerTitle: t('Screens.Status'),
-          tabBarLabel: t('Tabs.Status'),
+          headerTitle: t('Global:Screens.Status'),
+          tabBarLabel: t('Global:Tabs.Status'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
               <CloudLightning
@@ -53,8 +53,8 @@ export default function TabBar(): React.JSX.Element {
         name="Statistics"
         component={StatisticsScreen}
         options={{
-          headerTitle: t('Screens.Statistics'),
-          tabBarLabel: t('Tabs.Statistics'),
+          headerTitle: t('Global:Screens.Statistics'),
+          tabBarLabel: t('Global:Tabs.Statistics'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
               <BarChart4
@@ -72,8 +72,8 @@ export default function TabBar(): React.JSX.Element {
         name="Array"
         component={ArrayScreen}
         options={{
-          headerTitle: t('Screens.Array'),
-          tabBarLabel: t('Tabs.Array'),
+          headerTitle: t('Global:Screens.Array'),
+          tabBarLabel: t('Global:Tabs.Array'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
               <Grid
@@ -91,8 +91,8 @@ export default function TabBar(): React.JSX.Element {
         name="Menu"
         component={MenuScreen}
         options={{
-          headerTitle: t('Screens.Menu'),
-          tabBarLabel: t('Tabs.Menu'),
+          headerTitle: t('Global:Screens.Menu'),
+          tabBarLabel: t('Global:Tabs.Menu'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
               <Menu

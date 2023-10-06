@@ -5,8 +5,9 @@ dosis
 gradlew
 lucide
 noto
-tanstack
-tamagui
 preinstall
 pressable
+Signup
+tamagui
+tanstack
 Zustand

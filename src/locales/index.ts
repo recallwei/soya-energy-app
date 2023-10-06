@@ -1,9 +1,9 @@
-import en_auth from '@/locales/en/auth.json'
-import en_global from '@/locales/en/global.json'
-import fr_auth from '@/locales/fr/auth.json'
-import fr_global from '@/locales/fr/global.json'
-import zh_cn_auth from '@/locales/zh_cn/auth.json'
-import zh_cn_global from '@/locales/zh_cn/global.json'
+import en_auth from './en/auth.json'
+import en_global from './en/global.json'
+import fr_auth from './fr/auth.json'
+import fr_global from './fr/global.json'
+import zh_cn_auth from './zh_cn/auth.json'
+import zh_cn_global from './zh_cn/global.json'
 
 export const EN = {
   Global: en_global,

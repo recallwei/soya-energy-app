@@ -8,16 +8,16 @@ import {
   UserCog,
   Users
 } from '@tamagui/lucide-icons'
+import { useToastController } from '@tamagui/toast'
 import { SafeAreaView } from 'react-native'
 import { ScrollView, YStack } from 'tamagui'
 
-// import { useToastController } from '@tamagui/toast'
 import { MenuItemCard } from '@/components'
 import { useAuthStore } from '@/store'
 import { AuthUtils } from '@/utils'
 
 export default function MenuScreen(): React.JSX.Element {
-  // const { show } = useToastController()
+  const toast = useToastController()
 
   const authStore = useAuthStore()
 
@@ -27,7 +27,10 @@ export default function MenuScreen(): React.JSX.Element {
   }
 
   const featureNotFinished = () => {
-    // show('This feature have not finished yet!')
+    toast.show('This feature have not finished yet!', {
+      message: '123',
+      native: true
+    })
     // setTimeout(() => {
     //   hide()
     // }, 1500)

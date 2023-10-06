@@ -1,4 +1,3 @@
-import type { TFunction } from 'i18next'
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
@@ -11,13 +10,13 @@ export const resources = {
   zh_cn: ZH_CN
 } as const
 
-const ns = ['Global', 'Auth']
+const ns = ['Global', 'Auth'] as const
 
 i18n
   .use(initReactI18next)
   .init({
-    lng: 'en',
-    fallbackLng: 'en',
+    lng: 'zh_cn',
+    fallbackLng: 'zh_cn',
     ns,
     defaultNS: 'Global',
     resources,
@@ -33,5 +32,3 @@ export const changeLanguage = async (lang: Lang) => {
 }
 
 export default i18n
-
-export const t = i18n.t.bind(i18n) as TFunction<typeof ns>

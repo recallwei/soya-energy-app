@@ -9,10 +9,10 @@ export interface NavigationItem {
 
 export interface RootStackParamList {
   Tabs: undefined
+  LiveStatus: undefined
+
   I18n: undefined
   Charts: undefined
-
-  LiveStatus: undefined
   // Don't need auth
   Login: undefined
   SignUp: undefined
