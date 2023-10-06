@@ -80,32 +80,36 @@ export default function SignUpScreen(): React.JSX.Element {
         <YStack space="$2">
           <Text>{t('Auth:SignupScreen.Input.FirstName')}</Text>
           <Input
-            size="$4"
-            borderWidth={2}
+            autoCapitalize="none"
+            clearButtonMode="while-editing"
+            placeholder=""
           />
         </YStack>
 
         <YStack space="$2">
           <Text>{t('Auth:SignupScreen.Input.LastName')}</Text>
           <Input
-            size="$4"
-            borderWidth={2}
+            autoCapitalize="none"
+            clearButtonMode="while-editing"
+            placeholder=""
           />
         </YStack>
 
         <YStack space="$2">
           <Text>{t('Auth:SignupScreen.Input.Country')}</Text>
           <Input
-            size="$4"
-            borderWidth={2}
+            autoCapitalize="none"
+            clearButtonMode="while-editing"
+            placeholder=""
           />
         </YStack>
 
         <YStack space="$2">
           <Text>{t('Auth:SignupScreen.Input.EmailAddress')}</Text>
           <Input
-            size="$4"
-            borderWidth={2}
+            autoCapitalize="none"
+            clearButtonMode="while-editing"
+            placeholder=""
           />
         </YStack>
 
@@ -115,8 +119,9 @@ export default function SignUpScreen(): React.JSX.Element {
         >
           <Text>{t('Auth:SignupScreen.Input.PhoneNumber')}</Text>
           <Input
-            size="$4"
-            borderWidth={2}
+            autoCapitalize="none"
+            clearButtonMode="while-editing"
+            placeholder=""
           />
         </YStack>
 
@@ -142,32 +147,36 @@ export default function SignUpScreen(): React.JSX.Element {
             <YStack space="$2">
               <Text>{t('Auth:SignupScreen.Input.CompanyName')}</Text>
               <Input
-                size="$4"
-                borderWidth={2}
+                autoCapitalize="none"
+                clearButtonMode="while-editing"
+                placeholder=""
               />
             </YStack>
 
             <YStack space="$2">
               <Text>{t('Auth:SignupScreen.Input.StreetAddress')}</Text>
               <Input
-                size="$4"
-                borderWidth={2}
+                autoCapitalize="none"
+                clearButtonMode="while-editing"
+                placeholder=""
               />
             </YStack>
 
             <YStack space="$2">
               <Text>{t('Auth:SignupScreen.Input.StreetAddressOptional')}</Text>
               <Input
-                size="$4"
-                borderWidth={2}
+                autoCapitalize="none"
+                clearButtonMode="while-editing"
+                placeholder=""
               />
             </YStack>
 
             <YStack space="$2">
               <Text>{t('Auth:SignupScreen.Input.City')}</Text>
               <Input
-                size="$4"
-                borderWidth={2}
+                autoCapitalize="none"
+                clearButtonMode="while-editing"
+                placeholder=""
               />
             </YStack>
           </YStack>
