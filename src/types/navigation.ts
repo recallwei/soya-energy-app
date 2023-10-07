@@ -1,14 +1,12 @@
 import type { BottomTabScreenProps } from '@react-navigation/bottom-tabs'
-import type { CompositeScreenProps } from '@react-navigation/native'
+import type {
+  CompositeScreenProps,
+  NavigatorScreenParams
+} from '@react-navigation/native'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
-export interface NavigationItem {
-  label: string
-  screen: keyof (RootStackParamList & HomeTabParamList)
-}
-
 export interface RootStackParamList {
-  Tabs: undefined
+  Tabs: NavigatorScreenParams<HomeTabParamList>
   LiveStatus: undefined
   // Menu
   Notification: undefined
@@ -67,7 +65,6 @@ export type RootStackScreenProps<T extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, T>
 
 export interface HomeTabParamList {
-  [key: string]: undefined
   Status: undefined
   Statistics: undefined
   Array: undefined
