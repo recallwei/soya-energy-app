@@ -39,7 +39,7 @@ export default function StatusScreen() {
       >
         <YStack
           padding="$4"
-          rowGap="$2"
+          space="$2"
         >
           <HeaderArea />
 

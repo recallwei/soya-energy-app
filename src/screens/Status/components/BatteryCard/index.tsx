@@ -1,8 +1,9 @@
 import { Cog } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
 import { Pressable } from 'react-native'
-import { Card, Separator, Text, XStack, YStack } from 'tamagui'
+import { Separator, Text, XStack, YStack } from 'tamagui'
 
+import { SCard } from '@/components'
 import { SVG } from '@/svg'
 
 export default function BatteryCard(): React.JSX.Element {
@@ -62,57 +63,48 @@ export default function BatteryCard(): React.JSX.Element {
   }
 
   return (
-    <Card
-      size="$4"
-      bordered
-      animation="bouncy"
-      width="100%"
-      height="auto"
-      pressStyle={{ scale: 0.95 }}
-    >
-      <Card.Header padded>
+    <SCard>
+      <XStack
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <XStack
           alignItems="center"
-          justifyContent="space-between"
+          columnGap="$2"
         >
-          <XStack
-            alignItems="center"
-            columnGap="$2"
+          <Pressable
+            onPress={() => setBatteryLevel(Math.floor(Math.random() * 5 + 0))}
           >
-            <Pressable
-              onPress={() => setBatteryLevel(Math.floor(Math.random() * 5 + 0))}
-            >
-              {getBatteryIconByLevel()}
-            </Pressable>
+            {getBatteryIconByLevel()}
+          </Pressable>
 
-            <YStack rowGap="$2">
-              <Text>Charge</Text>
-              <XStack columnGap="$2">
-                <Text>88%</Text>
-                <Text>(7hr 50min)</Text>
-              </XStack>
-            </YStack>
-          </XStack>
-
-          <Separator
-            alignSelf="stretch"
-            vertical
-          />
-
-          <XStack onPress={() => {}}>
-            <YStack rowGap="$2">
-              <XStack
-                alignItems="center"
-                columnGap="$1.5"
-              >
-                <Text>Profile</Text>
-                <Cog size="$1" />
-              </XStack>
-              <Text>self-consumption</Text>
-            </YStack>
-          </XStack>
+          <YStack rowGap="$2">
+            <Text>Charge</Text>
+            <XStack columnGap="$2">
+              <Text>88%</Text>
+              <Text>(7hr 50min)</Text>
+            </XStack>
+          </YStack>
         </XStack>
-      </Card.Header>
-    </Card>
+
+        <Separator
+          alignSelf="stretch"
+          vertical
+        />
+
+        <XStack onPress={() => {}}>
+          <YStack rowGap="$2">
+            <XStack
+              alignItems="center"
+              columnGap="$1.5"
+            >
+              <Text>Profile</Text>
+              <Cog size="$1" />
+            </XStack>
+            <Text>self-consumption</Text>
+          </YStack>
+        </XStack>
+      </XStack>
+    </SCard>
   )
 }

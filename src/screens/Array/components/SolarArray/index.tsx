@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
-import { Card, Spinner, Text, ToggleGroup, XStack, YStack } from 'tamagui'
+import { Spinner, Text, ToggleGroup, XStack, YStack } from 'tamagui'
 
-import SolarGrid from '../SolarGrid'
+import { SCard } from '@/components'
+
+import { SolarGrid } from './components'
 
 type TimeTab = 'day' | 'month' | 'year' | 'lifetime'
 
@@ -76,31 +78,22 @@ export default function SolarArray(): React.JSX.Element {
                 text="1.82 kWh"
               />
             ))}
-            <Card
-              size="$3"
-              bordered
-              animation="bouncy"
-              width="100%"
-              height="auto"
-              pressStyle={{ scale: 0.95 }}
-            >
-              <Card.Header padded>
-                <YStack space="$1">
-                  <XStack>
-                    <Text>Quantity: </Text>
-                    <Text>100 PCS</Text>
-                  </XStack>
-                  <XStack>
-                    <Text>Avg Production: </Text>
-                    <Text color="green">1.1 kWh</Text>
-                  </XStack>
-                  <XStack>
-                    <Text>Total Production: </Text>
-                    <Text color="green">110 kWh</Text>
-                  </XStack>
-                </YStack>
-              </Card.Header>
-            </Card>
+            <SCard>
+              <YStack space="$1">
+                <XStack>
+                  <Text>Quantity: </Text>
+                  <Text>100 PCS</Text>
+                </XStack>
+                <XStack>
+                  <Text>Avg Production: </Text>
+                  <Text color="green">1.1 kWh</Text>
+                </XStack>
+                <XStack>
+                  <Text>Total Production: </Text>
+                  <Text color="green">110 kWh</Text>
+                </XStack>
+              </YStack>
+            </SCard>
           </>
         )}
       </XStack>

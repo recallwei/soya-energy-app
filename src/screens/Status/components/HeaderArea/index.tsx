@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import { Activity, CheckCircle2, CloudSun } from '@tamagui/lucide-icons'
-import { Button, Text, XStack } from 'tamagui'
+import { Button, Text, XStack, YStack } from 'tamagui'
 
 import { SVG } from '@/svg'
 
@@ -9,7 +9,7 @@ export default function HeaderArea(): React.JSX.Element {
 
   const navToLiveStatus = () => navigation.navigate('LiveStatus')
   return (
-    <>
+    <YStack space="$2">
       <XStack
         alignItems="center"
         justifyContent="space-between"
@@ -51,12 +51,13 @@ export default function HeaderArea(): React.JSX.Element {
         <Text>2023-09-20 updated 12min ago</Text>
         <Button
           size="$2"
+          backgroundColor="#dddddd"
           icon={<Activity />}
           onPress={navToLiveStatus}
         >
           Live Status
         </Button>
       </XStack>
-    </>
+    </YStack>
   )
 }

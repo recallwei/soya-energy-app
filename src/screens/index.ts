@@ -5,10 +5,10 @@ export { default as SplashScreen } from './Splash'
 // Tabs
 export { default as ArrayScreen } from './Array'
 export { default as MenuScreen } from './Menu'
-export { default as StatusScreen } from './Menu/Status'
 export { default as StatisticsScreen } from './Statistics'
+export { default as StatusScreen } from './Status'
 // Status
-export { default as LiveStatusScreen } from './Menu/Status/LiveStatus'
+export { default as LiveStatusScreen } from './Status/LiveStatus'
 // Menu
 export { default as AccountScreen } from './Menu/Account'
 export { default as CommunityScreen } from './Menu/Community'
