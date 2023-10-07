@@ -13,8 +13,7 @@ interface ChartItem {
 }
 
 export default function StatisticsScreen(): React.JSX.Element {
-  // eslint-disable-next-line unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
-  const [producedData, setProducedData] = useState<ChartItem[]>([
+  const [producedData] = useState<ChartItem[]>([
     {
       label: 'Spontaneous self use',
       value: 5.31,

@@ -3,14 +3,19 @@ import { BarChart4, CloudLightning, Grid, Menu } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { View } from 'tamagui'
 
+import {
+  ArrayScreen,
+  MenuScreen,
+  StatisticsScreen,
+  StatusScreen
+} from '@/screens'
 import { useTabsStore } from '@/store'
 import { GlobalStyles } from '@/styles'
-import { ArrayScreen, MenuScreen, StatisticsScreen, StatusScreen } from '@/tabs'
 import type { HomeTabParamList } from '@/types'
 
 const Tab = createBottomTabNavigator<HomeTabParamList>()
 
-export default function TabBar(): React.JSX.Element {
+export default function BaseTabBar(): React.JSX.Element {
   const { t } = useTranslation(['Global'])
 
   const { changeTab } = useTabsStore()

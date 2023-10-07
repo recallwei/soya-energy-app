@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { TabBar } from '@/components'
+import { BaseTabBar } from '@/components'
 import {
   AccountMyAccessControlScreen,
   AccountMyInfoScreen,
@@ -118,7 +118,7 @@ export default function Navigation(): React.JSX.Element {
             <>
               <Stack.Screen
                 name="Tabs"
-                component={TabBar}
+                component={BaseTabBar}
                 options={{
                   headerShown: false,
                   title: getTabTitleI18nText(currentTab),

@@ -3,7 +3,7 @@ import { Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, TouchableOpacity } from 'react-native'
 import { Button, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
 
 import { SCheckbox } from '@/components'
@@ -176,12 +176,14 @@ export default function LoginScreen(): React.JSX.Element {
           justifyContent="space-between"
           width="100%"
         >
-          <Text onPress={() => navigation.navigate('ForgotPassword')}>
-            {t('Auth:ForgotPassword')}
-          </Text>
-          <Text onPress={() => navigation.navigate('SignUp')}>
-            {t('Auth:Signup')}
-          </Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ForgotPassword')}
+          >
+            <Text>{t('Auth:ForgotPassword')}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+            <Text>{t('Auth:Signup')}</Text>
+          </TouchableOpacity>
         </XStack>
       </YStack>
     </SafeAreaView>
