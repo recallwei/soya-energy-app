@@ -1,0 +1,20 @@
+{
+  "Title": {
+    "SiteDetails": "了解您的系统",
+    "Reports": "报告",
+    "Devices": "设备",
+    "LiveStatus": "实时状态",
+    "LiveVitals": "生命体征",
+    "EventsHistory": "事件历史",
+    "BackupHistory": "备份历史"
+  },
+  "Description": {
+    "SiteDetails": "站点、安装明细",
+    "Reports": "生成、发送报告",
+    "Devices": "查看所有设备及其状态",
+    "LiveStatus": "查看实时功率",
+    "LiveVitals": "查看系统生命体征",
+    "EventsHistory": "查看系统日志历史记录",
+    "BackupHistory": "查看停电历史记录"
+  }
+}

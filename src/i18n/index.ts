@@ -15,6 +15,7 @@ const ns = [
   'Auth',
   'Menu',
   'Notification',
+  'System',
   'Services',
   'Settings'
 ] as const
@@ -22,8 +23,8 @@ const ns = [
 i18n
   .use(initReactI18next)
   .init({
-    lng: 'zh_cn',
-    fallbackLng: 'zh_cn',
+    lng: 'en',
+    fallbackLng: 'en',
     ns,
     defaultNS: 'Global',
     resources,

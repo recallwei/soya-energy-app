@@ -50,6 +50,7 @@ import {
   SystemLiveStatusScreen,
   SystemLiveVitalsScreen,
   SystemReportsScreen,
+  SystemScreen,
   SystemSiteDetailsScreen
 } from '@/screens'
 import { useAuthStore, useTabsStore } from '@/store'
@@ -138,6 +139,13 @@ export default function Navigation(): React.JSX.Element {
                 component={NotificationScreen}
                 options={{
                   title: t('Global:Screens.Notification')
+                }}
+              />
+              <Stack.Screen
+                name="System"
+                component={SystemScreen}
+                options={{
+                  title: t('Global:Screens.System')
                 }}
               />
               <Stack.Screen

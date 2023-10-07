@@ -1,0 +1,20 @@
+{
+  "Title": {
+    "SiteDetails": "Site Details",
+    "Reports": "Reports",
+    "Devices": "Devices",
+    "LiveStatus": "Live Status",
+    "LiveVitals": "Live Vitals",
+    "EventsHistory": "Events History",
+    "BackupHistory": "Backup History"
+  },
+  "Description": {
+    "SiteDetails": "View site and installer details",
+    "Reports": "Generate and send reports",
+    "Devices": "View all devices and its status",
+    "LiveStatus": "View real-time power",
+    "LiveVitals": "View live vitals of the system",
+    "EventsHistory": "View logs of system events",
+    "BackupHistory": "View power outrage history"
+  }
+}
