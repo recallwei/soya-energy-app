@@ -50,6 +50,7 @@ export default function SettingsScreen(): React.JSX.Element {
             ? t('Description.GridControl.True')
             : t('Description.GridControl.False')
         }
+        switcher
       />
 
       <MenuItemCard
@@ -65,6 +66,7 @@ export default function SettingsScreen(): React.JSX.Element {
             ? t('Description.DarkMode.True')
             : t('Description.DarkMode.False')
         }
+        switcher
       />
     </YStack>
   )

@@ -4,7 +4,7 @@ import { Button, Text, YStack } from 'tamagui'
 
 import { SRatioGroup } from '@/components'
 
-export default function ManualScreen(): React.JSX.Element {
+export default function NEMScreen(): React.JSX.Element {
   const { goBack } = useNavigation()
 
   return (
@@ -18,16 +18,6 @@ export default function ManualScreen(): React.JSX.Element {
         <YStack space="$3">
           <YStack space="$3">
             <Text>Your electricity rate has peak and off-peak charges?</Text>
-            <SRatioGroup
-              data={[
-                { label: 'Yes', value: '1' },
-                { label: 'No', value: '0' }
-              ]}
-            />
-          </YStack>
-
-          <YStack space="$3">
-            <Text>Your electricity rate goes up as your usage increase?</Text>
             <SRatioGroup
               data={[
                 { label: 'Yes', value: '1' },

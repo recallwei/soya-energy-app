@@ -21,11 +21,15 @@ import {
   LoginScreen,
   NotificationScreen,
   ServicesScreen,
+  SettingsAddElectricityExportRateGrossScreen,
+  SettingsAddElectricityExportRateNEMScreen,
+  SettingsAddElectricityExportRateNetScreen,
+  SettingsAddElectricityExportRateOtherScreen,
   SettingsAddElectricityExportRateScreen,
   SettingsBatteryScreen,
   SettingsConnectivityScreen,
   SettingsElectricityRateScreen,
-  SettingsElectricityRateStructureEditAutoFillScreen,
+  SettingsElectricityRateStructureEditAutofillScreen,
   SettingsElectricityRateStructureEditManualScreen,
   SettingsElectricityRateStructureEditScreen,
   SettingsElectricityRateStructureScreen,
@@ -332,8 +336,8 @@ export default function Navigation(): React.JSX.Element {
                 }}
               />
               <Stack.Screen
-                name="SettingsElectricityRateStructureEditAutoFill"
-                component={SettingsElectricityRateStructureEditAutoFillScreen}
+                name="SettingsElectricityRateStructureEditAutofill"
+                component={SettingsElectricityRateStructureEditAutofillScreen}
                 options={{
                   title: t('Global:Screens.Community')
                 }}
@@ -348,6 +352,34 @@ export default function Navigation(): React.JSX.Element {
               <Stack.Screen
                 name="SettingsAddElectricityExportRate"
                 component={SettingsAddElectricityExportRateScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsAddElectricityExportRateNEM"
+                component={SettingsAddElectricityExportRateNEMScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsAddElectricityExportRateNet"
+                component={SettingsAddElectricityExportRateNetScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsAddElectricityExportRateGross"
+                component={SettingsAddElectricityExportRateGrossScreen}
+                options={{
+                  title: t('Global:Screens.Community')
+                }}
+              />
+              <Stack.Screen
+                name="SettingsAddElectricityExportRateOther"
+                component={SettingsAddElectricityExportRateOtherScreen}
                 options={{
                   title: t('Global:Screens.Community')
                 }}

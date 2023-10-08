@@ -1,12 +1,13 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
 import { useState } from 'react'
-import { Card, Text, View, XStack, YStack } from 'tamagui'
+import { Card, Switch, Text, View, XStack, YStack } from 'tamagui'
 
 interface Props {
   title?: string
   description?: string
   icon?: any
   onPress?: () => void
+  switcher?: boolean
 }
 
 export type MenuItemCardProps = Props
@@ -36,6 +37,7 @@ export default function MenuItemCard(props: Props) {
         <XStack
           alignItems="center"
           space="$3"
+          marginRight="$3"
         >
           {props.icon && (
             <View>
@@ -62,15 +64,26 @@ export default function MenuItemCard(props: Props) {
           alignItems="center"
           alignSelf="center"
           animation="bouncy"
-          style={{
-            transform: [
-              {
-                translateX: isPressing ? -10 : 0
-              }
-            ]
-          }}
+          style={
+            !props.switcher && {
+              transform: [
+                {
+                  translateX: isPressing ? -10 : 0
+                }
+              ]
+            }
+          }
         >
-          <ChevronRight />
+          {props.switcher ? (
+            <Switch size="$2">
+              <Switch.Thumb
+                animation="quick"
+                backgroundColor="#0078d7"
+              />
+            </Switch>
+          ) : (
+            <ChevronRight />
+          )}
         </View>
       </Card.Header>
     </Card>

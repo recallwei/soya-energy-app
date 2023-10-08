@@ -43,9 +43,13 @@ export interface RootStackParamList {
   SettingsElectricityRate: undefined
   SettingsElectricityRateStructure: undefined
   SettingsElectricityRateStructureEdit: undefined
-  SettingsElectricityRateStructureEditAutoFill: undefined
+  SettingsElectricityRateStructureEditAutofill: undefined
   SettingsElectricityRateStructureEditManual: undefined
   SettingsAddElectricityExportRate: undefined
+  SettingsAddElectricityExportRateNEM: undefined
+  SettingsAddElectricityExportRateNet: undefined
+  SettingsAddElectricityExportRateGross: undefined
+  SettingsAddElectricityExportRateOther: undefined
   SettingsConnectivity: undefined
   SettingsPerformance: undefined
   SettingsPerformanceEnergy: undefined
