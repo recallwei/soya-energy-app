@@ -1,10 +1,10 @@
 import { RefreshControl } from 'react-native'
-import { ScrollView, YStack } from 'tamagui'
+import { ScrollView, Text, XStack, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
+import { SCard } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function DemoScreen(): React.JSX.Element {
+export default function SystemControlScreen(): React.JSX.Element {
   const { refreshing, onRefresh } = useRefresh()
 
   return (
@@ -23,7 +23,24 @@ export default function DemoScreen(): React.JSX.Element {
         space="$3"
         marginBottom="$10"
       >
-        <NoData />
+        <SCard>
+          <YStack gap="$2">
+            <XStack justifyContent="space-between">
+              <Text
+                fontSize="$5"
+                fontWeight="bold"
+              >
+                IO System Controller
+              </Text>
+              <Text color="green">Normal</Text>
+            </XStack>
+
+            <YStack gap="$1">
+              <Text>SN: 190000101234</Text>
+              <Text>SKU: ENVOY-S STANDARD KIT</Text>
+            </YStack>
+          </YStack>
+        </SCard>
       </YStack>
     </ScrollView>
   )

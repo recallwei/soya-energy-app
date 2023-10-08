@@ -1,11 +1,29 @@
 import { RefreshControl } from 'react-native'
-import { ScrollView, YStack } from 'tamagui'
+import { ScrollView, Text, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
+import { SCard } from '@/components'
 import { useRefresh } from '@/hooks'
 
 export default function DemoScreen(): React.JSX.Element {
   const { refreshing, onRefresh } = useRefresh()
+
+  const data = [
+    {
+      from: '06 Sep 2023 17:53',
+      to: '06 Sep 2023 17:53',
+      description: '24h:11min'
+    },
+    {
+      from: '06 Sep 2023 17:53',
+      to: '06 Sep 2023 17:53',
+      description: '24h:11min'
+    },
+    {
+      from: '06 Sep 2023 17:53',
+      to: '06 Sep 2023 17:53',
+      description: '24h:11min'
+    }
+  ]
 
   return (
     <ScrollView
@@ -23,7 +41,22 @@ export default function DemoScreen(): React.JSX.Element {
         space="$3"
         marginBottom="$10"
       >
-        <NoData />
+        <Text
+          fontSize="$6"
+          fontWeight="bold"
+          marginLeft="$1"
+        >
+          Total Backup: 23d 12h 11m
+        </Text>
+        {data.map((item, index) => (
+          <SCard key={index}>
+            <YStack gap="$2">
+              <Text>From: {item.from}</Text>
+              <Text>To: {item.to}</Text>
+              <Text>Total: {item.description}</Text>
+            </YStack>
+          </SCard>
+        ))}
       </YStack>
     </ScrollView>
   )

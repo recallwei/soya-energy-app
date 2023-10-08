@@ -1,11 +1,14 @@
+import { useNavigation } from '@react-navigation/native'
 import { RefreshControl } from 'react-native'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
+import { MenuItemCard } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function DemoScreen(): React.JSX.Element {
+export default function DevicesScreen(): React.JSX.Element {
   const { refreshing, onRefresh } = useRefresh()
+
+  const navigation = useNavigation()
 
   return (
     <ScrollView
@@ -23,7 +26,31 @@ export default function DemoScreen(): React.JSX.Element {
         space="$3"
         marginBottom="$10"
       >
-        <NoData />
+        <MenuItemCard
+          title="Gateway (1)"
+          description="Normal"
+          onPress={() => navigation.navigate('SystemDevicesGateway')}
+        />
+        <MenuItemCard
+          title="Battery (2)"
+          description="Normal"
+          onPress={() => navigation.navigate('SystemDevicesBattery')}
+        />
+        <MenuItemCard
+          title="System Controller (1)"
+          description="Normal"
+          onPress={() => navigation.navigate('SystemDevicesSystemControl')}
+        />
+        <MenuItemCard
+          title="Microinverters (20)"
+          description="Normal"
+          onPress={() => navigation.navigate('SystemDevicesMicroinverters')}
+        />
+        <MenuItemCard
+          title="Loads (4)"
+          description="Normal"
+          onPress={() => navigation.navigate('SystemDevicesLoads')}
+        />
       </YStack>
     </ScrollView>
   )

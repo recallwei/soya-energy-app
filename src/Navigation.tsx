@@ -14,11 +14,9 @@ import {
   AccountMyInfoScreen,
   AccountMyNotificationsScreen,
   AccountScreen,
-  ChartsScreen,
   CommunityScreen,
   ExploreScreen,
   ForgotPasswordScreen,
-  I18nScreen,
   LiveStatusScreen,
   LoginScreen,
   NotificationScreen,
@@ -380,22 +378,6 @@ export default function Navigation(): React.JSX.Element {
                 component={SettingsPerformanceCurrencyScreen}
                 options={{
                   title: t('Global:Screens.Community')
-                }}
-              />
-
-              {/* Temp */}
-              <Stack.Screen
-                name="I18n"
-                component={I18nScreen}
-                options={{
-                  title: 'i18n'
-                }}
-              />
-              <Stack.Screen
-                name="Charts"
-                component={ChartsScreen}
-                options={{
-                  title: 'Charts'
                 }}
               />
             </>

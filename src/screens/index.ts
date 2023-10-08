@@ -53,7 +53,3 @@ export { default as SettingsPerformanceEnergyScreen } from './Menu/Settings/Perf
 export { default as ForgotPasswordScreen } from './Auth/ForgotPassword'
 export { default as LoginScreen } from './Auth/Login'
 export { default as SignUpScreen } from './Auth/SignUp'
-
-// ------ Temp ------
-export { default as ChartsScreen } from './Temp/Charts'
-export { default as I18nScreen } from './Temp/I18n'

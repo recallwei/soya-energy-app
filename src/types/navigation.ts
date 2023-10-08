@@ -55,10 +55,6 @@ export interface RootStackParamList {
   Login?: undefined
   SignUp?: undefined
   ForgotPassword?: undefined
-
-  // Temp
-  I18n: undefined
-  Charts: undefined
 }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

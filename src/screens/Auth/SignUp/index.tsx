@@ -42,7 +42,7 @@ export default function SignUpScreen(): React.JSX.Element {
     // AuthAPI.signup()
     onSuccess: (data) => {
       console.log(data)
-      // authStore.login()
+      authStore.login()
     },
     onError: (error) => {
       console.log(error)

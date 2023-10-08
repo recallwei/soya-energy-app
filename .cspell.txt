@@ -4,7 +4,10 @@ commitlint
 dosis
 gradlew
 lucide
+Microinverter
 Microinverters
+NFTL
+NFTN
 noto
 preinstall
 pressable
