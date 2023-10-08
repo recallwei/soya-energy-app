@@ -1,6 +1,6 @@
 import { BatteryMedium } from '@tamagui/lucide-icons'
 import { RefreshControl } from 'react-native'
-import { ScrollView, Stack, Text, XStack, YStack } from 'tamagui'
+import { Paragraph, ScrollView, Stack, Text, XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
 import { useRefresh } from '@/hooks'
@@ -42,7 +42,7 @@ export default function BatteryScreen(): React.JSX.Element {
             </Stack>
 
             <YStack
-              flexGrow={1}
+              width="70%"
               gap="$1.5"
             >
               <Text>Available Energy</Text>
@@ -69,7 +69,7 @@ export default function BatteryScreen(): React.JSX.Element {
                 3.84 of 3.84 kWh
               </Text>
 
-              <Text>Active Microinverter(s): 12 of 12</Text>
+              <Paragraph>Active Microinverter(s): 12 of 12</Paragraph>
             </YStack>
           </XStack>
         </SCard>

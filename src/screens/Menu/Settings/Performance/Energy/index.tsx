@@ -1,11 +1,14 @@
+import { useState } from 'react'
 import { RefreshControl } from 'react-native'
-import { ScrollView, YStack } from 'tamagui'
+import { Button, ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
+import { SCard, SRatioGroup } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function DemoScreen(): React.JSX.Element {
+export default function EnergyScreen(): React.JSX.Element {
   const { refreshing, onRefresh } = useRefresh()
+
+  const [currentSelect, setCurrentSelect] = useState('1')
 
   return (
     <ScrollView
@@ -23,7 +26,26 @@ export default function DemoScreen(): React.JSX.Element {
         space="$3"
         marginBottom="$10"
       >
-        <NoData />
+        <SCard>
+          <SRatioGroup
+            value={currentSelect}
+            data={[
+              {
+                label: 'Energy Independence',
+                value: '1',
+                description: 'Measures your independence from the utility grid'
+              },
+              {
+                label: 'Grid Dependence',
+                value: '2',
+                description: 'Measures your dependence on the utility grid'
+              }
+            ]}
+            onValueChange={(value) => setCurrentSelect(value)}
+            description
+          />
+        </SCard>
+        <Button>Save</Button>
       </YStack>
     </ScrollView>
   )

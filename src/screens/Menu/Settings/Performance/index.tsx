@@ -1,29 +1,30 @@
-import { RefreshControl } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { MenuItemCard } from '@/components'
 
-export default function DemoScreen(): React.JSX.Element {
-  const { refreshing, onRefresh } = useRefresh()
-
+export default function PerformanceScreen(): React.JSX.Element {
+  const { navigate } = useNavigation()
   return (
     <ScrollView
       minHeight="100%"
       showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
     >
       <YStack
         padding="$4"
         space="$3"
         marginBottom="$10"
       >
-        <NoData />
+        <MenuItemCard
+          title="Energy"
+          description="Configure your energy performance metric"
+          onPress={() => navigate('SettingsPerformanceEnergy')}
+        />
+        <MenuItemCard
+          title="Currency"
+          description="Convert your energy data into equivalent currency rates"
+          onPress={() => navigate('SettingsPerformanceCurrency')}
+        />
       </YStack>
     </ScrollView>
   )

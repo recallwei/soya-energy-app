@@ -1,12 +1,14 @@
+import { useNavigation } from '@react-navigation/native'
 import { Cog } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
-import { Pressable } from 'react-native'
+import { Pressable, TouchableOpacity } from 'react-native'
 import { Separator, Text, XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
 import { SVG } from '@/svg'
 
 export default function BatteryCard(): React.JSX.Element {
+  const { navigate } = useNavigation()
   const [batteryLevel, setBatteryLevel] = useState(0)
 
   useEffect(() => {
@@ -92,18 +94,20 @@ export default function BatteryCard(): React.JSX.Element {
           vertical
         />
 
-        <XStack onPress={() => {}}>
-          <YStack rowGap="$2">
-            <XStack
-              alignItems="center"
-              columnGap="$1.5"
-            >
-              <Text>Profile</Text>
-              <Cog size="$1" />
-            </XStack>
-            <Text>self-consumption</Text>
-          </YStack>
-        </XStack>
+        <TouchableOpacity onPress={() => navigate('SettingsBattery')}>
+          <XStack>
+            <YStack rowGap="$2">
+              <XStack
+                alignItems="center"
+                columnGap="$1.5"
+              >
+                <Text>Profile</Text>
+                <Cog size="$1" />
+              </XStack>
+              <Text>self-consumption</Text>
+            </YStack>
+          </XStack>
+        </TouchableOpacity>
       </XStack>
     </SCard>
   )

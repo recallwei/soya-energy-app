@@ -4,7 +4,7 @@ import { ScrollView, YStack } from 'tamagui'
 import { NoData } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function DemoScreen(): React.JSX.Element {
+export default function LoadControlScreen(): React.JSX.Element {
   const { refreshing, onRefresh } = useRefresh()
 
   return (
