@@ -1,29 +1,46 @@
-import { RefreshControl } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { MenuItemCard } from '@/components'
+import { useAuthStore } from '@/store'
 
-export default function DemoScreen(): React.JSX.Element {
-  const { refreshing, onRefresh } = useRefresh()
+export default function AccountScreen(): React.JSX.Element {
+  const authStore = useAuthStore()
+
+  const { navigate } = useNavigation()
+
+  const handleDeleteAccount = () => authStore.logout()
 
   return (
     <ScrollView
       minHeight="100%"
       showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
     >
       <YStack
         padding="$4"
         space="$3"
         marginBottom="$10"
       >
-        <NoData />
+        <MenuItemCard
+          title="My Information"
+          description="Update personal and system details"
+          onPress={() => navigate('AccountMyInfo')}
+        />
+        <MenuItemCard
+          title="My Notification"
+          description="Manage your notifications"
+          onPress={() => navigate('AccountMyNotifications')}
+        />
+        <MenuItemCard
+          title="My Access Control"
+          description="Manage access to system data"
+          onPress={() => navigate('AccountMyAccessControl')}
+        />
+        <MenuItemCard
+          title="Delete Account"
+          description="​Deleting your account will deactivate your account and remove all your settings"
+          onPress={handleDeleteAccount}
+        />
       </YStack>
     </ScrollView>
   )
