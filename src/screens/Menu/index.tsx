@@ -24,7 +24,7 @@ export default function MenuScreen(): React.JSX.Element {
 
   const authStore = useAuthStore()
 
-  const navigation = useNavigation()
+  const { navigate } = useNavigation()
 
   const [currentSite] = useState('Bruce')
   const [siteId] = useState('155224')
@@ -51,9 +51,7 @@ export default function MenuScreen(): React.JSX.Element {
                 scale: 0.9
               }}
             >
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Notification')}
-              >
+              <TouchableOpacity onPress={() => navigate('Notification')}>
                 <Bell size="$1" />
               </TouchableOpacity>
             </Square>
@@ -74,43 +72,43 @@ export default function MenuScreen(): React.JSX.Element {
             title={t('Title.System')}
             description={t('Description.System')}
             icon={ServerCog}
-            onPress={() => navigation.navigate('System')}
+            onPress={() => navigate('System')}
           />
           <MenuItemCard
             title={t('Title.Account')}
             description={t('Description.Account')}
             icon={UserCog}
-            onPress={() => navigation.navigate('Account')}
+            onPress={() => navigate('Account')}
           />
           <MenuItemCard
             title={t('Title.Settings')}
             description={t('Description.Settings')}
             icon={Settings}
-            onPress={() => navigation.navigate('Settings')}
+            onPress={() => navigate('Settings')}
           />
           <MenuItemCard
             title={t('Title.Services')}
             description={t('Description.Services')}
             icon={Component}
-            onPress={() => navigation.navigate('Services')}
+            onPress={() => navigate('Services')}
           />
           <MenuItemCard
             title={t('Title.Support')}
             description={t('Description.Support')}
             icon={Gem}
-            onPress={() => navigation.navigate('Support')}
+            onPress={() => navigate('Support')}
           />
           <MenuItemCard
             title={t('Title.Explore')}
             description={t('Description.Explore')}
             icon={Compass}
-            onPress={() => navigation.navigate('Explore')}
+            onPress={() => navigate('Explore')}
           />
           <MenuItemCard
             title={t('Title.Community')}
             description={t('Description.Community')}
             icon={Users}
-            onPress={() => navigation.navigate('Community')}
+            onPress={() => navigate('Community')}
           />
           <MenuItemCard
             title={t('Title.Signout')}

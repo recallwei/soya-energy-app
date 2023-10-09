@@ -57,7 +57,7 @@ import {
 } from '@/screens'
 import { useAuthStore, useTabsStore } from '@/store'
 import { GlobalStyles } from '@/styles'
-import type { HomeTabParamList, RootStackParamList } from '@/types'
+import type { RootStackParamList, TabParamList } from '@/types'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -76,7 +76,7 @@ export default function Navigation(): React.JSX.Element {
     }, 100)
   }, [])
 
-  function getTabTitleI18nText(tabName: keyof HomeTabParamList): string {
+  function getTabTitleI18nText(tabName: keyof TabParamList): string {
     switch (tabName) {
       case 'Status':
         return t('Global:Tabs.Status')

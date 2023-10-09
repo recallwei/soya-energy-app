@@ -1,13 +1,13 @@
 import { create } from 'zustand'
 
-import type { HomeTabParamList } from '@/types'
+import type { TabParamList } from '@/types'
 
 interface State {
-  currentTab: keyof HomeTabParamList
+  currentTab: keyof TabParamList
 }
 
 interface Actions {
-  changeTab: (value: keyof HomeTabParamList) => void
+  changeTab: (value: keyof TabParamList) => void
 }
 
 const initialState: State = {
