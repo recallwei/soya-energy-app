@@ -7,6 +7,9 @@ import type {
 } from 'axios'
 import axios from 'axios'
 
+import { globalEnvConfig } from '@/env'
+import { AuthUtils } from '@/utils'
+
 import { axiosConfig } from './config'
 import { errorMessageMap, ResponseStatusCode } from './statusCode'
 
@@ -19,23 +22,31 @@ class Request {
     this.instance = axios.create(config)
 
     this.instance.interceptors.request.use(
-      (req: InternalAxiosRequestConfig) =>
-        // const { url } = req
-        // TODO: 补充 token 逻辑
-        // if (
-        //   AuthUtils.isAuthenticated() &&
-        //   url?.startsWith(GlobalEnvConfig.BASE_API_PREFIX)
-        // ) {
-        //   req.headers.Authorization = AuthUtils.getAuthorization()
-        // }
+      async (req: InternalAxiosRequestConfig) => {
+        const { url } = req
 
-        req,
+        if (url?.startsWith(globalEnvConfig.BASE_API_URL)) {
+          req.headers['Accept-Language'] = 'zh-CN'
+          req.headers['Tenant-Id'] = '000000'
+          /* cspell:disable-next-line */
+          req.headers.Authorization = 'Basic cmFpcGlvdDpyYWlwaW90X3NlY3JldA=='
+        }
+
+        if (await AuthUtils.isLogin()) {
+          req.headers['Raipiot-Auth'] = await AuthUtils.getAuthorization()
+        }
+
+        console.log(req)
+
+        return req
+      },
       (err: AxiosError) => Promise.reject(err)
     )
 
     this.instance.interceptors.response.use(
       (res: AxiosResponse) => res.data as AxiosResponse,
       (err: AxiosError) => {
+        console.log(err)
         const { response } = err
         const { data, status } = response ?? {}
         if (response) {

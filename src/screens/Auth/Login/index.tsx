@@ -6,10 +6,12 @@ import { useTranslation } from 'react-i18next'
 import { SafeAreaView, TouchableOpacity } from 'react-native'
 import { Button, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
 
+import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
-// import { AuthAPI } from '@/api'
 import { useAuthStore } from '@/store'
 import { SVG } from '@/svg'
+import type { LoginInput } from '@/types'
+import { AuthUtils } from '@/utils'
 
 export default function LoginScreen(): React.JSX.Element {
   const { t } = useTranslation(['Auth'])
@@ -19,35 +21,26 @@ export default function LoginScreen(): React.JSX.Element {
   const navigation = useNavigation()
 
   const [formData, setFormData] = useState({
-    account: '',
+    username: '',
     password: ''
   })
   const [showPassword, setShowPassword] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
 
   const { mutate, isLoading } = useMutation({
-    mutationFn: () =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            account: '123',
-            password: '123'
-          })
-        }, 1000)
-      }),
-    // AuthAPI.login()
+    mutationFn: (data: LoginInput) => AuthAPI.login(data),
     onSuccess: (data) => {
-      console.log(data)
+      console.log(AuthUtils.getToken())
+      AuthUtils.setToken(data.access_token).catch(() => {})
       authStore.login()
     },
-    onError: (error) => {
-      console.log(error)
-      authStore.login()
+    onError: () => {
+      //
     }
   })
 
   const handleLogin = () => {
-    mutate()
+    mutate(formData)
   }
 
   return (
@@ -91,12 +84,9 @@ export default function LoginScreen(): React.JSX.Element {
             paddingLeft="$7"
             placeholder={t('Auth:Account.Placeholder')}
             autoCapitalize="none"
-            value={formData.account}
+            value={formData.username}
             onChangeText={(text) => {
-              setFormData((prev) => ({
-                ...prev,
-                account: text
-              }))
+              setFormData({ ...formData, username: text })
             }}
             disabled={isLoading}
             clearButtonMode="never"
@@ -123,10 +113,7 @@ export default function LoginScreen(): React.JSX.Element {
             autoCapitalize="none"
             value={formData.password}
             onChangeText={(text) => {
-              setFormData((prev) => ({
-                ...prev,
-                password: text
-              }))
+              setFormData({ ...formData, password: text })
             }}
             secureTextEntry={!showPassword}
             disabled={isLoading}

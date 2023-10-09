@@ -13,22 +13,18 @@ export class AuthUtils {
   }
 
   static async setToken(token: string) {
-    try {
-      await AsyncStorage.setItem(this.ACCESS_TOKEN_KEY, token)
-    } catch {
-      //
-    }
+    await AsyncStorage.setItem(this.ACCESS_TOKEN_KEY, token)
   }
 
   static async removeToken() {
-    try {
-      await AsyncStorage.removeItem(this.ACCESS_TOKEN_KEY)
-    } catch {
-      //
-    }
+    await AsyncStorage.removeItem(this.ACCESS_TOKEN_KEY)
   }
 
   static async isLogin() {
     return !!(await this.getToken())
+  }
+
+  static async getAuthorization() {
+    return `Bearer ${await this.getToken()}`
   }
 }

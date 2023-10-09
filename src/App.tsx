@@ -7,6 +7,7 @@ import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
 import { GlobalToast } from '@/components'
+import { globalEnvConfig } from '@/env'
 
 import config from '../tamagui.config'
 import Navigation from './Navigation'
@@ -17,6 +18,8 @@ export default function App(): JSX.Element {
   useEffect(() => {
     Appearance.setColorScheme('light')
   }, [])
+
+  console.log(globalEnvConfig)
 
   return (
     <QueryClientProvider client={queryClient}>
