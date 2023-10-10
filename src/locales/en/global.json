@@ -19,9 +19,55 @@
     "ForgotPassword": "Forgot Password",
     "LiveStatus": "Live Status",
     "Notification": "Notification",
-    "System": "System",
-    "Account": "Account",
-    "Settings": "Settings",
+    "System": {
+      "System": "System",
+      "SiteDetails": "Site Details",
+      "Reports": "Reports",
+      "Devices": {
+        "Devices": "Devices",
+        "Gateway": "Gateway",
+        "Battery": "Battery",
+        "SystemControl": "System Control",
+        "Microinverters": "Microinverters",
+        "Loads": "Loads"
+      },
+      "LiveStatus": "Live Status",
+      "LiveVitals": "Live Vitals",
+      "EventHistory": "Event History",
+      "BackupHistory": "Backup History"
+    },
+    "Account": {
+      "Account": "Account",
+      "MyInfo": "My Info",
+      "MyNotifications": "My Notifications",
+      "MyAccessControl": "My Access Control"
+    },
+    "Settings": {
+      "Settings": "Settings",
+      "Battery": "Battery",
+      "LoadControl": "Load Control",
+      "ElectricityRate": {
+        "ElectricityRate": "Electricity Rate",
+        "Structure": "Structure",
+        "Edit": {
+          "Autofill": "Autofill",
+          "Manual": "Manual"
+        },
+        "AddElectricityExportRate": {
+          "AddElectricityExportRate": "Add Electricity Export Rate",
+          "NEM": "NEM",
+          "Net": "Net",
+          "Gross": "Gross",
+          "Other": "Other"
+        }
+      },
+      "Connectivity": "Connectivity",
+      "Performance": {
+        "Performance": "Performance",
+        "Energy": "Energy",
+        "Currency": "Currency"
+      }
+    },
     "Services": "Services",
     "Support": "Support",
     "Explore": "Explore",
@@ -30,5 +76,6 @@
   "StillInDevelopment": "This feature still in development...",
   "Others": "Others",
   "Submit": "Submit",
-  "NoData": "No data"
+  "NoData": "No data",
+  "Edit": "Edit"
 }
