@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next'
 import { SafeAreaView, TouchableOpacity } from 'react-native'
 import { Button, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
 
-import { AuthAPI } from '@/api'
+// import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
 import { useAuthStore } from '@/store'
 import { SVG } from '@/svg'
 import type { LoginInput } from '@/types'
-import { AuthUtils } from '@/utils'
+// import { AuthUtils } from '@/utils'
 
 export default function LoginScreen(): React.JSX.Element {
   const { t } = useTranslation(['Auth'])
@@ -28,12 +28,21 @@ export default function LoginScreen(): React.JSX.Element {
   const [rememberPassword, setRememberPassword] = useState(false)
 
   const { mutate, isLoading } = useMutation({
-    mutationFn: (data: LoginInput) => AuthAPI.login(data),
-    onSuccess: (data) => {
-      console.log(AuthUtils.getToken())
-      AuthUtils.setToken(data.access_token).catch(() => {})
+    mutationFn: (data: LoginInput) =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          console.log(data)
+          resolve('')
+        }, 500)
+      }),
+    // mutationFn: (data: LoginInput) => AuthAPI.login(data),
+    onSuccess: () => {
       authStore.login()
     },
+    // onSuccess: (data) => {
+    //   AuthUtils.setToken(data.access_token).catch(() => {})
+    //   authStore.login()
+    // },
     onError: () => {
       //
     }
