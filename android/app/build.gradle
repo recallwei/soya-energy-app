@@ -90,11 +90,11 @@ android {
         }
 
         release {
-          if (project.hasProperty('SOYA_SOLAR_TEST_STORE_FILE')) {
-            storeFile file(SOYA_SOLAR_TEST_STORE_FILE)
-            storePassword SOYA_SOLAR_TEST_STORE_PASSWORD
-            keyAlias SOYA_SOLAR_TEST_KEY_ALIAS
-            keyPassword SOYA_SOLAR_TEST_KEY_PASSWORD
+          if (project.hasProperty('SOYA_ENERGY_TEST_STORE_FILE')) {
+            storeFile file(SOYA_ENERGY_TEST_STORE_FILE)
+            storePassword SOYA_ENERGY_TEST_STORE_PASSWORD
+            keyAlias SOYA_ENERGY_TEST_KEY_ALIAS
+            keyPassword SOYA_ENERGY_TEST_KEY_PASSWORD
           }
         }
     }
