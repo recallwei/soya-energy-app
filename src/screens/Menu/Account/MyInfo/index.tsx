@@ -109,7 +109,7 @@ export default function MyInfoScreen(): React.JSX.Element {
             placeholder=""
           />
         </YStack>
-        <Button width="35%">Save Change</Button>
+        <Button>Save Change</Button>
 
         <Separator />
 
@@ -135,18 +135,17 @@ export default function MyInfoScreen(): React.JSX.Element {
           onCheckedChange={() => {}}
         />
 
-        <Button width="35%">Save</Button>
+        <Button>Save</Button>
 
         <Separator />
 
-        <YStack space="$2">
-          <Text>System Preferences</Text>
-          <Input
-            autoCapitalize="none"
-            clearButtonMode="while-editing"
-            placeholder=""
-          />
-        </YStack>
+        <Text
+          fontSize="$6"
+          fontWeight="bold"
+          marginVertical="$2"
+        >
+          System Preference
+        </Text>
 
         <YStack space="$2">
           <Text>Name</Text>
@@ -184,12 +183,7 @@ export default function MyInfoScreen(): React.JSX.Element {
           />
         </YStack>
 
-        <Button
-          width="70%"
-          onPress={() => goBack()}
-        >
-          Save System Preferences
-        </Button>
+        <Button onPress={() => goBack()}>Save System Preferences</Button>
       </YStack>
     </ScrollView>
   )
