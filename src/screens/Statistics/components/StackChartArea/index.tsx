@@ -10,17 +10,18 @@ export default function StackChartArea(props: Props): React.JSX.Element | null {
   return (
     <BarChart
       stackData={props.data}
-      maxValue={25}
-      mostNegativeValue={-10}
+      maxValue={36}
+      noOfSections={6}
       height={120}
-      barWidth={5}
-      spacing={2}
-      barBorderRadius={4}
+      stepValue={6}
+      barWidth={6}
+      spacing={5}
+      barBorderRadius={2}
       yAxisThickness={0}
       xAxisThickness={0}
       showFractionalValues
       isAnimated
-      animationDuration={1000}
+      animationDuration={300}
     />
   )
 }

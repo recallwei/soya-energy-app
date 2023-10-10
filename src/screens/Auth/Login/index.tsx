@@ -3,17 +3,27 @@ import { Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SafeAreaView, TouchableOpacity } from 'react-native'
-import { Button, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
+import { Dimensions, SafeAreaView, TouchableOpacity } from 'react-native'
+import {
+  Button,
+  Image,
+  Input,
+  Spinner,
+  Text,
+  View,
+  XStack,
+  YStack
+} from 'tamagui'
 
 // import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
 import { useAuthStore } from '@/store'
-import { SVG } from '@/svg'
 import type { LoginInput } from '@/types'
 // import { AuthUtils } from '@/utils'
 
 export default function LoginScreen(): React.JSX.Element {
+  const { width } = Dimensions.get('screen')
+
   const { t } = useTranslation(['Auth'])
 
   const authStore = useAuthStore()
@@ -66,21 +76,16 @@ export default function LoginScreen(): React.JSX.Element {
       >
         <YStack
           alignItems="center"
-          space="$4"
-          marginBottom="$2"
+          marginBottom="$6"
         >
-          <SVG.SolarPanel
-            color="#333333"
-            width={50}
-            height={50}
-            strokeWidth={20}
+          <Image
+            source={{
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, global-require
+              uri: require('../../../../assets/images/soya-energy-logo.jpg')
+            }}
+            width={width * 0.8}
+            height={100}
           />
-          <Text
-            fontSize="$8"
-            letterSpacing={2}
-          >
-            SOYA SOLAR
-          </Text>
         </YStack>
 
         <XStack

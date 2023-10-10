@@ -65,6 +65,31 @@ export default function StatisticsScreen(): React.JSX.Element {
 
   const [currentTimeTab, setCurrentTimeTab] = useState<TimeTab>('day')
 
+  const [produced, setProduced] = useState(true)
+  const [consumed, setConsumed] = useState(true)
+  const [imported, setImported] = useState(true)
+  const [charged, setCharged] = useState(true)
+
+  const handleChangeProduced = () => {
+    setProduced(!produced)
+    resetData()
+  }
+
+  const handleChangeConsumed = () => {
+    setConsumed(!consumed)
+    resetData()
+  }
+
+  const handleChangeImported = () => {
+    setImported(!imported)
+    resetData()
+  }
+
+  const handleChangeCharged = () => {
+    setCharged(!charged)
+    resetData()
+  }
+
   const { refreshing, onRefresh } = useRefresh(
     () =>
       new Promise((resolve) => {
@@ -173,7 +198,7 @@ export default function StatisticsScreen(): React.JSX.Element {
 
           <View
             marginTop="$4"
-            height={200}
+            height={150}
           >
             <StackChartArea data={stackChartData} />
           </View>
@@ -190,6 +215,8 @@ export default function StatisticsScreen(): React.JSX.Element {
               <Switch
                 size="$3"
                 backgroundColor="#dddddd"
+                checked={produced}
+                onCheckedChange={handleChangeProduced}
               >
                 <Switch.Thumb
                   animation="quick"
@@ -207,6 +234,8 @@ export default function StatisticsScreen(): React.JSX.Element {
               <Switch
                 size="$3"
                 backgroundColor="#dddddd"
+                checked={consumed}
+                onCheckedChange={handleChangeConsumed}
               >
                 <Switch.Thumb
                   animation="quick"
@@ -224,6 +253,8 @@ export default function StatisticsScreen(): React.JSX.Element {
               <Switch
                 size="$3"
                 backgroundColor="#dddddd"
+                checked={imported}
+                onCheckedChange={handleChangeImported}
               >
                 <Switch.Thumb animation="quick" />
               </Switch>
@@ -239,6 +270,8 @@ export default function StatisticsScreen(): React.JSX.Element {
               <Switch
                 size="$3"
                 backgroundColor="#dddddd"
+                checked={charged}
+                onCheckedChange={handleChangeCharged}
               >
                 <Switch.Thumb animation="quick" />
               </Switch>

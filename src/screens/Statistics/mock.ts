@@ -1,5 +1,5 @@
 export const getMockStackChartData = () => {
-  const dataCount = Math.floor(Math.random() * 150) + 5
+  const dataCount = 40
   return Array.from({ length: dataCount }, () => ({
     stacks: [
       {
@@ -7,7 +7,7 @@ export const getMockStackChartData = () => {
         color: '#0078d7'
       },
       {
-        value: Math.floor(Math.random() * 10),
+        value: Math.floor(Math.random() * 20),
         color: '#f59a23'
       }
     ]
