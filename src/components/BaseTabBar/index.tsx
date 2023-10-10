@@ -11,9 +11,9 @@ import {
 } from '@/screens'
 import { useTabsStore } from '@/store'
 import { GlobalStyles } from '@/styles'
-import type { HomeTabParamList } from '@/types'
+import type { TabParamList } from '@/types'
 
-const Tab = createBottomTabNavigator<HomeTabParamList>()
+const Tab = createBottomTabNavigator<TabParamList>()
 
 export default function BaseTabBar(): React.JSX.Element {
   const { t } = useTranslation(['Global'])
