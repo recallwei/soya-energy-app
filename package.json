@@ -8,7 +8,7 @@
     "android": "react-native run-android",
     "android:release": "react-native run-android --mode=release",
     "android:build:aab": "react-native build-android --mode=release",
-    "android:build:apk": "react-native build-android --mode=release --variant=apk",
+    "android:build:apk": "cd android && ./gradlew assembleRelease && cd .. && open android/app/build/outputs/apk/release",
     "env:check": "react-native doctor",
     "pod:install": "npx pod-install",
     "assets:install": "npx react-native-asset",
