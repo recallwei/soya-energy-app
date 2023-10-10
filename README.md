@@ -1,4 +1,4 @@
-# Solar Front App
+# Solar Energy App
 
 ## Tech Stack
 

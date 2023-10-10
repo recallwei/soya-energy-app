@@ -1,7 +1,6 @@
 {
-  "name": "soya-front-app",
+  "name": "soya-energy-app",
   "author": "Bruce Song <wenwei.song@raipiot.com>",
-  "main": "index.js",
   "scripts": {
     "start": "react-native start --reset-cache",
     "clean": "react-native clean",
@@ -91,6 +90,5 @@
   "engines": {
     "node": ">=16"
   },
-  "private": true,
-  "license": "MIT"
+  "private": true
 }

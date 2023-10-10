@@ -75,7 +75,7 @@ android {
 
     namespace "com.reactnativedemoapp"
     defaultConfig {
-        applicationId "com.soyasolartestapp"
+        applicationId "com.soyaenergytestapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
