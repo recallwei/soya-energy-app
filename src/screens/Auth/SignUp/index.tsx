@@ -32,7 +32,7 @@ export default function SignUpScreen(): React.JSX.Element {
     privacy: false
   })
 
-  const { mutate, isLoading } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: (data: typeof formData) =>
       new Promise((resolve) => {
         setTimeout(() => {
@@ -197,8 +197,8 @@ export default function SignUpScreen(): React.JSX.Element {
           marginVertical="$8"
           width="100%"
           onPress={handleSignup}
-          disabled={isLoading}
-          icon={isLoading ? <Spinner /> : undefined}
+          disabled={isPending}
+          icon={isPending ? <Spinner /> : undefined}
         >
           {t('Global:Submit')}
         </Button>

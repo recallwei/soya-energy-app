@@ -26,7 +26,7 @@ export default function SplashScreen(): React.JSX.Element {
           <Image
             source={{
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, global-require
-              uri: require('../../../assets/images/soya-energy-logo.jpg')
+              uri: require('../../../assets/images/soya-logo.png')
             }}
             width={width * 0.8}
             height={100}

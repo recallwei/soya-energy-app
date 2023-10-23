@@ -37,7 +37,7 @@ export default function LoginScreen(): React.JSX.Element {
   const [showPassword, setShowPassword] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
 
-  const { mutate, isLoading } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: (data: LoginInput) =>
       new Promise((resolve) => {
         setTimeout(() => {
@@ -81,10 +81,11 @@ export default function LoginScreen(): React.JSX.Element {
           <Image
             source={{
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, global-require
-              uri: require('../../../../assets/images/soya-energy-logo.jpg')
+              uri: require('../../../../assets/images/soya-logo.png')
             }}
-            width={width * 0.8}
-            height={100}
+            width={width * 0.618}
+            height={110}
+            resizeMode="contain"
           />
         </YStack>
 
@@ -102,7 +103,7 @@ export default function LoginScreen(): React.JSX.Element {
             onChangeText={(text) => {
               setFormData({ ...formData, username: text })
             }}
-            disabled={isLoading}
+            disabled={isPending}
             clearButtonMode="never"
           />
           <View
@@ -130,7 +131,7 @@ export default function LoginScreen(): React.JSX.Element {
               setFormData({ ...formData, password: text })
             }}
             secureTextEntry={!showPassword}
-            disabled={isLoading}
+            disabled={isPending}
             clearButtonMode="never"
           />
           <View
@@ -157,7 +158,7 @@ export default function LoginScreen(): React.JSX.Element {
         <SCheckbox
           width="100%"
           label={t('Auth:RememberPassword')}
-          disabled={isLoading}
+          disabled={isPending}
           checked={rememberPassword}
           onCheckedChange={(checked: boolean) => {
             setRememberPassword(checked)
@@ -167,8 +168,8 @@ export default function LoginScreen(): React.JSX.Element {
         <Button
           width="100%"
           onPress={handleLogin}
-          disabled={isLoading}
-          icon={isLoading ? <Spinner /> : undefined}
+          disabled={isPending}
+          icon={isPending ? <Spinner /> : undefined}
         >
           {t('Auth:Login')}
         </Button>
