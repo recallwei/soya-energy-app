@@ -1,5 +1,5 @@
 {
-  "name": "soya-app",
+  "name": "soya-energy-app",
   "author": "Bruce Song <wenwei.song@raipiot.com>",
   "scripts": {
     "start": "react-native start --reset-cache",
