@@ -25,7 +25,7 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.19.3",
     "@react-native-community/cli-platform-android": "^11.3.9",
-    "@react-native/gradle-plugin": "^0.73.2",
+    "@react-native/gradle-plugin": "0.72.11",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/devtools": "^6.0.20",
     "@react-navigation/native": "^6.1.9",
