@@ -603,7 +603,7 @@
 				DEVELOPMENT_TEAM = XFFYH8L9TR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeDemoApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Soya;
+				INFOPLIST_KEY_CFBundleDisplayName = "Soya Energy";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -636,7 +636,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XFFYH8L9TR;
 				INFOPLIST_FILE = ReactNativeDemoApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Soya;
+				INFOPLIST_KEY_CFBundleDisplayName = "Soya Energy";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

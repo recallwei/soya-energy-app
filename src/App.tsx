@@ -10,10 +10,12 @@ import { GlobalToast } from '@/components'
 
 import config from '../tamagui.config'
 import Navigation from './Navigation'
+import { useThemeStore } from './store'
 import { LoggerUtils } from './utils'
 
 export default function App() {
   const [queryClient] = useState(() => new QueryClient())
+  const { theme } = useThemeStore()
 
   useEffect(() => {
     Appearance.setColorScheme('light')
@@ -30,7 +32,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <TamaguiProvider
         config={config}
-        defaultTheme="light"
+        defaultTheme={theme}
       >
         <GlobalToast />
         <Navigation />

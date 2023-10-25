@@ -4,11 +4,14 @@ import { useTranslation } from 'react-i18next'
 import { YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
+import { useThemeStore } from '@/store'
 
 export default function SettingsScreen(): React.JSX.Element {
   const { t } = useTranslation('Settings')
 
   const navigation = useNavigation()
+
+  const { toggleTheme } = useThemeStore()
 
   const [gridControl] = useState(false)
   const [darkMode] = useState(false)
@@ -67,6 +70,7 @@ export default function SettingsScreen(): React.JSX.Element {
             : t('Description.DarkMode.False')
         }
         switcher
+        onPress={() => toggleTheme()}
       />
     </YStack>
   )

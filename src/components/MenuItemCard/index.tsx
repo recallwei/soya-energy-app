@@ -14,6 +14,7 @@ export type MenuItemCardProps = Props
 
 export default function MenuItemCard(props: Props) {
   const [isPressing, setIsPressing] = useState(false)
+  const [isSwitcherOn, setIsSwitcherOn] = useState(false)
   return (
     <Card
       size="$3"
@@ -23,6 +24,9 @@ export default function MenuItemCard(props: Props) {
       height="auto"
       pressStyle={{ scale: 0.95 }}
       onPress={() => {
+        if (props.switcher) {
+          setIsSwitcherOn(!isSwitcherOn)
+        }
         if (typeof props.onPress === 'function') {
           props.onPress()
         }
@@ -75,7 +79,10 @@ export default function MenuItemCard(props: Props) {
           }
         >
           {props.switcher ? (
-            <Switch size="$2">
+            <Switch
+              size="$2"
+              checked={isSwitcherOn}
+            >
               <Switch.Thumb
                 animation="quick"
                 backgroundColor="#0078d7"

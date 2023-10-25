@@ -82,7 +82,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       customArchiveName = "Soya Energy"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
