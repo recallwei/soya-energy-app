@@ -7,19 +7,24 @@ import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
 import { GlobalToast } from '@/components'
-import { globalEnvConfig } from '@/env'
 
 import config from '../tamagui.config'
 import Navigation from './Navigation'
+import { LoggerUtils } from './utils'
 
-export default function App(): JSX.Element {
+export default function App() {
   const [queryClient] = useState(() => new QueryClient())
 
   useEffect(() => {
     Appearance.setColorScheme('light')
-  }, [])
 
-  console.log(globalEnvConfig)
+    const init = async () => {
+      LoggerUtils.printEnv()
+      await LoggerUtils.printStorage()
+    }
+
+    init().catch(() => {})
+  }, [])
 
   return (
     <QueryClientProvider client={queryClient}>

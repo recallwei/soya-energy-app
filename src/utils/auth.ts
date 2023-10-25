@@ -8,16 +8,16 @@ export class AuthUtils {
       const token = await AsyncStorage.getItem(this.ACCESS_TOKEN_KEY)
       return token
     } catch {
-      return null
+      return ''
     }
   }
 
-  static async setToken(token: string) {
-    await AsyncStorage.setItem(this.ACCESS_TOKEN_KEY, token)
+  static setToken(token: string) {
+    return AsyncStorage.setItem(this.ACCESS_TOKEN_KEY, token)
   }
 
-  static async removeToken() {
-    await AsyncStorage.removeItem(this.ACCESS_TOKEN_KEY)
+  static removeToken() {
+    return AsyncStorage.removeItem(this.ACCESS_TOKEN_KEY)
   }
 
   static async isLogin() {
