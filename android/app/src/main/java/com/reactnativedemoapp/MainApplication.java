@@ -1,5 +1,6 @@
 package com.reactnativedemoapp;
 
+import com.microsoft.codepush.react.CodePush; // NOTE: Required for CodePush
 import android.app.Application;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -41,6 +42,12 @@ public class MainApplication extends Application implements ReactApplication {
         @Override
         protected Boolean isHermesEnabled() {
           return BuildConfig.IS_HERMES_ENABLED;
+        }
+
+        // NOTE: Code Push Required
+        @Override
+        protected String getJSBundleFile() {
+            return CodePush.getJSBundleFile();
         }
       };
 

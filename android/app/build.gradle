@@ -88,7 +88,8 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
-
+        staging {
+        }
         release {
           if (project.hasProperty('SOYA_ENERGY_TEST_STORE_FILE')) {
             storeFile file(SOYA_ENERGY_TEST_STORE_FILE)
@@ -97,10 +98,15 @@ android {
             keyPassword SOYA_ENERGY_TEST_KEY_PASSWORD
           }
         }
+
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            resValue "string", "CodePushDeploymentKey", '""'
+        }
+        staging{
+            resValue "string", "CodePushDeploymentKey", '"N3Pwz8vakGYcbNhsdksLbDkXXD_TfiVmbA-05"'
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -108,6 +114,7 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            resValue "string", "CodePushDeploymentKey", '"ZfncbyT5Dxul9EJeHEBlPHSHq6AcraeS0se9r"'
         }
     }
     // splits {
@@ -139,3 +146,4 @@ dependencies {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
