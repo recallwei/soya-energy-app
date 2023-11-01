@@ -73,7 +73,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>CodePushPublicKey</key>
+	<key>CodePushDeploymentKey</key>
 	<string>${CODEPUSH_KEY}</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

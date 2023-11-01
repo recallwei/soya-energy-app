@@ -15,11 +15,12 @@ import {
   YStack
 } from 'tamagui'
 
-// import { AuthAPI } from '@/api'
+import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
+import { globalEnvConfig } from '@/env'
 import { useAuthStore } from '@/store'
-import type { LoginInput } from '@/types'
-// import { AuthUtils } from '@/utils'
+import type { LoginInputModel } from '@/types'
+import { AuthUtils, CodePushUtils } from '@/utils'
 
 export default function LoginScreen(): React.JSX.Element {
   const { width } = Dimensions.get('screen')
@@ -38,23 +39,12 @@ export default function LoginScreen(): React.JSX.Element {
   const [rememberPassword, setRememberPassword] = useState(false)
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (data: LoginInput) =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          console.log(data)
-          resolve('')
-        }, 500)
-      }),
-    // mutationFn: (data: LoginInput) => AuthAPI.login(data),
-    onSuccess: () => {
+    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, true),
+    onSuccess: (data) => {
+      AuthUtils.setToken((data as { access_token: string }).access_token).catch(
+        () => {}
+      )
       authStore.login()
-    },
-    // onSuccess: (data) => {
-    //   AuthUtils.setToken(data.access_token).catch(() => {})
-    //   authStore.login()
-    // },
-    onError: () => {
-      //
     }
   })
 
@@ -66,7 +56,6 @@ export default function LoginScreen(): React.JSX.Element {
     <SafeAreaView>
       <YStack
         padding="$6"
-        paddingTop="$12"
         justifyContent="flex-start"
         alignItems="center"
         width="100%"
@@ -77,6 +66,7 @@ export default function LoginScreen(): React.JSX.Element {
         <YStack
           alignItems="center"
           marginBottom="$6"
+          paddingTop="$12"
         >
           <Image
             source={{
@@ -187,6 +177,16 @@ export default function LoginScreen(): React.JSX.Element {
             <Text>{t('Auth:Signup')}</Text>
           </TouchableOpacity>
         </XStack>
+
+        <Text
+          position="absolute"
+          bottom={0}
+          onPress={() => {
+            CodePushUtils.syncCode().catch(() => {})
+          }}
+        >
+          {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}
+        </Text>
       </YStack>
     </SafeAreaView>
   )

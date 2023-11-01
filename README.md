@@ -5,7 +5,6 @@
 - Core: React Native, based on React Native CLI
 - UI Framework: Tamagui UI
 - Router: React Navigation
-- Global Styles: StyleSheet.create → GlobalStyles
 - CSS: Nativewind
 - Fonts: Google Fonts
 - API Request: Axios

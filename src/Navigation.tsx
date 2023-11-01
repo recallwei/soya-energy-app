@@ -56,7 +56,6 @@ import {
   SystemSiteDetailsScreen
 } from '@/screens'
 import { useAuthStore, useTabsStore } from '@/store'
-import { GlobalStyles } from '@/styles'
 import type { RootStackParamList, TabParamList } from '@/types'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -102,14 +101,18 @@ export default function Navigation(): React.JSX.Element {
         <Stack.Navigator
           screenOptions={{
             headerTintColor: '#ffffff',
-            headerBackTitleStyle: GlobalStyles.headerBackTitle,
+            headerBackTitleStyle: {
+              fontSize: 16
+            },
             headerStyle: {
               backgroundColor: '#333333'
             },
             contentStyle: {
               backgroundColor: '#ffffff'
             },
-            headerTitleStyle: GlobalStyles.headerTitle,
+            headerTitleStyle: {
+              fontSize: 16
+            },
             animation: 'slide_from_right',
             statusBarStyle: 'light', // iOS only
             statusBarColor: '#000000', // Android only

@@ -1,4 +1,4 @@
-export interface LoginInput {
+export interface LoginInputModel {
   username: string
   password: string
 }

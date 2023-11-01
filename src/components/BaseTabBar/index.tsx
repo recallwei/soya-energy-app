@@ -10,7 +10,6 @@ import {
   StatusScreen
 } from '@/screens'
 import { useTabsStore } from '@/store'
-import { GlobalStyles } from '@/styles'
 import type { TabParamList } from '@/types'
 
 const Tab = createBottomTabNavigator<TabParamList>()
@@ -25,12 +24,15 @@ export default function BaseTabBar(): React.JSX.Element {
       screenOptions={() => ({
         headerShown: false,
         headerTintColor: '#ffffff',
-        headerBackTitleStyle: GlobalStyles.headerBackTitle,
         headerStyle: {
           backgroundColor: '#333333'
         },
-        headerTitleStyle: GlobalStyles.headerTitle,
-        tabBarLabelStyle: GlobalStyles.tabBarLabel,
+        headerTitleStyle: {
+          fontSize: 16
+        },
+        tabBarLabelStyle: {
+          fontSize: 14
+        },
         tabBarActiveTintColor: '#333333',
         tabBarInactiveTintColor: '#999999'
       })}

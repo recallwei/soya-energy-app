@@ -7,19 +7,24 @@ import type {
 } from 'axios'
 import axios from 'axios'
 
+import { errorMessageMap, ResponseStatusCode } from '@/constants'
 import { globalEnvConfig } from '@/env'
 import { AuthUtils } from '@/utils'
-
-import { axiosConfig } from './config'
-import { errorMessageMap, ResponseStatusCode } from './statusCode'
 
 class Request {
   instance: AxiosInstance
 
-  public constructor(config: AxiosRequestConfig) {
-    axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+  config: AxiosRequestConfig = {
+    baseURL: '/',
+    timeout: 30000,
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    }
+  }
 
-    this.instance = axios.create(config)
+  public constructor() {
+    this.instance = axios.create(this.config)
 
     this.instance.interceptors.request.use(
       async (req: InternalAxiosRequestConfig) => {
@@ -36,8 +41,6 @@ class Request {
           req.headers['Raipiot-Auth'] = await AuthUtils.getAuthorization()
         }
 
-        console.log(req)
-
         return req
       },
       (err: AxiosError) => Promise.reject(err)
@@ -46,7 +49,7 @@ class Request {
     this.instance.interceptors.response.use(
       (res: AxiosResponse) => res.data as AxiosResponse,
       (err: AxiosError) => {
-        console.log(err)
+        console.log(err.response?.data)
         const { response } = err
         const { data, status } = response ?? {}
         if (response) {
@@ -192,4 +195,4 @@ class Request {
   }
 }
 
-export default new Request(axiosConfig)
+export default new Request()
