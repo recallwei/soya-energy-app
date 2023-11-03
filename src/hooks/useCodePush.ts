@@ -5,7 +5,7 @@ import CodePush from 'react-native-code-push'
 
 import { globalEnvConfig } from '@/env'
 
-export default function useCodePush() {
+export function useCodePush() {
   useEffect(() => {
     async function syncCode(appStateStatus: AppStateStatus) {
       if (appStateStatus === 'active') {

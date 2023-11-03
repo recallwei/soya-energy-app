@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 
-export default function useRefresh<T>(callback?: () => Promise<T>): {
+export function useRefresh<T>(callback?: () => Promise<T>): {
   refreshing: boolean
   onRefresh: () => void
   startRefresh: () => void

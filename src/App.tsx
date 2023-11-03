@@ -1,8 +1,15 @@
 import './i18n'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import NetInfo from '@react-native-community/netinfo'
+import {
+  focusManager,
+  onlineManager,
+  QueryClient,
+  QueryClientProvider
+} from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
-import { Appearance } from 'react-native'
+import type { AppStateStatus } from 'react-native'
+import { Appearance, AppState, Platform } from 'react-native'
 import CodePush from 'react-native-code-push'
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
@@ -15,6 +22,12 @@ import Navigation from './Navigation'
 import { useThemeStore } from './store'
 import { LoggerUtils } from './utils'
 
+function onAppStateChange(status: AppStateStatus) {
+  if (Platform.OS !== 'web') {
+    focusManager.setFocused(status === 'active')
+  }
+}
+
 function App() {
   const [queryClient] = useState(() => new QueryClient())
   const { theme } = useThemeStore()
@@ -24,12 +37,33 @@ function App() {
   useEffect(() => {
     Appearance.setColorScheme('light')
 
+    /**
+     * 在线状态管理
+     * @see https://tanstack.com/query/latest/docs/react/react-native#online-status-management
+     */
+    onlineManager.setEventListener((setOnline) =>
+      NetInfo.addEventListener((state) => {
+        setOnline(!!state.isConnected)
+      })
+    )
+
+    /**
+     * 应用程序焦点
+     * @see https://tanstack.com/query/latest/docs/react/react-native#refetch-on-app-focus
+     */
+
+    const subscription = AppState.addEventListener('change', onAppStateChange)
+
     const init = async () => {
       LoggerUtils.printEnv()
       await LoggerUtils.printStorage()
     }
 
     init().catch(() => {})
+
+    return () => {
+      subscription.remove()
+    }
   }, [])
 
   return (
