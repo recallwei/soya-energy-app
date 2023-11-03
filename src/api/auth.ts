@@ -4,13 +4,13 @@ import type { LoginInputModel } from '@/types'
 import Request from './axios'
 
 export class AuthAPI {
-  private static AUTH_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/raipiot-auth/oauth`
+  private static AUTH_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/auth`
 
   /**
    * 登录
    * @description skipAuth 模拟登录
    */
-  static login(params: LoginInputModel, skipAuth?: boolean) {
+  static login(data: LoginInputModel, skipAuth?: boolean) {
     if (skipAuth) {
       return new Promise((resolve) => {
         resolve({ access_token: '123456' })
@@ -20,7 +20,7 @@ export class AuthAPI {
       access_token: string
       error_code?: string
       error_description?: string
-    }>(`${this.AUTH_API_PREFIX}/token`, {}, { params })
+    }>(`${this.AUTH_API_PREFIX}/login`, data)
   }
 
   /**

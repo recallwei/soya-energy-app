@@ -41,13 +41,21 @@ class Request {
           req.headers['Raipiot-Auth'] = await AuthUtils.getAuthorization()
         }
 
+        console.log(`请求路径：${req.url}`)
+        console.log(`请求参数：${JSON.stringify(req.params)}`)
+        console.log(`请求数据：${JSON.stringify(req.data)}`)
+
         return req
       },
       (err: AxiosError) => Promise.reject(err)
     )
 
     this.instance.interceptors.response.use(
-      (res: AxiosResponse) => res.data as AxiosResponse,
+      (res: AxiosResponse) => {
+        console.log(`响应状态：${res.status}`)
+        console.log(`响应数据：${JSON.stringify(res.data)}`)
+        return res.data as AxiosResponse
+      },
       (err: AxiosError) => {
         console.log(err.response?.data)
         const { response } = err
