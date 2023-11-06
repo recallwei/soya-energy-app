@@ -56,8 +56,7 @@ export default function SignUpScreen(): React.JSX.Element {
   const handleChangeInstallation = (value: boolean) =>
     setFormData((val) => ({ ...val, installation: value }))
 
-  const handleChangePrivacy = (value: boolean) =>
-    setFormData((val) => ({ ...val, privacy: value }))
+  const handleChangePrivacy = (value: boolean) => setFormData((val) => ({ ...val, privacy: value }))
 
   const handleSignup = () => {
     mutate(formData)

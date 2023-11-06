@@ -3,12 +3,7 @@ import { BarChart4, CloudLightning, Grid, Menu } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { View } from 'tamagui'
 
-import {
-  ArrayScreen,
-  MenuScreen,
-  StatisticsScreen,
-  StatusScreen
-} from '@/screens'
+import { ArrayScreen, MenuScreen, StatisticsScreen, StatusScreen } from '@/screens'
 import { useTabsStore } from '@/store'
 import type { TabParamList } from '@/types'
 

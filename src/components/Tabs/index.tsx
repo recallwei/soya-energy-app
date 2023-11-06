@@ -1,14 +1,6 @@
 import { useState } from 'react'
 import type { StackProps, TabLayout, TabsTabProps } from 'tamagui'
-import {
-  AnimatePresence,
-  H5,
-  SizableText,
-  Stack,
-  styled,
-  Tabs,
-  YStack
-} from 'tamagui'
+import { AnimatePresence, H5, SizableText, Stack, styled, Tabs, YStack } from 'tamagui'
 
 const AnimatedYStack = styled(YStack, {
   variants: {
@@ -44,15 +36,12 @@ export default function TabsAdvancedBackground() {
 
     prevActiveAt: null
   })
-  const setCurrentTab = (currentTab: string) =>
-    setTabState({ ...tabState, currentTab })
 
-  const setIntentIndicator = (intentAt: any) =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    setTabState({ ...tabState, intentAt })
+  const setCurrentTab = (currentTab: string) => setTabState({ ...tabState, currentTab })
+
+  const setIntentIndicator = (intentAt: any) => setTabState({ ...tabState, intentAt })
 
   const setActiveIndicator = (activeAt: any) =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     setTabState({ ...tabState, prevActiveAt: tabState.activeAt, activeAt })
 
   const { activeAt, intentAt, prevActiveAt, currentTab } = tabState
@@ -176,10 +165,7 @@ export default function TabsAdvancedBackground() {
   )
 }
 
-function TabsRovingIndicator({
-  active,
-  ...props
-}: { active?: boolean } & StackProps) {
+function TabsRovingIndicator({ active, ...props }: { active?: boolean } & StackProps) {
   return (
     <Stack
       position="absolute"

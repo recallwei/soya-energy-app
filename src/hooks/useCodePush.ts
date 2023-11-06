@@ -16,9 +16,8 @@ export function useCodePush() {
     let appListener: NativeEventSubscription
 
     if (globalEnvConfig.APP_ENVIRONMENT !== 'DEV') {
-      syncCode(AppState.currentState).catch(() => {})
+      syncCode(AppState.currentState)
 
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       appListener = AppState.addEventListener('change', syncCode)
     } else {
       console.log('[CodePush] DEV 环境下不更新代码推送')

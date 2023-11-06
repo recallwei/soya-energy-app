@@ -34,8 +34,8 @@ export default function BatteryScreen(): React.JSX.Element {
         <Separator />
 
         <Paragraph>
-          Overrides your system profile to Full Backup when a severe weather
-          condition alert is issued for your locality.
+          Overrides your system profile to Full Backup when a severe weather condition alert is
+          issued for your locality.
         </Paragraph>
 
         <Text

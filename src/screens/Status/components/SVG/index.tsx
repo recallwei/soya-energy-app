@@ -24,9 +24,7 @@ function Item1() {
         strokeWidth="2"
       />
       <Path
-        d={`M${width - 10} 60 L${width - 15} 50 M${width - 10} 60 L${
-          width - 5
-        } 50`}
+        d={`M${width - 10} 60 L${width - 15} 50 M${width - 10} 60 L${width - 5} 50`}
         stroke="#333333"
         strokeWidth="2"
       />
@@ -47,9 +45,7 @@ function Item2() {
         strokeWidth="2"
       />
       <Path
-        d={`M${width / 2} 60 L${width / 2 - 5} 50 M${width / 2} 60 L${
-          width / 2 + 5
-        } 50`}
+        d={`M${width / 2} 60 L${width / 2 - 5} 50 M${width / 2} 60 L${width / 2 + 5} 50`}
         stroke="#578e31"
         strokeWidth="2"
       />
@@ -133,9 +129,7 @@ function Item5() {
         strokeWidth="2"
       />
       <Path
-        d={`M${width / 2} 50 L${width / 2 - 5} 40 M${width / 2} 50 L${
-          width / 2 + 5
-        } 40`}
+        d={`M${width / 2} 50 L${width / 2 - 5} 40 M${width / 2} 50 L${width / 2 + 5} 40`}
         stroke="#578e31"
         strokeWidth="2"
       />
@@ -166,9 +160,7 @@ function Item6() {
         strokeWidth="2"
       />
       <Path
-        d={`M${width - 20} 50 L${width - 25} 40 M${width - 20} 50 L${
-          width - 15
-        } 40`}
+        d={`M${width - 20} 50 L${width - 25} 40 M${width - 20} 50 L${width - 15} 40`}
         stroke="#578e31"
         strokeWidth="2"
       />

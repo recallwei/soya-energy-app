@@ -80,12 +80,10 @@ function App() {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const AppWithCodePush = CodePush({
   updateDialog: {
     // title: 'Update available',
-    // optionalUpdateMessage:
-    //   'An update is available. Would you like to install it?',
+    // optionalUpdateMessage: 'An update is available. Would you like to install it?',
     // optionalInstallButtonLabel: 'Install',
     // optionalIgnoreButtonLabel: 'Ignore',
     // mandatoryContinueButtonLabel: 'Continue',

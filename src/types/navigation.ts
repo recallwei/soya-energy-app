@@ -1,15 +1,12 @@
 import type { BottomTabScreenProps } from '@react-navigation/bottom-tabs'
-import type {
-  CompositeScreenProps,
-  NavigatorScreenParams
-} from '@react-navigation/native'
+import type { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 /**
  * NOTE: Why not use interface?
  * @see https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
  */
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>
   LiveStatus: undefined
@@ -66,17 +63,21 @@ export type RootStackParamList = {
   ForgotPassword?: undefined
 }
 
-export type RootStackScreenProps<T extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, T>
+export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<
+  RootStackParamList,
+  T
+>
 
-export type ScreenProps<T extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, T>
+export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<
+  RootStackParamList,
+  T
+>
 
 /**
  * NOTE: Why not use interface?
  * @see https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
  */
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+
 export type TabParamList = {
   Status: undefined
   Statistics: undefined
@@ -92,7 +93,6 @@ export type TabScreenProps<T extends keyof TabParamList> = CompositeScreenProps<
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace ReactNavigation {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
     interface RootParamList extends RootStackParamList {}
   }
 }

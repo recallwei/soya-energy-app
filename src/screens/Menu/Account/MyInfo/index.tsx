@@ -164,10 +164,7 @@ export default function MyInfoScreen(): React.JSX.Element {
             label="Create a public page for my system"
             onCheckedChange={() => {}}
           />
-          <Text>
-            This will enable social sharing features and allow visitors to your
-            system.
-          </Text>
+          <Text>This will enable social sharing features and allow visitors to your system.</Text>
         </YStack>
 
         <Separator />

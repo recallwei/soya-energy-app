@@ -42,17 +42,11 @@ export default function LoadControlScreen(): React.JSX.Element {
               },
               {
                 mode: 'Scheduled',
-                textList: [
-                  'On Grid: Powered',
-                  'Off Grid: Powered between 06:00 am and 11:00 pm'
-                ]
+                textList: ['On Grid: Powered', 'Off Grid: Powered between 06:00 am and 11:00 pm']
               },
               {
                 mode: 'Advanced',
-                textList: [
-                  'On Grid: Powered',
-                  'Off Grid: Powered when battery is above 50%'
-                ]
+                textList: ['On Grid: Powered', 'Off Grid: Powered when battery is above 50%']
               },
               {
                 mode: 'Manual',
@@ -73,17 +67,11 @@ export default function LoadControlScreen(): React.JSX.Element {
               },
               {
                 mode: 'Scheduled',
-                textList: [
-                  'On Grid: Powered',
-                  'Off Grid: Powered between 06:00 am and 11:00 pm'
-                ]
+                textList: ['On Grid: Powered', 'Off Grid: Powered between 06:00 am and 11:00 pm']
               },
               {
                 mode: 'Advanced',
-                textList: [
-                  'On Grid: Powered',
-                  'Off Grid: Powered when battery is above 50%'
-                ]
+                textList: ['On Grid: Powered', 'Off Grid: Powered when battery is above 50%']
               },
               {
                 mode: 'Manual',
@@ -104,17 +92,11 @@ export default function LoadControlScreen(): React.JSX.Element {
               },
               {
                 mode: 'Scheduled',
-                textList: [
-                  'On Grid: Powered',
-                  'Off Grid: Powered between 06:00 am and 11:00 pm'
-                ]
+                textList: ['On Grid: Powered', 'Off Grid: Powered between 06:00 am and 11:00 pm']
               },
               {
                 mode: 'Advanced',
-                textList: [
-                  'On Grid: Powered',
-                  'Off Grid: Powered when battery is above 50%'
-                ]
+                textList: ['On Grid: Powered', 'Off Grid: Powered when battery is above 50%']
               },
               {
                 mode: 'Manual',

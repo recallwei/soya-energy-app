@@ -44,8 +44,8 @@ export default function AutofillScreen(): React.JSX.Element {
           <YStack gap="$2">
             <Text fontSize="$3">Note:</Text>
             <Paragraph fontSize="$3">
-              In case of difficulty in finding Tariff Name/Code, kindly contact
-              your Utility Provider for details.
+              In case of difficulty in finding Tariff Name/Code, kindly contact your Utility
+              Provider for details.
             </Paragraph>
           </YStack>
         </YStack>

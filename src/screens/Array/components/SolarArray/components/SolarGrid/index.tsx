@@ -22,11 +22,7 @@ function Row(props: PropsWithChildren): React.JSX.Element {
   )
 }
 
-function Box({
-  height
-}: {
-  height: string | number | undefined
-}): React.JSX.Element {
+function Box({ height }: { height: string | number | undefined }): React.JSX.Element {
   return (
     <View
       backgroundColor="#0078d7"
@@ -37,9 +33,7 @@ function Box({
   )
 }
 
-export default function SolarGrid(
-  props: PropsWithChildren<Props>
-): React.JSX.Element {
+export default function SolarGrid(props: PropsWithChildren<Props>): React.JSX.Element {
   return (
     <View
       opacity={0.75}

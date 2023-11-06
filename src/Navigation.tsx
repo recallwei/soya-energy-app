@@ -321,9 +321,7 @@ export default function Navigation(): React.JSX.Element {
                 name="SettingsElectricityRate"
                 component={SettingsElectricityRateScreen}
                 options={{
-                  title: t(
-                    'Global:Screens.Settings.ElectricityRate.ElectricityRate'
-                  )
+                  title: t('Global:Screens.Settings.ElectricityRate.ElectricityRate')
                 }}
               />
               <Stack.Screen
@@ -344,18 +342,14 @@ export default function Navigation(): React.JSX.Element {
                 name="SettingsElectricityRateStructureEditAutofill"
                 component={SettingsElectricityRateStructureEditAutofillScreen}
                 options={{
-                  title: t(
-                    'Global:Screens.Settings.ElectricityRate.Edit.Autofill'
-                  )
+                  title: t('Global:Screens.Settings.ElectricityRate.Edit.Autofill')
                 }}
               />
               <Stack.Screen
                 name="SettingsElectricityRateStructureEditManual"
                 component={SettingsElectricityRateStructureEditManualScreen}
                 options={{
-                  title: t(
-                    'Global:Screens.Settings.ElectricityRate.Edit.Manual'
-                  )
+                  title: t('Global:Screens.Settings.ElectricityRate.Edit.Manual')
                 }}
               />
               <Stack.Screen
@@ -371,36 +365,28 @@ export default function Navigation(): React.JSX.Element {
                 name="SettingsAddElectricityExportRateNEM"
                 component={SettingsAddElectricityExportRateNEMScreen}
                 options={{
-                  title: t(
-                    'Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.NEM'
-                  )
+                  title: t('Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.NEM')
                 }}
               />
               <Stack.Screen
                 name="SettingsAddElectricityExportRateNet"
                 component={SettingsAddElectricityExportRateNetScreen}
                 options={{
-                  title: t(
-                    'Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.Net'
-                  )
+                  title: t('Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.Net')
                 }}
               />
               <Stack.Screen
                 name="SettingsAddElectricityExportRateGross"
                 component={SettingsAddElectricityExportRateGrossScreen}
                 options={{
-                  title: t(
-                    'Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.Gross'
-                  )
+                  title: t('Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.Gross')
                 }}
               />
               <Stack.Screen
                 name="SettingsAddElectricityExportRateOther"
                 component={SettingsAddElectricityExportRateOtherScreen}
                 options={{
-                  title: t(
-                    'Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.Other'
-                  )
+                  title: t('Global:Screens.Settings.ElectricityRate.AddElectricityExportRate.Other')
                 }}
               />
               <Stack.Screen

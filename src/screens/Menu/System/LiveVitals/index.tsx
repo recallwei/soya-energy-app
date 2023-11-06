@@ -88,9 +88,7 @@ export default function LiveVitalsScreen(): React.JSX.Element {
           <Text>Battery is operational</Text>
           <Text>Grid Mode: On Grid</Text>
           <Text>Discharging: 98%</Text>
-          <Text marginBottom="$4">
-            LED Status: Battery capacity is between 75% ~ 100%
-          </Text>
+          <Text marginBottom="$4">LED Status: Battery capacity is between 75% ~ 100%</Text>
 
           <Text
             textAlign="center"

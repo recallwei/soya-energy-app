@@ -49,9 +49,7 @@ export default function SettingsScreen(): React.JSX.Element {
       <MenuItemCard
         title={t('Title.GridControl')}
         description={
-          gridControl
-            ? t('Description.GridControl.True')
-            : t('Description.GridControl.False')
+          gridControl ? t('Description.GridControl.True') : t('Description.GridControl.False')
         }
         switcher
       />
@@ -64,11 +62,7 @@ export default function SettingsScreen(): React.JSX.Element {
 
       <MenuItemCard
         title={t('Title.DarkMode')}
-        description={
-          darkMode
-            ? t('Description.DarkMode.True')
-            : t('Description.DarkMode.False')
-        }
+        description={darkMode ? t('Description.DarkMode.True') : t('Description.DarkMode.False')}
         switcher
         onPress={() => toggleTheme()}
       />

@@ -18,8 +18,7 @@ interface Props {
 export default function PieChartArea(props: Props): React.JSX.Element | null {
   if (!props.data || props.data.length === 0) return null
 
-  const getTotal = () =>
-    props.data?.reduce((acc, cur) => acc + cur.value, 0).toFixed(2)
+  const getTotal = () => props.data?.reduce((acc, cur) => acc + cur.value, 0).toFixed(2)
   return (
     <View
       position="relative"

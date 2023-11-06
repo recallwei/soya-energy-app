@@ -5,16 +5,7 @@ import CryptoJS from 'crypto-js'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Dimensions, SafeAreaView, TouchableOpacity } from 'react-native'
-import {
-  Button,
-  Image,
-  Input,
-  Spinner,
-  Text,
-  View,
-  XStack,
-  YStack
-} from 'tamagui'
+import { Button, Image, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
 
 import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
@@ -42,9 +33,7 @@ export default function LoginScreen(): React.JSX.Element {
   const { mutate, isPending } = useMutation({
     mutationFn: (data: LoginInputModel) => AuthAPI.login(data, false),
     onSuccess: (data) => {
-      AuthUtils.setToken((data as { access_token: string }).access_token).catch(
-        () => {}
-      )
+      AuthUtils.setToken((data as { access_token: string }).access_token).catch(() => {})
       authStore.login()
     },
     onError: (error) => {
@@ -80,10 +69,7 @@ export default function LoginScreen(): React.JSX.Element {
             paddingTop="$12"
           >
             <Image
-              source={{
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, global-require
-                uri: require('../../../../assets/images/soya-logo.png')
-              }}
+              source={{ uri: require('../../../../assets/images/soya-logo.png') }}
               width={width * 0.618}
               height={110}
               resizeMode="contain"
@@ -179,9 +165,7 @@ export default function LoginScreen(): React.JSX.Element {
             justifyContent="space-between"
             width="100%"
           >
-            <TouchableOpacity
-              onPress={() => navigation.navigate('ForgotPassword')}
-            >
+            <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
               <Text>{t('Auth:ForgotPassword')}</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>

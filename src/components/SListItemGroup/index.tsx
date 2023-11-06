@@ -31,7 +31,6 @@ export default function SListItemGroup(props: Props): React.JSX.Element | null {
             size="$4"
             scaleIcon={scaleIcon}
             pressTheme={props.pressTheme}
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             icon={item.icon}
             title={item.title}
             subTitle={item.description}

@@ -18,9 +18,7 @@ export default function GrossScreen(): React.JSX.Element {
         <YStack space="$3">
           <YStack space="$3">
             <Text>Electricity Payout Rate Structure: Gross FIT</Text>
-            <Text fontSize="$4">
-              Fixed Electricity payout rate that does not vary
-            </Text>
+            <Text fontSize="$4">Fixed Electricity payout rate that does not vary</Text>
 
             <Separator />
 

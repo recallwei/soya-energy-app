@@ -74,9 +74,7 @@ export default function BatteryCard(): React.JSX.Element {
           alignItems="center"
           columnGap="$2"
         >
-          <Pressable
-            onPress={() => setBatteryLevel(Math.floor(Math.random() * 5 + 0))}
-          >
+          <Pressable onPress={() => setBatteryLevel(Math.floor(Math.random() * 5 + 0))}>
             {getBatteryIconByLevel()}
           </Pressable>
 

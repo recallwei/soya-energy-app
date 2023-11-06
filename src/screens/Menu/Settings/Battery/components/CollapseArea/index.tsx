@@ -1,14 +1,6 @@
 import { ChevronDown } from '@tamagui/lucide-icons'
 import { type PropsWithChildren, useState } from 'react'
-import {
-  Accordion,
-  Button,
-  Paragraph,
-  Square,
-  Text,
-  XStack,
-  YStack
-} from 'tamagui'
+import { Accordion, Button, Paragraph, Square, Text, XStack, YStack } from 'tamagui'
 
 interface Props extends PropsWithChildren {
   title: string

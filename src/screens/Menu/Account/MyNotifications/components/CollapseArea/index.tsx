@@ -1,14 +1,5 @@
 import { Check, ChevronDown } from '@tamagui/lucide-icons'
-import {
-  Accordion,
-  Checkbox,
-  Separator,
-  Square,
-  Text,
-  View,
-  XStack,
-  YStack
-} from 'tamagui'
+import { Accordion, Checkbox, Separator, Square, Text, View, XStack, YStack } from 'tamagui'
 
 interface MainItem {
   title: string
@@ -132,9 +123,7 @@ export default function CollapseArea(props: Props): React.JSX.Element {
                     <Text>{collapseItem.description}</Text>
                   </YStack>
 
-                  {collapseItemIndex < mainItem.children.length - 1 && (
-                    <Separator />
-                  )}
+                  {collapseItemIndex < mainItem.children.length - 1 && <Separator />}
                 </YStack>
               ))}
             </YStack>

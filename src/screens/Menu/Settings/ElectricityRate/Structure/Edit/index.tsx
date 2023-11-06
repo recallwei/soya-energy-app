@@ -24,9 +24,7 @@ export default function EditScreen(): React.JSX.Element {
         <MenuItemCard
           title="Autofill"
           description="Import your electricity rate structure using the information from your utility"
-          onPress={() =>
-            navigate('SettingsElectricityRateStructureEditAutofill')
-          }
+          onPress={() => navigate('SettingsElectricityRateStructureEditAutofill')}
         />
         <MenuItemCard
           title="Manual"

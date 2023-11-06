@@ -1,14 +1,5 @@
 import { ChevronDown } from '@tamagui/lucide-icons'
-import {
-  Accordion,
-  Label,
-  RadioGroup,
-  Separator,
-  Square,
-  Text,
-  XStack,
-  YStack
-} from 'tamagui'
+import { Accordion, Label, RadioGroup, Separator, Square, Text, XStack, YStack } from 'tamagui'
 
 interface Data {
   title: string

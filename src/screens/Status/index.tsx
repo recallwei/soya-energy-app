@@ -4,13 +4,7 @@ import { ScrollView, YStack } from 'tamagui'
 
 import { useRefresh } from '@/hooks'
 
-import {
-  BatteryCard,
-  HeaderArea,
-  InputCard,
-  OutputCard,
-  TotalCard
-} from './components'
+import { BatteryCard, HeaderArea, InputCard, OutputCard, TotalCard } from './components'
 
 export default function StatusScreen() {
   const { refetch } = useQuery({

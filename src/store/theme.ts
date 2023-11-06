@@ -14,6 +14,5 @@ const initialState: State = {
 
 export const useThemeStore = create<State & Actions>()((set) => ({
   ...initialState,
-  toggleTheme: () =>
-    set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' }))
+  toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' }))
 }))

@@ -1,13 +1,5 @@
 import { RefreshControl, TouchableOpacity } from 'react-native'
-import {
-  Paragraph,
-  ScrollView,
-  Separator,
-  Switch,
-  Text,
-  XStack,
-  YStack
-} from 'tamagui'
+import { Paragraph, ScrollView, Separator, Switch, Text, XStack, YStack } from 'tamagui'
 
 import { useRefresh } from '@/hooks'
 
@@ -61,8 +53,8 @@ export default function CurrencyScreen(): React.JSX.Element {
             Currency Conversion Factor
           </Text>
           <Paragraph>
-            Energy data is converted to their currency equivalent value by
-            multiplying them with the currency conversion factor.
+            Energy data is converted to their currency equivalent value by multiplying them with the
+            currency conversion factor.
           </Paragraph>
         </YStack>
 
@@ -82,8 +74,8 @@ export default function CurrencyScreen(): React.JSX.Element {
         <Separator />
 
         <Paragraph fontSize="$3">
-          Note: The reported currency value is indicative and does not include
-          taxes, fixed charges, etc.
+          Note: The reported currency value is indicative and does not include taxes, fixed charges,
+          etc.
         </Paragraph>
       </YStack>
     </ScrollView>

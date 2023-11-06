@@ -1,9 +1,4 @@
-import {
-  Toast,
-  ToastProvider,
-  ToastViewport,
-  useToastState
-} from '@tamagui/toast'
+import { Toast, ToastProvider, ToastViewport, useToastState } from '@tamagui/toast'
 
 export default function GlobalToastProvider(): React.JSX.Element | null {
   const toast = useToastState()
@@ -26,9 +21,7 @@ export default function GlobalToastProvider(): React.JSX.Element | null {
         viewportName={toast.viewportName}
       >
         <Toast.Title>{toast.title}</Toast.Title>
-        {!!toast.message && (
-          <Toast.Description>{toast.message}</Toast.Description>
-        )}
+        {!!toast.message && <Toast.Description>{toast.message}</Toast.Description>}
       </Toast>
       <ToastViewport />
     </ToastProvider>

@@ -35,10 +35,9 @@ export default function ReportsScreen(): React.JSX.Element {
             <Separator />
 
             <Text>
-              This report summarizes the energy produced, consumed imported to,
-              and exported from this site for every 15 minutes of the selected
-              month. lf the system includes batteries, the report also shows
-              energy stored and discharged.
+              This report summarizes the energy produced, consumed imported to, and exported from
+              this site for every 15 minutes of the selected month. lf the system includes
+              batteries, the report also shows energy stored and discharged.
             </Text>
 
             <Text

@@ -2,16 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { RefreshControl, SafeAreaView } from 'react-native'
 import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/RenderStackBars'
-import {
-  ScrollView,
-  Slider,
-  Switch,
-  Text,
-  ToggleGroup,
-  View,
-  XStack,
-  YStack
-} from 'tamagui'
+import { ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
 import { useRefresh } from '@/hooks'
@@ -323,9 +314,7 @@ export default function StatisticsScreen(): React.JSX.Element {
                   borderWidth={6}
                 />
               </Slider>
-              <Text marginTop="$2">
-                Measures your independence from the utility grid
-              </Text>
+              <Text marginTop="$2">Measures your independence from the utility grid</Text>
             </YStack>
           </SCard>
 
