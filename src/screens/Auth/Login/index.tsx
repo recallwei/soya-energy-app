@@ -31,7 +31,7 @@ export default function LoginScreen(): React.JSX.Element {
   const [rememberPassword, setRememberPassword] = useState(false)
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, false),
+    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, true),
     onSuccess: (data) => {
       AuthUtils.setToken((data as { access_token: string }).access_token).catch(() => {})
       authStore.login()

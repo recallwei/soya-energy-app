@@ -58,9 +58,13 @@ export type RootStackParamList = {
   SettingsPerformanceCurrency: undefined
 
   // Don't need auth
-  Login?: undefined
-  SignUp?: undefined
-  ForgotPassword?: undefined
+  Login: undefined
+  SignUp: undefined
+  ForgotPassword: undefined
+
+  // Temp
+  DevMenu: undefined
+  WebViewDemo: undefined
 }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

@@ -15,6 +15,7 @@ import {
   AccountMyNotificationsScreen,
   AccountScreen,
   CommunityScreen,
+  DevMenuScreen,
   ExploreScreen,
   ForgotPasswordScreen,
   LiveStatusScreen,
@@ -53,7 +54,8 @@ import {
   SystemLiveVitalsScreen,
   SystemReportsScreen,
   SystemScreen,
-  SystemSiteDetailsScreen
+  SystemSiteDetailsScreen,
+  WebViewDemoScreen
 } from '@/screens'
 import { useAuthStore, useTabsStore } from '@/store'
 import type { RootStackParamList, TabParamList } from '@/types'
@@ -415,6 +417,22 @@ export default function Navigation(): React.JSX.Element {
                 component={SettingsPerformanceCurrencyScreen}
                 options={{
                   title: t('Global:Screens.Settings.Performance.Currency')
+                }}
+              />
+
+              {/* Temp */}
+              <Stack.Screen
+                name="DevMenu"
+                component={DevMenuScreen}
+                options={{
+                  title: 'Dev Menu'
+                }}
+              />
+              <Stack.Screen
+                name="WebViewDemo"
+                component={WebViewDemoScreen}
+                options={{
+                  title: 'WebView Demo'
                 }}
               />
             </>

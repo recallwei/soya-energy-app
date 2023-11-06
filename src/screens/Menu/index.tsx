@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import {
   Bell,
+  Code,
   Compass,
   Component,
   Gem,
@@ -16,6 +17,7 @@ import { SafeAreaView, TouchableOpacity } from 'react-native'
 import { ScrollView, Square, Text, XStack, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
+import { globalEnvConfig } from '@/env'
 import { useAuthStore } from '@/store'
 import { AuthUtils } from '@/utils'
 
@@ -110,6 +112,14 @@ export default function MenuScreen(): React.JSX.Element {
             icon={Users}
             onPress={() => navigate('Community')}
           />
+          {globalEnvConfig.APP_ENVIRONMENT === 'DEV' && (
+            <MenuItemCard
+              title="Dev Menu"
+              description="Just for dev!"
+              icon={Code}
+              onPress={() => navigate('DevMenu')}
+            />
+          )}
           <MenuItemCard
             title={t('Title.Signout')}
             description={t('Description.Signout')}

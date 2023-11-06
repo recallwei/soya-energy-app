@@ -42,8 +42,8 @@ class Request {
         }
 
         console.log(`请求路径：${req.url}`)
-        console.log(`请求参数：${JSON.stringify(req.params)}`)
-        console.log(`请求数据：${JSON.stringify(req.data)}`)
+        console.log(`请求参数：${JSON.stringify(req.params) ?? ''}`)
+        console.log(`请求数据：${JSON.stringify(req.data) ?? ''}`)
 
         return req
       },

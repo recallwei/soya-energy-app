@@ -9,7 +9,7 @@ class GlobalEnvConfig {
     switch (config.type) {
       case 'PROD':
         this.APP_ENVIRONMENT = 'PROD'
-        this.BASE_API_URL = 'http://192.168.2.146:1001/raipiot-app'
+        this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-app'
         this.APP_VERSION = '0.0.0'
         break
       case 'STAGING':
@@ -20,7 +20,7 @@ class GlobalEnvConfig {
       case 'DEV':
       default:
         this.APP_ENVIRONMENT = 'DEV'
-        this.BASE_API_URL = 'http://192.168.2.146:1001/raipiot-app'
+        this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-app'
         this.APP_VERSION = '0.0.1'
         break
     }
@@ -28,5 +28,5 @@ class GlobalEnvConfig {
 }
 
 export const globalEnvConfig = new GlobalEnvConfig({
-  type: 'STAGING'
+  type: 'DEV'
 })

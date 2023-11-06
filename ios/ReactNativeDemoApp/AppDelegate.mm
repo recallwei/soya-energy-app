@@ -27,9 +27,6 @@
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
 
-  // Set image cache limits
-  RCTSetImageCacheLimits(4 * 1024 * 1024, 200 * 1024 * 1024);
-
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
