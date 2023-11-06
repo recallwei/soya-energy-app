@@ -69,7 +69,10 @@ export default function LoginScreen(): React.JSX.Element {
             paddingTop="$12"
           >
             <Image
-              source={{ uri: require('../../../../assets/images/soya-logo.png') }}
+              source={{
+                uri: require('../../../../assets/images/soya-logo.png'),
+                cache: 'force-cache'
+              }}
               width={width * 0.618}
               height={110}
               resizeMode="contain"

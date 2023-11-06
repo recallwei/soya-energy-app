@@ -19,14 +19,17 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-  
+
   // App Center
   [AppCenterReactNativeShared setStartAutomatically:YES];
   [AppCenterReactNativeShared setAppSecret:@"0fc622a5-8650-41cd-ba27-305c0f1d345e"];
   [AppCenterReactNative register];
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
-  
+
+  // Set image cache limits
+  RCTSetImageCacheLimits(4 * 1024 * 1024, 200 * 1024 * 1024);
+
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
