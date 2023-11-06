@@ -16,9 +16,7 @@ export function useRefresh<T>(callback?: () => Promise<T>): {
     setRefreshing(false)
   }, [callback])
 
-  const onRefresh = () => {
-    onRefreshCallback().catch(() => {})
-  }
+  const onRefresh = () => onRefreshCallback()
 
   const startRefresh = () => setRefreshing(true)
 

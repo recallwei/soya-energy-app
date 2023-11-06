@@ -12,20 +12,17 @@ export const resources = {
 
 const ns = ['Global', 'Auth', 'Menu', 'Notification', 'System', 'Services', 'Settings'] as const
 
-i18n
-  .use(initReactI18next)
-  .init({
-    lng: 'en',
-    fallbackLng: 'en',
-    ns,
-    defaultNS: 'Global',
-    resources,
-    interpolation: {
-      escapeValue: false
-    },
-    compatibilityJSON: 'v3' // For compatibility on React Native
-  })
-  .catch(() => {})
+i18n.use(initReactI18next).init({
+  lng: 'en',
+  fallbackLng: 'en',
+  ns,
+  defaultNS: 'Global',
+  resources,
+  interpolation: {
+    escapeValue: false
+  },
+  compatibilityJSON: 'v3' // For compatibility on React Native
+})
 
 export const changeLanguage = async (lang: Lang) => {
   await i18n.changeLanguage(lang)

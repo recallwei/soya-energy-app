@@ -59,5 +59,6 @@ export { default as LoginScreen } from './Auth/Login'
 export { default as SignUpScreen } from './Auth/SignUp'
 
 // Temp
+export { default as DemoScreen } from './Temp/Demo'
 export { default as DevMenuScreen } from './Temp/DevMenu'
 export { default as WebViewDemoScreen } from './Temp/WebView'

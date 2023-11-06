@@ -64,6 +64,7 @@ export type RootStackParamList = {
 
   // Temp
   DevMenu: undefined
+  Demo: undefined
   WebViewDemo: undefined
 }
 

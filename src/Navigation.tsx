@@ -15,6 +15,7 @@ import {
   AccountMyNotificationsScreen,
   AccountScreen,
   CommunityScreen,
+  DemoScreen,
   DevMenuScreen,
   ExploreScreen,
   ForgotPasswordScreen,
@@ -394,23 +395,17 @@ export default function Navigation(): React.JSX.Element {
               <Stack.Screen
                 name="SettingsConnectivity"
                 component={SettingsConnectivityScreen}
-                options={{
-                  title: t('Global:Screens.Settings.Connectivity')
-                }}
+                options={{ title: t('Global:Screens.Settings.Connectivity') }}
               />
               <Stack.Screen
                 name="SettingsPerformance"
                 component={SettingsPerformanceScreen}
-                options={{
-                  title: t('Global:Screens.Settings.Performance.Performance')
-                }}
+                options={{ title: t('Global:Screens.Settings.Performance.Performance') }}
               />
               <Stack.Screen
                 name="SettingsPerformanceEnergy"
                 component={SettingsPerformanceEnergyScreen}
-                options={{
-                  title: t('Global:Screens.Settings.Performance.Energy')
-                }}
+                options={{ title: t('Global:Screens.Settings.Performance.Energy') }}
               />
               <Stack.Screen
                 name="SettingsPerformanceCurrency"
@@ -424,16 +419,17 @@ export default function Navigation(): React.JSX.Element {
               <Stack.Screen
                 name="DevMenu"
                 component={DevMenuScreen}
-                options={{
-                  title: 'Dev Menu'
-                }}
+                options={{ title: 'Dev Menu' }}
+              />
+              <Stack.Screen
+                name="Demo"
+                component={DemoScreen}
+                options={{ title: 'Demo' }}
               />
               <Stack.Screen
                 name="WebViewDemo"
                 component={WebViewDemoScreen}
-                options={{
-                  title: 'WebView Demo'
-                }}
+                options={{ title: 'WebView Demo' }}
               />
             </>
           ) : (

@@ -31,7 +31,7 @@ export default function SolarArray(): React.JSX.Element {
         value={currentTimeTab}
         onValueChange={(value: TimeTab) => {
           setCurrentTimeTab(value)
-          refetch().catch(() => {})
+          refetch()
         }}
       >
         <ToggleGroup.Item

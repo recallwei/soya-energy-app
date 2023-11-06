@@ -59,7 +59,7 @@ function App() {
       await LoggerUtils.printStorage()
     }
 
-    init().catch(() => {})
+    init()
 
     return () => {
       subscription.remove()

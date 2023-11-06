@@ -33,7 +33,7 @@ export default function MenuScreen(): React.JSX.Element {
 
   const logout = () => {
     authStore.logout()
-    AuthUtils.removeToken().catch(() => {})
+    AuthUtils.removeToken()
   }
 
   return (

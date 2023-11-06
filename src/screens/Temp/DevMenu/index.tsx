@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import { PanelTop } from '@tamagui/lucide-icons'
+import { Layers, PanelTop } from '@tamagui/lucide-icons'
 import { SafeAreaView } from 'react-native'
 import { YStack } from 'tamagui'
 
@@ -14,6 +14,12 @@ export default function DevMenuScreen(): React.JSX.Element {
         padding="$4"
         space="$3"
       >
+        <MenuItemCard
+          title="Demo"
+          description="Page just for dev testing"
+          icon={Layers}
+          onPress={() => navigate('Demo')}
+        />
         <MenuItemCard
           title="WebView Demo"
           description="WebView Demo for events page"

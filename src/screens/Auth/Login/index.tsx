@@ -1,11 +1,15 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useNavigation } from '@react-navigation/native'
 import { Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import CryptoJS from 'crypto-js'
 import { useState } from 'react'
+import type { SubmitHandler } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Dimensions, SafeAreaView, TouchableOpacity } from 'react-native'
 import { Button, Image, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
+import * as yup from 'yup'
 
 import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
@@ -13,6 +17,18 @@ import { globalEnvConfig } from '@/env'
 import { useAuthStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, CodePushUtils } from '@/utils'
+
+interface FormData {
+  username: string
+  password: string
+}
+
+const schema = yup
+  .object({
+    username: yup.string().min(6).max(20).required(),
+    password: yup.string().min(6).max(20).required()
+  })
+  .required()
 
 export default function LoginScreen(): React.JSX.Element {
   const { width } = Dimensions.get('screen')
@@ -23,29 +39,37 @@ export default function LoginScreen(): React.JSX.Element {
 
   const navigation = useNavigation()
 
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  })
-  const [showPassword, setShowPassword] = useState(false)
-  const [rememberPassword, setRememberPassword] = useState(false)
-
-  const { mutate, isPending } = useMutation({
-    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, true),
-    onSuccess: (data) => {
-      AuthUtils.setToken((data as { access_token: string }).access_token).catch(() => {})
-      authStore.login()
-    },
-    onError: (error) => {
-      console.log(error)
+  const {
+    control,
+    formState: { errors, isLoading },
+    handleSubmit,
+    resetField
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      username: '',
+      password: ''
     }
   })
 
-  const handleLogin = () => {
-    const { username, password } = formData
+  const [showPassword, setShowPassword] = useState(false)
+  const [rememberPassword, setRememberPassword] = useState(false)
+
+  const { mutate } = useMutation({
+    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, false),
+    onSuccess: (data) => {
+      AuthUtils.setToken((data as { access_token: string }).access_token)
+      authStore.login()
+    },
+    onError: () => {
+      resetField('password')
+    }
+  })
+
+  const handleLogin: SubmitHandler<FormData> = (data) => {
     mutate({
-      username,
-      password: CryptoJS.MD5(password).toString()
+      username: data.username,
+      password: CryptoJS.MD5(data.password).toString()
     })
   }
 
@@ -78,92 +102,104 @@ export default function LoginScreen(): React.JSX.Element {
               resizeMode="contain"
             />
           </YStack>
-
-          <XStack
-            width="100%"
-            position="relative"
-          >
-            <Input
-              width="100%"
-              maxLength={20}
-              paddingLeft="$7"
-              placeholder={t('Auth:Account.Placeholder')}
-              autoCapitalize="none"
-              value={formData.username}
-              onChangeText={(text) => {
-                setFormData({ ...formData, username: text })
-              }}
-              disabled={isPending}
-              clearButtonMode="never"
-            />
-            <View
-              position="absolute"
-              left="$3"
-              alignSelf="center"
-              theme="alt2"
-            >
-              <User2 size="$1" />
-            </View>
-          </XStack>
-
-          <XStack
-            width="100%"
-            position="relative"
-          >
-            <Input
-              width="100%"
-              maxLength={20}
-              paddingHorizontal="$7"
-              placeholder={t('Auth:Password.Placeholder')}
-              autoCapitalize="none"
-              value={formData.password}
-              onChangeText={(text) => {
-                setFormData({ ...formData, password: text })
-              }}
-              secureTextEntry={!showPassword}
-              disabled={isPending}
-              clearButtonMode="never"
-            />
-            <View
-              position="absolute"
-              left="$3"
-              alignSelf="center"
-              theme="alt2"
-            >
-              <Lock size="$1" />
-            </View>
-            {formData.password.length > 0 && (
-              <View
-                position="absolute"
-                right="$3"
-                alignSelf="center"
-                theme="alt2"
-                onPress={() => setShowPassword((prev) => !prev)}
+          <Controller
+            name="username"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <XStack
+                width="100%"
+                position="relative"
               >
-                {showPassword ? <EyeOff size="$1" /> : <Eye size="$1" />}
-              </View>
+                <Input
+                  width="100%"
+                  maxLength={20}
+                  paddingLeft="$7"
+                  placeholder={t('Auth:Account.Placeholder')}
+                  autoCapitalize="none"
+                  value={value}
+                  onChangeText={onChange}
+                  disabled={isLoading}
+                  clearButtonMode="never"
+                  borderColor={errors.username ? 'red' : undefined}
+                />
+                <View
+                  position="absolute"
+                  left="$3"
+                  alignSelf="center"
+                  theme="alt2"
+                >
+                  <User2 size="$1" />
+                </View>
+              </XStack>
             )}
-          </XStack>
+          />
+
+          <Controller
+            name="password"
+            control={control}
+            rules={{
+              required: true,
+              min: 6,
+              max: 20
+            }}
+            render={({ field: { onChange, value } }) => (
+              <XStack
+                width="100%"
+                position="relative"
+              >
+                <Input
+                  width="100%"
+                  maxLength={20}
+                  paddingHorizontal="$7"
+                  placeholder={t('Auth:Password.Placeholder')}
+                  autoCapitalize="none"
+                  value={value}
+                  onChangeText={onChange}
+                  secureTextEntry={!showPassword}
+                  disabled={isLoading}
+                  clearButtonMode="never"
+                  borderColor={errors.password ? 'red' : undefined}
+                />
+                <View
+                  position="absolute"
+                  left="$3"
+                  alignSelf="center"
+                  theme="alt2"
+                >
+                  <Lock size="$1" />
+                </View>
+                {value.length > 0 && (
+                  <View
+                    position="absolute"
+                    right="$3"
+                    alignSelf="center"
+                    theme="alt2"
+                    onPress={() => setShowPassword((prev) => !prev)}
+                  >
+                    {showPassword ? <EyeOff size="$1" /> : <Eye size="$1" />}
+                  </View>
+                )}
+              </XStack>
+            )}
+          />
 
           <SCheckbox
             width="100%"
             label={t('Auth:RememberPassword')}
-            disabled={isPending}
+            disabled={isLoading}
             checked={rememberPassword}
             onCheckedChange={(checked: boolean) => {
               setRememberPassword(checked)
             }}
           />
-
           <Button
             width="100%"
-            onPress={handleLogin}
-            disabled={isPending}
-            icon={isPending ? <Spinner /> : undefined}
+            onPress={handleSubmit(handleLogin)}
+            disabled={isLoading}
+            icon={isLoading ? <Spinner /> : undefined}
           >
             {t('Auth:Login')}
           </Button>
-
           <XStack
             justifyContent="space-between"
             width="100%"
@@ -179,9 +215,7 @@ export default function LoginScreen(): React.JSX.Element {
 
         <Text
           textAlign="center"
-          onPress={() => {
-            CodePushUtils.syncCode().catch(() => {})
-          }}
+          onPress={() => CodePushUtils.syncCode()}
         >
           {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}
         </Text>

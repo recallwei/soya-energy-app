@@ -134,7 +134,7 @@ export default function StatisticsScreen(): React.JSX.Element {
             value={currentTimeTab}
             onValueChange={(value: TimeTab) => {
               setCurrentTimeTab(value)
-              refetch().catch(() => {})
+              refetch()
             }}
           >
             <ToggleGroup.Item
