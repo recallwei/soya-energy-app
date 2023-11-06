@@ -1,5 +1,4 @@
 export { default as BaseTabBar } from './BaseTabBar'
-export { default as GlobalToast } from './GlobalToast'
 export { default as MenuItemCard, type MenuItemCardProps } from './MenuItemCard'
 export { default as NoData } from './NoData'
 export { default as SCard } from './SCard'

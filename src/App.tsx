@@ -14,8 +14,6 @@ import CodePush from 'react-native-code-push'
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
-import { GlobalToast } from '@/components'
-
 import config from '../tamagui.config'
 import { useCodePush } from './hooks'
 import Navigation from './Navigation'
@@ -72,7 +70,6 @@ function App() {
         config={config}
         defaultTheme={theme}
       >
-        <GlobalToast />
         <Navigation />
       </TamaguiProvider>
       <FlipperAsyncStorage />

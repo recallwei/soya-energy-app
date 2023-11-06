@@ -414,7 +414,6 @@ export default function Navigation(): React.JSX.Element {
                   title: t('Global:Screens.Settings.Performance.Currency')
                 }}
               />
-
               {/* Temp */}
               <Stack.Screen
                 name="DevMenu"
