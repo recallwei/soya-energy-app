@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { StackProps, TabLayout, TabsTabProps } from 'tamagui'
-import { AnimatePresence, H5, SizableText, Stack, styled, Tabs, YStack } from 'tamagui'
+import { AnimatePresence, Label, Stack, styled, Tabs, YStack } from 'tamagui'
 
 const AnimatedYStack = styled(YStack, {
   variants: {
@@ -119,7 +119,7 @@ export default function TabsAdvancedBackground() {
             value="tab1"
             onInteraction={handleOnInteraction}
           >
-            <SizableText>Profile</SizableText>
+            <Label>Profile</Label>
           </Tabs.Tab>
 
           <Tabs.Tab
@@ -127,7 +127,7 @@ export default function TabsAdvancedBackground() {
             value="tab2"
             onInteraction={handleOnInteraction}
           >
-            <SizableText>Connections</SizableText>
+            <Label>Connections</Label>
           </Tabs.Tab>
 
           <Tabs.Tab
@@ -135,7 +135,7 @@ export default function TabsAdvancedBackground() {
             value="tab3"
             onInteraction={handleOnInteraction}
           >
-            <SizableText>Notifications</SizableText>
+            <Label>Notifications</Label>
           </Tabs.Tab>
         </Tabs.List>
       </YStack>
@@ -157,7 +157,7 @@ export default function TabsAdvancedBackground() {
             flex={1}
             justifyContent="center"
           >
-            <H5 textAlign="center">{currentTab}</H5>
+            <Label textAlign="center">{currentTab}</Label>
           </Tabs.Content>
         </AnimatedYStack>
       </AnimatePresence>

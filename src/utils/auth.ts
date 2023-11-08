@@ -1,9 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export class AuthUtils {
-  private static readonly ACCESS_TOKEN_KEY = 'access_token'
+  private static readonly ACCESS_TOKEN_KEY = '@ACCESS_TOKEN'
 
-  private static readonly ACCOUNT_REMEMBER_PASSWORD_KEY = 'account_remember_password'
+  private static readonly ACCOUNT_REMEMBER_PASSWORD_KEY = '@ACCOUNT_REMEMBER_PASSWORD'
 
   static async getToken() {
     try {

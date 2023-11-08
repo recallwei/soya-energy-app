@@ -14,7 +14,7 @@ import {
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SafeAreaView, TouchableOpacity } from 'react-native'
-import { ScrollView, Square, Text, XStack, YStack } from 'tamagui'
+import { Label, ScrollView, Square, XStack, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { globalEnvConfig } from '@/env'
@@ -47,7 +47,7 @@ export default function MenuScreen(): React.JSX.Element {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Text fontFamily="$body">{t('Hello')}</Text>
+            <Label>{t('Hello')}</Label>
             <Square
               pressStyle={{
                 scale: 0.9
@@ -63,11 +63,11 @@ export default function MenuScreen(): React.JSX.Element {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Text fontFamily="$body">{currentSite}</Text>
-            <Text fontFamily="$body">
+            <Label>{currentSite}</Label>
+            <Label>
               {t('SiteId')}
               {siteId}
-            </Text>
+            </Label>
           </XStack>
 
           <MenuItemCard

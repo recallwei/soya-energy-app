@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { View } from 'tamagui'
 
 import { ArrayScreen, MenuScreen, StatisticsScreen, StatusScreen } from '@/screens'
-import { useTabsStore } from '@/store'
+import { useTabsStore, useThemeStore } from '@/store'
 import type { TabParamList } from '@/types'
 
 const Tab = createBottomTabNavigator<TabParamList>()
@@ -12,23 +12,25 @@ const Tab = createBottomTabNavigator<TabParamList>()
 export default function BaseTabBar() {
   const { t } = useTranslation(['Global'])
 
-  const { changeTab } = useTabsStore()
+  const tabStore = useTabsStore()
+  const themeStore = useThemeStore()
 
   return (
     <Tab.Navigator
+      sceneContainerStyle={{
+        backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
+      }}
       screenOptions={() => ({
         headerShown: false,
-        headerTintColor: '#ffffff',
-        headerStyle: {
-          backgroundColor: '#333333'
-        },
-        headerTitleStyle: {
-          fontSize: 16
-        },
         tabBarLabelStyle: {
-          fontSize: 14
+          fontSize: 14,
+          fontFamily: 'Nunito-Regular'
         },
-        tabBarActiveTintColor: '#333333',
+        tabBarStyle: {
+          borderTopColor: themeStore.isDark() ? '#666666' : '#999999',
+          backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
+        },
+        tabBarActiveTintColor: themeStore.isDark() ? '#ffffff' : '#333333',
         tabBarInactiveTintColor: '#999999'
       })}
     >
@@ -48,7 +50,7 @@ export default function BaseTabBar() {
           )
         }}
         listeners={{
-          focus: () => changeTab('Status')
+          focus: () => tabStore.changeTab('Status')
         }}
       />
       <Tab.Screen
@@ -67,7 +69,7 @@ export default function BaseTabBar() {
           )
         }}
         listeners={{
-          focus: () => changeTab('Statistics')
+          focus: () => tabStore.changeTab('Statistics')
         }}
       />
       <Tab.Screen
@@ -86,7 +88,7 @@ export default function BaseTabBar() {
           )
         }}
         listeners={{
-          focus: () => changeTab('Array')
+          focus: () => tabStore.changeTab('Array')
         }}
       />
       <Tab.Screen
@@ -105,7 +107,7 @@ export default function BaseTabBar() {
           )
         }}
         listeners={{
-          focus: () => changeTab('Menu')
+          focus: () => tabStore.changeTab('Menu')
         }}
       />
     </Tab.Navigator>

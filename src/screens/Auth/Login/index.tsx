@@ -1,10 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useNavigation } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import CryptoJS from 'crypto-js'
 import _ from 'lodash'
-import { useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -15,8 +15,7 @@ import * as yup from 'yup'
 import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
 import { globalEnvConfig } from '@/env'
-import { GlobalToastProvider } from '@/providers'
-import { useAuthStore } from '@/store'
+import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, CodePushUtils } from '@/utils'
 
@@ -38,6 +37,7 @@ export default function LoginScreen(): React.JSX.Element {
   const { t } = useTranslation(['Auth'])
 
   const authStore = useAuthStore()
+  const themeStore = useThemeStore()
 
   const navigation = useNavigation()
 
@@ -47,7 +47,8 @@ export default function LoginScreen(): React.JSX.Element {
     handleSubmit,
     resetField,
     getValues,
-    setValue
+    setValue,
+    reset
   } = useForm<FormData>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -75,20 +76,27 @@ export default function LoginScreen(): React.JSX.Element {
     }
   })
 
-  useEffect(() => {
-    const init = async () => {
-      try {
-        const accountData = JSON.parse((await AuthUtils.getAccountRememberPassword()) ?? '')
-        if (rememberPassword) {
-          setValue('username', accountData.username)
-          setValue('password', accountData.password)
+  useFocusEffect(
+    useCallback(() => {
+      const init = async () => {
+        try {
+          const accountData = await AuthUtils.getAccountRememberPassword()
+          if (accountData) {
+            const { username, password } = JSON.parse(accountData)
+            setValue('username', username)
+            setValue('password', password)
+            setRememberPassword(true)
+          } else {
+            reset()
+            setRememberPassword(false)
+          }
+        } catch {
+          //
         }
-      } catch {
-        //
       }
-    }
-    init()
-  }, [])
+      init()
+    }, [])
+  )
 
   const handleLogin: SubmitHandler<FormData> = (data) =>
     mutate({
@@ -104,7 +112,6 @@ export default function LoginScreen(): React.JSX.Element {
 
   return (
     <SafeAreaView>
-      <GlobalToastProvider />
       <YStack
         width="100%"
         height="100%"
@@ -124,7 +131,9 @@ export default function LoginScreen(): React.JSX.Element {
           >
             <Image
               source={{
-                uri: require('../../../../assets/images/soya-logo.png'),
+                uri: themeStore.isDark()
+                  ? require('../../../../assets/images/soya-logo-dark.png')
+                  : require('../../../../assets/images/soya-logo-light.png'),
                 cache: 'force-cache'
               }}
               width={width * 0.618}
@@ -135,7 +144,7 @@ export default function LoginScreen(): React.JSX.Element {
           <Controller
             name="username"
             control={control}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <XStack
                 width="100%"
                 position="relative"
@@ -148,6 +157,7 @@ export default function LoginScreen(): React.JSX.Element {
                   autoCapitalize="none"
                   value={value}
                   onChangeText={onChange}
+                  onBlur={onBlur}
                   disabled={isLoading}
                   clearButtonMode="never"
                   borderColor={errors.username ? 'red' : undefined}
@@ -172,7 +182,7 @@ export default function LoginScreen(): React.JSX.Element {
               min: 6,
               max: 20
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <XStack
                 width="100%"
                 position="relative"
@@ -185,6 +195,7 @@ export default function LoginScreen(): React.JSX.Element {
                   autoCapitalize="none"
                   value={value}
                   onChangeText={onChange}
+                  onBlur={onBlur}
                   secureTextEntry={!showPassword}
                   disabled={isLoading}
                   clearButtonMode="never"
@@ -243,7 +254,6 @@ export default function LoginScreen(): React.JSX.Element {
 
         <Label
           textAlign="center"
-          letterSpacing="$sm"
           onPress={() => CodePushUtils.syncCode()}
         >
           {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}

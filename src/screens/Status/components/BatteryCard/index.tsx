@@ -2,13 +2,15 @@ import { useNavigation } from '@react-navigation/native'
 import { Cog } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
 import { Pressable, TouchableOpacity } from 'react-native'
-import { Separator, Text, XStack, YStack } from 'tamagui'
+import { Label, Separator, XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
+import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 
 export default function BatteryCard(): React.JSX.Element {
   const { navigate } = useNavigation()
+  const themeStore = useThemeStore()
   const [batteryLevel, setBatteryLevel] = useState(0)
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function BatteryCard(): React.JSX.Element {
       case 4:
         return (
           <SVG.BatteryVerticalFull
-            color="#333333"
+            color={themeStore.isDark() ? '#ffffff' : '#333333'}
             width={44}
             height={44}
           />
@@ -31,7 +33,7 @@ export default function BatteryCard(): React.JSX.Element {
       case 3:
         return (
           <SVG.BatteryVerticalHigh
-            color="#333333"
+            color={themeStore.isDark() ? '#ffffff' : '#333333'}
             width={44}
             height={44}
           />
@@ -39,7 +41,7 @@ export default function BatteryCard(): React.JSX.Element {
       case 2:
         return (
           <SVG.BatteryVerticalMedium
-            color="#333333"
+            color={themeStore.isDark() ? '#ffffff' : '#333333'}
             width={44}
             height={44}
           />
@@ -47,7 +49,7 @@ export default function BatteryCard(): React.JSX.Element {
       case 1:
         return (
           <SVG.BatteryVerticalLow
-            color="#333333"
+            color={themeStore.isDark() ? '#ffffff' : '#333333'}
             width={44}
             height={44}
           />
@@ -56,7 +58,7 @@ export default function BatteryCard(): React.JSX.Element {
       default:
         return (
           <SVG.BatteryVerticalEmpty
-            color="#333333"
+            color={themeStore.isDark() ? '#ffffff' : '#333333'}
             width={44}
             height={44}
           />
@@ -79,10 +81,10 @@ export default function BatteryCard(): React.JSX.Element {
           </Pressable>
 
           <YStack rowGap="$2">
-            <Text fontFamily="$body">Charge</Text>
+            <Label>Charge</Label>
             <XStack columnGap="$2">
-              <Text fontFamily="$body">88%</Text>
-              <Text fontFamily="$body">(7hr 50min)</Text>
+              <Label>88%</Label>
+              <Label>(7hr 50min)</Label>
             </XStack>
           </YStack>
         </XStack>
@@ -99,10 +101,10 @@ export default function BatteryCard(): React.JSX.Element {
                 alignItems="center"
                 columnGap="$1.5"
               >
-                <Text fontFamily="$body">Profile</Text>
+                <Label>Profile</Label>
                 <Cog size="$1" />
               </XStack>
-              <Text fontFamily="$body">self-consumption</Text>
+              <Label>self-consumption</Label>
             </YStack>
           </XStack>
         </TouchableOpacity>

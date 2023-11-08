@@ -1,4 +1,4 @@
-import { Text, View, YStack } from 'tamagui'
+import { Label, View, YStack } from 'tamagui'
 
 interface Props {
   textPosition?: 'bottom' | 'right'
@@ -18,12 +18,7 @@ export default function OutputCardStatisticItem({
         rowGap="$2"
       >
         {icon}
-        <Text
-          fontFamily="$body"
-          fontWeight="bold"
-        >
-          {text}
-        </Text>
+        <Label>{text}</Label>
       </YStack>
     )
   }
@@ -35,17 +30,15 @@ export default function OutputCardStatisticItem({
       position="relative"
     >
       {icon}
-      <Text
-        fontFamily="$body"
+      <Label
         position="absolute"
         right={-80}
         justifyContent="center"
         alignItems="center"
         alignSelf="center"
-        fontWeight="bold"
       >
         {text}
-      </Text>
+      </Label>
     </View>
   )
 }

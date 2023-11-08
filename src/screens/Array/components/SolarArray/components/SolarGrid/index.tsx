@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { SizableText, View } from 'tamagui'
+import { Label, View } from 'tamagui'
 
 interface Props {
   width?: string | number
@@ -84,7 +84,7 @@ export default function SolarGrid(props: PropsWithChildren<Props>): React.JSX.El
         justifyContent="center"
         alignItems="center"
       >
-        <SizableText color="white">{props.text}</SizableText>
+        <Label color="white">{props.text}</Label>
       </View>
     </View>
   )

@@ -1,7 +1,10 @@
 import { Dimensions } from 'react-native'
 import { Path, Svg } from 'react-native-svg'
 
+import { useThemeStore } from '@/store'
+
 function Item1() {
+  const themeStore = useThemeStore()
   const width = (Dimensions.get('window').width / 8) * 2.5
   return (
     <Svg
@@ -10,22 +13,22 @@ function Item1() {
     >
       <Path
         d={`M${width / 4} 0 V30`}
-        stroke="#333333"
+        stroke={themeStore.isDark() ? '#ffffff' : '#333333'}
         strokeWidth="2"
       />
       <Path
         d={`M${width / 4} 30 H${width - 10}`}
-        stroke="#333333"
+        stroke={themeStore.isDark() ? '#ffffff' : '#333333'}
         strokeWidth="2"
       />
       <Path
         d={`M${width - 10} 30 V60`}
-        stroke="#333333"
+        stroke={themeStore.isDark() ? '#ffffff' : '#333333'}
         strokeWidth="2"
       />
       <Path
         d={`M${width - 10} 60 L${width - 15} 50 M${width - 10} 60 L${width - 5} 50`}
-        stroke="#333333"
+        stroke={themeStore.isDark() ? '#ffffff' : '#333333'}
         strokeWidth="2"
       />
     </Svg>

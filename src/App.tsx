@@ -18,7 +18,7 @@ import config from '../tamagui.config'
 import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useThemeStore } from './store'
-import { LoggerUtils } from './utils'
+import { LoggerUtils, ThemeUtils } from './utils'
 
 function onAppStateChange(status: AppStateStatus) {
   if (Platform.OS !== 'web') {
@@ -55,6 +55,7 @@ function App() {
     const init = async () => {
       LoggerUtils.printEnv()
       await LoggerUtils.printStorage()
+      useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
     }
 
     init()

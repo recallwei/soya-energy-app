@@ -2,12 +2,14 @@ import { BatteryMedium, Home } from '@tamagui/lucide-icons'
 import { XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
+import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 
 import OutputCardStatisticItem from '../OutputCardStatisticItem'
 import { LineArrowSVG } from '../SVG'
 
 export default function OutputCard(): React.JSX.Element {
+  const themeStore = useThemeStore()
   return (
     <SCard>
       <YStack
@@ -18,7 +20,7 @@ export default function OutputCard(): React.JSX.Element {
           textPosition="right"
           icon={
             <SVG.SolarPanel
-              color="#333333"
+              color={themeStore.isDark() ? '#ffffff' : '#333333'}
               width={25}
               height={25}
             />
@@ -39,7 +41,7 @@ export default function OutputCard(): React.JSX.Element {
           <OutputCardStatisticItem
             icon={
               <Home
-                color="#333333"
+                color={themeStore.isDark() ? '#ffffff' : '#333333'}
                 size={25}
               />
             }
@@ -49,7 +51,7 @@ export default function OutputCard(): React.JSX.Element {
           <OutputCardStatisticItem
             icon={
               <SVG.ElectricalTower
-                color="#333333"
+                color={themeStore.isDark() ? '#ffffff' : '#333333'}
                 width={25}
                 height={25}
               />
@@ -60,7 +62,7 @@ export default function OutputCard(): React.JSX.Element {
           <OutputCardStatisticItem
             icon={
               <BatteryMedium
-                color="#333333"
+                color={themeStore.isDark() ? '#ffffff' : '#333333'}
                 size={25}
               />
             }

@@ -6,13 +6,15 @@ interface State {
 
 interface Actions {
   toggleTheme: () => void
+  isDark: () => boolean
 }
 
 const initialState: State = {
   theme: 'light'
 }
 
-export const useThemeStore = create<State & Actions>()((set) => ({
+export const useThemeStore = create<State & Actions>()((set, get) => ({
   ...initialState,
-  toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' }))
+  toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
+  isDark: () => get().theme === 'dark'
 }))

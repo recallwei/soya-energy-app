@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
-import { Spinner, Text, ToggleGroup, XStack, YStack } from 'tamagui'
+import { Label, Spinner, ToggleGroup, XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
 
@@ -38,25 +38,25 @@ export default function SolarArray(): React.JSX.Element {
           value="day"
           width="auto"
         >
-          <Text fontFamily="$body">Day</Text>
+          <Label>Day</Label>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="month"
           width="auto"
         >
-          <Text fontFamily="$body">Month</Text>
+          <Label>Month</Label>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="year"
           width="auto"
         >
-          <Text fontFamily="$body">Year</Text>
+          <Label>Year</Label>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="lifetime"
           width="auto"
         >
-          <Text fontFamily="$body">Life Time</Text>
+          <Label>Life Time</Label>
         </ToggleGroup.Item>
       </ToggleGroup>
 
@@ -81,26 +81,16 @@ export default function SolarArray(): React.JSX.Element {
             <SCard>
               <YStack space="$1">
                 <XStack>
-                  <Text fontFamily="$body">Quantity: </Text>
-                  <Text fontFamily="$body">100 PCS</Text>
+                  <Label>Quantity: </Label>
+                  <Label>100 PCS</Label>
                 </XStack>
                 <XStack>
-                  <Text fontFamily="$body">Avg Production: </Text>
-                  <Text
-                    fontFamily="$body"
-                    color="green"
-                  >
-                    1.1 kWh
-                  </Text>
+                  <Label>Avg Production: </Label>
+                  <Label color="green">1.1 kWh</Label>
                 </XStack>
                 <XStack>
-                  <Text fontFamily="$body">Total Production: </Text>
-                  <Text
-                    fontFamily="$body"
-                    color="green"
-                  >
-                    110 kWh
-                  </Text>
+                  <Label>Total Production: </Label>
+                  <Label color="green">110 kWh</Label>
                 </XStack>
               </YStack>
             </SCard>

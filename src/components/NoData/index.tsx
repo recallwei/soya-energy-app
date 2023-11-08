@@ -1,15 +1,14 @@
 import { useTranslation } from 'react-i18next'
-import { Text } from 'tamagui'
+import { Label } from 'tamagui'
 
 export default function NoData() {
   const { t } = useTranslation(['Global'])
   return (
-    <Text
-      fontFamily="$body"
+    <Label
       textAlign="center"
       paddingVertical="$4"
     >
       {t('Global:NoData')}
-    </Text>
+    </Label>
   )
 }

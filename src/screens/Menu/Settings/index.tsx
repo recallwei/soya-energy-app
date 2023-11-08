@@ -5,16 +5,22 @@ import { YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { useThemeStore } from '@/store'
+import { ThemeUtils } from '@/utils'
 
 export default function SettingsScreen(): React.JSX.Element {
   const { t } = useTranslation('Settings')
 
   const navigation = useNavigation()
 
-  const { toggleTheme } = useThemeStore()
+  const themeStore = useThemeStore()
 
   const [gridControl] = useState(false)
   const [darkMode] = useState(false)
+
+  const handleChangeTheme = async () => {
+    await ThemeUtils.setTheme(themeStore.isDark() ? 'light' : 'dark')
+    themeStore.toggleTheme()
+  }
 
   return (
     <YStack
@@ -64,7 +70,7 @@ export default function SettingsScreen(): React.JSX.Element {
         title={t('Title.DarkMode')}
         description={darkMode ? t('Description.DarkMode.True') : t('Description.DarkMode.False')}
         switcher
-        onPress={() => toggleTheme()}
+        onPress={handleChangeTheme}
       />
     </YStack>
   )

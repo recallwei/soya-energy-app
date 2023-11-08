@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { Text, View, XStack } from 'tamagui'
+import { Label, View, XStack } from 'tamagui'
 
 function Cell({
   children,
@@ -16,7 +16,7 @@ function Cell({
       borderWidth={0.2}
       borderColor="#333333"
     >
-      <Text fontFamily="$body">{children}</Text>
+      <Label>{children}</Label>
     </View>
   )
 }

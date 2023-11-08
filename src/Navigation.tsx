@@ -58,7 +58,7 @@ import {
   SystemSiteDetailsScreen,
   WebViewDemoScreen
 } from '@/screens'
-import { useAuthStore, useTabsStore } from '@/store'
+import { useAuthStore, useTabsStore, useThemeStore } from '@/store'
 import type { RootStackParamList, TabParamList } from '@/types'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -67,7 +67,8 @@ export default function Navigation(): React.JSX.Element {
   const { t } = useTranslation(['Global'])
 
   const { isLogin, isLoading, loaded } = useAuthStore()
-  const { currentTab } = useTabsStore()
+  const tabStore = useTabsStore()
+  const themeStore = useThemeStore()
 
   const navigationRef = useNavigationContainerRef()
   useFlipper(navigationRef)
@@ -75,7 +76,7 @@ export default function Navigation(): React.JSX.Element {
   useEffect(() => {
     setTimeout(() => {
       loaded()
-    }, 100)
+    }, 2000)
   }, [])
 
   function getTabTitleI18nText(tabName: keyof TabParamList): string {
@@ -103,23 +104,29 @@ export default function Navigation(): React.JSX.Element {
       ) : (
         <Stack.Navigator
           screenOptions={{
-            headerTintColor: '#ffffff',
+            headerTintColor: themeStore.isDark() ? '#ffffff' : '#333333',
+            headerBackTitle: 'back', // iOS only
             headerBackTitleStyle: {
-              fontSize: 16
+              fontSize: 18,
+              fontFamily: 'Nunito-Regular'
             },
+            headerBackButtonMenuEnabled: true,
             headerStyle: {
-              backgroundColor: '#333333'
+              backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
             },
             contentStyle: {
-              backgroundColor: '#ffffff'
+              backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
             },
             headerTitleStyle: {
-              fontSize: 16
+              fontSize: 18,
+              fontFamily: 'Nunito-SemiBold',
+              color: themeStore.isDark() ? '#ffffff' : '#333333'
             },
             animation: 'slide_from_right',
-            statusBarStyle: 'light', // iOS only
-            statusBarColor: '#000000', // Android only
-            statusBarAnimation: 'slide'
+            statusBarStyle: themeStore.isDark() ? 'light' : 'dark', // iOS only
+            statusBarColor: themeStore.isDark() ? '#333333' : '#ffffff', // Android only
+            statusBarAnimation: 'slide',
+            animationTypeForReplace: 'pop'
           }}
         >
           {isLogin ? (
@@ -129,9 +136,12 @@ export default function Navigation(): React.JSX.Element {
                 component={BaseTabBar}
                 options={{
                   headerShown: false,
-                  title: getTabTitleI18nText(currentTab),
-                  statusBarStyle: 'dark',
-                  statusBarColor: '#ffffff'
+                  animation: 'simple_push',
+                  animationTypeForReplace: 'push',
+                  contentStyle: {
+                    backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
+                  },
+                  title: getTabTitleI18nText(tabStore.currentTab)
                 }}
               />
               <Stack.Screen
@@ -438,9 +448,6 @@ export default function Navigation(): React.JSX.Element {
                 component={LoginScreen}
                 options={{
                   headerShown: false,
-                  animationTypeForReplace: 'pop',
-                  statusBarStyle: 'dark',
-                  statusBarColor: '#ffffff',
                   title: t('Global:Screens.Login')
                 }}
               />
@@ -448,8 +455,6 @@ export default function Navigation(): React.JSX.Element {
                 name="SignUp"
                 component={SignUpScreen}
                 options={{
-                  statusBarStyle: 'dark',
-                  statusBarColor: '#ffffff',
                   title: t('Global:Screens.Signup')
                 }}
               />
@@ -457,8 +462,6 @@ export default function Navigation(): React.JSX.Element {
                 name="ForgotPassword"
                 component={ForgotPasswordScreen}
                 options={{
-                  statusBarStyle: 'dark',
-                  statusBarColor: '#ffffff',
                   title: t('Global:Screens.ForgotPassword')
                 }}
               />

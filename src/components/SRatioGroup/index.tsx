@@ -37,7 +37,7 @@ export default function RatioGroup(props: Props) {
             </RadioGroup.Item>
             <YStack>
               <Label
-                lineHeight={26}
+                lineHeight={21}
                 size={props.size}
               >
                 {groupItem.label}
@@ -67,7 +67,7 @@ export default function RatioGroup(props: Props) {
             <RadioGroup.Indicator />
           </RadioGroup.Item>
           <Label
-            lineHeight={26}
+            lineHeight={20}
             size={props.size}
           >
             {groupItem.label}

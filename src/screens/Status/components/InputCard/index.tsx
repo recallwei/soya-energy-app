@@ -2,12 +2,14 @@ import { BatteryMedium } from '@tamagui/lucide-icons'
 import { XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
+import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 
 import InputCardStatisticItem from '../InputCardStatisticItem'
 import { LineArrowSVG } from '../SVG'
 
 export default function InputCard(): React.JSX.Element {
+  const themeStore = useThemeStore()
   return (
     <SCard>
       <YStack rowGap="$3">
@@ -16,7 +18,8 @@ export default function InputCard(): React.JSX.Element {
           justifyContent="space-between"
         >
           <InputCardStatisticItem
-            icon={<SVG.ElectricalTower color="#333333" />}
+            borderColor={themeStore.isDark() ? '#ffffff' : '#333333'}
+            icon={<SVG.ElectricalTower color={themeStore.isDark() ? '#ffffff' : '#333333'} />}
             iconText="3.5 kWh"
             bottomText="Grid"
           />
@@ -25,7 +28,7 @@ export default function InputCard(): React.JSX.Element {
             borderColor="#578e31"
             icon={
               <SVG.SolarPanel
-                color="#333333"
+                color={themeStore.isDark() ? '#ffffff' : '#333333'}
                 width={20}
               />
             }
@@ -37,7 +40,7 @@ export default function InputCard(): React.JSX.Element {
             borderColor="#946121"
             icon={
               <BatteryMedium
-                color="#333333"
+                color={themeStore.isDark() ? '#ffffff' : '#333333'}
                 size={20}
               />
             }
@@ -57,7 +60,7 @@ export default function InputCard(): React.JSX.Element {
           borderColor="#578e31"
           icon={
             <SVG.Home
-              color="#333333"
+              color={themeStore.isDark() ? '#ffffff' : '#333333'}
               width={45}
               height={45}
             />
