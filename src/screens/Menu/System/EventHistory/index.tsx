@@ -42,7 +42,7 @@ export default function EventHistoryScreen(): React.JSX.Element {
         marginBottom="$10"
       >
         <Text
-          fontSize="$6"
+          fontFamily="$body"
           fontWeight="bold"
           marginLeft="$1"
         >
@@ -52,12 +52,12 @@ export default function EventHistoryScreen(): React.JSX.Element {
           <SCard key={index}>
             <YStack gap="$2">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 {item.title}
               </Text>
-              <Text>{item.description}</Text>
+              <Text fontFamily="$body">{item.description}</Text>
             </YStack>
           </SCard>
         ))}

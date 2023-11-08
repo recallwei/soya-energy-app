@@ -27,26 +27,31 @@ export default function DemoScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 IO 1
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>SN: 190000101234</Text>
-              <Text>SKU: ENVOY-S STANDARD KIT</Text>
+              <Text fontFamily="$body">SN: 190000101234</Text>
+              <Text fontFamily="$body">SKU: ENVOY-S STANDARD KIT</Text>
             </YStack>
 
             <YStack gap="$1">
-              <Text>Array: Array Right</Text>
-              <Text>Last reported: 06 Sep 2023, 06:17</Text>
-              <Text>Firmware: 520-00082-r01-v02.14.02</Text>
+              <Text fontFamily="$body">Array: Array Right</Text>
+              <Text fontFamily="$body">Last reported: 06 Sep 2023, 06:17</Text>
+              <Text fontFamily="$body">Firmware: 520-00082-r01-v02.14.02</Text>
             </YStack>
           </YStack>
         </SCard>
@@ -55,26 +60,31 @@ export default function DemoScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 IO 2
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>SN: 190000101234</Text>
-              <Text>SKU: ENVOY-S STANDARD KIT</Text>
+              <Text fontFamily="$body">SN: 190000101234</Text>
+              <Text fontFamily="$body">SKU: ENVOY-S STANDARD KIT</Text>
             </YStack>
 
             <YStack gap="$1">
-              <Text>Array: Array Right</Text>
-              <Text>Last reported: 06 Sep 2023, 06:17</Text>
-              <Text>Firmware: 520-00082-r01-v02.14.02</Text>
+              <Text fontFamily="$body">Array: Array Right</Text>
+              <Text fontFamily="$body">Last reported: 06 Sep 2023, 06:17</Text>
+              <Text fontFamily="$body">Firmware: 520-00082-r01-v02.14.02</Text>
             </YStack>
           </YStack>
         </SCard>
@@ -83,26 +93,31 @@ export default function DemoScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 IO 3
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>SN: 190000101234</Text>
-              <Text>SKU: ENVOY-S STANDARD KIT</Text>
+              <Text fontFamily="$body">SN: 190000101234</Text>
+              <Text fontFamily="$body">SKU: ENVOY-S STANDARD KIT</Text>
             </YStack>
 
             <YStack gap="$1">
-              <Text>Array: Array Right</Text>
-              <Text>Last reported: 06 Sep 2023, 06:17</Text>
-              <Text>Firmware: 520-00082-r01-v02.14.02</Text>
+              <Text fontFamily="$body">Array: Array Right</Text>
+              <Text fontFamily="$body">Last reported: 06 Sep 2023, 06:17</Text>
+              <Text fontFamily="$body">Firmware: 520-00082-r01-v02.14.02</Text>
             </YStack>
           </YStack>
         </SCard>

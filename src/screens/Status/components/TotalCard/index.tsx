@@ -16,12 +16,12 @@ export default function TotalCard(): React.JSX.Element {
         >
           <SVG.Lightning color="#f7d94b" />
           <Text
+            fontFamily="$body"
             fontWeight="bold"
-            fontSize="$5"
           >
             38.40
           </Text>
-          <Text>kWh</Text>
+          <Text fontFamily="$body">kWh</Text>
         </XStack>
 
         <Separator
@@ -36,12 +36,12 @@ export default function TotalCard(): React.JSX.Element {
         >
           <SVG.Leaf color="green" />
           <Text
+            fontFamily="$body"
             fontWeight="bold"
-            fontSize="$5"
           >
             25.60
           </Text>
-          <Text>kg CO₂</Text>
+          <Text fontFamily="$body">kg CO₂</Text>
         </XStack>
       </XStack>
     </SCard>

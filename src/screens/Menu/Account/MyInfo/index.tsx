@@ -30,14 +30,14 @@ export default function MyInfoScreen(): React.JSX.Element {
         marginBottom="$10"
       >
         <Text
-          fontSize="$6"
+          fontFamily="$body"
           fontWeight="bold"
           marginVertical="$2"
         >
           Personal Information
         </Text>
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.FirstName')}</Text>
+          <Text fontFamily="$body">{t('Auth:SignupScreen.Input.FirstName')}</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -45,7 +45,7 @@ export default function MyInfoScreen(): React.JSX.Element {
           />
         </YStack>
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.LastName')}</Text>
+          <Text fontFamily="$body">{t('Auth:SignupScreen.Input.LastName')}</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -53,7 +53,7 @@ export default function MyInfoScreen(): React.JSX.Element {
           />
         </YStack>
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.Country')}</Text>
+          <Text fontFamily="$body">{t('Auth:SignupScreen.Input.Country')}</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -61,7 +61,7 @@ export default function MyInfoScreen(): React.JSX.Element {
           />
         </YStack>
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.EmailAddress')}</Text>
+          <Text fontFamily="$body">{t('Auth:SignupScreen.Input.EmailAddress')}</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -72,7 +72,7 @@ export default function MyInfoScreen(): React.JSX.Element {
           space="$2"
           marginBottom="$3"
         >
-          <Text>{t('Auth:SignupScreen.Input.PhoneNumber')}</Text>
+          <Text fontFamily="$body">{t('Auth:SignupScreen.Input.PhoneNumber')}</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -83,13 +83,18 @@ export default function MyInfoScreen(): React.JSX.Element {
         <Separator />
 
         <TouchableOpacity onPress={() => {}}>
-          <Text color="#0078d7">Change Password</Text>
+          <Text
+            fontFamily="$body"
+            color="#0078d7"
+          >
+            Change Password
+          </Text>
         </TouchableOpacity>
 
         <Separator />
 
         <YStack space="$2">
-          <Text>Units:</Text>
+          <Text fontFamily="$body">Units:</Text>
           <SRatioGroup
             data={[
               { label: 'O Metric(°C)', value: 'O' },
@@ -102,7 +107,7 @@ export default function MyInfoScreen(): React.JSX.Element {
         <Separator />
 
         <YStack space="$2">
-          <Text>Languages</Text>
+          <Text fontFamily="$body">Languages</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -114,7 +119,7 @@ export default function MyInfoScreen(): React.JSX.Element {
         <Separator />
 
         <Text
-          fontSize="$6"
+          fontFamily="$body"
           fontWeight="bold"
           marginVertical="$2"
         >
@@ -122,7 +127,7 @@ export default function MyInfoScreen(): React.JSX.Element {
         </Text>
 
         <YStack space="$2">
-          <Text>System Weather</Text>
+          <Text fontFamily="$body">System Weather</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -140,7 +145,7 @@ export default function MyInfoScreen(): React.JSX.Element {
         <Separator />
 
         <Text
-          fontSize="$6"
+          fontFamily="$body"
           fontWeight="bold"
           marginVertical="$2"
         >
@@ -148,7 +153,7 @@ export default function MyInfoScreen(): React.JSX.Element {
         </Text>
 
         <YStack space="$2">
-          <Text>Name</Text>
+          <Text fontFamily="$body">Name</Text>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
@@ -159,18 +164,20 @@ export default function MyInfoScreen(): React.JSX.Element {
         <Separator />
 
         <YStack space="$2">
-          <Text>Public System Page:</Text>
+          <Text fontFamily="$body">Public System Page:</Text>
           <SCheckbox
             label="Create a public page for my system"
             onCheckedChange={() => {}}
           />
-          <Text>This will enable social sharing features and allow visitors to your system.</Text>
+          <Text fontFamily="$body">
+            This will enable social sharing features and allow visitors to your system.
+          </Text>
         </YStack>
 
         <Separator />
 
         <YStack space="$2">
-          <Text>Display system name as:</Text>
+          <Text fontFamily="$body">Display system name as:</Text>
           <SRatioGroup
             data={[
               { label: 'Demo', value: '0' },

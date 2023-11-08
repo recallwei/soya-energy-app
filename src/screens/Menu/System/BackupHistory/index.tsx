@@ -42,7 +42,7 @@ export default function DemoScreen(): React.JSX.Element {
         marginBottom="$10"
       >
         <Text
-          fontSize="$6"
+          fontFamily="$body"
           fontWeight="bold"
           marginLeft="$1"
         >
@@ -51,9 +51,9 @@ export default function DemoScreen(): React.JSX.Element {
         {data.map((item, index) => (
           <SCard key={index}>
             <YStack gap="$2">
-              <Text>From: {item.from}</Text>
-              <Text>To: {item.to}</Text>
-              <Text>Total: {item.description}</Text>
+              <Text fontFamily="$body">From: {item.from}</Text>
+              <Text fontFamily="$body">To: {item.to}</Text>
+              <Text fontFamily="$body">Total: {item.description}</Text>
             </YStack>
           </SCard>
         ))}

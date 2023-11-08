@@ -102,7 +102,7 @@ export default function LiveStatusScreen(): React.JSX.Element {
 
         <YStack space="$2">
           <Text
-            fontSize="$6"
+            fontFamily="$body"
             fontWeight="bold"
             marginLeft="$1"
           >

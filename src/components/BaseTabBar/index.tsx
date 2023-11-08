@@ -9,7 +9,7 @@ import type { TabParamList } from '@/types'
 
 const Tab = createBottomTabNavigator<TabParamList>()
 
-export default function BaseTabBar(): React.JSX.Element {
+export default function BaseTabBar() {
   const { t } = useTranslation(['Global'])
 
   const { changeTab } = useTabsStore()

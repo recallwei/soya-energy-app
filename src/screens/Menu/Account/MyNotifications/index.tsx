@@ -26,7 +26,7 @@ export default function MyNotificationScreen(): React.JSX.Element {
         marginBottom="$10"
       >
         <Text
-          fontSize="$6"
+          fontFamily="$body"
           fontWeight="bold"
           marginVertical="$2"
         >
@@ -36,20 +36,28 @@ export default function MyNotificationScreen(): React.JSX.Element {
 
         <YStack gap="$1">
           <XStack>
-            <Text width="40%">Notification Type</Text>
             <Text
+              fontFamily="$body"
+              width="40%"
+            >
+              Notification Type
+            </Text>
+            <Text
+              fontFamily="$body"
               width="20%"
               textAlign="center"
             >
               Text
             </Text>
             <Text
+              fontFamily="$body"
               width="20%"
               textAlign="center"
             >
               Email
             </Text>
             <Text
+              fontFamily="$body"
               width="20%"
               textAlign="center"
             >

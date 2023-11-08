@@ -42,7 +42,7 @@ export default function RatioGroup(props: Props) {
               >
                 {groupItem.label}
               </Label>
-              <Paragraph fontSize="$2">{groupItem.description}</Paragraph>
+              <Paragraph>{groupItem.description}</Paragraph>
             </YStack>
           </XStack>
         ))}

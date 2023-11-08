@@ -8023,7 +8023,7 @@ packages:
       '@expo/config': 8.1.2
       chalk: 4.1.2
       commander: 7.2.0
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
       find-up: 5.0.0
       fs-extra: 9.1.0
     transitivePeerDependencies:
@@ -8109,7 +8109,6 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
-    dev: true
 
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}

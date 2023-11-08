@@ -26,7 +26,7 @@ export default function ReportsScreen(): React.JSX.Element {
         <SCard>
           <YStack gap="$2">
             <Text
-              fontSize="$5"
+              fontFamily="$body"
               fontWeight="bold"
             >
               Monthly Energy
@@ -34,15 +34,15 @@ export default function ReportsScreen(): React.JSX.Element {
 
             <Separator />
 
-            <Text>
+            <Text fontFamily="$body">
               This report summarizes the energy produced, consumed imported to, and exported from
               this site for every 15 minutes of the selected month. lf the system includes
               batteries, the report also shows energy stored and discharged.
             </Text>
 
             <Text
+              fontFamily="$body"
               marginTop="$4"
-              fontSize="$5"
               fontWeight="bold"
             >
               SEPTEMBER 2023
@@ -52,6 +52,7 @@ export default function ReportsScreen(): React.JSX.Element {
 
             <TouchableOpacity onPress={() => {}}>
               <Text
+                fontFamily="$body"
                 color="#0078d7"
                 marginTop="$4"
               >

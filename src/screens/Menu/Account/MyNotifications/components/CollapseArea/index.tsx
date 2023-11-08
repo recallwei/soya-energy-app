@@ -40,7 +40,7 @@ export default function CollapseArea(props: Props): React.JSX.Element {
                   >
                     <ChevronDown size="$1" />
                   </Square>
-                  <Text>{mainItem.title}</Text>
+                  <Text fontFamily="$body">{mainItem.title}</Text>
                 </XStack>
                 <View
                   width="22%"
@@ -87,7 +87,12 @@ export default function CollapseArea(props: Props): React.JSX.Element {
                     gap="$1"
                   >
                     <XStack>
-                      <Text width="40%">{collapseItem.title}</Text>
+                      <Text
+                        fontFamily="$body"
+                        width="40%"
+                      >
+                        {collapseItem.title}
+                      </Text>
                       <View
                         width="22%"
                         alignItems="center"
@@ -120,7 +125,7 @@ export default function CollapseArea(props: Props): React.JSX.Element {
                       </View>
                     </XStack>
 
-                    <Text>{collapseItem.description}</Text>
+                    <Text fontFamily="$body">{collapseItem.description}</Text>
                   </YStack>
 
                   {collapseItemIndex < mainItem.children.length - 1 && <Separator />}

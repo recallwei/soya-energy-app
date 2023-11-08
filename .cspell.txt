@@ -11,6 +11,7 @@ netinfo
 NFTL
 NFTN
 noto
+Nunito
 preinstall
 pressable
 Raipiot

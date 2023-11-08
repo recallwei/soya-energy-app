@@ -5,6 +5,7 @@ export default function InProgress(): React.JSX.Element {
   const { t } = useTranslation(['Global'])
   return (
     <Text
+      fontFamily="$body"
       textAlign="center"
       paddingVertical="$4"
     >

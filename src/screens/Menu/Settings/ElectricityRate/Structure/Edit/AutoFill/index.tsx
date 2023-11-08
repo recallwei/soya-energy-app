@@ -15,7 +15,7 @@ export default function AutofillScreen(): React.JSX.Element {
       >
         <YStack space="$3">
           <Text
-            fontSize="$5"
+            fontFamily="$body"
             fontWeight="500"
           >
             Zipcode: 94538
@@ -24,7 +24,7 @@ export default function AutofillScreen(): React.JSX.Element {
           <Separator />
 
           <YStack space="$2">
-            <Text>Utility Name</Text>
+            <Text fontFamily="$body">Utility Name</Text>
             <Input
               autoCapitalize="none"
               clearButtonMode="while-editing"
@@ -33,7 +33,7 @@ export default function AutofillScreen(): React.JSX.Element {
           </YStack>
 
           <YStack space="$2">
-            <Text>Tariff Name / Code</Text>
+            <Text fontFamily="$body">Tariff Name / Code</Text>
             <Input
               autoCapitalize="none"
               clearButtonMode="while-editing"
@@ -42,8 +42,8 @@ export default function AutofillScreen(): React.JSX.Element {
           </YStack>
 
           <YStack gap="$2">
-            <Text fontSize="$3">Note:</Text>
-            <Paragraph fontSize="$3">
+            <Text fontFamily="$body">Note:</Text>
+            <Paragraph>
               In case of difficulty in finding Tariff Name/Code, kindly contact your Utility
               Provider for details.
             </Paragraph>

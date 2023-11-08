@@ -3,17 +3,19 @@ import { useNavigation } from '@react-navigation/native'
 import { Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import CryptoJS from 'crypto-js'
-import { useState } from 'react'
-import type { SubmitHandler } from 'react-hook-form'
+import _ from 'lodash'
+import { useEffect, useState } from 'react'
+import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Dimensions, SafeAreaView, TouchableOpacity } from 'react-native'
-import { Button, Image, Input, Spinner, Text, View, XStack, YStack } from 'tamagui'
+import { Dimensions, SafeAreaView } from 'react-native'
+import { Button, Image, Input, Label, Spinner, View, XStack, YStack } from 'tamagui'
 import * as yup from 'yup'
 
 import { AuthAPI } from '@/api'
 import { SCheckbox } from '@/components'
 import { globalEnvConfig } from '@/env'
+import { GlobalToastProvider } from '@/providers'
 import { useAuthStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, CodePushUtils } from '@/utils'
@@ -43,7 +45,9 @@ export default function LoginScreen(): React.JSX.Element {
     control,
     formState: { errors, isLoading },
     handleSubmit,
-    resetField
+    resetField,
+    getValues,
+    setValue
   } = useForm<FormData>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -56,25 +60,51 @@ export default function LoginScreen(): React.JSX.Element {
   const [rememberPassword, setRememberPassword] = useState(false)
 
   const { mutate } = useMutation({
-    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, false),
-    onSuccess: (data) => {
-      AuthUtils.setToken((data as { access_token: string }).access_token)
+    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, true),
+    onSuccess: async (data) => {
+      await AuthUtils.setToken((data as { access_token: string }).access_token)
       authStore.login()
+      if (rememberPassword) {
+        await AuthUtils.setAccountRememberPassword(JSON.stringify(getValues()))
+      } else {
+        await AuthUtils.removeAccountRememberPassword()
+      }
     },
     onError: () => {
       resetField('password')
     }
   })
 
-  const handleLogin: SubmitHandler<FormData> = (data) => {
+  useEffect(() => {
+    const init = async () => {
+      try {
+        const accountData = JSON.parse((await AuthUtils.getAccountRememberPassword()) ?? '')
+        if (rememberPassword) {
+          setValue('username', accountData.username)
+          setValue('password', accountData.password)
+        }
+      } catch {
+        //
+      }
+    }
+    init()
+  }, [])
+
+  const handleLogin: SubmitHandler<FormData> = (data) =>
     mutate({
       username: data.username,
       password: CryptoJS.MD5(data.password).toString()
     })
+
+  const handleSubmitError: SubmitErrorHandler<FormData> = (errs) => {
+    // toast
+    console.log(_.get(errs, 'username.message'))
+    console.log(_.get(errs, 'password.message'))
   }
 
   return (
     <SafeAreaView>
+      <GlobalToastProvider />
       <YStack
         width="100%"
         height="100%"
@@ -194,7 +224,7 @@ export default function LoginScreen(): React.JSX.Element {
           />
           <Button
             width="100%"
-            onPress={handleSubmit(handleLogin)}
+            onPress={handleSubmit(handleLogin, handleSubmitError)}
             disabled={isLoading}
             icon={isLoading ? <Spinner /> : undefined}
           >
@@ -204,21 +234,20 @@ export default function LoginScreen(): React.JSX.Element {
             justifyContent="space-between"
             width="100%"
           >
-            <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-              <Text>{t('Auth:ForgotPassword')}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-              <Text>{t('Auth:Signup')}</Text>
-            </TouchableOpacity>
+            <Label onPress={() => navigation.navigate('ForgotPassword')}>
+              {t('Auth:ForgotPassword')}
+            </Label>
+            <Label onPress={() => navigation.navigate('SignUp')}>{t('Auth:Signup')}</Label>
           </XStack>
         </YStack>
 
-        <Text
+        <Label
           textAlign="center"
+          letterSpacing="$sm"
           onPress={() => CodePushUtils.syncCode()}
         >
           {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}
-        </Text>
+        </Label>
       </YStack>
     </SafeAreaView>
   )

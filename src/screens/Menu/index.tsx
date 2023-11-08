@@ -47,7 +47,7 @@ export default function MenuScreen(): React.JSX.Element {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Text>{t('Hello')}</Text>
+            <Text fontFamily="$body">{t('Hello')}</Text>
             <Square
               pressStyle={{
                 scale: 0.9
@@ -63,8 +63,8 @@ export default function MenuScreen(): React.JSX.Element {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Text>{currentSite}</Text>
-            <Text>
+            <Text fontFamily="$body">{currentSite}</Text>
+            <Text fontFamily="$body">
               {t('SiteId')}
               {siteId}
             </Text>

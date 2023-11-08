@@ -141,30 +141,30 @@ export default function StatisticsScreen(): React.JSX.Element {
               value="day"
               width="auto"
             >
-              <Text>Day</Text>
+              <Text fontFamily="$body">Day</Text>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="month"
               width="auto"
             >
-              <Text>Month</Text>
+              <Text fontFamily="$body">Month</Text>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="year"
               width="auto"
             >
-              <Text>Year</Text>
+              <Text fontFamily="$body">Year</Text>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="lifetime"
               width="auto"
             >
-              <Text>Life Time</Text>
+              <Text fontFamily="$body">Life Time</Text>
             </ToggleGroup.Item>
           </ToggleGroup>
 
           <Text
-            fontSize="$6"
+            fontFamily="$body"
             fontWeight="bold"
           >
             Produced
@@ -176,7 +176,7 @@ export default function StatisticsScreen(): React.JSX.Element {
           />
 
           <Text
-            fontSize="$6"
+            fontFamily="$body"
             fontWeight="bold"
           >
             Consumed
@@ -214,7 +214,7 @@ export default function StatisticsScreen(): React.JSX.Element {
                   backgroundColor="#0078d7"
                 />
               </Switch>
-              <Text>Produced</Text>
+              <Text fontFamily="$body">Produced</Text>
             </YStack>
 
             <YStack
@@ -233,7 +233,7 @@ export default function StatisticsScreen(): React.JSX.Element {
                   backgroundColor="#f59a23"
                 />
               </Switch>
-              <Text>Consumed</Text>
+              <Text fontFamily="$body">Consumed</Text>
             </YStack>
 
             <YStack
@@ -249,8 +249,8 @@ export default function StatisticsScreen(): React.JSX.Element {
               >
                 <Switch.Thumb animation="quick" />
               </Switch>
-              <Text>Imported/</Text>
-              <Text>Exported</Text>
+              <Text fontFamily="$body">Imported/</Text>
+              <Text fontFamily="$body">Exported</Text>
             </YStack>
 
             <YStack
@@ -266,13 +266,13 @@ export default function StatisticsScreen(): React.JSX.Element {
               >
                 <Switch.Thumb animation="quick" />
               </Switch>
-              <Text>Charged/</Text>
-              <Text>Discharged</Text>
+              <Text fontFamily="$body">Charged/</Text>
+              <Text fontFamily="$body">Discharged</Text>
             </YStack>
           </XStack>
 
           <Text
-            fontSize="$6"
+            fontFamily="$body"
             fontWeight="bold"
           >
             Performance
@@ -282,13 +282,13 @@ export default function StatisticsScreen(): React.JSX.Element {
             <YStack gap="$4">
               <XStack>
                 <Text
-                  fontSize="$5"
+                  fontFamily="$body"
                   fontWeight="500"
                 >
                   Energy Independence:{' '}
                 </Text>
                 <Text
-                  fontSize="$5"
+                  fontFamily="$body"
                   fontWeight="500"
                   color="green"
                 >
@@ -314,7 +314,12 @@ export default function StatisticsScreen(): React.JSX.Element {
                   borderWidth={6}
                 />
               </Slider>
-              <Text marginTop="$2">Measures your independence from the utility grid</Text>
+              <Text
+                fontFamily="$body"
+                marginTop="$2"
+              >
+                Measures your independence from the utility grid
+              </Text>
             </YStack>
           </SCard>
 
@@ -322,7 +327,7 @@ export default function StatisticsScreen(): React.JSX.Element {
             <YStack gap="$4">
               <XStack>
                 <Text
-                  fontSize="$5"
+                  fontFamily="$body"
                   fontWeight="500"
                 >
                   Currency Equivalent
@@ -340,28 +345,28 @@ export default function StatisticsScreen(): React.JSX.Element {
                   gap="$1"
                 >
                   <Text
+                    fontFamily="$body"
                     color="#0078d7"
                     fontWeight="600"
-                    fontSize="$7"
                   >
                     10.0 kWh
                   </Text>
-                  <Text>Net Exported</Text>
+                  <Text fontFamily="$body">Net Exported</Text>
                 </YStack>
-                <Text>=</Text>
+                <Text fontFamily="$body">=</Text>
                 <YStack
                   justifyContent="center"
                   alignItems="center"
                   gap="$1"
                 >
                   <Text
+                    fontFamily="$body"
                     color="#333333"
                     fontWeight="600"
-                    fontSize="$7"
                   >
                     $ 9.0
                   </Text>
-                  <Text>Equivalent</Text>
+                  <Text fontFamily="$body">Equivalent</Text>
                 </YStack>
               </XStack>
             </YStack>
@@ -371,7 +376,7 @@ export default function StatisticsScreen(): React.JSX.Element {
             <YStack gap="$4">
               <XStack>
                 <Text
-                  fontSize="$5"
+                  fontFamily="$body"
                   fontWeight="500"
                 >
                   Environmental Impact
@@ -389,13 +394,13 @@ export default function StatisticsScreen(): React.JSX.Element {
                   width="50%"
                 >
                   <Text
+                    fontFamily="$body"
                     color="#0078d7"
                     fontWeight="600"
-                    fontSize="$7"
                   >
                     35.9 kWh
                   </Text>
-                  <Text>Equivalent</Text>
+                  <Text fontFamily="$body">Equivalent</Text>
                 </YStack>
                 <YStack
                   justifyContent="center"
@@ -403,11 +408,11 @@ export default function StatisticsScreen(): React.JSX.Element {
                   gap="$1"
                   width="50%"
                 >
-                  <Text>CO₂ Reduction</Text>
+                  <Text fontFamily="$body">CO₂ Reduction</Text>
                   <Text
+                    fontFamily="$body"
                     color="#333333"
                     fontWeight="600"
-                    fontSize="$7"
                   >
                     26.0 KG
                   </Text>
@@ -420,7 +425,7 @@ export default function StatisticsScreen(): React.JSX.Element {
             <YStack gap="$4">
               <XStack>
                 <Text
-                  fontSize="$5"
+                  fontFamily="$body"
                   fontWeight="500"
                 >
                   Net Exported
@@ -439,13 +444,13 @@ export default function StatisticsScreen(): React.JSX.Element {
                   width="50%"
                 >
                   <Text
+                    fontFamily="$body"
                     color="#0078d7"
                     fontWeight="600"
-                    fontSize="$7"
                   >
                     10.0 kWh
                   </Text>
-                  <Text>Net Exported</Text>
+                  <Text fontFamily="$body">Net Exported</Text>
                 </YStack>
               </XStack>
             </YStack>

@@ -17,7 +17,9 @@ export default function OtherScreen(): React.JSX.Element {
       >
         <YStack space="$3">
           <YStack space="$3">
-            <Text>Your electricity payout rate has peak and off-peak changes?</Text>
+            <Text fontFamily="$body">
+              Your electricity payout rate has peak and off-peak changes?
+            </Text>
             <SRatioGroup
               data={[
                 { label: 'Yes', value: '1' },

@@ -28,7 +28,7 @@ export default function CollapseArea(props: Props): React.JSX.Element {
                 alignItems="center"
               >
                 <Text
-                  fontSize="$5"
+                  fontFamily="$body"
                   fontWeight="500"
                 >
                   {isActive ? `✅ ${props.title}` : props.title}

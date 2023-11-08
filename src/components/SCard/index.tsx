@@ -1,9 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import { Card } from 'tamagui'
 
-type Props = PropsWithChildren
-
-export default function SCard(props: Props): React.JSX.Element {
+export default function SCard(props: PropsWithChildren) {
   return (
     <Card
       size="$4"

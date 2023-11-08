@@ -79,10 +79,10 @@ export default function BatteryCard(): React.JSX.Element {
           </Pressable>
 
           <YStack rowGap="$2">
-            <Text>Charge</Text>
+            <Text fontFamily="$body">Charge</Text>
             <XStack columnGap="$2">
-              <Text>88%</Text>
-              <Text>(7hr 50min)</Text>
+              <Text fontFamily="$body">88%</Text>
+              <Text fontFamily="$body">(7hr 50min)</Text>
             </XStack>
           </YStack>
         </XStack>
@@ -99,10 +99,10 @@ export default function BatteryCard(): React.JSX.Element {
                 alignItems="center"
                 columnGap="$1.5"
               >
-                <Text>Profile</Text>
+                <Text fontFamily="$body">Profile</Text>
                 <Cog size="$1" />
               </XStack>
-              <Text>self-consumption</Text>
+              <Text fontFamily="$body">self-consumption</Text>
             </YStack>
           </XStack>
         </TouchableOpacity>

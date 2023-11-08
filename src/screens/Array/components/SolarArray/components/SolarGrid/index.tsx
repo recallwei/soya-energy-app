@@ -84,12 +84,7 @@ export default function SolarGrid(props: PropsWithChildren<Props>): React.JSX.El
         justifyContent="center"
         alignItems="center"
       >
-        <SizableText
-          color="white"
-          size="$5"
-        >
-          {props.text}
-        </SizableText>
+        <SizableText color="white">{props.text}</SizableText>
       </View>
     </View>
   )

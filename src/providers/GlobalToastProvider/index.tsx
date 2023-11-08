@@ -1,6 +1,9 @@
-import { Toast, ToastProvider, ToastViewport, useToastState } from '@tamagui/toast'
+import { ToastProvider, ToastViewport, useToastState } from '@tamagui/toast'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-export default function GlobalToastProvider(): React.JSX.Element | null {
+export default function GlobalToastProvider() {
+  const { left, top, right } = useSafeAreaInsets()
+
   const toast = useToastState()
 
   if (!toast || toast.isHandledNatively) {
@@ -8,8 +11,16 @@ export default function GlobalToastProvider(): React.JSX.Element | null {
   }
 
   return (
-    <ToastProvider>
-      <Toast
+    <ToastProvider
+      label="Bruce Song"
+      duration={2000}
+      swipeDirection="right"
+      swipeThreshold={50}
+      native
+      burntOptions={{}}
+      notificationOptions={{}}
+    >
+      {/* <Toast
         key={toast.id}
         duration={toast.duration}
         enterStyle={{ opacity: 0, scale: 0.5, y: -25 }}
@@ -22,8 +33,16 @@ export default function GlobalToastProvider(): React.JSX.Element | null {
       >
         <Toast.Title>{toast.title}</Toast.Title>
         {!!toast.message && <Toast.Description>{toast.message}</Toast.Description>}
-      </Toast>
-      <ToastViewport />
+      </Toast> */}
+      <ToastViewport
+        label="Bruce Song"
+        name="global"
+        multipleToasts
+        unstyled
+        top={top}
+        left={left}
+        right={right}
+      />
     </ToastProvider>
   )
 }

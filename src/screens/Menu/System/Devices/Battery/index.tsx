@@ -45,25 +45,25 @@ export default function BatteryScreen(): React.JSX.Element {
               width="70%"
               gap="$1.5"
             >
-              <Text>Available Energy</Text>
+              <Text fontFamily="$body">Available Energy</Text>
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 9.78 of 10.08 kWh
               </Text>
 
-              <Text>Backup Time</Text>
+              <Text fontFamily="$body">Backup Time</Text>
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 8 hrs 48 mins
               </Text>
 
-              <Text>Available Power</Text>
+              <Text fontFamily="$body">Available Power</Text>
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 3.84 of 3.84 kWh
@@ -78,36 +78,41 @@ export default function BatteryScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 IQ Battery1
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>SN: 190000101234</Text>
-              <Text>SKU: ENVOY-S STANDARD KIT</Text>
+              <Text fontFamily="$body">SN: 190000101234</Text>
+              <Text fontFamily="$body">SKU: ENVOY-S STANDARD KIT</Text>
             </YStack>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>Available Energy：3.26 of 3.36 kWh</Text>
-              <Text>Available Power：1.28 of 1.28 kW</Text>
-              <Text>Active Microinverters: 4 of 4</Text>
-              <Text>Last reported: 06 Sep 2023, 06:17</Text>
-              <Text>Firmware: 520-00082-r01-v02.14.02</Text>
+              <Text fontFamily="$body">Available Energy：3.26 of 3.36 kWh</Text>
+              <Text fontFamily="$body">Available Power：1.28 of 1.28 kW</Text>
+              <Text fontFamily="$body">Active Microinverters: 4 of 4</Text>
+              <Text fontFamily="$body">Last reported: 06 Sep 2023, 06:17</Text>
+              <Text fontFamily="$body">Firmware: 520-00082-r01-v02.14.02</Text>
             </YStack>
 
             <YStack gap="$1">
-              <Text>LED Status:</Text>
-              <Text>Battery capacity is between: 75-100%</Text>
+              <Text fontFamily="$body">LED Status:</Text>
+              <Text fontFamily="$body">Battery capacity is between: 75-100%</Text>
             </YStack>
           </YStack>
         </SCard>
@@ -116,36 +121,41 @@ export default function BatteryScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 IQ Battery2
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>SN: 190000101234</Text>
-              <Text>SKU: ENVOY-S STANDARD KIT</Text>
+              <Text fontFamily="$body">SN: 190000101234</Text>
+              <Text fontFamily="$body">SKU: ENVOY-S STANDARD KIT</Text>
             </YStack>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>Available Energy：3.26 of 3.36 kWh</Text>
-              <Text>Available Power：1.28 of 1.28 kW</Text>
-              <Text>Active Microinverters: 4 of 4</Text>
-              <Text>Last reported: 06 Sep 2023, 06:17</Text>
-              <Text>Firmware: 520-00082-r01-v02.14.02</Text>
+              <Text fontFamily="$body">Available Energy：3.26 of 3.36 kWh</Text>
+              <Text fontFamily="$body">Available Power：1.28 of 1.28 kW</Text>
+              <Text fontFamily="$body">Active Microinverters: 4 of 4</Text>
+              <Text fontFamily="$body">Last reported: 06 Sep 2023, 06:17</Text>
+              <Text fontFamily="$body">Firmware: 520-00082-r01-v02.14.02</Text>
             </YStack>
 
             <YStack gap="$1">
-              <Text>LED Status:</Text>
-              <Text>Battery capacity is between: 75-100%</Text>
+              <Text fontFamily="$body">LED Status:</Text>
+              <Text fontFamily="$body">Battery capacity is between: 75-100%</Text>
             </YStack>
           </YStack>
         </SCard>

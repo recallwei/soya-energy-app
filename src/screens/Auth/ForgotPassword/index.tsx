@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, Text, YStack } from 'tamagui'
+import { Button, Input, Label, YStack } from 'tamagui'
 
 export default function ForgotPasswordScreen(): React.JSX.Element {
   const { t } = useTranslation(['Global', 'Auth'])
@@ -19,7 +19,7 @@ export default function ForgotPasswordScreen(): React.JSX.Element {
       height="100%"
     >
       <YStack space="$2">
-        <Text>{t('Auth:Account.Text')}</Text>
+        <Label>{t('Auth:Account.Text')}</Label>
         <Input
           autoCapitalize="none"
           clearButtonMode="while-editing"

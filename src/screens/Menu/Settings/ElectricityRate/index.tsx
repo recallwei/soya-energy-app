@@ -28,8 +28,8 @@ export default function ElectricityRateScreen(): React.JSX.Element {
         </YStack>
 
         <YStack gap="$2">
-          <Text fontSize="$3">Note:</Text>
-          <Paragraph fontSize="$3">
+          <Text fontFamily="$body">Note:</Text>
+          <Paragraph>
             The electricity rate information is used by the gateway to determine the best battery
             charge and discharge schedule when your system profile is set as &apos;Savings&apos;.
             Changing this information will change the system&apos;s behavior.

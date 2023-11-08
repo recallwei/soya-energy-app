@@ -27,17 +27,22 @@ export default function SystemControlScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 IO System Controller
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack gap="$1">
-              <Text>SN: 190000101234</Text>
-              <Text>SKU: ENVOY-S STANDARD KIT</Text>
+              <Text fontFamily="$body">SN: 190000101234</Text>
+              <Text fontFamily="$body">SKU: ENVOY-S STANDARD KIT</Text>
             </YStack>
           </YStack>
         </SCard>

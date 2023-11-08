@@ -28,10 +28,10 @@ export default function StructureScreen(): React.JSX.Element {
       >
         <SCard>
           <YStack gap="$2">
-            <Text>Flat Rate</Text>
+            <Text fontFamily="$body">Flat Rate</Text>
             <Text
+              fontFamily="$body"
               color="#0078d7"
-              fontSize="$5"
               fontWeight="bold"
             >
               0.000$/kWh

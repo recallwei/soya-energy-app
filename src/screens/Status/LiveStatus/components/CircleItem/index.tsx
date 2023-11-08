@@ -31,9 +31,14 @@ export default function CircleItem({
         rowGap="$1"
       >
         {icon}
-        <Text fontWeight="bold">{iconText}</Text>
+        <Text
+          fontFamily="$body"
+          fontWeight="bold"
+        >
+          {iconText}
+        </Text>
       </YStack>
-      <Text>{bottomText}</Text>
+      <Text fontFamily="$body">{bottomText}</Text>
     </YStack>
   )
 }

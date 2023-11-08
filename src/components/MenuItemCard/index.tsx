@@ -10,8 +10,6 @@ interface Props {
   switcher?: boolean
 }
 
-export type MenuItemCardProps = Props
-
 export default function MenuItemCard(props: Props) {
   const [isPressing, setIsPressing] = useState(false)
   const [isSwitcherOn, setIsSwitcherOn] = useState(false)
@@ -49,9 +47,14 @@ export default function MenuItemCard(props: Props) {
             </View>
           )}
           <YStack rowGap="$2">
-            <Text fontSize="$5">{props.title}</Text>
             <Text
-              fontSize="$2"
+              fontFamily="$body"
+              fontSize="$lg"
+            >
+              {props.title}
+            </Text>
+            <Text
+              fontFamily="$body"
               theme="alt2"
             >
               {props.description}

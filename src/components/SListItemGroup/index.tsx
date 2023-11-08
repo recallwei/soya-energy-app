@@ -14,7 +14,7 @@ interface Props {
   scaleIcon?: number
 }
 
-export default function SListItemGroup(props: Props): React.JSX.Element | null {
+export default function SListItemGroup(props: Props) {
   const scaleIcon = props.scaleIcon ?? 1.5
   if (!props.data || props.data.length === 0) return null
   return (

@@ -28,7 +28,7 @@ export default function SCheckbox(props: Props) {
         </Checkbox.Indicator>
       </Checkbox>
 
-      <Label lineHeight={24}>{props.label}</Label>
+      <Label>{props.label}</Label>
     </XStack>
   )
 }

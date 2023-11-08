@@ -26,32 +26,37 @@ export default function GatewayScreen(): React.JSX.Element {
         <SCard>
           <YStack gap="$2">
             <Text
-              fontSize="$5"
+              fontFamily="$body"
               fontWeight="bold"
             >
               IQ Gateway
             </Text>
-            <Text>SN: 190000101234</Text>
-            <Text marginBottom="$3">SKU: ENVOY-S STANDARD KIT</Text>
+            <Text fontFamily="$body">SN: 190000101234</Text>
+            <Text
+              fontFamily="$body"
+              marginBottom="$3"
+            >
+              SKU: ENVOY-S STANDARD KIT
+            </Text>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>Connected to SOYA cloud</Text>
-              <Text>Last reported: 06 Sep 2023, 06:02 pm</Text>
-              <Text>Firmware: D6.0.23</Text>
+              <Text fontFamily="$body">Connected to SOYA cloud</Text>
+              <Text fontFamily="$body">Last reported: 06 Sep 2023, 06:02 pm</Text>
+              <Text fontFamily="$body">Firmware: D6.0.23</Text>
             </YStack>
 
-            <Text>Connection Type : Ethernet</Text>
+            <Text fontFamily="$body">Connection Type : Ethernet</Text>
 
             <YStack
               gap="$1"
               marginBottom="$3"
             >
-              <Text>Ethernet(Active): Reports data every 15 mins</Text>
-              <Text>Wi-Fi(Not Available)</Text>
-              <Text>I Cell Modem(Not Available)</Text>
+              <Text fontFamily="$body">Ethernet(Active): Reports data every 15 mins</Text>
+              <Text fontFamily="$body">Wi-Fi(Not Available)</Text>
+              <Text fontFamily="$body">I Cell Modem(Not Available)</Text>
             </YStack>
           </YStack>
         </SCard>

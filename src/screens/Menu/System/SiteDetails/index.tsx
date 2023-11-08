@@ -27,27 +27,32 @@ export default function SiteDetailScreen(): React.JSX.Element {
         <SCard>
           <YStack gap="$2">
             <Text
-              fontSize="$5"
+              fontFamily="$body"
               fontWeight="bold"
             >
               Bruce Song
             </Text>
-            <Text>Site ID: 156224</Text>
-            <Text>47281 Bay Parkway</Text>
-            <Text>Fremont,CA 94538</Text>
-            <Text>United States</Text>
+            <Text fontFamily="$body">Site ID: 156224</Text>
+            <Text fontFamily="$body">47281 Bay Parkway</Text>
+            <Text fontFamily="$body">Fremont,CA 94538</Text>
+            <Text fontFamily="$body">United States</Text>
 
             <Separator />
 
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 Backup Configurations
               </Text>
               <TouchableOpacity onPress={() => {}}>
-                <Text color="#0078d7">Change</Text>
+                <Text
+                  fontFamily="$body"
+                  color="#0078d7"
+                >
+                  Change
+                </Text>
               </TouchableOpacity>
             </XStack>
             <XStack
@@ -56,20 +61,25 @@ export default function SiteDetailScreen(): React.JSX.Element {
               marginTop="$2"
             >
               <Home size="$2" />
-              <Text>Partial Home Backup</Text>
+              <Text fontFamily="$body">Partial Home Backup</Text>
             </XStack>
 
             <Separator />
 
             <XStack justifyContent="space-between">
-              <Text>Connection Type: Ethernet</Text>
+              <Text fontFamily="$body">Connection Type: Ethernet</Text>
               <TouchableOpacity onPress={() => {}}>
-                <Text color="#0078d7">Configure</Text>
+                <Text
+                  fontFamily="$body"
+                  color="#0078d7"
+                >
+                  Configure
+                </Text>
               </TouchableOpacity>
             </XStack>
-            <Text>Ethernet(Active): Reports data every 15 mins</Text>
-            <Text>Wi-Fi(Not Available)</Text>
-            <Text>I Cell Modem(Not Available)</Text>
+            <Text fontFamily="$body">Ethernet(Active): Reports data every 15 mins</Text>
+            <Text fontFamily="$body">Wi-Fi(Not Available)</Text>
+            <Text fontFamily="$body">I Cell Modem(Not Available)</Text>
           </YStack>
         </SCard>
       </YStack>

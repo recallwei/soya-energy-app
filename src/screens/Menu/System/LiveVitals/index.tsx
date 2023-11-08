@@ -26,13 +26,18 @@ export default function LiveVitalsScreen(): React.JSX.Element {
         <SCard>
           <YStack gap="$2">
             <Text
-              fontSize="$5"
+              fontFamily="$body"
               fontWeight="bold"
             >
               Bruce Song
             </Text>
-            <Text>06 Sep 2023 07:37 pm</Text>
-            <Text marginBottom="$4">Discharging: 98%</Text>
+            <Text fontFamily="$body">06 Sep 2023 07:37 pm</Text>
+            <Text
+              fontFamily="$body"
+              marginBottom="$4"
+            >
+              Discharging: 98%
+            </Text>
 
             <Table
               data={[
@@ -46,14 +51,19 @@ export default function LiveVitalsScreen(): React.JSX.Element {
         <SCard>
           <YStack gap="$2">
             <Text
-              fontSize="$5"
+              fontFamily="$body"
               fontWeight="bold"
             >
               System Controller
             </Text>
-            <Text>06 Sep 2023 07:37 pm</Text>
-            <Text>System controller is On Grid</Text>
-            <Text marginBottom="$4">Control State: On Grid</Text>
+            <Text fontFamily="$body">06 Sep 2023 07:37 pm</Text>
+            <Text fontFamily="$body">System controller is On Grid</Text>
+            <Text
+              fontFamily="$body"
+              marginBottom="$4"
+            >
+              Control State: On Grid
+            </Text>
 
             <XStack justifyContent="space-between">
               <View width="40%">
@@ -79,18 +89,24 @@ export default function LiveVitalsScreen(): React.JSX.Element {
 
         <SCard>
           <Text
-            fontSize="$5"
+            fontFamily="$body"
             fontWeight="bold"
           >
             IQ Battery xxx645
           </Text>
-          <Text>06 Sep 2023 07:37 pm</Text>
-          <Text>Battery is operational</Text>
-          <Text>Grid Mode: On Grid</Text>
-          <Text>Discharging: 98%</Text>
-          <Text marginBottom="$4">LED Status: Battery capacity is between 75% ~ 100%</Text>
+          <Text fontFamily="$body">06 Sep 2023 07:37 pm</Text>
+          <Text fontFamily="$body">Battery is operational</Text>
+          <Text fontFamily="$body">Grid Mode: On Grid</Text>
+          <Text fontFamily="$body">Discharging: 98%</Text>
+          <Text
+            fontFamily="$body"
+            marginBottom="$4"
+          >
+            LED Status: Battery capacity is between 75% ~ 100%
+          </Text>
 
           <Text
+            fontFamily="$body"
             textAlign="center"
             marginBottom="$2"
           >
@@ -112,10 +128,10 @@ export default function LiveVitalsScreen(): React.JSX.Element {
             borderWidth={0.2}
             borderColor="#999999"
           >
-            <Text>SN: 12203123124</Text>
-            <Text>Grid Mode: On Grid</Text>
-            <Text>AC Power: 83.3W</Text>
-            <Text>State: Normal</Text>
+            <Text fontFamily="$body">SN: 12203123124</Text>
+            <Text fontFamily="$body">Grid Mode: On Grid</Text>
+            <Text fontFamily="$body">AC Power: 83.3W</Text>
+            <Text fontFamily="$body">State: Normal</Text>
           </View>
         </SCard>
       </YStack>

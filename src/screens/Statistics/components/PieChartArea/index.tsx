@@ -38,25 +38,25 @@ export default function PieChartArea(props: Props): React.JSX.Element | null {
           >
             <YStack space="$2">
               <Text
+                fontFamily="$body"
                 color={props.data[0].color}
                 fontWeight="bold"
-                fontSize="$5"
               >
                 {`${props.data[0].value} ${props.unit}`}
               </Text>
-              <Text fontSize="$2">{props.data[0].label}</Text>
-              <Text fontSize="$2">{props.data[0].percentage}</Text>
+              <Text fontFamily="$body">{props.data[0].label}</Text>
+              <Text fontFamily="$body">{props.data[0].percentage}</Text>
             </YStack>
             <YStack space="$2">
               <Text
+                fontFamily="$body"
                 color={props.data[1].color}
                 fontWeight="bold"
-                fontSize="$5"
               >
                 {`${props.data[1].value} ${props.unit}`}
               </Text>
-              <Text fontSize="$2">{props.data[1].label}</Text>
-              <Text fontSize="$2">{props.data[1].percentage}</Text>
+              <Text fontFamily="$body">{props.data[1].label}</Text>
+              <Text fontFamily="$body">{props.data[1].percentage}</Text>
             </YStack>
           </XStack>
         </Card.Header>
@@ -85,12 +85,12 @@ export default function PieChartArea(props: Props): React.JSX.Element | null {
           centerLabelComponent={() => (
             <YStack alignItems="center">
               <Text
+                fontFamily="$body"
                 fontWeight="bold"
-                fontSize="$5"
               >
                 {getTotal()}
               </Text>
-              <Text>{props.unit}</Text>
+              <Text fontFamily="$body">{props.unit}</Text>
             </YStack>
           )}
         />

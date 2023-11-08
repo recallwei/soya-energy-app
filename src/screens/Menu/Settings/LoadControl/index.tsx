@@ -25,7 +25,7 @@ export default function LoadControlScreen(): React.JSX.Element {
         marginBottom="$10"
       >
         <Text
-          fontSize="$5"
+          fontFamily="$body"
           fontWeight="500"
           marginLeft="$1"
         >

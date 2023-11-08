@@ -31,8 +31,18 @@ export default function CollapseArea(props: Props): React.JSX.Element {
               alignItems="center"
             >
               <XStack alignContent="center">
-                <Text width="40%">{props.data.title}</Text>
-                <Text width="50%">Mode: {props.data.mode}</Text>
+                <Text
+                  fontFamily="$body"
+                  width="40%"
+                >
+                  {props.data.title}
+                </Text>
+                <Text
+                  fontFamily="$body"
+                  width="50%"
+                >
+                  Mode: {props.data.mode}
+                </Text>
               </XStack>
               <Square
                 animation="quick"
@@ -62,8 +72,8 @@ export default function CollapseArea(props: Props): React.JSX.Element {
                     <YStack space="$1">
                       {collapseItem.textList.map((text, textIndex) => (
                         <Text
+                          fontFamily="$body"
                           key={textIndex}
-                          fontSize="$2"
                         >
                           {text}
                         </Text>

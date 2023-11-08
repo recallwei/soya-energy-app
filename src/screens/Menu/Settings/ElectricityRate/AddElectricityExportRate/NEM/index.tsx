@@ -17,7 +17,7 @@ export default function NEMScreen(): React.JSX.Element {
       >
         <YStack space="$3">
           <YStack space="$3">
-            <Text>Your electricity rate has peak and off-peak charges?</Text>
+            <Text fontFamily="$body">Your electricity rate has peak and off-peak charges?</Text>
             <SRatioGroup
               data={[
                 { label: 'Yes', value: '1' },

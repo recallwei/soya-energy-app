@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, ScrollView, Spinner, Text, YStack } from 'tamagui'
+import { Button, Input, Label, ScrollView, Spinner, YStack } from 'tamagui'
 
 import { SCheckbox, SRatioGroup } from '@/components'
 import { useAuthStore } from '@/store'
@@ -68,47 +68,42 @@ export default function SignUpScreen(): React.JSX.Element {
         padding="$4"
         space="$3"
       >
-        <Text
-          fontSize="$6"
-          fontWeight="bold"
+        <Label
+          fontWeight="$bold"
           marginVertical="$2"
         >
           {t('Auth:SignupScreen.PersonalInfo')}
-        </Text>
+        </Label>
 
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.FirstName')}</Text>
+          <Label>{t('Auth:SignupScreen.Input.FirstName')}</Label>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
-            placeholder=""
           />
         </YStack>
 
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.LastName')}</Text>
+          <Label>{t('Auth:SignupScreen.Input.LastName')}</Label>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
-            placeholder=""
           />
         </YStack>
 
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.Country')}</Text>
+          <Label>{t('Auth:SignupScreen.Input.Country')}</Label>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
-            placeholder=""
           />
         </YStack>
 
         <YStack space="$2">
-          <Text>{t('Auth:SignupScreen.Input.EmailAddress')}</Text>
+          <Label>{t('Auth:SignupScreen.Input.EmailAddress')}</Label>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
-            placeholder=""
           />
         </YStack>
 
@@ -116,11 +111,10 @@ export default function SignUpScreen(): React.JSX.Element {
           space="$2"
           marginBottom="$3"
         >
-          <Text>{t('Auth:SignupScreen.Input.PhoneNumber')}</Text>
+          <Label>{t('Auth:SignupScreen.Input.PhoneNumber')}</Label>
           <Input
             autoCapitalize="none"
             clearButtonMode="while-editing"
-            placeholder=""
           />
         </YStack>
 
@@ -135,47 +129,42 @@ export default function SignUpScreen(): React.JSX.Element {
             space="$3"
             marginVertical="$3"
           >
-            <Text
-              fontSize="$6"
+            <Label
               fontWeight="bold"
               marginVertical="$2"
             >
-              {t('Auth:SignupScreen.CompanyInfo')}{' '}
-            </Text>
+              {t('Auth:SignupScreen.CompanyInfo')}
+            </Label>
 
             <YStack space="$2">
-              <Text>{t('Auth:SignupScreen.Input.CompanyName')}</Text>
+              <Label>{t('Auth:SignupScreen.Input.CompanyName')}</Label>
               <Input
                 autoCapitalize="none"
                 clearButtonMode="while-editing"
-                placeholder=""
               />
             </YStack>
 
             <YStack space="$2">
-              <Text>{t('Auth:SignupScreen.Input.StreetAddress')}</Text>
+              <Label>{t('Auth:SignupScreen.Input.StreetAddress')}</Label>
               <Input
                 autoCapitalize="none"
                 clearButtonMode="while-editing"
-                placeholder=""
               />
             </YStack>
 
             <YStack space="$2">
-              <Text>{t('Auth:SignupScreen.Input.StreetAddressOptional')}</Text>
+              <Label>{t('Auth:SignupScreen.Input.StreetAddressOptional')}</Label>
               <Input
                 autoCapitalize="none"
                 clearButtonMode="while-editing"
-                placeholder=""
               />
             </YStack>
 
             <YStack space="$2">
-              <Text>{t('Auth:SignupScreen.Input.City')}</Text>
+              <Label>{t('Auth:SignupScreen.Input.City')}</Label>
               <Input
                 autoCapitalize="none"
                 clearButtonMode="while-editing"
-                placeholder=""
               />
             </YStack>
           </YStack>

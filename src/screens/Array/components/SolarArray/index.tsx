@@ -38,25 +38,25 @@ export default function SolarArray(): React.JSX.Element {
           value="day"
           width="auto"
         >
-          <Text>Day</Text>
+          <Text fontFamily="$body">Day</Text>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="month"
           width="auto"
         >
-          <Text>Month</Text>
+          <Text fontFamily="$body">Month</Text>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="year"
           width="auto"
         >
-          <Text>Year</Text>
+          <Text fontFamily="$body">Year</Text>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="lifetime"
           width="auto"
         >
-          <Text>Life Time</Text>
+          <Text fontFamily="$body">Life Time</Text>
         </ToggleGroup.Item>
       </ToggleGroup>
 
@@ -81,16 +81,26 @@ export default function SolarArray(): React.JSX.Element {
             <SCard>
               <YStack space="$1">
                 <XStack>
-                  <Text>Quantity: </Text>
-                  <Text>100 PCS</Text>
+                  <Text fontFamily="$body">Quantity: </Text>
+                  <Text fontFamily="$body">100 PCS</Text>
                 </XStack>
                 <XStack>
-                  <Text>Avg Production: </Text>
-                  <Text color="green">1.1 kWh</Text>
+                  <Text fontFamily="$body">Avg Production: </Text>
+                  <Text
+                    fontFamily="$body"
+                    color="green"
+                  >
+                    1.1 kWh
+                  </Text>
                 </XStack>
                 <XStack>
-                  <Text>Total Production: </Text>
-                  <Text color="green">110 kWh</Text>
+                  <Text fontFamily="$body">Total Production: </Text>
+                  <Text
+                    fontFamily="$body"
+                    color="green"
+                  >
+                    110 kWh
+                  </Text>
                 </XStack>
               </YStack>
             </SCard>

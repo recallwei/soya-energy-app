@@ -27,17 +27,22 @@ export default function LoadsScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 Well Pump
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack gap="$1">
-              <Text>Mode: Basic</Text>
-              <Text>Auxiliary Contact: NC1</Text>
+              <Text fontFamily="$body">Mode: Basic</Text>
+              <Text fontFamily="$body">Auxiliary Contact: NC1</Text>
             </YStack>
           </YStack>
         </SCard>
@@ -46,17 +51,22 @@ export default function LoadsScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 Air Conditioner
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack gap="$1">
-              <Text>Mode: Advanced</Text>
-              <Text>Auxiliary Contact: NC2</Text>
+              <Text fontFamily="$body">Mode: Advanced</Text>
+              <Text fontFamily="$body">Auxiliary Contact: NC2</Text>
             </YStack>
           </YStack>
         </SCard>
@@ -65,17 +75,22 @@ export default function LoadsScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 Dishwasher
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack gap="$1">
-              <Text>Mode: Advanced</Text>
-              <Text>Auxiliary Contact: NC2</Text>
+              <Text fontFamily="$body">Mode: Advanced</Text>
+              <Text fontFamily="$body">Auxiliary Contact: NC2</Text>
             </YStack>
           </YStack>
         </SCard>
@@ -84,17 +99,22 @@ export default function LoadsScreen(): React.JSX.Element {
           <YStack gap="$2">
             <XStack justifyContent="space-between">
               <Text
-                fontSize="$5"
+                fontFamily="$body"
                 fontWeight="bold"
               >
                 Electric Vehicle
               </Text>
-              <Text color="green">Normal</Text>
+              <Text
+                fontFamily="$body"
+                color="green"
+              >
+                Normal
+              </Text>
             </XStack>
 
             <YStack gap="$1">
-              <Text>Mode: Advanced</Text>
-              <Text>Auxiliary Contact: NC2</Text>
+              <Text fontFamily="$body">Mode: Advanced</Text>
+              <Text fontFamily="$body">Auxiliary Contact: NC2</Text>
             </YStack>
           </YStack>
         </SCard>

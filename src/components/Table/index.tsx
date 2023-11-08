@@ -16,7 +16,7 @@ function Cell({
       borderWidth={0.2}
       borderColor="#333333"
     >
-      <Text>{children}</Text>
+      <Text fontFamily="$body">{children}</Text>
     </View>
   )
 }

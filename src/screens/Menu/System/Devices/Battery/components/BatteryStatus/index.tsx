@@ -29,7 +29,12 @@ export default function BatteryStatus({
         rowGap="$1"
       >
         {icon}
-        <Text fontWeight="bold">{iconText}</Text>
+        <Text
+          fontFamily="$body"
+          fontWeight="bold"
+        >
+          {iconText}
+        </Text>
       </YStack>
     </YStack>
   )

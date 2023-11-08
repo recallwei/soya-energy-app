@@ -17,22 +17,22 @@ export default function GrossScreen(): React.JSX.Element {
       >
         <YStack space="$3">
           <YStack space="$3">
-            <Text>Electricity Payout Rate Structure: Gross FIT</Text>
-            <Text fontSize="$4">Fixed Electricity payout rate that does not vary</Text>
+            <Text fontFamily="$body">Electricity Payout Rate Structure: Gross FIT</Text>
+            <Text fontFamily="$body">Fixed Electricity payout rate that does not vary</Text>
 
             <Separator />
 
             <SCard>
               <YStack space="$3">
                 <Text
-                  fontSize="$4"
+                  fontFamily="$body"
                   fontWeight="500"
                 >
                   What is your payout rate per unit of solar energy generated?
                 </Text>
 
                 <YStack space="$2">
-                  <Text>Payout Rate($/kWh)</Text>
+                  <Text fontFamily="$body">Payout Rate($/kWh)</Text>
                   <Input
                     autoCapitalize="none"
                     clearButtonMode="while-editing"

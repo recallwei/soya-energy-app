@@ -65,13 +65,13 @@ export default function NotificationScreen(): React.JSX.Element {
               <Card.Header padded>
                 <YStack space="$3">
                   <Text
+                    fontFamily="$body"
                     fontWeight="bold"
                     color="red"
-                    fontSize="$6"
                   >
                     {notificationItem.title}
                   </Text>
-                  <Text>{notificationItem.content}</Text>
+                  <Text fontFamily="$body">{notificationItem.content}</Text>
                 </YStack>
               </Card.Header>
             </Card>

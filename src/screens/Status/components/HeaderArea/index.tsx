@@ -23,7 +23,7 @@ export default function HeaderArea(): React.JSX.Element {
             columnGap="$1.5"
           >
             <CheckCircle2 color="green" />
-            <Text>Normal</Text>
+            <Text fontFamily="$body">Normal</Text>
           </XStack>
 
           <XStack
@@ -31,7 +31,7 @@ export default function HeaderArea(): React.JSX.Element {
             columnGap="$1.5"
           >
             <SVG.ElectricalTower color="#333333" />
-            <Text>On grid</Text>
+            <Text fontFamily="$body">On grid</Text>
           </XStack>
         </XStack>
 
@@ -40,7 +40,7 @@ export default function HeaderArea(): React.JSX.Element {
           columnGap="$1.5"
         >
           <CloudSun color="#333333" />
-          <Text>26°C</Text>
+          <Text fontFamily="$body">26°C</Text>
         </XStack>
       </XStack>
 
@@ -48,7 +48,7 @@ export default function HeaderArea(): React.JSX.Element {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Text>2023-09-20 updated 12min ago</Text>
+        <Text fontFamily="$body">2023-09-20 updated 12min ago</Text>
         <Button
           size="$2"
           backgroundColor="#dddddd"

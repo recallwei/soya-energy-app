@@ -28,7 +28,7 @@ export default function CurrencyScreen(): React.JSX.Element {
         >
           <YStack space="$2">
             <Text
-              fontSize="$5"
+              fontFamily="$body"
               fontWeight="bold"
             >
               Show Currency Equivalent
@@ -47,7 +47,7 @@ export default function CurrencyScreen(): React.JSX.Element {
 
         <YStack space="$2">
           <Text
-            fontSize="$5"
+            fontFamily="$body"
             fontWeight="bold"
           >
             Currency Conversion Factor
@@ -63,17 +63,32 @@ export default function CurrencyScreen(): React.JSX.Element {
           alignItems="flex-start"
         >
           <YStack space="$2">
-            <Text fontWeight="bold">Conversion Factor</Text>
-            <Text color="#0078d7">0.9 $/kWh</Text>
+            <Text
+              fontFamily="$body"
+              fontWeight="bold"
+            >
+              Conversion Factor
+            </Text>
+            <Text
+              fontFamily="$body"
+              color="#0078d7"
+            >
+              0.9 $/kWh
+            </Text>
           </YStack>
           <TouchableOpacity onPress={() => {}}>
-            <Text color="#0078d7">Edit</Text>
+            <Text
+              fontFamily="$body"
+              color="#0078d7"
+            >
+              Edit
+            </Text>
           </TouchableOpacity>
         </XStack>
 
         <Separator />
 
-        <Paragraph fontSize="$3">
+        <Paragraph>
           Note: The reported currency value is indicative and does not include taxes, fixed charges,
           etc.
         </Paragraph>

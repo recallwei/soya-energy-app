@@ -25,7 +25,7 @@ export default function BatteryScreen(): React.JSX.Element {
         marginBottom="$10"
       >
         <Text
-          fontSize="$5"
+          fontFamily="$body"
           fontWeight="500"
         >
           Storm Guard Enabled
@@ -39,7 +39,7 @@ export default function BatteryScreen(): React.JSX.Element {
         </Paragraph>
 
         <Text
-          fontSize="$5"
+          fontFamily="$body"
           fontWeight="500"
         >
           Select a smart profile to control your battery
@@ -49,23 +49,23 @@ export default function BatteryScreen(): React.JSX.Element {
           title="Savings"
           description="Minimize the use of electricity from the grid when the electricity rate is higher. During peak hours, your home is powered in the following order of priority: battery, solar and grid. Any extra solar is exported to the grid."
         >
-          <Text>30% Reserve</Text>
-          <Text>Based on Optimization</Text>
+          <Text fontFamily="$body">30% Reserve</Text>
+          <Text fontFamily="$body">Based on Optimization</Text>
         </CollapseArea>
 
         <CollapseArea
           title="Self - Consumption"
           description="Use stored solar to power your home after the sun goes down. Battery is used when solar is not available."
         >
-          <Text>30% Reserve</Text>
-          <Text>Increase Self-Consumption to minimize Grid Dependence</Text>
+          <Text fontFamily="$body">30% Reserve</Text>
+          <Text fontFamily="$body">Increase Self-Consumption to minimize Grid Dependence</Text>
         </CollapseArea>
 
         <CollapseArea
           title="Full Backup"
           description="100% of the battery is reserved for backup."
         >
-          <Text>100% Reserve</Text>
+          <Text fontFamily="$body">100% Reserve</Text>
         </CollapseArea>
       </YStack>
     </ScrollView>
