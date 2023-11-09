@@ -8,7 +8,7 @@ import { useCallback, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Dimensions, SafeAreaView } from 'react-native'
+import { DevSettings, Dimensions, SafeAreaView } from 'react-native'
 import { Button, Image, Input, Label, Spinner, View, XStack, YStack } from 'tamagui'
 import * as yup from 'yup'
 
@@ -254,7 +254,10 @@ export default function LoginScreen(): React.JSX.Element {
 
         <Label
           textAlign="center"
-          onPress={() => CodePushUtils.syncCode()}
+          onPress={() => {
+            DevSettings.reload()
+            CodePushUtils.syncCode()
+          }}
         >
           {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}
         </Label>

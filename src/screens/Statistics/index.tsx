@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { RefreshControl, SafeAreaView } from 'react-native'
 import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/RenderStackBars'
-import { Label, ScrollView, Slider, Switch, ToggleGroup, View, XStack, YStack } from 'tamagui'
+import { Label, ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
 import { useRefresh } from '@/hooks'
@@ -141,25 +141,25 @@ export default function StatisticsScreen(): React.JSX.Element {
               value="day"
               width="auto"
             >
-              <Label>Day</Label>
+              <Text fontFamily="$body">Day</Text>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="month"
               width="auto"
             >
-              <Label>Month</Label>
+              <Text fontFamily="$body">Month</Text>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="year"
               width="auto"
             >
-              <Label>Year</Label>
+              <Text fontFamily="$body">Year</Text>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="lifetime"
               width="auto"
             >
-              <Label>Life Time</Label>
+              <Text fontFamily="$body">Life Time</Text>
             </ToggleGroup.Item>
           </ToggleGroup>
 

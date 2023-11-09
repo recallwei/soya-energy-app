@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
-import { Label, Spinner, ToggleGroup, XStack, YStack } from 'tamagui'
+import { useEffect, useState } from 'react'
+import { Label, Spinner, Text, ToggleGroup, XStack, YStack } from 'tamagui'
 
 import { SCard } from '@/components'
 
@@ -20,6 +20,10 @@ export default function SolarArray(): React.JSX.Element {
       })
   })
 
+  useEffect(() => {
+    refetch()
+  }, [currentTimeTab, refetch])
+
   return (
     <YStack rowGap="$4">
       <ToggleGroup
@@ -31,32 +35,31 @@ export default function SolarArray(): React.JSX.Element {
         value={currentTimeTab}
         onValueChange={(value: TimeTab) => {
           setCurrentTimeTab(value)
-          refetch()
         }}
       >
         <ToggleGroup.Item
           value="day"
           width="auto"
         >
-          <Label>Day</Label>
+          <Text>Day</Text>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="month"
           width="auto"
         >
-          <Label>Month</Label>
+          <Text>Month</Text>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="year"
           width="auto"
         >
-          <Label>Year</Label>
+          <Text>Year</Text>
         </ToggleGroup.Item>
         <ToggleGroup.Item
           value="lifetime"
           width="auto"
         >
-          <Label>Life Time</Label>
+          <Text>Life Time</Text>
         </ToggleGroup.Item>
       </ToggleGroup>
 

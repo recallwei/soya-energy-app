@@ -68,6 +68,7 @@ export default function SplashScreen(): React.JSX.Element {
             position="absolute"
             top={-140}
             alignSelf="center"
+            resizeMode="contain"
           />
           <Progress
             size="$2"

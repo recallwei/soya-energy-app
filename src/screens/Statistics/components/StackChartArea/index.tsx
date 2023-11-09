@@ -20,7 +20,7 @@ export default function StackChartArea(props: Props): React.JSX.Element | null {
       yAxisThickness={0}
       xAxisThickness={0}
       showFractionalValues
-      isAnimated
+      isAnimated={false}
       animationDuration={300}
     />
   )

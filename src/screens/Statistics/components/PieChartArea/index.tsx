@@ -84,12 +84,7 @@ export default function PieChartArea(props: Props): React.JSX.Element | null {
           sectionAutoFocus
           centerLabelComponent={() => (
             <YStack alignItems="center">
-              <Text
-                fontFamily="$body"
-                fontWeight="bold"
-              >
-                {getTotal()}
-              </Text>
+              <Text fontFamily="$body">{getTotal()}</Text>
               <Text fontFamily="$body">{props.unit}</Text>
             </YStack>
           )}
