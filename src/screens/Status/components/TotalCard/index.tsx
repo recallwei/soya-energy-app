@@ -15,7 +15,7 @@ export default function TotalCard(): React.JSX.Element {
           columnGap="$2"
         >
           <SVG.Lightning color="#f7d94b" />
-          <Label fontWeight="bold">38.40</Label>
+          <Label>38.40</Label>
           <Label>kWh</Label>
         </XStack>
 
@@ -30,7 +30,7 @@ export default function TotalCard(): React.JSX.Element {
           columnGap="$2"
         >
           <SVG.Leaf color="green" />
-          <Label fontWeight="bold">25.60</Label>
+          <Label>25.60</Label>
           <Label>kg CO₂</Label>
         </XStack>
       </XStack>
