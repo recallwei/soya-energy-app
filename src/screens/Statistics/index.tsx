@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { RefreshControl, SafeAreaView } from 'react-native'
 import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/RenderStackBars'
 import { Label, ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YStack } from 'tamagui'
@@ -102,6 +102,10 @@ export default function StatisticsScreen(): React.JSX.Element {
       })
   })
 
+  useEffect(() => {
+    refetch()
+  }, [currentTimeTab, refetch])
+
   function resetData() {
     setProducedData(getMockPieChartData('#4a7903', '#0078d7'))
     setConsumedData(getMockPieChartData('#f59a23', '#ffdf80'))
@@ -134,7 +138,6 @@ export default function StatisticsScreen(): React.JSX.Element {
             value={currentTimeTab}
             onValueChange={(value: TimeTab) => {
               setCurrentTimeTab(value)
-              refetch()
             }}
           >
             <ToggleGroup.Item

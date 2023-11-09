@@ -63,7 +63,7 @@ export default function SplashScreen(): React.JSX.Element {
                 : require('../../../assets/images/soya-logo-light.png'),
               cache: 'force-cache'
             }}
-            width={width * 0.8}
+            width={width * 0.618}
             height={100}
             position="absolute"
             top={-140}
