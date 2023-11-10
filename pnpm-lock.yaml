@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.48.2)
   '@react-native-async-storage/async-storage':
-    specifier: ^1.19.4
-    version: 1.19.4(react-native@0.72.6)
+    specifier: ^1.19.5
+    version: 1.19.5(react-native@0.72.6)
   '@react-native-community/cli-platform-android':
     specifier: ^12.0.0
     version: 12.0.0
@@ -69,8 +69,8 @@ dependencies:
     specifier: ^1.11.10
     version: 1.11.10
   i18next:
-    specifier: ^23.6.0
-    version: 23.6.0
+    specifier: ^23.7.1
+    version: 23.7.1
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -81,8 +81,8 @@ dependencies:
     specifier: ^7.48.2
     version: 7.48.2(react@18.2.0)
   react-i18next:
-    specifier: ^13.3.1
-    version: 13.3.1(i18next@23.6.0)(react-dom@18.2.0)(react-native@0.72.6)(react@18.2.0)
+    specifier: ^13.3.2
+    version: 13.3.2(i18next@23.7.1)(react-dom@18.2.0)(react-native@0.72.6)(react@18.2.0)
   react-native:
     specifier: 0.72.6
     version: 0.72.6(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
@@ -112,7 +112,7 @@ dependencies:
     version: 13.6.2(react-native@0.72.6)(react@18.2.0)
   rn-flipper-async-storage-advanced:
     specifier: ^1.0.5
-    version: 1.0.5(@react-native-async-storage/async-storage@1.19.4)(react-native-flipper@0.163.0)(react@18.2.0)
+    version: 1.0.5(@react-native-async-storage/async-storage@1.19.5)(react-native-flipper@0.163.0)(react@18.2.0)
   tamagui:
     specifier: ^1.76.0
     version: 1.76.0(@types/react@18.2.37)(react-dom@18.2.0)(react-native-web@0.19.8)(react-native@0.72.6)(react@18.2.0)
@@ -137,10 +137,10 @@ devDependencies:
     specifier: ^0.0.14
     version: 0.0.14(eslint@8.53.0)(typescript@5.2.2)
   '@commitlint/cli':
-    specifier: ^17.8.1
+    specifier: ^17.8.0
     version: 17.8.1
   '@commitlint/config-conventional':
-    specifier: ^17.8.1
+    specifier: ^17.8.0
     version: 17.8.1
   '@react-native/metro-config':
     specifier: ^0.74.0
@@ -2091,8 +2091,8 @@ packages:
       '@commitlint/types': 17.8.1
       '@types/node': 20.5.1
       chalk: 4.1.2
-      cosmiconfig: 8.0.0
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.0.0)(ts-node@10.9.1)(typescript@5.2.2)
+      cosmiconfig: 8.2.0
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.2.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -2115,8 +2115,8 @@ packages:
       '@commitlint/types': 18.4.0
       '@types/node': 18.18.6
       chalk: 4.1.2
-      cosmiconfig: 8.0.0
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.18.6)(cosmiconfig@8.0.0)(typescript@5.2.2)
+      cosmiconfig: 8.2.0
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.18.6)(cosmiconfig@8.2.0)(typescript@5.2.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -3208,8 +3208,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@react-native-async-storage/async-storage@1.19.4(react-native@0.72.6):
-    resolution: {integrity: sha512-Stj6Q1v5knTMaYOinEEJl030SzJWEhqW+IYI5uA9Nl9Olo+vDUecmQXqpIxELucwOGDJ8KwvI0UL22UHudwZeQ==}
+  /@react-native-async-storage/async-storage@1.19.5(react-native@0.72.6):
+    resolution: {integrity: sha512-zLT7oNPXpW8BxJyHyq8AJbXtlHE/eonFWuJt44y0WeCGnp4KOJ8mfqD8mtAIKLyrYHHE1uadFe/s4C+diYAi8g==}
     peerDependencies:
       react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
     dependencies:
@@ -6394,7 +6394,7 @@ packages:
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
-  /cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.0.0)(ts-node@10.9.1)(typescript@5.2.2):
+  /cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.2.2):
     resolution: {integrity: sha512-BabizFdC3wBHhbI4kJh0VkQP9GkBfoHPydD0COMce1nJ1kJAB3F2TmJ/I7diULBKtmEWSwEbuN/KDtgnmUUVmw==}
     engines: {node: '>=v14.21.3'}
     peerDependencies:
@@ -6404,12 +6404,12 @@ packages:
       typescript: '>=4'
     dependencies:
       '@types/node': 20.5.1
-      cosmiconfig: 8.0.0
+      cosmiconfig: 8.2.0
       ts-node: 10.9.1(@types/node@18.18.6)(typescript@5.2.2)
       typescript: 5.2.2
     dev: true
 
-  /cosmiconfig-typescript-loader@5.0.0(@types/node@18.18.6)(cosmiconfig@8.0.0)(typescript@5.2.2):
+  /cosmiconfig-typescript-loader@5.0.0(@types/node@18.18.6)(cosmiconfig@8.2.0)(typescript@5.2.2):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
     requiresBuild: true
@@ -6419,7 +6419,7 @@ packages:
       typescript: '>=4'
     dependencies:
       '@types/node': 18.18.6
-      cosmiconfig: 8.0.0
+      cosmiconfig: 8.2.0
       jiti: 1.21.0
       typescript: 5.2.2
     dev: true
@@ -6436,6 +6436,16 @@ packages:
 
   /cosmiconfig@8.0.0:
     resolution: {integrity: sha512-da1EafcpH6b/TD8vDRaWV7xFINlHlF6zKsGwS1TsuVJTZRkquaS5HTMq7uq6h31619QjbsYl21gVDOm32KM1vQ==}
+    engines: {node: '>=14'}
+    dependencies:
+      import-fresh: 3.3.0
+      js-yaml: 4.1.0
+      parse-json: 5.2.0
+      path-type: 4.0.0
+    dev: true
+
+  /cosmiconfig@8.2.0:
+    resolution: {integrity: sha512-3rTMnFJA1tCOPwRxtgF4wd7Ab2qvDbL8jX+3smjIbS4HlZBagTlpERbdN7iAbWlrfxE3M8c27kTwTawQ7st+OQ==}
     engines: {node: '>=14'}
     dependencies:
       import-fresh: 3.3.0
@@ -8362,8 +8372,8 @@ packages:
     resolution: {integrity: sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==}
     dev: false
 
-  /i18next@23.6.0:
-    resolution: {integrity: sha512-z0Cxr0MGkt+kli306WS4nNNM++9cgt2b2VCMprY92j+AIab/oclgPxdwtTZVLP1zn5t5uo8M6uLsZmYrcjr3HA==}
+  /i18next@23.7.1:
+    resolution: {integrity: sha512-lD2lZkdhb9jnIGGc2ja8ER6cGStgJ+jFVL336Sa1C37//2Q8odC617ek2oafYbbs0/a+BbUqKe5JPST2r88UEQ==}
     dependencies:
       '@babel/runtime': 7.23.2
     dev: false
@@ -11027,8 +11037,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-i18next@13.3.1(i18next@23.6.0)(react-dom@18.2.0)(react-native@0.72.6)(react@18.2.0):
-    resolution: {integrity: sha512-JAtYREK879JXaN9GdzfBI4yJeo/XyLeXWUsRABvYXiFUakhZJ40l+kaTo+i+A/3cKIED41kS/HAbZ5BzFtq/Og==}
+  /react-i18next@13.3.2(i18next@23.7.1)(react-dom@18.2.0)(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-K5t2qwuLvGHH/VqVDPiilTw42it5Aa8qG5zBeA8pvE8IAbVSi2OryryZbY4giumHgTAUby9O854xod8iI/tZdQ==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
@@ -11042,7 +11052,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.2
       html-parse-stringify: 3.0.1
-      i18next: 23.6.0
+      i18next: 23.7.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-native: 0.72.6(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
@@ -11625,14 +11635,14 @@ packages:
     dependencies:
       glob: 7.2.3
 
-  /rn-flipper-async-storage-advanced@1.0.5(@react-native-async-storage/async-storage@1.19.4)(react-native-flipper@0.163.0)(react@18.2.0):
+  /rn-flipper-async-storage-advanced@1.0.5(@react-native-async-storage/async-storage@1.19.5)(react-native-flipper@0.163.0)(react@18.2.0):
     resolution: {integrity: sha512-IW2qXGyf+wgZKNV01li02e7c/DR/NQGIdQZ5CKynhVtl0Od8tO4AS/mZtRjmPbRtqSSGTdOUBSJ4d2JsCVZUPw==}
     peerDependencies:
       '@react-native-async-storage/async-storage': ^1.17.12
       react: ^18.2.0
       react-native-flipper: '*'
     dependencies:
-      '@react-native-async-storage/async-storage': 1.19.4(react-native@0.72.6)
+      '@react-native-async-storage/async-storage': 1.19.5(react-native@0.72.6)
       react: 18.2.0
       react-native-flipper: 0.163.0(react-native@0.72.6)(react@18.2.0)
     dev: false
