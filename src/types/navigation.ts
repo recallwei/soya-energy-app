@@ -7,66 +7,70 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack'
  * @see https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
  */
 
-export type RootStackParamList = {
-  Tabs: NavigatorScreenParams<TabParamList>
-  LiveStatus: undefined
-  // Menu
-  Notification: undefined
-  System: undefined
-  Account: undefined
-  Settings: undefined
-  Services: undefined
-  Support: undefined
-  Explore: undefined
-  Community: undefined
+export type RootStackParamList = InstallerTabParamList &
+  UserTabParamList & {
+    ['Installer.Tabs']: NavigatorScreenParams<InstallerTabParamList>
+    ['User.Tabs']: NavigatorScreenParams<UserTabParamList>
 
-  // System
-  SystemSiteDetails: undefined
-  SystemReports: undefined
-  SystemDevices: undefined
-  SystemDevicesGateway: undefined
-  SystemDevicesBattery: undefined
-  SystemDevicesSystemControl: undefined
-  SystemDevicesMicroinverters: undefined
-  SystemDevicesLoads: undefined
-  SystemLiveStatus: undefined
-  SystemLiveVitals: undefined
-  SystemEventHistory: undefined
-  SystemBackupHistory: undefined
+    LiveStatus: undefined
+    // Menu
+    Notification: undefined
+    System: undefined
+    Account: undefined
+    Settings: undefined
+    Services: undefined
+    Support: undefined
+    Explore: undefined
+    Community: undefined
 
-  // Account
-  AccountMyInfo: undefined
-  AccountMyNotifications: undefined
-  AccountMyAccessControl: undefined
+    // System
+    SystemSiteDetails: undefined
+    SystemReports: undefined
+    SystemDevices: undefined
+    SystemDevicesGateway: undefined
+    SystemDevicesBattery: undefined
+    SystemDevicesSystemControl: undefined
+    SystemDevicesMicroinverters: undefined
+    SystemDevicesLoads: undefined
+    SystemLiveStatus: undefined
+    SystemLiveVitals: undefined
+    SystemEventHistory: undefined
+    SystemBackupHistory: undefined
 
-  // Settings
-  SettingsBattery: undefined
-  SettingsLoadControl: undefined
-  SettingsElectricityRate: undefined
-  SettingsElectricityRateStructure: undefined
-  SettingsElectricityRateStructureEdit: undefined
-  SettingsElectricityRateStructureEditAutofill: undefined
-  SettingsElectricityRateStructureEditManual: undefined
-  SettingsAddElectricityExportRate: undefined
-  SettingsAddElectricityExportRateNEM: undefined
-  SettingsAddElectricityExportRateNet: undefined
-  SettingsAddElectricityExportRateGross: undefined
-  SettingsAddElectricityExportRateOther: undefined
-  SettingsConnectivity: undefined
-  SettingsPerformance: undefined
-  SettingsPerformanceEnergy: undefined
-  SettingsPerformanceCurrency: undefined
+    // Account
+    AccountMyInfo: undefined
+    AccountMyNotifications: undefined
+    AccountMyAccessControl: undefined
 
-  // Don't need auth
-  Login: undefined
-  SignUp: undefined
-  ForgotPassword: undefined
+    // Settings
+    SettingsBattery: undefined
+    SettingsLoadControl: undefined
+    SettingsElectricityRate: undefined
+    SettingsElectricityRateStructure: undefined
+    SettingsElectricityRateStructureEdit: undefined
+    SettingsElectricityRateStructureEditAutofill: undefined
+    SettingsElectricityRateStructureEditManual: undefined
+    SettingsAddElectricityExportRate: undefined
+    SettingsAddElectricityExportRateNEM: undefined
+    SettingsAddElectricityExportRateNet: undefined
+    SettingsAddElectricityExportRateGross: undefined
+    SettingsAddElectricityExportRateOther: undefined
+    SettingsConnectivity: undefined
+    SettingsPerformance: undefined
+    SettingsPerformanceEnergy: undefined
+    SettingsPerformanceCurrency: undefined
 
-  // Temp
-  DevMenu: undefined
-  Demo: undefined
-  WebViewDemo: undefined
-}
+    // Don't need auth
+    Login: undefined
+    SignUp: undefined
+    ForgotPassword: undefined
+    Splash: undefined
+
+    // Temp
+    DevMenu: undefined
+    Demo: undefined
+    WebViewDemo: undefined
+  }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<
   RootStackParamList,
@@ -83,15 +87,28 @@ export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenP
  * @see https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
  */
 
-export type TabParamList = {
-  Status: undefined
-  Statistics: undefined
-  Array: undefined
-  Menu: undefined
+export type InstallerTabParamList = {
+  ['Installer.Home']: undefined
+  ['Installer.Management']: undefined
+  ['Installer.Services']: undefined
+  ['Installer.Guide']: undefined
+  ['Installer.My']: undefined
 }
 
-export type TabScreenProps<T extends keyof TabParamList> = CompositeScreenProps<
-  BottomTabScreenProps<TabParamList, T>,
+export type InstallerTabScreenProps<T extends keyof InstallerTabParamList> = CompositeScreenProps<
+  BottomTabScreenProps<InstallerTabParamList, T>,
+  NativeStackScreenProps<RootStackParamList>
+>
+
+export type UserTabParamList = {
+  ['User.Home']: undefined
+  ['User.Statistics']: undefined
+  ['User.Devices']: undefined
+  ['User.My']: undefined
+}
+
+export type UserTabScreenProps<T extends keyof UserTabParamList> = CompositeScreenProps<
+  BottomTabScreenProps<UserTabParamList, T>,
   NativeStackScreenProps<RootStackParamList>
 >
 

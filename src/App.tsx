@@ -1,5 +1,6 @@
 import './i18n'
 
+import { setup } from '@baronha/ting'
 import NetInfo from '@react-native-community/netinfo'
 import {
   focusManager,
@@ -11,6 +12,7 @@ import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { Appearance, AppState, Platform } from 'react-native'
 import CodePush from 'react-native-code-push'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
@@ -19,6 +21,19 @@ import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useThemeStore } from './store'
 import { LoggerUtils, ThemeUtils } from './utils'
+
+// Init toast and alert
+setup({
+  toast: {
+    duration: 1.5,
+    position: 'top',
+    shouldDismissByDrag: false
+  },
+  alert: {
+    duration: 1.5,
+    shouldDismissByTap: false
+  }
+})
 
 function onAppStateChange(status: AppStateStatus) {
   if (Platform.OS !== 'web') {
@@ -71,7 +86,9 @@ function App() {
         config={config}
         defaultTheme={theme}
       >
-        <Navigation />
+        <SafeAreaProvider>
+          <Navigation />
+        </SafeAreaProvider>
       </TamaguiProvider>
       <FlipperAsyncStorage />
     </QueryClientProvider>

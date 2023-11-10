@@ -3,13 +3,13 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Input, Label, ScrollView, Spinner, YStack } from 'tamagui'
 
-import { SCheckbox, SRatioGroup } from '@/components'
+import { Checkbox, RadioGroup } from '@/components'
 import { useAuthStore } from '@/store'
 
 export default function SignUpScreen(): React.JSX.Element {
   const { t } = useTranslation(['Global', 'Auth'])
 
-  const ratioGroupData = [
+  const RadioGroupData = [
     {
       label: t('Auth:SignupScreen.Ratio.ForCompany'),
       value: '0'
@@ -50,7 +50,7 @@ export default function SignUpScreen(): React.JSX.Element {
     }
   })
 
-  const handleRatioGroupChange = (value: string) =>
+  const handleRadioGroupChange = (value: string) =>
     setFormData((val) => ({ ...val, source: value }))
 
   const handleChangeInstallation = (value: boolean) =>
@@ -118,10 +118,10 @@ export default function SignUpScreen(): React.JSX.Element {
           />
         </YStack>
 
-        <SRatioGroup
+        <RadioGroup
           value={formData.source}
-          data={ratioGroupData}
-          onValueChange={handleRatioGroupChange}
+          data={RadioGroupData}
+          onValueChange={handleRadioGroupChange}
         />
 
         {formData.source === '0' && (
@@ -170,12 +170,12 @@ export default function SignUpScreen(): React.JSX.Element {
           </YStack>
         )}
 
-        <SCheckbox
+        <Checkbox
           label={t('Auth:SignupScreen.Checkbox.Installation')}
           checked={formData.installation}
           onCheckedChange={handleChangeInstallation}
         />
-        <SCheckbox
+        <Checkbox
           label={t('Auth:SignupScreen.Checkbox.Privacy')}
           checked={formData.privacy}
           onCheckedChange={handleChangePrivacy}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Dimensions, SafeAreaView, StatusBar } from 'react-native'
-import { Image, Progress, Spinner, View, YStack } from 'tamagui'
+import { Dimensions } from 'react-native'
+import { Image, Progress, Spinner, YStack } from 'tamagui'
 
 import { useThemeStore } from '@/store'
 
@@ -34,53 +34,40 @@ export default function SplashScreen(): React.JSX.Element {
   }, [])
 
   return (
-    <SafeAreaView
-      style={{
-        backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
-      }}
+    <YStack
+      backgroundColor={themeStore.getBgColor()}
+      position="absolute"
+      alignItems="center"
+      justifyContent="center"
+      top={0}
+      bottom={0}
+      left={0}
+      right={0}
     >
-      <StatusBar
-        animated
-        backgroundColor={themeStore.isDark() ? '#333333' : '#ffffff'}
+      <Image
+        source={{
+          uri: themeStore.isDark()
+            ? require('../../../assets/images/soya-logo-dark.png')
+            : require('../../../assets/images/soya-logo-light.png'),
+          cache: 'force-cache'
+        }}
+        width={width * 0.618}
+        height={110}
+        resizeMode="contain"
       />
-      <YStack
-        height="100%"
-        justifyContent="center"
-        alignItems="center"
+      <Spinner
+        color={themeStore.getTextColor()}
+        size="large"
+      />
+      <Progress
+        size="$2"
+        value={percent}
+        width={width * 0.8}
+        alignSelf="center"
+        marginTop="$7"
       >
-        <View
-          width="100%"
-          justifyContent="center"
-        >
-          <Spinner
-            color={themeStore.isDark() ? '#ffffff' : '#333333'}
-            size="large"
-          />
-          <Image
-            source={{
-              uri: themeStore.isDark()
-                ? require('../../../assets/images/soya-logo-dark.png')
-                : require('../../../assets/images/soya-logo-light.png'),
-              cache: 'force-cache'
-            }}
-            width={width * 0.618}
-            height={100}
-            position="absolute"
-            top={-140}
-            alignSelf="center"
-            resizeMode="contain"
-          />
-          <Progress
-            size="$2"
-            value={percent}
-            width={width * 0.8}
-            alignSelf="center"
-            marginTop="$7"
-          >
-            <Progress.Indicator animation="bouncy" />
-          </Progress>
-        </View>
-      </YStack>
-    </SafeAreaView>
+        <Progress.Indicator animation="bouncy" />
+      </Progress>
+    </YStack>
   )
 }

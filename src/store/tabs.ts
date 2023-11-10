@@ -1,20 +1,24 @@
 import { create } from 'zustand'
 
-import type { TabParamList } from '@/types'
+import type { InstallerTabParamList, UserTabParamList } from '@/types'
 
 interface State {
-  currentTab: keyof TabParamList
+  installerCurrentTab: keyof InstallerTabParamList
+  userCurrentTab: keyof UserTabParamList
 }
 
 interface Actions {
-  changeTab: (value: keyof TabParamList) => void
+  changeInstallerTab: (value: keyof InstallerTabParamList) => void
+  changeUserTab: (value: keyof UserTabParamList) => void
 }
 
 const initialState: State = {
-  currentTab: 'Status'
+  installerCurrentTab: 'Installer.Home',
+  userCurrentTab: 'User.Home'
 }
 
 export const useTabsStore = create<State & Actions>()((set) => ({
   ...initialState,
-  changeTab: (value) => set(() => ({ currentTab: value }))
+  changeInstallerTab: (value) => set(() => ({ installerCurrentTab: value })),
+  changeUserTab: (value) => set(() => ({ userCurrentTab: value }))
 }))

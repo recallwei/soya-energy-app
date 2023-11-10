@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type {
   AxiosError,
   AxiosInstance,
@@ -9,8 +10,10 @@ import axios from 'axios'
 
 import { errorMessageMap, ResponseStatusCode } from '@/constants'
 import { globalEnvConfig } from '@/env'
-import { AuthUtils } from '@/utils'
+import i18n from '@/i18n'
+import { AuthUtils, ToastUtils } from '@/utils'
 
+const { t } = i18n
 class Request {
   instance: AxiosInstance
 
@@ -57,16 +60,11 @@ class Request {
         return res.data as AxiosResponse
       },
       (err: AxiosError) => {
-        console.log(err.response?.data)
         const { response } = err
         const { data, status } = response ?? {}
         if (response) {
           Request.handleCode(status!)
         }
-        // // 网络错误，跳转到 404 页面
-        // if (!window.navigator.onLine) {
-        //   // TODO: 重定向到 404 页面
-        // }
         return Promise.reject(data)
       }
     )
@@ -77,43 +75,28 @@ class Request {
    * @param code 响应状态码
    * @description 根据响应状态码进行相应的处理
    * - 401 未授权，清除 token 并跳转到登录页
-   * - 403 禁止访问，TODO: 提示用户无权限访问
-   * - 404 未找到，TODO: 跳转到 404 页面
-   * - 500 服务器错误，TODO: 跳转到 500 页面
+   * - 403 禁止访问，提示用户无权限访问
+   * - 404 未找到，跳转到 404 页面
+   * - 500 服务器错误，跳转到 500 页面
    * - 其他状态码，提示错误信息
    */
-  static handleCode(code: number): void {
+  static async handleCode(code: number): Promise<void> {
     const errorMessage = errorMessageMap.get(code) ?? 'Unknown Error!'
     switch (code) {
       case ResponseStatusCode.UNAUTHORIZED:
-        // AuthUtils.clearToken()
-        // TODO: 提示错误信息
+        await AuthUtils.removeToken()
         console.error(errorMessage)
-
-        // TODO: 如果非登录页面，需要重定向到登录页，且需要带上 redirect 参数
-        // if (router.currentRoute.value.path !== '/login') {
-        //   if (router.currentRoute.value.path !== '/') {
-        //     router.replace({
-        //       path: '/login',
-        //       query: {
-        //         redirect: router.currentRoute.value.fullPath
-        //       }
-        //     })
-        //   } else {
-        //     router.replace('/login')
-        //   }
-        // }
+        ToastUtils.error({ title: t('Global:Status.Code.401'), message: errorMessage })
         break
       case ResponseStatusCode.FORBIDDEN:
-        // TODO: 提示错误信息
         console.error(errorMessage)
+        ToastUtils.error({ title: t('Global:Status.Code.403'), message: errorMessage })
         break
       case ResponseStatusCode.INTERNAL_SERVER_ERROR:
       case ResponseStatusCode.BAD_GATEWAY:
       case ResponseStatusCode.GATEWAY_TIMEOUT:
-        // TODO: 提示错误信息
         console.error(errorMessage)
-        // TODO: 如果非登录页面，需要重定向到登录页
+        ToastUtils.error({ title: t('Global:Status.Code.500'), message: errorMessage })
         break
       case ResponseStatusCode.BAD_REQUEST:
       case ResponseStatusCode.NOT_FOUND:

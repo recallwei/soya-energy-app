@@ -1,15 +1,21 @@
 import { useNavigation } from '@react-navigation/native'
 import { Layers, PanelTop } from '@tamagui/lucide-icons'
-import { SafeAreaView } from 'react-native'
-import { YStack } from 'tamagui'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { View, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
 export default function DevMenuScreen(): React.JSX.Element {
+  const insets = useSafeAreaInsets()
   const { navigate } = useNavigation()
 
   return (
-    <SafeAreaView>
+    <View
+      paddingTop={insets.top}
+      paddingBottom={insets.bottom}
+      paddingLeft={insets.left}
+      paddingRight={insets.right}
+    >
       <YStack
         padding="$4"
         space="$3"
@@ -27,6 +33,6 @@ export default function DevMenuScreen(): React.JSX.Element {
           onPress={() => navigate('WebViewDemo')}
         />
       </YStack>
-    </SafeAreaView>
+    </View>
   )
 }

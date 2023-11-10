@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react'
 
 /**
  * 禁用失去焦点时的重新渲染
- * @see https://tanstack.com/query/latest/docs/react/react-native#disable-re-renders-on-out-of-focus-screens
+ * @see {@link https://tanstack.com/query/latest/docs/react/react-native#disable-re-renders-on-out-of-focus-screens}
  */
 export function useFocusNotifyOnChangeProps(notifyOnChangeProps?: NotifyOnChangeProps) {
   const focusedRef = useRef(true)

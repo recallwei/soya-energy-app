@@ -1,10 +1,12 @@
-import en_auth from './en/auth.json'
-import en_global from './en/global.json'
-import en_menu from './en/menu.json'
-import en_notification from './en/notification.json'
-import en_services from './en/services.json'
-import en_settings from './en/settings.json'
-import en_system from './en/system.json'
+import de_global from './de/global.json'
+import en_us_auth from './en_us/auth.json'
+import en_us_global from './en_us/global.json'
+import en_us_installer_my from './en_us/installer/my.json'
+import en_us_menu from './en_us/menu.json'
+import en_us_notification from './en_us/notification.json'
+import en_us_services from './en_us/services.json'
+import en_us_settings from './en_us/settings.json'
+import en_us_system from './en_us/system.json'
 import fr_auth from './fr/auth.json'
 import fr_global from './fr/global.json'
 import fr_menu from './fr/menu.json'
@@ -20,14 +22,15 @@ import zh_cn_services from './zh_cn/services.json'
 import zh_cn_settings from './zh_cn/settings.json'
 import zh_cn_system from './zh_cn/system.json'
 
-export const EN = {
-  Global: en_global,
-  Auth: en_auth,
-  Menu: en_menu,
-  Notification: en_notification,
-  System: en_system,
-  Services: en_services,
-  Settings: en_settings
+export const EN_US = {
+  Global: en_us_global,
+  Auth: en_us_auth,
+  Menu: en_us_menu,
+  Notification: en_us_notification,
+  System: en_us_system,
+  Services: en_us_services,
+  Settings: en_us_settings,
+  'Installer.My': en_us_installer_my
 } as const
 
 export const FR = {
@@ -49,3 +52,7 @@ export const ZH_CN = {
   Services: zh_cn_services,
   Settings: zh_cn_settings
 } as const
+
+export const DE = {
+  Global: de_global
+}
