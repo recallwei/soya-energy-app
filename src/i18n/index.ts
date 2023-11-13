@@ -1,20 +1,18 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-import { DE, EN_US, FR, ZH_CN } from '@/locales'
+import { EN_US, ZH_CN } from '@/locales'
 import type { Lang } from '@/types/lang'
 
 export const resources = {
   'en-US': EN_US,
-  fr: FR,
-  'zh-CN': ZH_CN,
-  de: DE
+  'zh-CN': ZH_CN
 } as const
 
-const ns = ['Global', 'Auth', 'Menu', 'Notification', 'System', 'Services', 'Settings'] as const
+const ns = Object.keys(EN_US) as (keyof typeof EN_US)[]
 
 i18n.use(initReactI18next).init({
-  lng: 'en-US',
+  lng: 'zh-CN',
   fallbackLng: 'en-US',
   ns,
   defaultNS: 'Global',

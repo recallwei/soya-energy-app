@@ -1,0 +1,22 @@
+{
+  "Auth.Forgot_Password": "Forgot Password",
+  "Auth.Login": "Login",
+  "Auth.SignUp": "SignUp",
+  "Auth.SignUp.SelectRole": "Select Role",
+  "Common.Message": "Message",
+  "Common.Message.Alarm": "Alarm Message",
+  "Common.Message.Event": "Event Message",
+  "Common.Message.Service": "Service Message",
+  "Common.Message.System": "System Message",
+  "Common.My.About_Us": "About Us",
+  "Common.My.Privacy_Management": "Privacy Management",
+  "Common.My.Privacy_Management.Agreement_And_Policy": "Agreement And Policy",
+  "Common.My.Privacy_Management.Agreement_And_Policy.Privacy_Policy": "Pricy Policy",
+  "Common.My.Privacy_Management.Email_Push": "Email Push",
+  "Common.My.Privacy_Management.Push_Notice": "Push Notice",
+  "Common.My.Privacy_Management.System_Permission": "System Permission",
+  "Common.My.Settings": "Settings",
+  "Common.My.Settings.Cancel_Account": "Cancel Account",
+  "Common.My.Settings.Personal_Info": "Personal Info",
+  "Common.My.Settings.System_Units": "System Units"
+}

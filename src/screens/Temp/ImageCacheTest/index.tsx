@@ -1,14 +1,12 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
 import { useEffect } from 'react'
 import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ScrollView, View, YStack } from 'tamagui'
 
 import { useRefresh } from '@/hooks'
 import { CacheUtils } from '@/utils'
 
 export default function Screen() {
-  const insets = useSafeAreaInsets()
   const { refreshing, onRefresh } = useRefresh()
 
   useEffect(() => {
@@ -28,10 +26,6 @@ export default function Screen() {
           onRefresh={onRefresh}
         />
       }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
     >
       <YStack
         padding="$4"
@@ -50,7 +44,7 @@ export default function Screen() {
         </View>
         <View
           padding="$3"
-          backgroundColor="#333333"
+          backgroundColor="#444444"
           borderRadius="$3"
         >
           <CachedImage

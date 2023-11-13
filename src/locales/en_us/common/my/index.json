@@ -1,5 +1,18 @@
 {
-  "About.Us": "About Us",
-  "Privacy.Management": "Privacy Management",
-  "Settings": "Settings"
+  "About.Us": {
+    "Description": "Know more about us",
+    "Title": "About Us"
+  },
+  "DevMenu": {
+    "Description": "Only for development purposes",
+    "Title": "Dev Menu"
+  },
+  "Privacy.Management": {
+    "Description": "Manage your privacy",
+    "Title": "Privacy Management"
+  },
+  "Settings": {
+    "Description": "Change your settings",
+    "Title": "Settings"
+  }
 }

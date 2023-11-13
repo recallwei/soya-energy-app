@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import { Code, Power, ServerCog, Settings, UserCog } from '@tamagui/lucide-icons'
+import { BadgeInfo, Code, FolderLock, Power, Settings } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { View, YStack } from 'tamagui'
@@ -11,7 +11,7 @@ import { AuthUtils } from '@/utils'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
-  const { t } = useTranslation('Installer.My')
+  const { t } = useTranslation(['Common.My'])
   const authStore = useAuthStore()
   const { navigate } = useNavigation()
 
@@ -32,27 +32,27 @@ export default function Screen() {
         space="$3"
       >
         <MenuItemCard
-          title={t('Privacy.Management')}
-          description={t('Privacy.Management')}
-          icon={ServerCog}
-          onPress={() => navigate('Installer.My.Privacy_Management')}
+          title={t('Privacy.Management.Title')}
+          description={t('Privacy.Management.Description')}
+          icon={FolderLock}
+          onPress={() => navigate('Common.My.Privacy_Management')}
         />
         <MenuItemCard
-          title={t('About.Us')}
-          description={t('About.Us')}
-          icon={UserCog}
-          onPress={() => navigate('Installer.My.About_Us')}
+          title={t('About.Us.Title')}
+          description={t('About.Us.Description')}
+          icon={BadgeInfo}
+          onPress={() => navigate('Common.My.About_Us')}
         />
         <MenuItemCard
-          title={t('Settings')}
-          description={t('Settings')}
+          title={t('Settings.Title')}
+          description={t('Settings.Description')}
           icon={Settings}
-          onPress={() => navigate('Settings')}
+          onPress={() => navigate('Common.My.Settings')}
         />
         {globalEnvConfig.APP_ENVIRONMENT === 'DEV' && (
           <MenuItemCard
-            title="Dev Menu"
-            description="Just for dev!"
+            title={t('DevMenu.Title')}
+            description={t('DevMenu.Description')}
             icon={Code}
             onPress={() => navigate('DevMenu')}
           />

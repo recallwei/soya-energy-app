@@ -18,6 +18,7 @@ import {
   AuthLoginScreen,
   AuthSignUpScreen,
   AuthSplashScreen,
+  CommonMySettingsPersonalInfoScreen,
   CommunityScreen,
   DemoScreen,
   DevMenuScreen,
@@ -65,7 +66,7 @@ import type { InstallerTabParamList, RootStackParamList, UserTabParamList } from
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function Navigation() {
-  const { t } = useTranslation(['Global'])
+  const { t } = useTranslation('')
 
   const authStore = useAuthStore()
   const tabStore = useTabsStore()
@@ -161,27 +162,39 @@ export default function Navigation() {
                     title: getInstallerTabTitleI18nText(tabStore.installerCurrentTab)
                   }}
                 />
-                <Stack.Screen
-                  name="Common.My.Privacy_Management"
-                  component={LiveStatusScreen}
-                  options={{
-                    title: t('Global:Screens.LiveStatus')
-                  }}
-                />
-                <Stack.Screen
-                  name="Common.My.About_Us"
-                  component={LiveStatusScreen}
-                  options={{
-                    title: t('Global:Screens.LiveStatus')
-                  }}
-                />
-                <Stack.Screen
-                  name="Common.My.Settings"
-                  component={LiveStatusScreen}
-                  options={{
-                    title: t('Global:Screens.LiveStatus')
-                  }}
-                />
+                <Stack.Group>
+                  <Stack.Screen
+                    name="Common.My.Privacy_Management"
+                    component={LiveStatusScreen}
+                    options={{
+                      title: t('Global:Screens.LiveStatus')
+                    }}
+                  />
+                </Stack.Group>
+
+                <Stack.Group>
+                  <Stack.Screen
+                    name="Common.My.About_Us"
+                    component={LiveStatusScreen}
+                    options={{
+                      title: t('Global:Screens.LiveStatus')
+                    }}
+                  />
+                </Stack.Group>
+
+                <Stack.Group>
+                  <Stack.Screen
+                    name="Common.My.Settings"
+                    component={LiveStatusScreen}
+                    options={{
+                      title: t('Global:Screens.LiveStatus')
+                    }}
+                  />
+                  <Stack.Screen
+                    name="Common.My.Settings.Personal_Info"
+                    component={CommonMySettingsPersonalInfoScreen}
+                  />
+                </Stack.Group>
               </>
             )}
             {authStore.isUser() && (
@@ -512,7 +525,7 @@ export default function Navigation() {
                 }}
               />
             ) : (
-              <>
+              <Stack.Group>
                 <Stack.Screen
                   name="Auth.Login"
                   component={AuthLoginScreen}
@@ -535,7 +548,7 @@ export default function Navigation() {
                     title: t('Global:Screens.ForgotPassword')
                   }}
                 />
-              </>
+              </Stack.Group>
             )}
           </>
         )}

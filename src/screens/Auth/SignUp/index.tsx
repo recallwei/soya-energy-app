@@ -63,14 +63,17 @@ export default function Screen() {
   }
 
   return (
-    <ScrollView>
+    <ScrollView
+      minHeight="100%"
+      showsVerticalScrollIndicator={false}
+    >
       <YStack
         padding="$4"
         space="$3"
       >
         <Label
           fontWeight="$bold"
-          marginVertical="$2"
+          marginBottom="$1"
         >
           {t('Auth:SignupScreen.PersonalInfo')}
         </Label>

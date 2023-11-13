@@ -1,4 +1,5 @@
 import en_us_auth from './en_us/auth.json'
+import en_us_common_my from './en_us/common/my/index.json'
 import en_us_global from './en_us/global.json'
 import en_us_menu from './en_us/menu.json'
 import en_us_notification from './en_us/notification.json'
@@ -6,6 +7,7 @@ import en_us_services from './en_us/services.json'
 import en_us_settings from './en_us/settings.json'
 import en_us_system from './en_us/system.json'
 import zh_cn_auth from './zh_cn/auth.json'
+import zh_cn_common_my from './zh_cn/common/my/index.json'
 import zh_cn_global from './zh_cn/global.json'
 import zh_cn_menu from './zh_cn/menu.json'
 import zh_cn_notification from './zh_cn/notification.json'
@@ -20,7 +22,8 @@ export const EN_US = {
   Notification: en_us_notification,
   System: en_us_system,
   Services: en_us_services,
-  Settings: en_us_settings
+  Settings: en_us_settings,
+  'Common.My': en_us_common_my
 } as const
 
 export const ZH_CN = {
@@ -30,5 +33,6 @@ export const ZH_CN = {
   Notification: zh_cn_notification,
   System: zh_cn_system,
   Services: zh_cn_services,
-  Settings: zh_cn_settings
+  Settings: zh_cn_settings,
+  'Common.My': zh_cn_common_my
 } as const
