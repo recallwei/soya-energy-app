@@ -5,6 +5,7 @@ cocoapods
 commitlint
 dosis
 Gantt
+georstat
 gradlew
 lucide
 Microinverter

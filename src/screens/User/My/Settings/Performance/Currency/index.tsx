@@ -3,7 +3,7 @@ import { Paragraph, ScrollView, Separator, Switch, Text, XStack, YStack } from '
 
 import { useRefresh } from '@/hooks'
 
-export default function CurrencyScreen(): React.JSX.Element {
+export default function CurrencyScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

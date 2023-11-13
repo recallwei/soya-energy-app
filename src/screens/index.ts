@@ -1,11 +1,35 @@
-// ------ Splash screen ------
-export { default as SplashScreen } from './Splash'
+// ------ Don't need auth ------
+export { default as AuthForgotPasswordScreen } from './Auth/ForgotPassword'
+export { default as AuthLoginScreen } from './Auth/Login'
+export { default as AuthSignUpScreen } from './Auth/SignUp'
+export { default as AuthSignUpSelectRoleScreen } from './Auth/SignUp/SelectRole'
+export { default as AuthSplashScreen } from './Auth/Splash'
+
+// ------ Common screens ------
+export { default as CommonMessageScreen } from './Common/Message'
+export { default as CommonMessageAlarmScreen } from './Common/Message/Alarm'
+export { default as CommonMessageEventScreen } from './Common/Message/Event'
+export { default as CommonMessageServiceScreen } from './Common/Message/Service'
+export { default as CommonMessageSystemScreen } from './Common/Message/System'
+export { default as CommonMyScreen } from './Common/My'
+export { default as CommonAboutUsScreen } from './Common/My/AboutUs'
+export { default as CommonPrivacyManagementScreen } from './Common/My/PrivacyManagement'
+export { default as CommonMyPrivacyManagementScreen } from './Common/My/PrivacyManagement'
+export { default as CommonMyPrivacyManagementAgreementAndPolicyScreen } from './Common/My/PrivacyManagement/AgreementAndPolicy'
+export { default as CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen } from './Common/My/PrivacyManagement/AgreementAndPolicy/PrivacyPolicy'
+export { default as CommonMyPrivacyManagementEmailPushScreen } from './Common/My/PrivacyManagement/EmailPush'
+export { default as CommonMyPrivacyManagementPushNoticeScreen } from './Common/My/PrivacyManagement/PushNotice'
+export { default as CommonMyPrivacyManagementSystemPermissionScreen } from './Common/My/PrivacyManagement/SystemPermission'
+export { default as CommonMySettingsScreen } from './Common/My/Settings'
+export { default as CommonMySettingsCancelAccountScreen } from './Common/My/Settings/CancelAccount'
+export { default as CommonMySettingsPersonalInfoScreen } from './Common/My/Settings/PersonalInfo'
+export { default as CommonMySettingsSystemUnitsScreen } from './Common/My/Settings/SystemUnits'
 
 // ------ Installer screens ------
+export { default as InstallerMyScreen } from './Common/My'
 export { default as InstallerGuideScreen } from './Installer/Guide'
 export { default as InstallerHomeScreen } from './Installer/Home'
 export { default as InstallerManagementScreen } from './Installer/Management'
-export { default as InstallerMyScreen } from './Installer/My'
 export { default as InstallerServicesScreen } from './Installer/Services'
 
 // ------ User screens ------
@@ -61,12 +85,8 @@ export { default as SettingsPerformanceScreen } from './User/My/Settings/Perform
 export { default as SettingsPerformanceCurrencyScreen } from './User/My/Settings/Performance/Currency'
 export { default as SettingsPerformanceEnergyScreen } from './User/My/Settings/Performance/Energy'
 
-// ------ Don't need auth ------
-export { default as ForgotPasswordScreen } from './Auth/ForgotPassword'
-export { default as LoginScreen } from './Auth/Login'
-export { default as SignUpScreen } from './Auth/SignUp'
-
 // Temp
 export { default as DemoScreen } from './Temp/Demo'
 export { default as DevMenuScreen } from './Temp/DevMenu'
+export { default as ImageCacheTestScreen } from './Temp/ImageCacheTest'
 export { default as WebViewDemoScreen } from './Temp/WebView'

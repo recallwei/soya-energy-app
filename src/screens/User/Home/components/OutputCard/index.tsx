@@ -8,7 +8,7 @@ import { SVG } from '@/svg'
 import OutputCardStatisticItem from '../OutputCardStatisticItem'
 import { LineArrowSVG } from '../SVG'
 
-export default function OutputCard(): React.JSX.Element {
+export default function OutputCard() {
   const themeStore = useThemeStore()
   return (
     <Card>

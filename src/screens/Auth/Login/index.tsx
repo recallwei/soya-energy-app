@@ -32,7 +32,7 @@ const schema = yup
   })
   .required()
 
-export default function LoginScreen(): React.JSX.Element {
+export default function Screen() {
   const { width } = Dimensions.get('screen')
   const insets = useSafeAreaInsets()
   const { t } = useTranslation(['Auth'])
@@ -247,10 +247,10 @@ export default function LoginScreen(): React.JSX.Element {
         justifyContent="space-between"
         width="100%"
       >
-        <Label onPress={() => navigation.navigate('ForgotPassword')}>
+        <Label onPress={() => navigation.navigate('Auth.Forgot_Password')}>
           {t('Auth:ForgotPassword')}
         </Label>
-        <Label onPress={() => navigation.navigate('SignUp')}>{t('Auth:Signup')}</Label>
+        <Label onPress={() => navigation.navigate('Auth.SignUp')}>{t('Auth:Signup')}</Label>
       </XStack>
 
       <Label

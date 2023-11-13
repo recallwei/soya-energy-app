@@ -12,7 +12,7 @@ interface MessageItem {
   content: string
 }
 
-export default function NotificationScreen(): React.JSX.Element {
+export default function NotificationScreen() {
   const { t } = useTranslation(['Notification', 'Global'])
 
   const [notifications, setNotifications] = useState<MessageItem[]>([])

@@ -3,7 +3,7 @@ import { ScrollView, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
-export default function PerformanceScreen(): React.JSX.Element {
+export default function PerformanceScreen() {
   const { navigate } = useNavigation()
   return (
     <ScrollView

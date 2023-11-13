@@ -5,7 +5,7 @@ import { ScrollView, YStack } from 'tamagui'
 import { MenuItemCard } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function DevicesScreen(): React.JSX.Element {
+export default function DevicesScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   const navigation = useNavigation()

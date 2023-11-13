@@ -4,7 +4,7 @@ import { ScrollView, Text, YStack } from 'tamagui'
 import { Card, MenuItemCard } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function GatewayScreen(): React.JSX.Element {
+export default function GatewayScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

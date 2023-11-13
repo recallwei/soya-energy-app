@@ -16,7 +16,7 @@ interface Props {
   data: Data
 }
 
-export default function CollapseArea(props: Props): React.JSX.Element {
+export default function CollapseArea(props: Props) {
   return (
     <Accordion
       overflow="hidden"

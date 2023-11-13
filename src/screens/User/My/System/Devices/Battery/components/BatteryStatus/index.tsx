@@ -12,7 +12,7 @@ export default function BatteryStatus({
   borderColor,
   icon,
   iconText = ''
-}: Props): React.JSX.Element {
+}: Props) {
   return (
     <YStack
       alignItems="center"

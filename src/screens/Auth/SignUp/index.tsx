@@ -6,7 +6,7 @@ import { Button, Input, Label, ScrollView, Spinner, YStack } from 'tamagui'
 import { Checkbox, RadioGroup } from '@/components'
 import { useAuthStore } from '@/store'
 
-export default function SignUpScreen(): React.JSX.Element {
+export default function Screen() {
   const { t } = useTranslation(['Global', 'Auth'])
 
   const RadioGroupData = [

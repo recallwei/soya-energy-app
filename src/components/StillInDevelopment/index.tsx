@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Label } from 'tamagui'
 
-export default function InProgress(): React.JSX.Element {
+export default function InProgress() {
   const { t } = useTranslation(['Global'])
   return (
     <Label

@@ -2,13 +2,13 @@ import { useNavigation } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
 import { Button, Input, Label, YStack } from 'tamagui'
 
-export default function ForgotPasswordScreen(): React.JSX.Element {
+export default function ForgotPasswordScreen() {
   const { t } = useTranslation(['Global', 'Auth'])
 
   const { navigate } = useNavigation()
 
   const handleSubmit = () => {
-    navigate('Login')
+    navigate('Auth.Login')
   }
 
   return (

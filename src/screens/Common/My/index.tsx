@@ -9,9 +9,9 @@ import { globalEnvConfig } from '@/env'
 import { useAuthStore } from '@/store'
 import { AuthUtils } from '@/utils'
 
-export default function InstallerMyScreen(): React.JSX.Element {
+export default function Screen() {
   const insets = useSafeAreaInsets()
-  const { t } = useTranslation('Menu')
+  const { t } = useTranslation('Installer.My')
   const authStore = useAuthStore()
   const { navigate } = useNavigation()
 
@@ -32,20 +32,20 @@ export default function InstallerMyScreen(): React.JSX.Element {
         space="$3"
       >
         <MenuItemCard
-          title={t('Title.System')}
-          description={t('Description.System')}
+          title={t('Privacy.Management')}
+          description={t('Privacy.Management')}
           icon={ServerCog}
-          onPress={() => navigate('System')}
+          onPress={() => navigate('Installer.My.Privacy_Management')}
         />
         <MenuItemCard
-          title={t('Title.Account')}
-          description={t('Description.Account')}
+          title={t('About.Us')}
+          description={t('About.Us')}
           icon={UserCog}
-          onPress={() => navigate('Account')}
+          onPress={() => navigate('Installer.My.About_Us')}
         />
         <MenuItemCard
-          title={t('Title.Settings')}
-          description={t('Description.Settings')}
+          title={t('Settings')}
+          description={t('Settings')}
           icon={Settings}
           onPress={() => navigate('Settings')}
         />

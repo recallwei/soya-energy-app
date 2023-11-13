@@ -4,7 +4,7 @@ import { ScrollView, Text, View, XStack, YStack } from 'tamagui'
 import { Card, Table } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function LiveVitalsScreen(): React.JSX.Element {
+export default function LiveVitalsScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

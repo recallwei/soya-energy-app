@@ -7,7 +7,7 @@ interface Props extends PropsWithChildren {
   description?: string
 }
 
-export default function CollapseArea(props: Props): React.JSX.Element {
+export default function CollapseArea(props: Props) {
   const [isActive, setIsActive] = useState(false)
 
   const handleActive = () => {

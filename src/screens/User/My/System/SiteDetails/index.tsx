@@ -5,7 +5,7 @@ import { ScrollView, Separator, Text, XStack, YStack } from 'tamagui'
 import { Card } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function SiteDetailScreen(): React.JSX.Element {
+export default function SiteDetailScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

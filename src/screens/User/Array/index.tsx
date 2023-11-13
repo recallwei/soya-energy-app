@@ -3,7 +3,7 @@ import { ScrollView, YStack } from 'tamagui'
 
 import { SolarArray } from './components'
 
-export default function ArrayScreen(): React.JSX.Element {
+export default function ArrayScreen() {
   const insets = useSafeAreaInsets()
 
   return (

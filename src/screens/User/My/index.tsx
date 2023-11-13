@@ -22,7 +22,7 @@ import { globalEnvConfig } from '@/env'
 import { useAuthStore } from '@/store'
 import { AuthUtils } from '@/utils'
 
-export default function UserMyScreen(): React.JSX.Element {
+export default function UserMyScreen() {
   const insets = useSafeAreaInsets()
   const { t } = useTranslation('Menu')
   const authStore = useAuthStore()

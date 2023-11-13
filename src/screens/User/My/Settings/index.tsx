@@ -7,7 +7,7 @@ import { MenuItemCard } from '@/components'
 import { useThemeStore } from '@/store'
 import { ThemeUtils } from '@/utils'
 
-export default function SettingsScreen(): React.JSX.Element {
+export default function SettingsScreen() {
   const { t } = useTranslation('Settings')
 
   const navigation = useNavigation()

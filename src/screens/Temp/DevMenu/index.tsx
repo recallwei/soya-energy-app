@@ -1,13 +1,22 @@
+import { CacheManager } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
-import { Layers, PanelTop } from '@tamagui/lucide-icons'
+import { Image, Layers, PanelTop } from '@tamagui/lucide-icons'
+import { useEffect } from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { View, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
-export default function DevMenuScreen(): React.JSX.Element {
+export default function Screen() {
   const insets = useSafeAreaInsets()
   const { navigate } = useNavigation()
+
+  useEffect(() => {
+    CacheManager.prefetch([
+      'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/soya-logo-light.png',
+      'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/soya-logo-dark.png'
+    ])
+  })
 
   return (
     <View
@@ -31,6 +40,12 @@ export default function DevMenuScreen(): React.JSX.Element {
           description="WebView Demo for events page"
           icon={PanelTop}
           onPress={() => navigate('WebViewDemo')}
+        />
+        <MenuItemCard
+          title="Image Cache Test"
+          description="Test image cache"
+          icon={Image}
+          onPress={() => navigate('ImageCacheTest')}
         />
       </YStack>
     </View>

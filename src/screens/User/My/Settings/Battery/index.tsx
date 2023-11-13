@@ -5,7 +5,7 @@ import { useRefresh } from '@/hooks'
 
 import { CollapseArea } from './components'
 
-export default function BatteryScreen(): React.JSX.Element {
+export default function BatteryScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

@@ -26,7 +26,7 @@ interface Props {
   height?: number
 }
 
-export default function Table(props: Props): React.JSX.Element | null {
+export default function Table(props: Props) {
   if (!props.data || props.data.length === 0) return null
   return (
     <View

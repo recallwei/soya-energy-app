@@ -15,7 +15,7 @@ interface Props {
   unit?: string
 }
 
-export default function PieChartArea(props: Props): React.JSX.Element | null {
+export default function PieChartArea(props: Props) {
   if (!props.data || props.data.length === 0) return null
 
   const getTotal = () => props.data?.reduce((acc, cur) => acc + cur.value, 0).toFixed(2)

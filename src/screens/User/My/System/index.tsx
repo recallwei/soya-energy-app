@@ -4,7 +4,7 @@ import { ScrollView, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
-export default function SystemSiteDetailScreen(): React.JSX.Element {
+export default function SystemSiteDetailScreen() {
   const { t } = useTranslation('System')
 
   const navigation = useNavigation()

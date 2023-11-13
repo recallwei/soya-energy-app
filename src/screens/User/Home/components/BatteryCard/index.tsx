@@ -8,7 +8,7 @@ import { Card } from '@/components'
 import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 
-export default function BatteryCard(): React.JSX.Element {
+export default function BatteryCard() {
   const { navigate } = useNavigation()
   const themeStore = useThemeStore()
   const [batteryLevel, setBatteryLevel] = useState(0)

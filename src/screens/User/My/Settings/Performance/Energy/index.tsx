@@ -5,7 +5,7 @@ import { Button, ScrollView, YStack } from 'tamagui'
 import { Card, RadioGroup } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function EnergyScreen(): React.JSX.Element {
+export default function EnergyScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   const [currentSelect, setCurrentSelect] = useState('1')

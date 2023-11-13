@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Button, Input, Paragraph, Separator, Text, View, YStack } from 'tamagui'
 
-export default function AutofillScreen(): React.JSX.Element {
+export default function AutofillScreen() {
   const insets = useSafeAreaInsets()
   const { goBack } = useNavigation()
 

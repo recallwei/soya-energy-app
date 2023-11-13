@@ -6,7 +6,7 @@ import { Button, Input, ScrollView, Separator, Text, YStack } from 'tamagui'
 import { Checkbox, RadioGroup } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function MyInfoScreen(): React.JSX.Element {
+export default function MyInfoScreen() {
   const { t } = useTranslation(['Global', 'Auth'])
 
   const { refreshing, onRefresh } = useRefresh()

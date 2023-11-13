@@ -1,5 +1,6 @@
 export * from './alert'
 export * from './auth'
+export * from './cache'
 export * from './code-push'
 export * from './logger'
 export * from './theme'

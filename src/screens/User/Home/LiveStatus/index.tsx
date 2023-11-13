@@ -8,7 +8,7 @@ import { SVG } from '@/svg'
 
 import { CircleItem, LineSVG } from './components'
 
-export default function LiveStatusScreen(): React.JSX.Element {
+export default function LiveStatusScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   const loadControlData = [

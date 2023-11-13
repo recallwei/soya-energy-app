@@ -4,7 +4,7 @@ import { Text, View, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
-export default function AddElectricityExportRateScreen(): React.JSX.Element {
+export default function AddElectricityExportRateScreen() {
   const insets = useSafeAreaInsets()
   const { navigate } = useNavigation()
   return (

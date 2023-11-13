@@ -22,7 +22,7 @@ interface PieChartItem {
 
 type TimeTab = 'day' | 'month' | 'year' | 'lifetime'
 
-export default function StatisticsScreen(): React.JSX.Element {
+export default function StatisticsScreen() {
   const insets = useSafeAreaInsets()
 
   const [producedData, setProducedData] = useState<PieChartItem[]>([

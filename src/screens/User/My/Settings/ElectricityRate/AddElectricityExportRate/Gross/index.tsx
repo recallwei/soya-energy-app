@@ -4,7 +4,7 @@ import { Button, Input, Separator, Text, View, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 
-export default function GrossScreen(): React.JSX.Element {
+export default function GrossScreen() {
   const insets = useSafeAreaInsets()
 
   const { goBack } = useNavigation()

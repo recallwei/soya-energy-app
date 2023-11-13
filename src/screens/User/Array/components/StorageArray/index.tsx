@@ -1,5 +1,5 @@
 import { YStack } from 'tamagui'
 
-export default function StorageArray(): React.JSX.Element {
+export default function StorageArray() {
   return <YStack />
 }

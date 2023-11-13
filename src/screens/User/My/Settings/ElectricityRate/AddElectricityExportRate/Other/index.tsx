@@ -4,7 +4,7 @@ import { Button, Text, View, YStack } from 'tamagui'
 
 import { RadioGroup } from '@/components'
 
-export default function OtherScreen(): React.JSX.Element {
+export default function OtherScreen() {
   const insets = useSafeAreaInsets()
   const { goBack } = useNavigation()
 

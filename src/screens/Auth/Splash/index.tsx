@@ -4,7 +4,7 @@ import { Image, Progress, Spinner, YStack } from 'tamagui'
 
 import { useThemeStore } from '@/store'
 
-export default function SplashScreen(): React.JSX.Element {
+export default function Screen() {
   const { width } = Dimensions.get('screen')
   const themeStore = useThemeStore()
 
@@ -47,8 +47,8 @@ export default function SplashScreen(): React.JSX.Element {
       <Image
         source={{
           uri: themeStore.isDark()
-            ? require('../../../assets/images/soya-logo-dark.png')
-            : require('../../../assets/images/soya-logo-light.png'),
+            ? require('../../../../assets/images/soya-logo-dark.png')
+            : require('../../../../assets/images/soya-logo-light.png'),
           cache: 'force-cache'
         }}
         width={width * 0.618}
@@ -65,6 +65,7 @@ export default function SplashScreen(): React.JSX.Element {
         width={width * 0.8}
         alignSelf="center"
         marginTop="$7"
+        marginBottom="$11"
       >
         <Progress.Indicator animation="bouncy" />
       </Progress>

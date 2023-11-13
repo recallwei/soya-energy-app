@@ -8,7 +8,7 @@ import { SolarGrid } from './components'
 
 type TimeTab = 'day' | 'month' | 'year' | 'lifetime'
 
-export default function SolarArray(): React.JSX.Element {
+export default function SolarArray() {
   const [currentTimeTab, setCurrentTimeTab] = useState<TimeTab>('day')
   const { refetch, isFetching } = useQuery({
     queryKey: ['SolarArray'],

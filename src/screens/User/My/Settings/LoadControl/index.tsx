@@ -5,7 +5,7 @@ import { useRefresh } from '@/hooks'
 
 import { CollapseArea } from './components'
 
-export default function LoadControlScreen(): React.JSX.Element {
+export default function LoadControlScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

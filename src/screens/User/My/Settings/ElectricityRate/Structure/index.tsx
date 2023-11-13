@@ -5,7 +5,7 @@ import { Button, ScrollView, Text, XStack, YStack } from 'tamagui'
 import { Card } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function StructureScreen(): React.JSX.Element {
+export default function StructureScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   const { navigate } = useNavigation()

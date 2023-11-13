@@ -14,7 +14,7 @@ export default function InputCardStatisticItem({
   icon,
   iconText = '',
   bottomText = ''
-}: Props): React.JSX.Element {
+}: Props) {
   return (
     <YStack
       alignItems="center"

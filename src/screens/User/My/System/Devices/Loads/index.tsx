@@ -4,7 +4,7 @@ import { ScrollView, Text, XStack, YStack } from 'tamagui'
 import { Card } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function LoadsScreen(): React.JSX.Element {
+export default function LoadsScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

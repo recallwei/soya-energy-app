@@ -6,7 +6,7 @@ import { useRefresh } from '@/hooks'
 
 import { CollapseArea } from './components'
 
-export default function MyNotificationScreen(): React.JSX.Element {
+export default function MyNotificationScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

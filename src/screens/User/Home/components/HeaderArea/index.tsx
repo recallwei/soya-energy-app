@@ -5,7 +5,7 @@ import { Button, Label, XStack, YStack } from 'tamagui'
 import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 
-export default function HeaderArea(): React.JSX.Element {
+export default function HeaderArea() {
   const navigation = useNavigation()
 
   const themeStore = useThemeStore()

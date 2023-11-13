@@ -3,7 +3,7 @@ import { YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
-export default function ServicesScreen(): React.JSX.Element {
+export default function ServicesScreen() {
   const { t } = useTranslation('Services')
 
   const handleStorageIncentive = () => {}

@@ -4,7 +4,7 @@ import { ScrollView, Text, YStack } from 'tamagui'
 import { Card } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function EventHistoryScreen(): React.JSX.Element {
+export default function EventHistoryScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   const data = [

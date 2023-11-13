@@ -10,7 +10,7 @@ export default function OutputCardStatisticItem({
   textPosition = 'bottom',
   icon,
   text = ''
-}: Props): React.JSX.Element {
+}: Props) {
   if (textPosition === 'bottom') {
     return (
       <YStack

@@ -4,7 +4,7 @@ import { Text, View, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
-export default function EditScreen(): React.JSX.Element {
+export default function EditScreen() {
   const insets = useSafeAreaInsets()
   const { navigate } = useNavigation()
 

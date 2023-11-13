@@ -3,7 +3,7 @@ import { View } from 'tamagui'
 
 import { HeaderArea, ScrollList } from './components'
 
-export default function InstallerManagementScreen(): React.JSX.Element {
+export default function InstallerManagementScreen() {
   const insets = useSafeAreaInsets()
   return (
     <View

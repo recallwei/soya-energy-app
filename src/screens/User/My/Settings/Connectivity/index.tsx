@@ -4,7 +4,7 @@ import { ScrollView, YStack } from 'tamagui'
 import { NoData } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function ConnectivityScreen(): React.JSX.Element {
+export default function ConnectivityScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

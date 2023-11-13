@@ -7,7 +7,7 @@ interface Props {
   text?: string
 }
 
-function Row(props: PropsWithChildren): React.JSX.Element {
+function Row(props: PropsWithChildren) {
   return (
     <View
       display="flex"
@@ -22,7 +22,7 @@ function Row(props: PropsWithChildren): React.JSX.Element {
   )
 }
 
-function Box({ height }: { height: string | number | undefined }): React.JSX.Element {
+function Box({ height }: { height: string | number | undefined }) {
   return (
     <View
       backgroundColor="#0078d7"
@@ -33,7 +33,7 @@ function Box({ height }: { height: string | number | undefined }): React.JSX.Ele
   )
 }
 
-export default function SolarGrid(props: PropsWithChildren<Props>): React.JSX.Element {
+export default function SolarGrid(props: PropsWithChildren<Props>) {
   return (
     <View
       opacity={0.75}

@@ -12,6 +12,36 @@ export type RootStackParamList = InstallerTabParamList &
     ['Installer.Tabs']: NavigatorScreenParams<InstallerTabParamList>
     ['User.Tabs']: NavigatorScreenParams<UserTabParamList>
 
+    // Splash Screen
+    Splash: undefined
+
+    // Don't need auth
+    ['Auth.Login']: undefined
+    ['Auth.SignUp']: undefined
+    ['Auth.SignUp.SelectRole']: undefined
+    ['Auth.Forgot_Password']: undefined
+
+    // Common
+    ['Common.Message']: undefined
+    ['Common.Message.Alarm']: undefined
+    ['Common.Message.System']: undefined
+    ['Common.Message.Event']: undefined
+    ['Common.Message.Service']: undefined
+
+    ['Common.My.Privacy_Management']: undefined
+    ['Common.My.Privacy_Management.Agreement_And_Policy']: undefined
+    ['Common.My.Privacy_Management.Agreement_And_Policy.Privacy_Policy']: undefined
+    ['Common.My.Privacy_Management.Email_Push']: undefined
+    ['Common.My.Privacy_Management.Push_Notice']: undefined
+    ['Common.My.Privacy_Management.System_Permission']: undefined
+
+    ['Common.My.About_Us']: undefined
+
+    ['Common.My.Settings']: undefined
+    ['Common.My.Settings.Cancel_Account']: undefined
+    ['Common.My.Settings.Personal_Info']: undefined
+    ['Common.My.Settings.System_Units']: undefined
+
     LiveStatus: undefined
     // Menu
     Notification: undefined
@@ -60,16 +90,11 @@ export type RootStackParamList = InstallerTabParamList &
     SettingsPerformanceEnergy: undefined
     SettingsPerformanceCurrency: undefined
 
-    // Don't need auth
-    Login: undefined
-    SignUp: undefined
-    ForgotPassword: undefined
-    Splash: undefined
-
     // Temp
     DevMenu: undefined
     Demo: undefined
     WebViewDemo: undefined
+    ImageCacheTest: undefined
   }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

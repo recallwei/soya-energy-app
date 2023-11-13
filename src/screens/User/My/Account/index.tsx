@@ -4,7 +4,7 @@ import { ScrollView, YStack } from 'tamagui'
 import { MenuItemCard } from '@/components'
 import { useAuthStore } from '@/store'
 
-export default function AccountScreen(): React.JSX.Element {
+export default function AccountScreen() {
   const authStore = useAuthStore()
 
   const { navigate } = useNavigation()

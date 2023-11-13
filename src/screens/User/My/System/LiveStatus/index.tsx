@@ -1,5 +1,5 @@
 import StatusLiveStatusScreen from '../../../Home/LiveStatus'
 
-export default function LiveStatusScreen(): React.JSX.Element {
+export default function LiveStatusScreen() {
   return <StatusLiveStatusScreen />
 }

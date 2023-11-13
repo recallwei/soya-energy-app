@@ -4,7 +4,7 @@ import { ScrollView, Separator, Text, YStack } from 'tamagui'
 import { Card } from '@/components'
 import { useRefresh } from '@/hooks'
 
-export default function ReportsScreen(): React.JSX.Element {
+export default function ReportsScreen() {
   const { refreshing, onRefresh } = useRefresh()
 
   return (

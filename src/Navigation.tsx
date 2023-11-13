@@ -14,13 +14,16 @@ import {
   AccountMyInfoScreen,
   AccountMyNotificationsScreen,
   AccountScreen,
+  AuthForgotPasswordScreen,
+  AuthLoginScreen,
+  AuthSignUpScreen,
+  AuthSplashScreen,
   CommunityScreen,
   DemoScreen,
   DevMenuScreen,
   ExploreScreen,
-  ForgotPasswordScreen,
+  ImageCacheTestScreen,
   LiveStatusScreen,
-  LoginScreen,
   NotificationScreen,
   ServicesScreen,
   SettingsAddElectricityExportRateGrossScreen,
@@ -40,8 +43,6 @@ import {
   SettingsPerformanceEnergyScreen,
   SettingsPerformanceScreen,
   SettingsScreen,
-  SignUpScreen,
-  SplashScreen,
   SupportScreen,
   SystemBackupHistoryScreen,
   SystemDevicesBatteryScreen,
@@ -63,7 +64,7 @@ import type { InstallerTabParamList, RootStackParamList, UserTabParamList } from
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
-export default function Navigation(): React.JSX.Element {
+export default function Navigation() {
   const { t } = useTranslation(['Global'])
 
   const authStore = useAuthStore()
@@ -146,19 +147,42 @@ export default function Navigation(): React.JSX.Element {
         {authStore.isLogin ? (
           <>
             {authStore.isInstaller() && (
-              <Stack.Screen
-                name="Installer.Tabs"
-                component={InstallerTabBar}
-                options={{
-                  headerShown: false,
-                  animation: 'simple_push',
-                  animationTypeForReplace: 'push',
-                  contentStyle: {
-                    backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
-                  },
-                  title: getInstallerTabTitleI18nText(tabStore.installerCurrentTab)
-                }}
-              />
+              <>
+                <Stack.Screen
+                  name="Installer.Tabs"
+                  component={InstallerTabBar}
+                  options={{
+                    headerShown: false,
+                    animation: 'simple_push',
+                    animationTypeForReplace: 'push',
+                    contentStyle: {
+                      backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
+                    },
+                    title: getInstallerTabTitleI18nText(tabStore.installerCurrentTab)
+                  }}
+                />
+                <Stack.Screen
+                  name="Common.My.Privacy_Management"
+                  component={LiveStatusScreen}
+                  options={{
+                    title: t('Global:Screens.LiveStatus')
+                  }}
+                />
+                <Stack.Screen
+                  name="Common.My.About_Us"
+                  component={LiveStatusScreen}
+                  options={{
+                    title: t('Global:Screens.LiveStatus')
+                  }}
+                />
+                <Stack.Screen
+                  name="Common.My.Settings"
+                  component={LiveStatusScreen}
+                  options={{
+                    title: t('Global:Screens.LiveStatus')
+                  }}
+                />
+              </>
             )}
             {authStore.isUser() && (
               <Stack.Screen
@@ -175,7 +199,6 @@ export default function Navigation(): React.JSX.Element {
                 }}
               />
             )}
-
             <Stack.Screen
               name="LiveStatus"
               component={LiveStatusScreen}
@@ -472,13 +495,18 @@ export default function Navigation(): React.JSX.Element {
               component={WebViewDemoScreen}
               options={{ title: 'WebView Demo' }}
             />
+            <Stack.Screen
+              name="ImageCacheTest"
+              component={ImageCacheTestScreen}
+              options={{ title: 'Image Cache Test' }}
+            />
           </>
         ) : (
           <>
             {authStore.isLoading ? (
               <Stack.Screen
                 name="Splash"
-                component={SplashScreen}
+                component={AuthSplashScreen}
                 options={{
                   headerShown: false
                 }}
@@ -486,23 +514,23 @@ export default function Navigation(): React.JSX.Element {
             ) : (
               <>
                 <Stack.Screen
-                  name="Login"
-                  component={LoginScreen}
+                  name="Auth.Login"
+                  component={AuthLoginScreen}
                   options={{
                     headerShown: false,
                     title: t('Global:Screens.Login')
                   }}
                 />
                 <Stack.Screen
-                  name="SignUp"
-                  component={SignUpScreen}
+                  name="Auth.SignUp"
+                  component={AuthSignUpScreen}
                   options={{
                     title: t('Global:Screens.Signup')
                   }}
                 />
                 <Stack.Screen
-                  name="ForgotPassword"
-                  component={ForgotPasswordScreen}
+                  name="Auth.Forgot_Password"
+                  component={AuthForgotPasswordScreen}
                   options={{
                     title: t('Global:Screens.ForgotPassword')
                   }}

@@ -5,7 +5,7 @@ interface Props {
   data?: stackItemType[]
 }
 
-export default function StackChartArea(props: Props): React.JSX.Element | null {
+export default function StackChartArea(props: Props) {
   if (!props.data || props.data.length === 0) return null
   return (
     <BarChart

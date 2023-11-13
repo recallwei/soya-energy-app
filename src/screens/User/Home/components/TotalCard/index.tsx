@@ -3,7 +3,7 @@ import { Label, Separator, XStack } from 'tamagui'
 import { Card } from '@/components'
 import { SVG } from '@/svg'
 
-export default function TotalCard(): React.JSX.Element {
+export default function TotalCard() {
   return (
     <Card>
       <XStack
