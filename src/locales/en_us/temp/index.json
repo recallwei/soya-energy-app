@@ -1,1 +1,14 @@
-{}
+{
+  "Demo": {
+    "description": "Page just for dev testing",
+    "title": "Demo"
+  },
+  "Image.Cache.Test": {
+    "description": "Test image cache",
+    "title": "Image Cache Test"
+  },
+  "WebView.Demo": {
+    "description": "WebView Demo for events page",
+    "title": "WebView Demo"
+  }
+}

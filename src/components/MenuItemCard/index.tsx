@@ -1,5 +1,5 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Card, SizableText, Switch, View, XStack, YStack } from 'tamagui'
 
 interface Props {
@@ -13,6 +13,23 @@ interface Props {
 export default function MenuItemCard(props: Props) {
   const [isPressing, setIsPressing] = useState(false)
   const [isSwitcherOn, setIsSwitcherOn] = useState(false)
+
+  const handlePress = () => {
+    if (typeof props.onPress === 'function') {
+      props.onPress()
+    }
+  }
+
+  const handleSwitchPress = () => {
+    setIsSwitcherOn(!isSwitcherOn)
+    if (typeof props.onPress === 'function') {
+      props.onPress()
+    }
+  }
+
+  const handlePressIn = useCallback(() => setIsPressing(true), [])
+  const handlePressOut = useCallback(() => setIsPressing(false), [])
+
   return (
     <Card
       size="$3"
@@ -20,17 +37,10 @@ export default function MenuItemCard(props: Props) {
       animation="bouncy"
       width="100%"
       height="auto"
-      pressStyle={{ scale: 0.95 }}
-      onPress={() => {
-        if (props.switcher) {
-          setIsSwitcherOn(!isSwitcherOn)
-        }
-        if (typeof props.onPress === 'function') {
-          props.onPress()
-        }
-      }}
-      onPressIn={() => setIsPressing(true)}
-      onPressOut={() => setIsPressing(false)}
+      pressStyle={{ scale: 0.9 }}
+      onPress={handlePress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
     >
       <Card.Header
         padded
@@ -85,9 +95,10 @@ export default function MenuItemCard(props: Props) {
             <Switch
               size="$2"
               checked={isSwitcherOn}
+              onPress={handleSwitchPress}
             >
               <Switch.Thumb
-                animation="quick"
+                animation="slow"
                 backgroundColor="#0078d7"
               />
             </Switch>

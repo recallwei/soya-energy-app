@@ -1,27 +1,21 @@
 import { useNavigation } from '@react-navigation/native'
-import { BadgeInfo, Code, FolderLock, Power, Settings } from '@tamagui/lucide-icons'
+import { BadgeInfo, Code, FolderLock, Settings } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { View, YStack } from 'tamagui'
+import { ScrollView, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { globalEnvConfig } from '@/env'
-import { useAuthStore } from '@/store'
-import { AuthUtils } from '@/utils'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
-  const { t } = useTranslation(['Common.My'])
-  const authStore = useAuthStore()
+  const { t } = useTranslation('Common.My')
   const { navigate } = useNavigation()
 
-  const logout = () => {
-    authStore.logout()
-    AuthUtils.removeToken()
-  }
-
   return (
-    <View
+    <ScrollView
+      minHeight="100%"
+      showsVerticalScrollIndicator={false}
       paddingTop={insets.top}
       paddingBottom={insets.bottom}
       paddingLeft={insets.left}
@@ -51,19 +45,13 @@ export default function Screen() {
         />
         {globalEnvConfig.APP_ENVIRONMENT === 'DEV' && (
           <MenuItemCard
-            title={t('DevMenu.Title')}
-            description={t('DevMenu.Description')}
+            title={t('Dev.Menu.Title')}
+            description={t('Dev.Menu.Description')}
             icon={Code}
-            onPress={() => navigate('DevMenu')}
+            onPress={() => navigate('Temp.Dev_Menu')}
           />
         )}
-        <MenuItemCard
-          title={t('Title.Signout')}
-          description={t('Description.Signout')}
-          icon={Power}
-          onPress={logout}
-        />
       </YStack>
-    </View>
+    </ScrollView>
   )
 }

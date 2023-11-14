@@ -18,7 +18,11 @@ import {
   AuthLoginScreen,
   AuthSignUpScreen,
   AuthSplashScreen,
+  CommonAboutUsScreen,
+  CommonMyPrivacyManagementScreen,
   CommonMySettingsPersonalInfoScreen,
+  CommonMySettingsScreen,
+  CommonMySettingsSystemUnitsScreen,
   CommunityScreen,
   DemoScreen,
   DevMenuScreen,
@@ -66,7 +70,7 @@ import type { InstallerTabParamList, RootStackParamList, UserTabParamList } from
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function Navigation() {
-  const { t } = useTranslation('')
+  const { t } = useTranslation(['Screen', 'Global'])
 
   const authStore = useAuthStore()
   const tabStore = useTabsStore()
@@ -84,32 +88,32 @@ export default function Navigation() {
   function getInstallerTabTitleI18nText(tabName: keyof InstallerTabParamList): string {
     switch (tabName) {
       case 'Installer.Home':
-        return t('Global:Installer.Tabs.Home')
+        return t('Installer.Tabs.Home')
       case 'Installer.Management':
-        return t('Global:Installer.Tabs.Management')
+        return t('Installer.Tabs.Management')
       case 'Installer.Services':
-        return t('Global:Installer.Tabs.Services')
+        return t('Installer.Tabs.Services')
       case 'Installer.Guide':
-        return t('Global:Installer.Tabs.Guide')
+        return t('Installer.Tabs.Guide')
       case 'Installer.My':
-        return t('Global:Installer.Tabs.My')
+        return t('Installer.Tabs.My')
       default:
-        return t('Global:Installer.Tabs.Home')
+        return ''
     }
   }
 
   function getUserTabTitleI18nText(tabName: keyof UserTabParamList): string {
     switch (tabName) {
       case 'User.Home':
-        return t('Global:User.Tabs.Home')
+        return t('User.Tabs.Home')
       case 'User.Statistics':
-        return t('Global:User.Tabs.Statistics')
+        return t('User.Tabs.Statistics')
       case 'User.Devices':
-        return t('Global:User.Tabs.Devices')
+        return t('User.Tabs.Devices')
       case 'User.My':
-        return t('Global:User.Tabs.My')
+        return t('User.Tabs.My')
       default:
-        return t('Global:User.Tabs.Home')
+        return ''
     }
   }
 
@@ -121,7 +125,8 @@ export default function Navigation() {
       <Stack.Navigator
         screenOptions={{
           headerTintColor: themeStore.getTextColor(),
-          headerBackTitle: 'back', // iOS only
+          headerBackTitle: '', // iOS only,
+          headerBackTitleVisible: false,
           headerBackTitleStyle: {
             fontSize: 18,
             fontFamily: 'Nunito-Regular'
@@ -162,39 +167,31 @@ export default function Navigation() {
                     title: getInstallerTabTitleI18nText(tabStore.installerCurrentTab)
                   }}
                 />
-                <Stack.Group>
-                  <Stack.Screen
-                    name="Common.My.Privacy_Management"
-                    component={LiveStatusScreen}
-                    options={{
-                      title: t('Global:Screens.LiveStatus')
-                    }}
-                  />
-                </Stack.Group>
-
-                <Stack.Group>
-                  <Stack.Screen
-                    name="Common.My.About_Us"
-                    component={LiveStatusScreen}
-                    options={{
-                      title: t('Global:Screens.LiveStatus')
-                    }}
-                  />
-                </Stack.Group>
-
-                <Stack.Group>
-                  <Stack.Screen
-                    name="Common.My.Settings"
-                    component={LiveStatusScreen}
-                    options={{
-                      title: t('Global:Screens.LiveStatus')
-                    }}
-                  />
-                  <Stack.Screen
-                    name="Common.My.Settings.Personal_Info"
-                    component={CommonMySettingsPersonalInfoScreen}
-                  />
-                </Stack.Group>
+                <Stack.Screen
+                  name="Common.My.Privacy_Management"
+                  component={CommonMyPrivacyManagementScreen}
+                  options={{ title: t('Common.My.Privacy.Management') }}
+                />
+                <Stack.Screen
+                  name="Common.My.About_Us"
+                  component={CommonAboutUsScreen}
+                  options={{ title: t('Common.My.About.Us') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Settings"
+                  component={CommonMySettingsScreen}
+                  options={{ title: t('Common.My.Settings') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Settings.Personal_Info"
+                  component={CommonMySettingsPersonalInfoScreen}
+                  options={{ title: t('Common.My.Settings.Personal.Info') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Settings.System_Units"
+                  component={CommonMySettingsSystemUnitsScreen}
+                  options={{ title: t('Common.My.Settings.System.Units') }}
+                />
               </>
             )}
             {authStore.isUser() && (
@@ -492,26 +489,27 @@ export default function Navigation() {
                 title: t('Global:Screens.Settings.Performance.Currency')
               }}
             />
+
             {/* Temp */}
             <Stack.Screen
-              name="DevMenu"
+              name="Temp.Dev_Menu"
               component={DevMenuScreen}
-              options={{ title: 'Dev Menu' }}
+              options={{ title: t('Temp.Dev.Menu') }}
             />
             <Stack.Screen
-              name="Demo"
+              name="Temp.Demo"
               component={DemoScreen}
-              options={{ title: 'Demo' }}
+              options={{ title: t('Temp.Demo') }}
             />
             <Stack.Screen
-              name="WebViewDemo"
+              name="Temp.WebView_Demo"
               component={WebViewDemoScreen}
-              options={{ title: 'WebView Demo' }}
+              options={{ title: t('Temp.WebView.Demo') }}
             />
             <Stack.Screen
-              name="ImageCacheTest"
+              name="Temp.Image_Cache_Test"
               component={ImageCacheTestScreen}
-              options={{ title: 'Image Cache Test' }}
+              options={{ title: t('Temp.Image.Cache.Test') }}
             />
           </>
         ) : (
@@ -531,21 +529,21 @@ export default function Navigation() {
                   component={AuthLoginScreen}
                   options={{
                     headerShown: false,
-                    title: t('Global:Screens.Login')
+                    title: t('Auth.Login')
                   }}
                 />
                 <Stack.Screen
                   name="Auth.SignUp"
                   component={AuthSignUpScreen}
                   options={{
-                    title: t('Global:Screens.Signup')
+                    title: t('Auth.SignUp')
                   }}
                 />
                 <Stack.Screen
                   name="Auth.Forgot_Password"
                   component={AuthForgotPasswordScreen}
                   options={{
-                    title: t('Global:Screens.ForgotPassword')
+                    title: t('Auth.Forgot.Password')
                   }}
                 />
               </Stack.Group>

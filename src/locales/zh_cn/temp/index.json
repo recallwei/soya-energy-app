@@ -1,0 +1,14 @@
+{
+  "Demo": {
+    "description": "仅供开发使用的 Demo 页",
+    "title": "Demo"
+  },
+  "Image.Cache.Test": {
+    "description": "测试缓存 S3 远程图片",
+    "title": "图片缓存测试"
+  },
+  "WebView.Demo": {
+    "description": "用于测试活动页的 WebView Demo 页",
+    "title": "WebView Demo"
+  }
+}

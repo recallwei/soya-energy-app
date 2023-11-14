@@ -91,10 +91,10 @@ export type RootStackParamList = InstallerTabParamList &
     SettingsPerformanceCurrency: undefined
 
     // Temp
-    DevMenu: undefined
-    Demo: undefined
-    WebViewDemo: undefined
-    ImageCacheTest: undefined
+    ['Temp.Dev_Menu']: undefined
+    ['Temp.Demo']: undefined
+    ['Temp.WebView_Demo']: undefined
+    ['Temp.Image_Cache_Test']: undefined
   }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

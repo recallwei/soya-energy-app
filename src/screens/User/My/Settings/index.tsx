@@ -4,23 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
-import { useThemeStore } from '@/store'
-import { ThemeUtils } from '@/utils'
 
 export default function SettingsScreen() {
   const { t } = useTranslation('Settings')
 
   const navigation = useNavigation()
 
-  const themeStore = useThemeStore()
-
   const [gridControl] = useState(false)
-  const [darkMode] = useState(false)
-
-  const handleChangeTheme = async () => {
-    await ThemeUtils.setTheme(themeStore.isDark() ? 'light' : 'dark')
-    themeStore.toggleTheme()
-  }
 
   return (
     <YStack
@@ -64,13 +54,6 @@ export default function SettingsScreen() {
         title={t('Title.Performance')}
         description={t('Description.Performance')}
         onPress={() => navigation.navigate('SettingsPerformance')}
-      />
-
-      <MenuItemCard
-        title={t('Title.DarkMode')}
-        description={darkMode ? t('Description.DarkMode.True') : t('Description.DarkMode.False')}
-        switcher
-        onPress={handleChangeTheme}
       />
     </YStack>
   )

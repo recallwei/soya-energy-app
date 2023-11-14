@@ -10,7 +10,7 @@ import type { UserTabParamList } from '@/types'
 const Tab = createBottomTabNavigator<UserTabParamList>()
 
 export default function UserTabBar() {
-  const { t } = useTranslation(['Global'])
+  const { t } = useTranslation('Screen')
 
   const authStore = useAuthStore()
   const tabStore = useTabsStore()
@@ -39,8 +39,8 @@ export default function UserTabBar() {
         name="User.Home"
         component={UserHomeScreen}
         options={{
-          headerTitle: t('Global:User.Tabs.Home'),
-          tabBarLabel: t('Global:User.Tabs.Home'),
+          headerTitle: t('User.Tabs.Home'),
+          tabBarLabel: t('User.Tabs.Home'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
               <Home
@@ -58,8 +58,8 @@ export default function UserTabBar() {
         name="User.Statistics"
         component={UserStatisticsScreen}
         options={{
-          headerTitle: t('Global:User.Tabs.Statistics'),
-          tabBarLabel: t('Global:User.Tabs.Statistics'),
+          headerTitle: t('User.Tabs.Statistics'),
+          tabBarLabel: t('User.Tabs.Statistics'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
               <CloudLightning
@@ -77,8 +77,8 @@ export default function UserTabBar() {
         name="User.Devices"
         component={UserDevicesScreen}
         options={{
-          headerTitle: t('Global:User.Tabs.Devices'),
-          tabBarLabel: t('Global:User.Tabs.Devices'),
+          headerTitle: t('User.Tabs.Devices'),
+          tabBarLabel: t('User.Tabs.Devices'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
               <BarChart4
@@ -98,8 +98,8 @@ export default function UserTabBar() {
           name="User.My"
           component={UserMyScreen}
           options={{
-            headerTitle: t('Global:User.Tabs.My'),
-            tabBarLabel: t('Global:User.Tabs.My'),
+            headerTitle: t('User.Tabs.My'),
+            tabBarLabel: t('User.Tabs.My'),
             tabBarIcon: ({ color }) => (
               <View marginTop="$3">
                 <Menu

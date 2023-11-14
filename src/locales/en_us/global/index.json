@@ -1,0 +1,8 @@
+{
+  "Toast.Default.Title": {
+    "Error": "Error",
+    "Loading": "Loading",
+    "Success": "Success",
+    "Warning": "Warning"
+  }
+}

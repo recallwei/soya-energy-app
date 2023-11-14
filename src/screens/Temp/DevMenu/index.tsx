@@ -2,11 +2,13 @@ import { CacheManager } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
 import { Image, Layers, PanelTop } from '@tamagui/lucide-icons'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 
 export default function Screen() {
+  const { t } = useTranslation('Temp')
   const { navigate } = useNavigation()
 
   useEffect(() => {
@@ -22,22 +24,22 @@ export default function Screen() {
       space="$3"
     >
       <MenuItemCard
-        title="Demo"
-        description="Page just for dev testing"
+        title={t('Demo.title')}
+        description={t('Demo.description')}
         icon={Layers}
-        onPress={() => navigate('Demo')}
+        onPress={() => navigate('Temp.Demo')}
       />
       <MenuItemCard
-        title="WebView Demo"
-        description="WebView Demo for events page"
+        title={t('WebView.Demo.title')}
+        description={t('WebView.Demo.description')}
         icon={PanelTop}
-        onPress={() => navigate('WebViewDemo')}
+        onPress={() => navigate('Temp.WebView_Demo')}
       />
       <MenuItemCard
-        title="Image Cache Test"
-        description="Test image cache"
+        title={t('Image.Cache.Test.title')}
+        description={t('Image.Cache.Test.description')}
         icon={Image}
-        onPress={() => navigate('ImageCacheTest')}
+        onPress={() => navigate('Temp.Image_Cache_Test')}
       />
     </YStack>
   )

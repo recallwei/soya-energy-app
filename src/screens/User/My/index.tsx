@@ -122,7 +122,7 @@ export default function UserMyScreen() {
             title="Dev Menu"
             description="Just for dev!"
             icon={Code}
-            onPress={() => navigate('DevMenu')}
+            onPress={() => navigate('Temp.Dev_Menu')}
           />
         )}
         <MenuItemCard

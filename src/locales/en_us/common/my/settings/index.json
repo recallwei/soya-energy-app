@@ -1,1 +1,34 @@
-{}
+{
+  "Cancel.Account": {
+    "Description": "Cancel your account and delete all data",
+    "Title": "Cancel Account"
+  },
+  "Clear.Cache": {
+    "Description": "Clear all cache data and images, total: ",
+    "Success": {
+      "Message": "All the cache data and images have been cleared",
+      "Title": "Cleared successfully"
+    },
+    "Title": "Clear Cache"
+  },
+  "Dark.Mode": {
+    "Description": "Enable dark mode",
+    "Title": "Dark Mode"
+  },
+  "Language": {
+    "Description": "Change system language",
+    "Title": "Language"
+  },
+  "Personal.Info": {
+    "Description": "Change your personal info",
+    "Title": "Personal Info"
+  },
+  "Sign.Out": {
+    "Description": "Sign out and back to login page",
+    "Title": "Sign Out"
+  },
+  "System.Units": {
+    "Description": "Change system units",
+    "Title": "System Units"
+  }
+}

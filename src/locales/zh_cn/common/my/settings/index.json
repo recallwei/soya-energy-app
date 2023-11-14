@@ -1,0 +1,34 @@
+{
+  "Cancel.Account": {
+    "Description": "注销你的账号",
+    "Title": "注销账号"
+  },
+  "Clear.Cache": {
+    "Description": "清除图片、数据缓存，当前大小为：",
+    "Success": {
+      "Message": "所有图片、数据缓存已被清除",
+      "Title": "清除成功"
+    },
+    "Title": "清除缓存"
+  },
+  "Dark.Mode": {
+    "Description": "启用暗黑模式",
+    "Title": "暗黑模式"
+  },
+  "Language": {
+    "Description": "更改系统语言",
+    "Title": "语言"
+  },
+  "Personal.Info": {
+    "Description": "更改您的个人信息",
+    "Title": "个人信息"
+  },
+  "Sign.Out": {
+    "Description": "登出并返回登录页面",
+    "Title": "登出"
+  },
+  "System.Units": {
+    "Description": "更改系统单位",
+    "Title": "系统单位"
+  }
+}
