@@ -3,7 +3,7 @@ import { createFont, createTamagui } from 'tamagui'
 
 const primaryFontFamily = 'Nunito'
 
-const notoSansFont = createFont({
+const primaryFont = createFont({
   family: primaryFontFamily,
   size: {
     '1': 11,
@@ -72,7 +72,7 @@ const appConfig = createTamagui({
   ...config,
   fonts: {
     ...config.fonts,
-    body: notoSansFont
+    body: primaryFont
   },
   defaultFont: 'body'
 })

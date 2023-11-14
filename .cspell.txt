@@ -3,7 +3,6 @@ baronha
 brucesong
 cocoapods
 commitlint
-dosis
 Gantt
 georstat
 gradlew
@@ -13,7 +12,6 @@ Microinverters
 netinfo
 NFTL
 NFTN
-noto
 Nunito
 preinstall
 pressable
