@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { StackProps, TabLayout, TabsTabProps } from 'tamagui'
-import { AnimatePresence, Label, Stack, styled, Tabs, YStack } from 'tamagui'
+import { AnimatePresence, Label, Stack, styled, Tabs as TTabs, YStack } from 'tamagui'
 
 const AnimatedYStack = styled(YStack, {
   variants: {
@@ -12,7 +12,7 @@ const AnimatedYStack = styled(YStack, {
   } as const
 })
 
-export default function TabsAdvancedBackground() {
+export default function Tabs() {
   const [tabState, setTabState] = useState<{
     currentTab: string
     /**
@@ -69,7 +69,7 @@ export default function TabsAdvancedBackground() {
     }
   }
   return (
-    <Tabs
+    <TTabs
       value={currentTab}
       onValueChange={setCurrentTab}
       orientation="horizontal"
@@ -107,37 +107,37 @@ export default function TabsAdvancedBackground() {
             />
           )}
         </AnimatePresence>
-        <Tabs.List
+        <TTabs.List
           disablePassBorderRadius
           loop={false}
           aria-label="Manage your account"
           space="$2"
           backgroundColor="transparent"
         >
-          <Tabs.Tab
+          <TTabs.Tab
             unstyled
             value="tab1"
             onInteraction={handleOnInteraction}
           >
             <Label>Profile</Label>
-          </Tabs.Tab>
+          </TTabs.Tab>
 
-          <Tabs.Tab
+          <TTabs.Tab
             unstyled
             value="tab2"
             onInteraction={handleOnInteraction}
           >
             <Label>Connections</Label>
-          </Tabs.Tab>
+          </TTabs.Tab>
 
-          <Tabs.Tab
+          <TTabs.Tab
             unstyled
             value="tab3"
             onInteraction={handleOnInteraction}
           >
             <Label>Notifications</Label>
-          </Tabs.Tab>
-        </Tabs.List>
+          </TTabs.Tab>
+        </TTabs.List>
       </YStack>
       <AnimatePresence
         exitBeforeEnter
@@ -151,17 +151,17 @@ export default function TabsAdvancedBackground() {
           opacity={1}
           flex={1}
         >
-          <Tabs.Content
+          <TTabs.Content
             value={currentTab}
             forceMount
             flex={1}
             justifyContent="center"
           >
             <Label textAlign="center">{currentTab}</Label>
-          </Tabs.Content>
+          </TTabs.Content>
         </AnimatedYStack>
       </AnimatePresence>
-    </Tabs>
+    </TTabs>
   )
 }
 

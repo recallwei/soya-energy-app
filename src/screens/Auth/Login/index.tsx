@@ -108,7 +108,7 @@ export default function Screen() {
     const passwordErrorMsg = _.get(errs, 'password.message')
 
     if (usernameErrorMsg) {
-      ToastUtils.success({ message: usernameErrorMsg })
+      ToastUtils.error({ message: usernameErrorMsg })
     }
 
     if (passwordErrorMsg) {

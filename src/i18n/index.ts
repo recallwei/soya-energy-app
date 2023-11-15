@@ -12,7 +12,7 @@ export const resources = {
 const ns = Object.keys(EN_US) as (keyof typeof EN_US)[]
 
 i18n.use(initReactI18next).init({
-  lng: 'zh-CN',
+  lng: 'en-US',
   fallbackLng: 'en-US',
   ns,
   defaultNS: 'Global',

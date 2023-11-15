@@ -8,12 +8,15 @@ import { MenuItemCard } from '@/components'
 import { useAuthStore, useThemeStore } from '@/store'
 import { AuthUtils, CacheUtils, ThemeUtils, ToastUtils } from '@/utils'
 
+import { LanguageSelectSheet } from './components'
+
 export default function Screen() {
   const { t } = useTranslation('Common.My.Settings')
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
   const { navigate } = useNavigation()
 
+  const [open, setOpen] = useState(false)
   const [cacheMB, setCacheMB] = useState('')
 
   useEffect(() => {
@@ -44,6 +47,10 @@ export default function Screen() {
     })
   }
 
+  const handleOpenLangSheet = () => {
+    setOpen(true)
+  }
+
   const handleChangeTheme = async () => {
     await ThemeUtils.setTheme(themeStore.isDark() ? 'light' : 'dark')
     themeStore.toggleTheme()
@@ -55,56 +62,63 @@ export default function Screen() {
   }
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-    >
-      <YStack
-        padding="$4"
-        space="$3"
+    <>
+      <ScrollView
+        minHeight="100%"
+        showsVerticalScrollIndicator={false}
       >
-        <MenuItemCard
-          title={t('Personal.Info.Title')}
-          description={t('Personal.Info.Description')}
-          icon={Contact2}
-          onPress={() => navigate('Common.My.Privacy_Management')}
-        />
-        <MenuItemCard
-          title={t('Language.Title')}
-          description={t('Language.Description')}
-          icon={Languages}
-        />
-        <MenuItemCard
-          title={t('System.Units.Title')}
-          description={t('System.Units.Description')}
-          icon={Ruler}
-          onPress={() => navigate('Common.My.Settings.System_Units')}
-        />
-        <MenuItemCard
-          title={t('Clear.Cache.Title')}
-          description={t('Clear.Cache.Description') + cacheMB}
-          icon={Trash2}
-          onPress={handleClearCache}
-        />
-        <MenuItemCard
-          title={t('Cancel.Account.Title')}
-          description={t('Cancel.Account.Description')}
-          icon={XCircle}
-        />
-        <MenuItemCard
-          title={t('Dark.Mode.Title')}
-          description={t('Dark.Mode.Description')}
-          icon={Palette}
-          switcher
-          onPress={handleChangeTheme}
-        />
-        <MenuItemCard
-          title={t('Sign.Out.Title')}
-          description={t('Sign.Out.Description')}
-          icon={Power}
-          onPress={logout}
-        />
-      </YStack>
-    </ScrollView>
+        <YStack
+          padding="$4"
+          space="$3"
+        >
+          <MenuItemCard
+            title={t('Personal.Info.Title')}
+            description={t('Personal.Info.Description')}
+            icon={Contact2}
+            onPress={() => navigate('Common.My.Privacy_Management')}
+          />
+          <MenuItemCard
+            title={t('Language.Title')}
+            description={t('Language.Description')}
+            icon={Languages}
+            onPress={handleOpenLangSheet}
+          />
+          <MenuItemCard
+            title={t('System.Units.Title')}
+            description={t('System.Units.Description')}
+            icon={Ruler}
+            onPress={() => navigate('Common.My.Settings.System_Units')}
+          />
+          <MenuItemCard
+            title={t('Clear.Cache.Title')}
+            description={t('Clear.Cache.Description') + cacheMB}
+            icon={Trash2}
+            onPress={handleClearCache}
+          />
+          <MenuItemCard
+            title={t('Cancel.Account.Title')}
+            description={t('Cancel.Account.Description')}
+            icon={XCircle}
+          />
+          <MenuItemCard
+            title={t('Dark.Mode.Title')}
+            description={t('Dark.Mode.Description')}
+            icon={Palette}
+            switcher
+            onPress={handleChangeTheme}
+          />
+          <MenuItemCard
+            title={t('Sign.Out.Title')}
+            description={t('Sign.Out.Description')}
+            icon={Power}
+            onPress={logout}
+          />
+        </YStack>
+      </ScrollView>
+      <LanguageSelectSheet
+        open={open}
+        setOpen={setOpen}
+      />
+    </>
   )
 }

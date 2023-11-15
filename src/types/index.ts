@@ -1,4 +1,5 @@
 export * from './api'
+export * from './lang'
 export * from './navigation'
 export * from './request'
 export * from './time'

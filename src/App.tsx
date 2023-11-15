@@ -19,8 +19,8 @@ import { TamaguiProvider } from 'tamagui'
 import config from '../tamagui.config'
 import { useCodePush } from './hooks'
 import Navigation from './Navigation'
-import { useThemeStore } from './store'
-import { LoggerUtils, ThemeUtils } from './utils'
+import { useLangStore, useThemeStore } from './store'
+import { LangUtils, LoggerUtils, ThemeUtils } from './utils'
 
 // Init toast and alert
 setup({
@@ -41,9 +41,12 @@ function onAppStateChange(status: AppStateStatus) {
   }
 }
 
+LangUtils.getDefaultLang()
+
 function App() {
   const [queryClient] = useState(() => new QueryClient())
   const { theme } = useThemeStore()
+  const langStore = useLangStore()
 
   useCodePush()
 
@@ -68,6 +71,7 @@ function App() {
     const subscription = AppState.addEventListener('change', onAppStateChange)
 
     const init = async () => {
+      langStore.setLang(await LangUtils.getDefaultLang())
       LoggerUtils.printEnv()
       await LoggerUtils.printStorage()
       useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
