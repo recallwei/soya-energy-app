@@ -1,20 +1,11 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
-import { useEffect } from 'react'
 import { RefreshControl } from 'react-native'
 import { ScrollView, View, YStack } from 'tamagui'
 
 import { useRefresh } from '@/hooks'
-import { CacheUtils } from '@/utils'
 
 export default function Screen() {
   const { refreshing, onRefresh } = useRefresh()
-
-  useEffect(() => {
-    const init = async () => {
-      console.log(await CacheUtils.getCacheSize())
-    }
-    init()
-  })
 
   return (
     <ScrollView
