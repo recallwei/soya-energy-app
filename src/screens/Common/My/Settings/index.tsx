@@ -18,7 +18,7 @@ export default function Screen() {
   const { navigate } = useNavigation()
 
   const [open, setOpen] = useState(false)
-  const [cacheMB, setCacheMB] = useState('')
+  const [cacheMB, setCacheMB] = useState('0B')
 
   useAsyncEffect(async () => {
     setCacheMB(await getCacheSize())

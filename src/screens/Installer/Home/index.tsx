@@ -2,8 +2,9 @@ import { RefreshControl } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
 import { useRefresh } from '@/hooks'
+
+import { Header, List, Statistics } from './components'
 
 export default function DemoScreen() {
   const insets = useSafeAreaInsets()
@@ -29,7 +30,9 @@ export default function DemoScreen() {
         space="$3"
         marginBottom="$10"
       >
-        <NoData />
+        <Header />
+        <Statistics />
+        <List />
       </YStack>
     </ScrollView>
   )

@@ -42,6 +42,12 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.My.Settings.Personal_Info']: undefined
     ['Common.My.Settings.System_Units']: undefined
 
+    // Installer
+    ['Installer.Home']: undefined
+    ['Installer.Management']: undefined
+    ['Installer.Services']: undefined
+    ['Installer.Guide']: undefined
+
     LiveStatus: undefined
     // Menu
     Notification: undefined

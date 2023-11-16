@@ -32,7 +32,5 @@ export const useAuthStore = create<State & Actions>()((set, get) => ({
   loaded: () => set(() => ({ isLoading: false })),
   isInstaller: () => get().userRole === UserRole.INSTALLER,
   isUser: () => get().userRole === UserRole.USER,
-  setUserRole: (userRole: UserRole) => {
-    set(() => ({ userRole }))
-  }
+  setUserRole: (userRole: UserRole) => set(() => ({ userRole }))
 }))

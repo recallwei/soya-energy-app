@@ -82,7 +82,7 @@ export default function Navigation() {
   useEffect(() => {
     setTimeout(() => {
       authStore.loaded()
-    }, 1500)
+    }, 0)
   }, [])
 
   function getInstallerTabTitleI18nText(tabName: keyof InstallerTabParamList): string {
@@ -153,46 +153,19 @@ export default function Navigation() {
         {authStore.isLogin ? (
           <>
             {authStore.isInstaller() && (
-              <>
-                <Stack.Screen
-                  name="Installer.Tabs"
-                  component={InstallerTabBar}
-                  options={{
-                    headerShown: false,
-                    animation: 'simple_push',
-                    animationTypeForReplace: 'push',
-                    contentStyle: {
-                      backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
-                    },
-                    title: getInstallerTabTitleI18nText(tabStore.installerCurrentTab)
-                  }}
-                />
-                <Stack.Screen
-                  name="Common.My.Privacy_Management"
-                  component={CommonMyPrivacyManagementScreen}
-                  options={{ title: t('Common.My.Privacy.Management') }}
-                />
-                <Stack.Screen
-                  name="Common.My.About_Us"
-                  component={CommonAboutUsScreen}
-                  options={{ title: t('Common.My.About.Us') }}
-                />
-                <Stack.Screen
-                  name="Common.My.Settings"
-                  component={CommonMySettingsScreen}
-                  options={{ title: t('Common.My.Settings') }}
-                />
-                <Stack.Screen
-                  name="Common.My.Settings.Personal_Info"
-                  component={CommonMySettingsPersonalInfoScreen}
-                  options={{ title: t('Common.My.Settings.Personal.Info') }}
-                />
-                <Stack.Screen
-                  name="Common.My.Settings.System_Units"
-                  component={CommonMySettingsSystemUnitsScreen}
-                  options={{ title: t('Common.My.Settings.System.Units') }}
-                />
-              </>
+              <Stack.Screen
+                name="Installer.Tabs"
+                component={InstallerTabBar}
+                options={{
+                  headerShown: false,
+                  animation: 'simple_push',
+                  animationTypeForReplace: 'push',
+                  contentStyle: {
+                    backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
+                  },
+                  title: getInstallerTabTitleI18nText(tabStore.installerCurrentTab)
+                }}
+              />
             )}
             {authStore.isUser() && (
               <Stack.Screen
@@ -209,6 +182,32 @@ export default function Navigation() {
                 }}
               />
             )}
+            <Stack.Screen
+              name="Common.My.Privacy_Management"
+              component={CommonMyPrivacyManagementScreen}
+              options={{ title: t('Common.My.Privacy.Management') }}
+            />
+            <Stack.Screen
+              name="Common.My.About_Us"
+              component={CommonAboutUsScreen}
+              options={{ title: t('Common.My.About.Us') }}
+            />
+            <Stack.Screen
+              name="Common.My.Settings"
+              component={CommonMySettingsScreen}
+              options={{ title: t('Common.My.Settings') }}
+            />
+            <Stack.Screen
+              name="Common.My.Settings.Personal_Info"
+              component={CommonMySettingsPersonalInfoScreen}
+              options={{ title: t('Common.My.Settings.Personal.Info') }}
+            />
+            <Stack.Screen
+              name="Common.My.Settings.System_Units"
+              component={CommonMySettingsSystemUnitsScreen}
+              options={{ title: t('Common.My.Settings.System.Units') }}
+            />
+
             <Stack.Screen
               name="LiveStatus"
               component={LiveStatusScreen}

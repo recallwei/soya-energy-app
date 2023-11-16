@@ -18,4 +18,8 @@ export class CacheUtils {
     const isCached = await CacheManager.isImageCached(uri)
     return isCached
   }
+
+  static async fetchBlob(url: string | string[]) {
+    return CacheManager.prefetch(url)
+  }
 }

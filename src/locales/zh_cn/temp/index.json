@@ -1,14 +1,19 @@
 {
+  "Change.Role": {
+    "Description": "更改您的角色",
+    "Loading": "正在更改您的角色...",
+    "Title": "更改角色"
+  },
   "Demo": {
-    "description": "仅供开发使用的 Demo 页",
-    "title": "Demo"
+    "Description": "仅供开发使用的 Demo 页",
+    "Title": "Demo"
   },
   "Image.Cache.Test": {
-    "description": "测试缓存 S3 远程图片",
-    "title": "图片缓存测试"
+    "Description": "测试缓存 S3 远程图片",
+    "Title": "图片缓存测试"
   },
   "WebView.Demo": {
-    "description": "用于测试活动页的 WebView Demo 页",
-    "title": "WebView Demo"
+    "Description": "用于测试活动页的 WebView Demo 页",
+    "Title": "WebView Demo"
   }
 }

@@ -1,5 +1,5 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
-import { useCallback, useState } from 'react'
+import { forwardRef, useState } from 'react'
 import { Card, SizableText, Switch, View, XStack, YStack } from 'tamagui'
 
 import { globalStyles } from '@/constants'
@@ -12,7 +12,8 @@ interface Props {
   switcher?: boolean
 }
 
-export default function MenuItemCard(props: Props) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const MenuItemCard = forwardRef((props: Props, _ref) => {
   const [isPressing, setIsPressing] = useState(false)
   const [isSwitcherOn, setIsSwitcherOn] = useState(false)
 
@@ -32,8 +33,8 @@ export default function MenuItemCard(props: Props) {
     }
   }
 
-  const handlePressIn = useCallback(() => setIsPressing(true), [])
-  const handlePressOut = useCallback(() => setIsPressing(false), [])
+  const handlePressIn = () => setIsPressing(true)
+  const handlePressOut = () => setIsPressing(false)
 
   return (
     <Card
@@ -114,4 +115,6 @@ export default function MenuItemCard(props: Props) {
       </Card.Header>
     </Card>
   )
-}
+})
+
+export default MenuItemCard

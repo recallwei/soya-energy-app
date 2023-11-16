@@ -15,6 +15,7 @@ import * as yup from 'yup'
 
 import { AuthAPI } from '@/api'
 import { Checkbox } from '@/components'
+import type { UserRole } from '@/enums'
 import { globalEnvConfig } from '@/env'
 import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
@@ -63,12 +64,16 @@ export default function Screen() {
     mutationFn: (data: LoginInputModel) => AuthAPI.login(data, true),
     onSuccess: async (data) => {
       await AuthUtils.setToken((data as { access_token: string }).access_token)
-      authStore.login()
       if (rememberPassword) {
         await AuthUtils.setAccountRememberPassword(JSON.stringify(getValues()))
       } else {
         await AuthUtils.removeAccountRememberPassword()
       }
+      const role = await AuthUtils.getRole()
+      if (role) {
+        authStore.setUserRole(role as UserRole)
+      }
+      authStore.login()
     },
     onError: () => {
       resetField('password')
