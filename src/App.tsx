@@ -8,6 +8,7 @@ import {
   QueryClient,
   QueryClientProvider
 } from '@tanstack/react-query'
+import { useAsyncEffect } from 'ahooks'
 import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { Appearance, AppState, Platform } from 'react-native'
@@ -50,6 +51,13 @@ function App() {
 
   useCodePush()
 
+  useAsyncEffect(async () => {
+    langStore.setLang(await LangUtils.getDefaultLang())
+    LoggerUtils.printEnv()
+    await LoggerUtils.printStorage()
+    useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
+  }, [])
+
   useEffect(() => {
     Appearance.setColorScheme('light')
 
@@ -67,18 +75,7 @@ function App() {
      * 应用程序焦点
      * @see https://tanstack.com/query/latest/docs/react/react-native#refetch-on-app-focus
      */
-
     const subscription = AppState.addEventListener('change', onAppStateChange)
-
-    const init = async () => {
-      langStore.setLang(await LangUtils.getDefaultLang())
-      LoggerUtils.printEnv()
-      await LoggerUtils.printStorage()
-      useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
-    }
-
-    init()
-
     return () => {
       subscription.remove()
     }

@@ -82,7 +82,7 @@ export default function Navigation() {
   useEffect(() => {
     setTimeout(() => {
       authStore.loaded()
-    }, 2000)
+    }, 1500)
   }, [])
 
   function getInstallerTabTitleI18nText(tabName: keyof InstallerTabParamList): string {

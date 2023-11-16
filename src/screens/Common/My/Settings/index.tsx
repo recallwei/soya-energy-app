@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { Contact2, Languages, Palette, Power, Ruler, Trash2, XCircle } from '@tamagui/lucide-icons'
-import { useEffect, useState } from 'react'
+import { useAsyncEffect } from 'ahooks'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollView, YStack } from 'tamagui'
 
@@ -19,11 +20,8 @@ export default function Screen() {
   const [open, setOpen] = useState(false)
   const [cacheMB, setCacheMB] = useState('')
 
-  useEffect(() => {
-    async function init() {
-      setCacheMB(await getCacheSize())
-    }
-    init()
+  useAsyncEffect(async () => {
+    setCacheMB(await getCacheSize())
   }, [])
 
   function convertToMB(cacheNum: number) {
