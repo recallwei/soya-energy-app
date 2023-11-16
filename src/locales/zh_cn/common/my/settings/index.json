@@ -5,6 +5,10 @@
   },
   "Clear.Cache": {
     "Description": "清除图片、数据缓存，当前大小为：",
+    "Dialog": {
+      "Description": "确定要清除所有图片、数据缓存吗？",
+      "Title": "清除缓存"
+    },
     "Success": {
       "Message": "所有图片、数据缓存已被清除",
       "Title": "清除成功"

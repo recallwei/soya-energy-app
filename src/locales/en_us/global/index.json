@@ -5,5 +5,11 @@
     "Success": "Success",
     "Warning": "Warning"
   },
-  "Cancel": "Cancel"
+  "Cancel": "Cancel",
+  "Confirm.Dialog.Default": {
+    "Title": "Confirm action",
+    "Description": "Are you sure to do this?",
+    "ConfirmText": "Confirm",
+    "CancelText": "Cancel"
+  }
 }

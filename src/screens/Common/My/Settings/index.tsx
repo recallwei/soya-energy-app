@@ -3,9 +3,9 @@ import { Contact2, Languages, Palette, Power, Ruler, Trash2, XCircle } from '@ta
 import { useAsyncEffect } from 'ahooks'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ScrollView, YStack } from 'tamagui'
+import { PortalProvider, ScrollView, YStack } from 'tamagui'
 
-import { MenuItemCard } from '@/components'
+import { AlertDialog, MenuItemCard } from '@/components'
 import { useAuthStore, useThemeStore } from '@/store'
 import { AuthUtils, CacheUtils, ThemeUtils, ToastUtils } from '@/utils'
 
@@ -60,7 +60,7 @@ export default function Screen() {
   }
 
   return (
-    <>
+    <PortalProvider>
       <ScrollView
         minHeight="100%"
         showsVerticalScrollIndicator={false}
@@ -87,12 +87,17 @@ export default function Screen() {
             icon={Ruler}
             onPress={() => navigate('Common.My.Settings.System_Units')}
           />
-          <MenuItemCard
-            title={t('Clear.Cache.Title')}
-            description={t('Clear.Cache.Description') + cacheMB}
-            icon={Trash2}
-            onPress={handleClearCache}
-          />
+          <AlertDialog
+            title={t('Clear.Cache.Dialog.Title')}
+            description={t('Clear.Cache.Dialog.Description')}
+            onConfirm={handleClearCache}
+          >
+            <MenuItemCard
+              title={t('Clear.Cache.Title')}
+              description={t('Clear.Cache.Description') + cacheMB}
+              icon={Trash2}
+            />
+          </AlertDialog>
           <MenuItemCard
             title={t('Cancel.Account.Title')}
             description={t('Cancel.Account.Description')}
@@ -117,6 +122,6 @@ export default function Screen() {
         open={open}
         setOpen={setOpen}
       />
-    </>
+    </PortalProvider>
   )
 }

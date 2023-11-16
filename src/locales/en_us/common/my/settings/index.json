@@ -5,6 +5,10 @@
   },
   "Clear.Cache": {
     "Description": "Clear all cache data and images, total: ",
+    "Dialog": {
+      "Description": "Are you sure you want to clear all the cache data and images?",
+      "Title": "Clear Cache"
+    },
     "Success": {
       "Message": "All the cache data and images have been cleared",
       "Title": "Cleared successfully"

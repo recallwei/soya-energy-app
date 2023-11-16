@@ -1,3 +1,4 @@
+export { default as AlertDialog } from './AlertDialog'
 export { default as Card } from './Card'
 export { default as Checkbox } from './Checkbox'
 export { default as ListItemGroup } from './ListItemGroup'

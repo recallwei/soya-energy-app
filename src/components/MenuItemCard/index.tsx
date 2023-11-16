@@ -2,6 +2,8 @@ import { ChevronRight } from '@tamagui/lucide-icons'
 import { useCallback, useState } from 'react'
 import { Card, SizableText, Switch, View, XStack, YStack } from 'tamagui'
 
+import { globalStyles } from '@/constants'
+
 interface Props {
   title?: string
   description?: string
@@ -15,6 +17,9 @@ export default function MenuItemCard(props: Props) {
   const [isSwitcherOn, setIsSwitcherOn] = useState(false)
 
   const handlePress = () => {
+    if (props.switcher) {
+      setIsSwitcherOn(!isSwitcherOn)
+    }
     if (typeof props.onPress === 'function') {
       props.onPress()
     }
@@ -99,7 +104,7 @@ export default function MenuItemCard(props: Props) {
             >
               <Switch.Thumb
                 animation="slow"
-                backgroundColor="#0078d7"
+                backgroundColor={globalStyles.primaryColor}
               />
             </Switch>
           ) : (
