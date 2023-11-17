@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.reactnativedemoapp"
+    namespace "com.SoyaEnergyApp"
     defaultConfig {
-        applicationId "com.soyaenergytestapp"
+        applicationId "com.soya.energy.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

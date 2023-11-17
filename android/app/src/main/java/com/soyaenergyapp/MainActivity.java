@@ -1,4 +1,4 @@
-package com.reactnativedemoapp;
+package com.SoyaEnergyApp;
 
 import android.os.Bundle; // NOTE: Required for onCreate method
 import com.facebook.react.ReactActivity;
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "ReactNativeDemoApp";
+    return "SoyaEnergyApp";
   }
 
   /**

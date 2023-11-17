@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ReactNativeDemoApp.app"
-               BlueprintName = "ReactNativeDemoApp"
-               ReferencedContainer = "container:ReactNativeDemoApp.xcodeproj">
+               BuildableName = "SoyaEnergyApp.app"
+               BlueprintName = "SoyaEnergyApp"
+               ReferencedContainer = "container:SoyaEnergyApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ReactNativeDemoAppTests.xctest"
-               BlueprintName = "ReactNativeDemoAppTests"
-               ReferencedContainer = "container:ReactNativeDemoApp.xcodeproj">
+               BuildableName = "SoyaEnergyAppTests.xctest"
+               BlueprintName = "SoyaEnergyAppTests"
+               ReferencedContainer = "container:SoyaEnergyApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ReactNativeDemoApp.app"
-            BlueprintName = "ReactNativeDemoApp"
-            ReferencedContainer = "container:ReactNativeDemoApp.xcodeproj">
+            BuildableName = "SoyaEnergyApp.app"
+            BlueprintName = "SoyaEnergyApp"
+            ReferencedContainer = "container:SoyaEnergyApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ReactNativeDemoApp.app"
-            BlueprintName = "ReactNativeDemoApp"
-            ReferencedContainer = "container:ReactNativeDemoApp.xcodeproj">
+            BuildableName = "SoyaEnergyApp.app"
+            BlueprintName = "SoyaEnergyApp"
+            ReferencedContainer = "container:SoyaEnergyApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

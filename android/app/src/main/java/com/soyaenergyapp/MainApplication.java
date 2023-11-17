@@ -1,4 +1,4 @@
-package com.reactnativedemoapp;
+package com.SoyaEnergyApp;
 
 import com.microsoft.codepush.react.CodePush; // NOTE: Required for CodePush
 import android.app.Application;
