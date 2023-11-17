@@ -125,15 +125,13 @@ export default function StatisticsScreen() {
           onRefresh={onRefresh}
         />
       }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
+      contentContainerStyle={{
+        paddingTop: insets.top
+      }}
     >
       <YStack
         padding="$4"
         space="$3"
-        marginBottom="$10"
       >
         <ToggleGroup
           alignSelf="center"

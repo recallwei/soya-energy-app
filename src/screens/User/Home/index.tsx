@@ -24,7 +24,6 @@ export default function UserHomeScreen() {
 
   return (
     <ScrollView
-      height="100%"
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
@@ -32,10 +31,9 @@ export default function UserHomeScreen() {
           onRefresh={onRefresh}
         />
       }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
+      contentContainerStyle={{
+        paddingTop: insets.top
+      }}
     >
       <YStack
         padding="$4"

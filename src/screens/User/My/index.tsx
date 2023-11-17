@@ -38,11 +38,9 @@ export default function UserMyScreen() {
 
   return (
     <ScrollView
-      height="100%"
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
+      contentContainerStyle={{
+        paddingTop: insets.top
+      }}
     >
       <YStack
         padding="$4"
