@@ -24,8 +24,8 @@ dependencies:
     specifier: ^11.1.0
     version: 11.1.0(react-native@0.72.7)
   '@react-native/gradle-plugin':
-    specifier: 0.72.11
-    version: 0.72.11
+    specifier: 0.73.3
+    version: 0.73.3
   '@react-navigation/bottom-tabs':
     specifier: ^6.5.11
     version: 6.5.11(@react-navigation/native@6.1.9)(react-native-safe-area-context@4.7.4)(react-native-screens@3.27.0)(react-native@0.72.7)(react@18.2.0)
@@ -3425,6 +3425,11 @@ packages:
 
   /@react-native/gradle-plugin@0.72.11:
     resolution: {integrity: sha512-P9iRnxiR2w7EHcZ0mJ+fmbPzMby77ZzV6y9sJI3lVLJzF7TLSdbwcQyD3lwMsiL+q5lKUHoZJS4sYmih+P2HXw==}
+
+  /@react-native/gradle-plugin@0.73.3:
+    resolution: {integrity: sha512-0dbzN0RTCCTJetRCIMRHNqomfri0tBrNVgJHqRg/cxfSP/ePkzPnp5nhwLr+bCDRd4z8zDsQ+/+87P/77RRsZQ==}
+    engines: {node: '>=18'}
+    dev: false
 
   /@react-native/js-polyfills@0.72.1:
     resolution: {integrity: sha512-cRPZh2rBswFnGt5X5EUEPs0r+pAsXxYsifv/fgy9ZLQokuT52bPH+9xjDR+7TafRua5CttGW83wP4TntRcWNDA==}

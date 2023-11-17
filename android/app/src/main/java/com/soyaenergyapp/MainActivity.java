@@ -1,6 +1,7 @@
 package com.SoyaEnergyApp;
 
 import android.os.Bundle; // NOTE: Required for onCreate method
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -25,14 +26,15 @@ public class MainActivity extends ReactActivity {
   @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
     return new DefaultReactActivityDelegate(
-        this,
-        getMainComponentName(),
-        // If you opted-in for the New Architecture, we enable the Fabric Renderer.
-        DefaultNewArchitectureEntryPoint.getFabricEnabled());
+      this,
+      getMainComponentName(),
+      // If you opted-in for the New Architecture, we enable the Fabric Renderer.
+      DefaultNewArchitectureEntryPoint.getFabricEnabled());
   }
 
   /**
    * React Navigation
+   *
    * @see https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project
    */
   @Override
