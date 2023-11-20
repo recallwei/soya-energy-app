@@ -23,31 +23,53 @@
   },
   "Remember.Password": "Remember password",
   "Signup": "Sign up",
-  "SignupScreen": {
-    "Checkbox": {
-      "Installation": "This company have already installed the system",
-      "Privacy": "I have read and agree the Privacy Policy Agreement"
-    },
-    "CompanyInfo": "Company info",
-    "Input": {
-      "City": "City",
-      "CompanyName": "Company name",
-      "Country": "Country",
-      "EmailAddress": "Email address",
-      "FirstName": "First name",
-      "LastName": "Last name",
-      "PhoneNumber": "Phone number",
-      "StreetAddress": "Street address",
-      "StreetAddressOptional": "Street address (Optional)"
-    },
-    "PersonalInfo": "Personal info",
-    "Ratio": {
-      "ForCompany": "I am a solar professional registering on behalf of my company",
-      "ForIndividual": "l am a do-it-yourselfer installing products on my own home or business"
-    }
-  },
   "Verification.Code": {
     "Placeholder": "Please enter the verification code",
     "Text": "Verification code"
-  }
+  },
+  "I.Am.An.Owner": {
+    "Text": "I am an owner",
+    "Description": "Real-time Monitoring and Analysis of Power Generation, Power Storage and Power Consumption"
+  },
+  "I.AM.An.Installer": {
+    "Text": "I am an installer/distributor",
+    "Description": "Create plant, Monitoring & Analysis, O&M Tools"
+  },
+  "Role.Type": "Role Type",
+  "Role.Type.Owner": "Owner",
+  "Role.Type.Installer": "Installer",
+  "Country.Region": "Country/Region",
+  "Username": "Username",
+  "Time.Zone": "Time Zone",
+  "Agree.User.Registration.Agreement": "Agree《User Registration Agreement》",
+  "Agree.Owner.Privacy.Policy": "Agree《Owner Privacy Policy》",
+  "Agree.Recieve.Email.Notification": "Agree to recieive email notifications《New Products, Events, Information》Information on new product release, events, or news",
+  "Agree.Enterprise.Policy": "Agree《Enterprise and other third-party privacy policies》",
+  "Company.Name": {
+    "Text": "Company Name",
+    "Placeholder": "Please enter the company name"
+  },
+  "Zip.Postal.Code": {
+    "Text": "Zip/Postal Code",
+    "Placeholder": "Please enter the zip/postal code"
+  },
+  "Customer.Support.Email": {
+    "Text": "Customer Support Email",
+    "Placeholder": "Please enter the customer support email"
+  },
+  "Customer.Support.Phone": {
+    "Text": "Customer Support Phone",
+    "Placeholder": "Please enter the customer support phone"
+  },
+  "Website.URL": {
+    "Text": "Website URL",
+    "Placeholder": "Please enter the website url(optional)"
+  },
+  "Company.Logo": {
+    "Text": "Company Logo(optional)",
+    "Description": "Must be a JPEG or PNG file no larger than 4MB.For best results, we recommend a square image with atransparent background at least 400px wide by 400px tall.",
+    "Settings.Description": "Enable access to camera for your app from the settingstab"
+  },
+  "Personal.Details": "Personal Details",
+  "Company.Details": "Company Details"
 }
