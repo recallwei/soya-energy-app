@@ -1,5 +1,5 @@
-import auth_login_en_us from './auth/login/en-US.json'
-import auth_login_zh_cn from './auth/login/zh-CN.json'
+import auth_en_us from './auth/en-US.json'
+import auth_zh_cn from './auth/zh-CN.json'
 import common_my_en_us from './common/my/en-US.json'
 import common_my_settings_en_us from './common/my/settings/en-US.json'
 import common_my_settings_zh_cn from './common/my/settings/zh-CN.json'
@@ -34,7 +34,7 @@ export const EN_US = {
 
   Global: global_en_us,
   Screen: screen_en_us,
-  'Auth.Login': auth_login_en_us,
+  Auth: auth_en_us,
   'Installer.Home': installer_home_en_us,
   'Installer.Services': installer_services_en_us,
   'Common.My': common_my_en_us,
@@ -51,7 +51,7 @@ export const ZH_CN = {
 
   Global: global_zh_cn,
   Screen: screen_zh_cn,
-  'Auth.Login': auth_login_zh_cn,
+  Auth: auth_zh_cn,
   'Installer.Home': installer_home_zh_cn,
   'Installer.Services': installer_services_zh_cn,
   'Common.My': common_my_zh_cn,

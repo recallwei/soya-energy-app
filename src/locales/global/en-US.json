@@ -1,18 +1,19 @@
 {
+  "Add": "Add",
+  "Cancel": "Cancel",
+  "Confirm.Dialog.Default": {
+    "CancelText": "Cancel",
+    "ConfirmText": "Confirm",
+    "Description": "Are you sure to do this?",
+    "Title": "Confirm action"
+  },
+  "No.Data": "No data",
+  "Still.In.Development": "Still in development...",
+  "Submit": "Submit",
   "Toast.Default.Title": {
     "Error": "Error",
     "Loading": "Loading",
     "Success": "Success",
     "Warning": "Warning"
-  },
-  "Cancel": "Cancel",
-  "Confirm.Dialog.Default": {
-    "Title": "Confirm action",
-    "Description": "Are you sure to do this?",
-    "ConfirmText": "Confirm",
-    "CancelText": "Cancel"
-  },
-  "No.Data": "No data",
-  "Still.In.Development": "Still in development...",
-  "Add": "Add"
+  }
 }

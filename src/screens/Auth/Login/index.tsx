@@ -36,7 +36,7 @@ const schema = yup
 export default function Screen() {
   const { width } = Dimensions.get('screen')
   const insets = useSafeAreaInsets()
-  const { t } = useTranslation('Auth.Login')
+  const { t } = useTranslation('Auth')
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
   const navigation = useNavigation()
@@ -233,7 +233,7 @@ export default function Screen() {
 
       <Checkbox
         width="100%"
-        label={t('RememberPassword')}
+        label={t('Remember.Password')}
         disabled={isLoading}
         checked={rememberPassword}
         onCheckedChange={(checked: boolean) => {
@@ -253,7 +253,7 @@ export default function Screen() {
         width="100%"
       >
         <TouchableOpacity onPress={() => navigation.navigate('Auth.Forgot_Password')}>
-          <SizableText>{t('ForgotPassword')}</SizableText>
+          <SizableText>{t('Forgot.Password')}</SizableText>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Auth.SignUp')}>
           <SizableText>{t('Signup')}</SizableText>

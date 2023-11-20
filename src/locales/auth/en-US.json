@@ -1,0 +1,53 @@
+{
+  "Account": {
+    "Placeholder": "Please enter the account",
+    "Text": "Account"
+  },
+  "Confirm.Password": {
+    "Placeholder": "Please enter the confirm password",
+    "Text": "Confirm password"
+  },
+  "Email": {
+    "Placeholder": "Please enter the email",
+    "Text": "Email"
+  },
+  "Forgot.Password": "Forgot password?",
+  "Login": "Login",
+  "New.Password": {
+    "Placeholder": "Please enter the new password",
+    "Text": "New password"
+  },
+  "Password": {
+    "Placeholder": "Please enter the password",
+    "Text": "Password"
+  },
+  "Remember.Password": "Remember password",
+  "Signup": "Sign up",
+  "SignupScreen": {
+    "Checkbox": {
+      "Installation": "This company have already installed the system",
+      "Privacy": "I have read and agree the Privacy Policy Agreement"
+    },
+    "CompanyInfo": "Company info",
+    "Input": {
+      "City": "City",
+      "CompanyName": "Company name",
+      "Country": "Country",
+      "EmailAddress": "Email address",
+      "FirstName": "First name",
+      "LastName": "Last name",
+      "PhoneNumber": "Phone number",
+      "StreetAddress": "Street address",
+      "StreetAddressOptional": "Street address (Optional)"
+    },
+    "PersonalInfo": "Personal info",
+    "Ratio": {
+      "ForCompany": "I am a solar professional registering on behalf of my company",
+      "ForIndividual": "l am a do-it-yourselfer installing products on my own home or business"
+    }
+  },
+  "Verification.Code": {
+    "Placeholder": "Please enter the verification code",
+    "Text": "Verification code"
+  }
+}
