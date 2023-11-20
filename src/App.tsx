@@ -42,8 +42,6 @@ function onAppStateChange(status: AppStateStatus) {
   }
 }
 
-LangUtils.getDefaultLang()
-
 function App() {
   const [queryClient] = useState(() => new QueryClient())
   const { theme } = useThemeStore()
@@ -53,9 +51,9 @@ function App() {
 
   useAsyncEffect(async () => {
     langStore.setLang(await LangUtils.getDefaultLang())
+    useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
     LoggerUtils.printEnv()
     await LoggerUtils.printStorage()
-    useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
   }, [])
 
   useEffect(() => {

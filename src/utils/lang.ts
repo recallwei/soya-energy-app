@@ -11,7 +11,7 @@ export class LangUtils {
       const lang = await AsyncStorage.getItem(this.LANG_KEY)
       return lang
     } catch {
-      return this.DEFAULT_LANG
+      return ''
     }
   }
 

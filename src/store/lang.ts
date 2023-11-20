@@ -26,11 +26,8 @@ export const useLangStore = create<State & Actions>()(
 
 useLangStore.subscribe(
   (state) => state.lang,
-  (lang) => {
+  async (lang) => {
     i18n.changeLanguage(lang)
-    LangUtils.setLang(lang)
-  },
-  {
-    fireImmediately: true
+    await LangUtils.setLang(lang)
   }
 )
