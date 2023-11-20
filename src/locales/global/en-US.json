@@ -11,5 +11,7 @@
     "Description": "Are you sure to do this?",
     "ConfirmText": "Confirm",
     "CancelText": "Cancel"
-  }
+  },
+  "No.Data": "No data",
+  "Still.In.Development": "Still in development..."
 }

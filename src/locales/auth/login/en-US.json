@@ -1,0 +1,14 @@
+{
+  "Account": {
+    "Placeholder": "Please enter the account",
+    "Text": "Account"
+  },
+  "ForgotPassword": "Forgot password?",
+  "Login": "Login",
+  "Password": {
+    "Placeholder": "Please enter the password",
+    "Text": "Password"
+  },
+  "RememberPassword": "Remember password",
+  "Signup": "Sign up"
+}

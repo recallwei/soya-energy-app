@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import type { SizeTokens } from 'tamagui'
 import { Label, Paragraph, RadioGroup as TRadioGroup, XStack, YStack } from 'tamagui'
 
@@ -15,7 +16,7 @@ interface Props {
   description?: boolean
 }
 
-export default function RadioGroup(props: Props) {
+const RadioGroup = memo((props: Props) => {
   if (props.description) {
     return (
       <TRadioGroup
@@ -76,4 +77,6 @@ export default function RadioGroup(props: Props) {
       ))}
     </TRadioGroup>
   )
-}
+})
+
+export default RadioGroup

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { ListItem, Separator, YGroup } from 'tamagui'
 
 interface SListItem {
@@ -14,7 +15,7 @@ interface Props {
   scaleIcon?: number
 }
 
-export default function ListItemGroup(props: Props) {
+const ListItemGroup = memo((props: Props) => {
   const scaleIcon = props.scaleIcon ?? 1.5
   if (!props.data || props.data.length === 0) return null
   return (
@@ -39,4 +40,6 @@ export default function ListItemGroup(props: Props) {
       ))}
     </YGroup>
   )
-}
+})
+
+export default ListItemGroup

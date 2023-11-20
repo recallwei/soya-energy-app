@@ -1,11 +1,11 @@
-import type { PropsWithChildren } from 'react'
+import { memo, type PropsWithChildren } from 'react'
 import { Card as TCard } from 'tamagui'
 
 interface Props extends PropsWithChildren {
   width?: string | number
 }
 
-export default function Card(props: Props) {
+const Card = memo((props: Props) => {
   const { width = '100%' } = props
   return (
     <TCard
@@ -19,4 +19,6 @@ export default function Card(props: Props) {
       <TCard.Header padded>{props.children}</TCard.Header>
     </TCard>
   )
-}
+})
+
+export default Card

@@ -1,5 +1,5 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
-import { forwardRef, useState } from 'react'
+import { memo, useState } from 'react'
 import { Card, SizableText, Switch, View, XStack, YStack } from 'tamagui'
 
 import { globalStyles } from '@/constants'
@@ -12,8 +12,7 @@ interface Props {
   switcher?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const MenuItemCard = forwardRef((props: Props, _ref) => {
+export const MenuItemCard = memo((props: Props) => {
   const [isPressing, setIsPressing] = useState(false)
   const [isSwitcherOn, setIsSwitcherOn] = useState(false)
 
@@ -104,7 +103,7 @@ export const MenuItemCard = forwardRef((props: Props, _ref) => {
               onPress={handleSwitchPress}
             >
               <Switch.Thumb
-                animation="slow"
+                animation="medium"
                 backgroundColor={globalStyles.primaryColor}
               />
             </Switch>

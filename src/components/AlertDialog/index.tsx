@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AlertDialog as TAlertDialog, Button, XStack, YStack } from 'tamagui'
 
@@ -11,7 +12,7 @@ interface Props extends PropsWithChildren {
   onCancel?: () => void
 }
 
-export default function AlertDialog(props: Props) {
+const AlertDialog = memo((props: Props) => {
   const { t } = useTranslation('Global')
 
   const {
@@ -78,4 +79,6 @@ export default function AlertDialog(props: Props) {
       </TAlertDialog.Portal>
     </TAlertDialog>
   )
-}
+})
+
+export default AlertDialog

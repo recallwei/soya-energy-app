@@ -11,5 +11,7 @@
     "Description": "确定执行此操作吗？",
     "ConfirmText": "确定",
     "CancelText": "取消"
-  }
+  },
+  "No.Data": "暂无数据",
+  "Still.In.Development": "功能正在开发中..."
 }

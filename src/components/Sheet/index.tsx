@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+import { memo, type PropsWithChildren } from 'react'
 import { Sheet as TSheet } from 'tamagui'
 
 interface Props extends PropsWithChildren {
@@ -6,7 +6,7 @@ interface Props extends PropsWithChildren {
   setOpen?: (open: boolean) => void
 }
 
-export default function Sheet(props: Props) {
+const Sheet = memo((props: Props) => {
   const { open, setOpen, children } = props
   return (
     <TSheet
@@ -26,4 +26,6 @@ export default function Sheet(props: Props) {
       <TSheet.Frame padding="$4">{children}</TSheet.Frame>
     </TSheet>
   )
-}
+})
+
+export default Sheet

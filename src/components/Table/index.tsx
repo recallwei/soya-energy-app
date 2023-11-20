@@ -1,12 +1,8 @@
-import type { PropsWithChildren } from 'react'
+import { memo, type PropsWithChildren } from 'react'
 import { Label, View, XStack } from 'tamagui'
 
-function Cell({
-  children,
-  width,
-  height
-}: PropsWithChildren<{ width: string; height: number | string }>) {
-  return (
+const Cell = memo(
+  ({ children, width, height }: PropsWithChildren<{ width: string; height: number | string }>) => (
     <View
       width={width}
       height={height}
@@ -19,14 +15,14 @@ function Cell({
       <Label>{children}</Label>
     </View>
   )
-}
+)
 
 interface Props {
   data?: string[][]
   height?: number
 }
 
-export default function Table(props: Props) {
+const Table = memo((props: Props) => {
   if (!props.data || props.data.length === 0) return null
   return (
     <View
@@ -49,4 +45,6 @@ export default function Table(props: Props) {
       ))}
     </View>
   )
-}
+})
+
+export default Table

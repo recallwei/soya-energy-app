@@ -1,8 +1,4 @@
 {
-  "Language": {
-    "CurrentLanguage": "Current language:",
-    "Current": "English"
-  },
   "Installer": {
     "Tabs": {
       "Home": "Home",
@@ -103,9 +99,7 @@
     "Explore": "Explore",
     "Community": "Community"
   },
-  "StillInDevelopment": "This feature still in development...",
   "Others": "Others",
   "Submit": "Submit",
-  "NoData": "No data",
   "Edit": "Edit"
 }

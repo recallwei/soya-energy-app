@@ -8,9 +8,9 @@ import { useCallback, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { DevSettings, Dimensions } from 'react-native'
+import { DevSettings, Dimensions, TouchableOpacity } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { Button, Image, Input, Label, Spinner, View, XStack, YStack } from 'tamagui'
+import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack } from 'tamagui'
 import * as yup from 'yup'
 
 import { AuthAPI } from '@/api'
@@ -36,7 +36,7 @@ const schema = yup
 export default function Screen() {
   const { width } = Dimensions.get('screen')
   const insets = useSafeAreaInsets()
-  const { t } = useTranslation(['Auth'])
+  const { t } = useTranslation('Auth.Login')
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
   const navigation = useNavigation()
@@ -160,7 +160,7 @@ export default function Screen() {
               width="100%"
               maxLength={20}
               paddingLeft="$7"
-              placeholder={t('Auth:Account.Placeholder')}
+              placeholder={t('Account.Placeholder')}
               autoCapitalize="none"
               value={value}
               onChangeText={onChange}
@@ -198,7 +198,7 @@ export default function Screen() {
               width="100%"
               maxLength={20}
               paddingHorizontal="$7"
-              placeholder={t('Auth:Password.Placeholder')}
+              placeholder={t('Password.Placeholder')}
               autoCapitalize="none"
               value={value}
               onChangeText={onChange}
@@ -233,7 +233,7 @@ export default function Screen() {
 
       <Checkbox
         width="100%"
-        label={t('Auth:RememberPassword')}
+        label={t('RememberPassword')}
         disabled={isLoading}
         checked={rememberPassword}
         onCheckedChange={(checked: boolean) => {
@@ -246,16 +246,18 @@ export default function Screen() {
         disabled={isLoading}
         icon={isLoading ? <Spinner /> : undefined}
       >
-        {t('Auth:Login')}
+        {t('Login')}
       </Button>
       <XStack
         justifyContent="space-between"
         width="100%"
       >
-        <Label onPress={() => navigation.navigate('Auth.Forgot_Password')}>
-          {t('Auth:ForgotPassword')}
-        </Label>
-        <Label onPress={() => navigation.navigate('Auth.SignUp')}>{t('Auth:Signup')}</Label>
+        <TouchableOpacity onPress={() => navigation.navigate('Auth.Forgot_Password')}>
+          <SizableText>{t('ForgotPassword')}</SizableText>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Auth.SignUp')}>
+          <SizableText>{t('Signup')}</SizableText>
+        </TouchableOpacity>
       </XStack>
 
       <Label

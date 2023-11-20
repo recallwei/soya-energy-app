@@ -1,8 +1,4 @@
 {
-  "Language": {
-    "CurrentLanguage": "当前语言：",
-    "Current": "简体中文"
-  },
   "Tabs": {
     "Status": "状态",
     "Statistics": "统计",
@@ -27,8 +23,6 @@
     "Explore": "探索",
     "Community": "社区"
   },
-  "StillInDevelopment": "该功能仍在开发中...",
   "Others": "其他",
-  "Submit": "提交",
-  "NoData": "暂无数据"
+  "Submit": "提交"
 }

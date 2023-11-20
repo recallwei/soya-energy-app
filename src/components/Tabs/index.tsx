@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import type { StackProps, TabLayout, TabsTabProps } from 'tamagui'
 import { AnimatePresence, Label, Stack, styled, Tabs as TTabs, YStack } from 'tamagui'
 
@@ -12,7 +12,27 @@ const AnimatedYStack = styled(YStack, {
   } as const
 })
 
-export default function Tabs() {
+const TabsRovingIndicator = memo(({ active, ...props }: { active?: boolean } & StackProps) => (
+  <Stack
+    position="absolute"
+    backgroundColor="$color5"
+    opacity={0.7}
+    animation="100ms"
+    enterStyle={{
+      opacity: 0
+    }}
+    exitStyle={{
+      opacity: 0
+    }}
+    {...(active && {
+      backgroundColor: '$color8',
+      opacity: 0.6
+    })}
+    {...props}
+  />
+))
+
+const Tabs = memo(() => {
   const [tabState, setTabState] = useState<{
     currentTab: string
     /**
@@ -163,26 +183,6 @@ export default function Tabs() {
       </AnimatePresence>
     </TTabs>
   )
-}
+})
 
-function TabsRovingIndicator({ active, ...props }: { active?: boolean } & StackProps) {
-  return (
-    <Stack
-      position="absolute"
-      backgroundColor="$color5"
-      opacity={0.7}
-      animation="100ms"
-      enterStyle={{
-        opacity: 0
-      }}
-      exitStyle={{
-        opacity: 0
-      }}
-      {...(active && {
-        backgroundColor: '$color8',
-        opacity: 0.6
-      })}
-      {...props}
-    />
-  )
-}
+export default Tabs
