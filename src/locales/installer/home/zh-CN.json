@@ -1,0 +1,13 @@
+{
+  "Total.Energy.Generated": "累计发电量",
+  "Total.Installed.Capacity": "总装机容量",
+  "Today": "今天",
+  "This.Month": "当月",
+  "Current.Year": "今年",
+  "Total": "总数",
+  "Normal.Running.Rate": "正常运行率",
+  "Normal": "正常",
+  "Alarm": "告警",
+  "Offline": "离线",
+  "Not.Monitored": "未监控"
+}

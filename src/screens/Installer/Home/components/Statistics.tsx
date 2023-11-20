@@ -1,21 +1,40 @@
+import { useTranslation } from 'react-i18next'
 import { Separator, SizableText, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 
 export default function Statistics() {
+  const { t } = useTranslation('Installer.Home')
+
   return (
     <YStack space="$3">
       <XStack justifyContent="space-between">
         <Card width="49%">
           <YStack>
-            <SizableText>18.2 KWH</SizableText>
-            <SizableText>累计发电量</SizableText>
+            <XStack space="$2">
+              <SizableText
+                fontSize="$7"
+                fontWeight="$bold"
+              >
+                18.2
+              </SizableText>
+              <SizableText fontSize="$3">kWh</SizableText>
+            </XStack>
+            <SizableText fontSize="$2">{t('Total.Energy.Generated')}</SizableText>
           </YStack>
         </Card>
         <Card width="49%">
           <YStack>
-            <SizableText>18.2 KWH</SizableText>
-            <SizableText>总装机容量</SizableText>
+            <XStack space="$2">
+              <SizableText
+                fontSize="$7"
+                fontWeight="$bold"
+              >
+                18.2
+              </SizableText>
+              <SizableText fontSize="$3">kWp</SizableText>
+            </XStack>
+            <SizableText fontSize="$2">{t('Total.Installed.Capacity')}</SizableText>
           </YStack>
         </Card>
       </XStack>
@@ -23,8 +42,16 @@ export default function Statistics() {
       <Card>
         <XStack justifyContent="space-between">
           <YStack>
-            <SizableText>0.0 KWH</SizableText>
-            <SizableText>Today</SizableText>
+            <XStack space="$2">
+              <SizableText
+                fontSize="$7"
+                fontWeight="$bold"
+              >
+                0.0
+              </SizableText>
+              <SizableText fontSize="$3">kWh</SizableText>
+            </XStack>
+            <SizableText fontSize="$2">{t('Today')}</SizableText>
           </YStack>
           <Separator
             alignSelf="stretch"
@@ -32,8 +59,16 @@ export default function Statistics() {
             marginHorizontal={15}
           />
           <YStack>
-            <SizableText>0.0 KWH</SizableText>
-            <SizableText>Today</SizableText>
+            <XStack space="$2">
+              <SizableText
+                fontSize="$7"
+                fontWeight="$bold"
+              >
+                0.0
+              </SizableText>
+              <SizableText fontSize="$3">kWh</SizableText>
+            </XStack>
+            <SizableText fontSize="$2">{t('This.Month')}</SizableText>
           </YStack>
           <Separator
             alignSelf="stretch"
@@ -41,8 +76,16 @@ export default function Statistics() {
             marginHorizontal={15}
           />
           <YStack>
-            <SizableText>0.0 KWH</SizableText>
-            <SizableText>Today</SizableText>
+            <XStack space="$2">
+              <SizableText
+                fontSize="$7"
+                fontWeight="$bold"
+              >
+                0.0
+              </SizableText>
+              <SizableText fontSize="$3">kWh</SizableText>
+            </XStack>
+            <SizableText fontSize="$2">{t('Current.Year')}</SizableText>
           </YStack>
         </XStack>
       </Card>

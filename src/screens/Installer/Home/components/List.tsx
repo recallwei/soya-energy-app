@@ -1,5 +1,6 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
 import { useAsyncEffect } from 'ahooks'
+import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
 import { Circle, SizableText, styled, View, XStack, YStack } from 'tamagui'
 
@@ -91,6 +92,7 @@ const mockData: Item[] = [
 ]
 
 export default function List() {
+  const { t } = useTranslation('Installer.Home')
   const themeStore = useThemeStore()
 
   useAsyncEffect(async () => {
@@ -159,13 +161,23 @@ export default function List() {
                   space="$2"
                 >
                   <StatisticCard>
-                    <SizableText>{item.total}</SizableText>
-                    <SizableText fontSize="$2">总数</SizableText>
+                    <SizableText
+                      fontSize="$6"
+                      fontWeight="$bold"
+                    >
+                      {item.total}
+                    </SizableText>
+                    <SizableText fontSize="$1">{t('Total')}</SizableText>
                   </StatisticCard>
 
                   <StatisticCard>
-                    <SizableText>{item.total}%</SizableText>
-                    <SizableText fontSize="$2">正常运行率</SizableText>
+                    <SizableText
+                      fontSize="$6"
+                      fontWeight="$bold"
+                    >
+                      {item.total}%
+                    </SizableText>
+                    <SizableText fontSize="$1">{t('Normal.Running.Rate')}</SizableText>
                   </StatisticCard>
                 </XStack>
                 <XStack
@@ -173,8 +185,13 @@ export default function List() {
                   space="$2"
                 >
                   <StatisticCard>
-                    <SizableText>{item.total}</SizableText>
-                    <SizableText fontSize="$2">正常</SizableText>
+                    <SizableText
+                      fontSize="$6"
+                      fontWeight="$bold"
+                    >
+                      {item.total}
+                    </SizableText>
+                    <SizableText fontSize="$1">{t('Normal')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="green"
@@ -185,8 +202,13 @@ export default function List() {
                     />
                   </StatisticCard>
                   <StatisticCard>
-                    <SizableText>{item.total}</SizableText>
-                    <SizableText fontSize="$2">告警</SizableText>
+                    <SizableText
+                      fontSize="$6"
+                      fontWeight="$bold"
+                    >
+                      {item.total}
+                    </SizableText>
+                    <SizableText fontSize="$1">{t('Alarm')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="red"
@@ -202,8 +224,13 @@ export default function List() {
                   space="$2"
                 >
                   <StatisticCard>
-                    <SizableText>{item.total}</SizableText>
-                    <SizableText fontSize="$2">离线</SizableText>
+                    <SizableText
+                      fontSize="$6"
+                      fontWeight="$bold"
+                    >
+                      {item.total}
+                    </SizableText>
+                    <SizableText fontSize="$1">{t('Offline')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="gray"
@@ -214,8 +241,13 @@ export default function List() {
                     />
                   </StatisticCard>
                   <StatisticCard>
-                    <SizableText>{item.total}</SizableText>
-                    <SizableText fontSize="$2">未监控</SizableText>
+                    <SizableText
+                      fontSize="$6"
+                      fontWeight="$bold"
+                    >
+                      {item.total}
+                    </SizableText>
+                    <SizableText fontSize="$1">{t('Not.Monitored')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="orange"

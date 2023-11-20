@@ -11,6 +11,8 @@ import en_us_settings from './en_us/settings.json'
 import en_us_system from './en_us/system.json'
 import global_en_us from './global/en-US.json'
 import global_zh_cn from './global/zh-CN.json'
+import installer_home_en_us from './installer/home/en-US.json'
+import installer_home_zh_cn from './installer/home/zh-CN.json'
 import screen_en_us from './screen/en-US.json'
 import screen_zh_cn from './screen/zh-CN.json'
 import temp_en_us from './temp/en-US.json'
@@ -31,6 +33,7 @@ export const EN_US = {
   Global: global_en_us,
   Screen: screen_en_us,
   'Auth.Login': auth_login_en_us,
+  'Installer.Home': installer_home_en_us,
   'Common.My': common_my_en_us,
   'Common.My.Settings': common_my_settings_en_us,
   Temp: temp_en_us
@@ -46,6 +49,7 @@ export const ZH_CN = {
   Global: global_zh_cn,
   Screen: screen_zh_cn,
   'Auth.Login': auth_login_zh_cn,
+  'Installer.Home': installer_home_zh_cn,
   'Common.My': common_my_zh_cn,
   'Common.My.Settings': common_my_settings_zh_cn,
   Temp: temp_zh_cn
