@@ -1,0 +1,14 @@
+{
+  "Household.PV.Services": "户用光伏服务",
+  "Common.Services": "通用服务",
+  "Alarm.Process": "告警处理",
+  "Plant.Transfer": "电站转移",
+  "Transfer.Plant.Only": "仅转移电站",
+  "Transfer.Ownership.Of.Plant.And.Affiliated.Equipment": "电站转移和设备转移",
+  "Electricity.Tariff.Settings": "电价设置",
+  "Import.Rate": "导入电价",
+  "Export.Rate": "上网电价",
+  "My.Customers": "我的客户",
+  "Warranty.Check": "质保查询",
+  "Remote.Configuration": "远程配置"
+}

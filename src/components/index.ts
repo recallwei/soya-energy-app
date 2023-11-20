@@ -1,6 +1,7 @@
 export { default as AlertDialog } from './AlertDialog'
 export { default as Card } from './Card'
 export { default as Checkbox } from './Checkbox'
+export { default as HeadingTitle } from './HeadingTitle'
 export { default as ListItemGroup } from './ListItemGroup'
 export { default as MenuItemCard } from './MenuItemCard'
 export { default as NoData } from './NoData'

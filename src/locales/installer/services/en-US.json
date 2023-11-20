@@ -1,0 +1,14 @@
+{
+  "Household.PV.Services": "Household PV Services",
+  "Common.Services": "Common Services",
+  "Alarm.Process": "Alarm Process",
+  "Plant.Transfer": "Plant Transfer",
+  "Transfer.Plant.Only": "Transfer Plant Only",
+  "Transfer.Ownership.Of.Plant.And.Affiliated.Equipment": "Transfer Ownership of Plant and Affiliated Equipment",
+  "Electricity.Tariff.Settings": "Electricity Tariff Settings",
+  "Import.Rate": "Import Rate",
+  "Export.Rate": "Export Rate",
+  "My.Customers": "My Customers",
+  "Warranty.Check": "Warranty Check",
+  "Remote.Configuration": "Remote Configuration"
+}
