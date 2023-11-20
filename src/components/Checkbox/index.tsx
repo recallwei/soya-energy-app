@@ -28,7 +28,12 @@ export default function Checkbox(props: Props) {
         </TCheckbox.Indicator>
       </TCheckbox>
 
-      <Label lineHeight={21}>{props.label}</Label>
+      <Label
+        lineHeight={21}
+        onPress={() => props.onCheckedChange && props.onCheckedChange(!props.checked)}
+      >
+        {props.label}
+      </Label>
     </XStack>
   )
 }
