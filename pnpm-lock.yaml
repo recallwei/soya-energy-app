@@ -178,6 +178,9 @@ devDependencies:
   babel-plugin-module-resolver:
     specifier: ^5.0.0
     version: 5.0.0
+  babel-plugin-transform-remove-console:
+    specifier: ^6.9.4
+    version: 6.9.4
   commitizen:
     specifier: ^4.3.0
     version: 4.3.0(typescript@5.2.2)
@@ -5743,6 +5746,10 @@ packages:
       '@babel/plugin-syntax-flow': 7.22.5(@babel/core@7.23.3)
     transitivePeerDependencies:
       - '@babel/core'
+
+  /babel-plugin-transform-remove-console@6.9.4:
+    resolution: {integrity: sha512-88blrUrMX3SPiGkT1GnvVY8E/7A+k6oj3MNvUtTIxJflFzXTw1bHkuJ/y039ouhFMp2prRn5cQGzokViYi1dsg==}
+    dev: true
 
   /babel-preset-current-node-syntax@1.0.1(@babel/core@7.23.3):
     resolution: {integrity: sha512-M7LQ0bxarkxQoN+vz5aJPsLBn77n8QgTFmo8WK0/44auK2xlCXrYcUxHFxgU7qW5Yzw/CjmLRK2uJzaCd7LvqQ==}
