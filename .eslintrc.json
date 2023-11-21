@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "@brucesong/eslint-config-react-native",
-    "plugin:@tanstack/eslint-plugin-query/recommended"
-  ],
+  "extends": ["@brucesong/eslint-config-react-native"],
   "rules": {
     "global-require": "off" // 图片引入使用的是 require
   }
