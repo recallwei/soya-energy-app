@@ -17,6 +17,7 @@ import {
   AuthForgotPasswordScreen,
   AuthLoginScreen,
   AuthSignUpScreen,
+  AuthSignUpSelectRoleScreen,
   AuthSplashScreen,
   CommonAboutUsScreen,
   CommonMyPrivacyManagementScreen,
@@ -542,6 +543,13 @@ export default function Navigation() {
                   component={AuthSignUpScreen}
                   options={{
                     title: t('Auth.SignUp')
+                  }}
+                />
+                <Stack.Screen
+                  name="Auth.SignUp.SelectRole"
+                  component={AuthSignUpSelectRoleScreen}
+                  options={{
+                    title: t('Auth.SignUp.Select.Role')
                   }}
                 />
                 <Stack.Screen

@@ -2,6 +2,8 @@ import type { BottomTabScreenProps } from '@react-navigation/bottom-tabs'
 import type { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
+import type { UserRole } from '@/enums'
+
 /**
  * NOTE: Why not use interface?
  * @see https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
@@ -17,7 +19,7 @@ export type RootStackParamList = InstallerTabParamList &
 
     // Don't need auth
     ['Auth.Login']: undefined
-    ['Auth.SignUp']: undefined
+    ['Auth.SignUp']: { role: UserRole }
     ['Auth.SignUp.SelectRole']: undefined
     ['Auth.Forgot_Password']: undefined
 
@@ -113,6 +115,9 @@ export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenP
   RootStackParamList,
   T
 >
+
+export type RouteProp<T extends keyof RootStackParamList> = ScreenProps<T>['route']
+export type Navigation<T extends keyof RootStackParamList> = ScreenProps<T>['navigation']
 
 /**
  * NOTE: Why not use interface?

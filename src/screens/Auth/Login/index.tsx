@@ -255,22 +255,25 @@ export default function Screen() {
         <TouchableOpacity onPress={() => navigation.navigate('Auth.Forgot_Password')}>
           <SizableText>{t('Forgot.Password')}</SizableText>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Auth.SignUp')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Auth.SignUp.SelectRole')}>
           <SizableText>{t('Signup')}</SizableText>
         </TouchableOpacity>
       </XStack>
 
-      <Label
+      <View
         position="absolute"
         bottom={insets.bottom}
-        textAlign="center"
-        onPress={() => {
-          DevSettings.reload()
-          CodePushUtils.syncCode()
-        }}
       >
-        {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}
-      </Label>
+        <Label
+          onPress={() => {
+            DevSettings.reload()
+            CodePushUtils.syncCode()
+          }}
+          textAlign="center"
+        >
+          {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}
+        </Label>
+      </View>
     </YStack>
   )
 }

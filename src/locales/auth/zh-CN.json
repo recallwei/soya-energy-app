@@ -28,48 +28,48 @@
     "Text": "验证码"
   },
   "I.Am.An.Owner": {
-    "Text": "I am an owner",
-    "Description": "Real-time Monitoring and Analysis of Power Generation, Power Storage and Power Consumption"
+    "Text": "我是业主",
+    "Description": "发电、储电、用电，实时监控和分析"
   },
-  "I.AM.An.Installer": {
-    "Text": "I am an installer/distributor",
-    "Description": "Create plant, Monitoring & Analysis, O&M Tools"
+  "I.Am.An.Installer": {
+    "Text": "我是安装商",
+    "Description": "快速建站、监控分析、运维工具"
   },
-  "Role.Type": "Role Type",
-  "Role.Type.Owner": "Owner",
-  "Role.Type.Installer": "Installer",
-  "Country.Region": "Country/Region",
-  "Username": "Username",
-  "Time.Zone": "Time Zone",
-  "Agree.User.Registration.Agreement": "Agree《User Registration Agreement》",
-  "Agree.Owner.Privacy.Policy": "Agree《Owner Privacy Policy》",
-  "Agree.Recieve.Email.Notification": "Agree to recieive email notifications《New Products, Events, Information》Information on new product release, events, or news",
-  "Agree.Enterprise.Policy": "Agree《Enterprise and other third-party privacy policies》",
+  "Role.Type": "角色类型",
+  "Role.Type.Owner": "业主",
+  "Role.Type.Installer": "安装商",
+  "Country.Region": "国家/地区",
+  "Username": "用户名",
+  "Time.Zone": "时区",
+  "Agree.User.Registration.Agreement": "同意《用户注册协议》",
+  "Agree.Owner.Privacy.Policy": "同意《业主隐私协议》",
+  "Agree.Recieve.Email.Notification": "同意接收邮件通知《新的产品、活动、信息》",
+  "Agree.Enterprise.Policy": "同意《企业和第三方隐私协议》",
   "Company.Name": {
-    "Text": "Company Name",
-    "Placeholder": "Please enter the company name"
+    "Text": "公司名称",
+    "Placeholder": "请输入公司名称"
   },
   "Zip.Postal.Code": {
-    "Text": "Zip/Postal Code",
-    "Placeholder": "Please enter the zip/postal code"
+    "Text": "邮政编码",
+    "Placeholder": "请输入邮政编码"
   },
   "Customer.Support.Email": {
-    "Text": "Customer Support Email",
-    "Placeholder": "Please enter the customer support email"
+    "Text": "客户支持邮箱",
+    "Placeholder": "请输入客户支持邮箱"
   },
   "Customer.Support.Phone": {
-    "Text": "Customer Support Phone",
-    "Placeholder": "Please enter the customer support phone"
+    "Text": "客户支持电话",
+    "Placeholder": "请输入客户支持电话"
   },
   "Website.URL": {
-    "Text": "Website URL",
-    "Placeholder": "Please enter the website url(optional)"
+    "Text": "网站地址（可选）",
+    "Placeholder": "请输入网址地址"
   },
   "Company.Logo": {
-    "Text": "Company Logo(optional)",
-    "Description": "Must be a JPEG or PNG file no larger than 4MB.For best results, we recommend a square image with atransparent background at least 400px wide by 400px tall.",
-    "Settings.Description": "Enable access to camera for your app from the settingstab"
+    "Text": "公司 Logo（可选）",
+    "Description": "不超过 4MB 的 JPG、JPEG、PNG. 为了更好地展示, 我们推荐使用透明背景方形图片，400 x 400 像素。",
+    "Settings.Description": "从设置菜单启用相机权限"
   },
-  "Personal.Details": "Personal Details",
-  "Company.Details": "Company Details"
+  "Personal.Details": "个人信息",
+  "Company.Details": "公司信息"
 }

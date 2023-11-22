@@ -60,6 +60,7 @@ const RadioGroup = memo((props: Props) => {
         <XStack
           space="$2"
           key={groupIndex}
+          alignItems="center"
         >
           <TRadioGroup.Item
             value={groupItem.value}
@@ -68,7 +69,7 @@ const RadioGroup = memo((props: Props) => {
             <TRadioGroup.Indicator />
           </TRadioGroup.Item>
           <Label
-            lineHeight={20}
+            lineHeight={21}
             size={props.size}
           >
             {groupItem.label}

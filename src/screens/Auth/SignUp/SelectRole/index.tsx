@@ -1,11 +1,17 @@
+import { useNavigation } from '@react-navigation/native'
+import { User2, UserCog } from '@tamagui/lucide-icons'
+import { useTranslation } from 'react-i18next'
 import { RefreshControl } from 'react-native'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
+import { MenuItemCard } from '@/components'
+import { UserRole } from '@/enums'
 import { useRefresh } from '@/hooks'
 
 export default function Screen() {
   const { refreshing, onRefresh } = useRefresh()
+  const { t } = useTranslation('Auth')
+  const navigation = useNavigation()
 
   return (
     <ScrollView
@@ -22,7 +28,18 @@ export default function Screen() {
         padding="$4"
         space="$3"
       >
-        <NoData />
+        <MenuItemCard
+          title={t('I.Am.An.Owner.Text')}
+          description={t('I.Am.An.Owner.Description')}
+          icon={User2}
+          onPress={() => navigation.navigate('Auth.SignUp', { role: UserRole.USER })}
+        />
+        <MenuItemCard
+          title={t('I.Am.An.Installer.Text')}
+          description={t('I.Am.An.Installer.Description')}
+          icon={UserCog}
+          onPress={() => navigation.navigate('Auth.SignUp', { role: UserRole.INSTALLER })}
+        />
       </YStack>
     </ScrollView>
   )

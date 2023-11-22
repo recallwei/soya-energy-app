@@ -61,7 +61,7 @@ export const MenuItemCard = memo((props: Props) => {
               <props.icon size="$1.5" />
             </View>
           )}
-          <YStack>
+          <YStack marginRight={60}>
             <SizableText
               fontFamily="$body"
               fontWeight="$medium"

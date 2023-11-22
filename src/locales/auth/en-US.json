@@ -31,8 +31,8 @@
     "Text": "I am an owner",
     "Description": "Real-time Monitoring and Analysis of Power Generation, Power Storage and Power Consumption"
   },
-  "I.AM.An.Installer": {
-    "Text": "I am an installer/distributor",
+  "I.Am.An.Installer": {
+    "Text": "I am an installer",
     "Description": "Create plant, Monitoring & Analysis, O&M Tools"
   },
   "Role.Type": "Role Type",
@@ -62,13 +62,13 @@
     "Placeholder": "Please enter the customer support phone"
   },
   "Website.URL": {
-    "Text": "Website URL",
-    "Placeholder": "Please enter the website url(optional)"
+    "Text": "Website URL(optional)",
+    "Placeholder": "Please enter the website url"
   },
   "Company.Logo": {
     "Text": "Company Logo(optional)",
-    "Description": "Must be a JPEG or PNG file no larger than 4MB.For best results, we recommend a square image with atransparent background at least 400px wide by 400px tall.",
-    "Settings.Description": "Enable access to camera for your app from the settingstab"
+    "Description": "Must be a JPEG, JPG or PNG file no larger than 4MB.For best results, we recommend a square image with a transparent background at least 400px width by 400px height.",
+    "Settings.Description": "Enable access to camera for your app from the settings tab."
   },
   "Personal.Details": "Personal Details",
   "Company.Details": "Company Details"
