@@ -28,6 +28,7 @@ import {
   DevMenuScreen,
   ExploreScreen,
   ImageCacheTestScreen,
+  ImagePicker,
   LiveStatusScreen,
   NotificationScreen,
   ServicesScreen,
@@ -509,6 +510,11 @@ export default function Navigation() {
               name="Temp.Image_Cache_Test"
               component={ImageCacheTestScreen}
               options={{ title: t('Temp.Image.Cache.Test') }}
+            />
+            <Stack.Screen
+              name="Temp.Image_Picker"
+              component={ImagePicker}
+              options={{ title: t('Temp.Image.Picker') }}
             />
           </>
         ) : (

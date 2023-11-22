@@ -1,6 +1,6 @@
 import { CacheManager } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
-import { Crown, Image, Layers, PanelTop } from '@tamagui/lucide-icons'
+import { Crown, Image, ImagePlus, Layers, PanelTop } from '@tamagui/lucide-icons'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { YStack } from 'tamagui'
@@ -63,6 +63,12 @@ export default function Screen() {
         description={t('Image.Cache.Test.Description')}
         icon={Image}
         onPress={() => navigate('Temp.Image_Cache_Test')}
+      />
+      <MenuItemCard
+        title={t('Image.Picker.Title')}
+        description={t('Image.Picker.Description')}
+        icon={ImagePlus}
+        onPress={() => navigate('Temp.Image_Picker')}
       />
       <MenuItemCard
         title={t('Change.Role.Title')}

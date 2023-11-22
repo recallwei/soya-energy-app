@@ -88,4 +88,5 @@ export { default as SettingsPerformanceEnergyScreen } from './User/My/Settings/P
 export { default as DemoScreen } from './Temp/Demo'
 export { default as DevMenuScreen } from './Temp/DevMenu'
 export { default as ImageCacheTestScreen } from './Temp/ImageCacheTest'
+export { default as ImagePicker } from './Temp/ImagePicker'
 export { default as WebViewDemoScreen } from './Temp/WebView'

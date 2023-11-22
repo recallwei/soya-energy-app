@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.48.2)
   '@react-native-async-storage/async-storage':
-    specifier: ^1.19.5
-    version: 1.19.5(react-native@0.72.7)
+    specifier: ^1.19.6
+    version: 1.19.6(react-native@0.72.7)
   '@react-native-community/cli-platform-android':
     specifier: ^12.1.1
     version: 12.1.1
@@ -120,11 +120,11 @@ dependencies:
     specifier: ^13.14.0
     version: 13.14.0(react-native@0.72.7)(react@18.2.0)
   react-native-webview:
-    specifier: ^13.6.2
-    version: 13.6.2(react-native@0.72.7)(react@18.2.0)
+    specifier: ^13.6.3
+    version: 13.6.3(react-native@0.72.7)(react@18.2.0)
   rn-flipper-async-storage-advanced:
     specifier: ^1.0.5
-    version: 1.0.5(@react-native-async-storage/async-storage@1.19.5)(react-native-flipper@0.163.0)(react@18.2.0)
+    version: 1.0.5(@react-native-async-storage/async-storage@1.19.6)(react-native-flipper@0.163.0)(react@18.2.0)
   tamagui:
     specifier: ^1.78.0
     version: 1.78.0(@types/react@18.2.38)(react-dom@18.2.0)(react-native-web@0.19.8)(react-native@0.72.7)(react@18.2.0)
@@ -170,8 +170,8 @@ devDependencies:
     specifier: ^18.2.38
     version: 18.2.38
   '@types/react-test-renderer':
-    specifier: ^18.0.6
-    version: 18.0.6
+    specifier: ^18.0.7
+    version: 18.0.7
   babel-jest:
     specifier: 29.7.0
     version: 29.7.0(@babel/core@7.23.3)
@@ -3119,10 +3119,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@react-native-async-storage/async-storage@1.19.5(react-native@0.72.7):
-    resolution: {integrity: sha512-zLT7oNPXpW8BxJyHyq8AJbXtlHE/eonFWuJt44y0WeCGnp4KOJ8mfqD8mtAIKLyrYHHE1uadFe/s4C+diYAi8g==}
+  /@react-native-async-storage/async-storage@1.19.6(react-native@0.72.7):
+    resolution: {integrity: sha512-Qjd1HlEusQQtPyDTM7zpO2P3G2mYY+z5at/aqsVJLJpzytZ+8QT+jgDQmt6BVgZcwk/74jSrhDIdu2j3YCmoEg==}
     peerDependencies:
-      react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
+      react-native: ^0.0.0-0 || >=0.60 <1.0
     dependencies:
       merge-options: 3.0.4
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
@@ -4973,8 +4973,8 @@ packages:
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-test-renderer@18.0.6:
-    resolution: {integrity: sha512-O2JT1J3/v/NaYHYmPf2DXBSqUGmp6iwhFPicES6Pc1Y90B9Qgu99mmaBGqfZFpVuXLzF/pNJB4K9ySL3iqFeXA==}
+  /@types/react-test-renderer@18.0.7:
+    resolution: {integrity: sha512-1+ANPOWc6rB3IkSnElhjv6VLlKg2dSv/OWClUyZimbLsQyBn8Js9Vtdsi3UICJ2rIQ3k2la06dkB+C92QfhKmg==}
     dependencies:
       '@types/react': 18.2.38
     dev: true
@@ -11133,8 +11133,8 @@ packages:
       - encoding
     dev: false
 
-  /react-native-webview@13.6.2(react-native@0.72.7)(react@18.2.0):
-    resolution: {integrity: sha512-QzhQ5JCU+Nf2W285DtvCZOVQy/MkJXMwNDYPZvOWQbAOgxJMSSO+BtqXTMA1UPugDsko6PxJ0TxSlUwIwJijDg==}
+  /react-native-webview@13.6.3(react-native@0.72.7)(react@18.2.0):
+    resolution: {integrity: sha512-IApO0JSj0uAWsBGKWagyfgDYoX29piiMYLmkHtRjKeL1rIVjLoR/bMe7KJ/0X47y86b//a6u3cYQtphyay+F2A==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -11551,14 +11551,14 @@ packages:
     dependencies:
       glob: 7.2.3
 
-  /rn-flipper-async-storage-advanced@1.0.5(@react-native-async-storage/async-storage@1.19.5)(react-native-flipper@0.163.0)(react@18.2.0):
+  /rn-flipper-async-storage-advanced@1.0.5(@react-native-async-storage/async-storage@1.19.6)(react-native-flipper@0.163.0)(react@18.2.0):
     resolution: {integrity: sha512-IW2qXGyf+wgZKNV01li02e7c/DR/NQGIdQZ5CKynhVtl0Od8tO4AS/mZtRjmPbRtqSSGTdOUBSJ4d2JsCVZUPw==}
     peerDependencies:
       '@react-native-async-storage/async-storage': ^1.17.12
       react: ^18.2.0
       react-native-flipper: '*'
     dependencies:
-      '@react-native-async-storage/async-storage': 1.19.5(react-native@0.72.7)
+      '@react-native-async-storage/async-storage': 1.19.6(react-native@0.72.7)
       react: 18.2.0
       react-native-flipper: 0.163.0(react-native@0.72.7)(react@18.2.0)
     dev: false

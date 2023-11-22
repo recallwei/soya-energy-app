@@ -101,6 +101,7 @@ export type RootStackParamList = InstallerTabParamList &
     ['Temp.Demo']: undefined
     ['Temp.WebView_Demo']: undefined
     ['Temp.Image_Cache_Test']: undefined
+    ['Temp.Image_Picker']: undefined
   }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

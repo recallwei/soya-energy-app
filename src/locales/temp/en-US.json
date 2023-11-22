@@ -12,6 +12,15 @@
     "Description": "Test image cache",
     "Title": "Image Cache Test"
   },
+  "Image.Picker": {
+    "Description": "Image picker test page",
+    "Title": "Image Picker",
+    "Select.From.Gallery": "Select from gallery",
+    "Select.From.Camera": "Select from camera",
+    "Crop.Picture": "Crop picture",
+    "Please.Select": "Please select an image",
+    "Crop.Success": "Crop success"
+  },
   "WebView.Demo": {
     "Description": "WebView Demo for events page",
     "Title": "WebView Demo"

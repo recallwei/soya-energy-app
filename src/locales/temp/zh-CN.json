@@ -12,6 +12,15 @@
     "Description": "测试缓存 S3 远程图片",
     "Title": "图片缓存测试"
   },
+  "Image.Picker": {
+    "Description": "图片上传测试页",
+    "Title": "图片上传",
+    "Select.From.Gallery": "从相册选择",
+    "Select.From.Camera": "从摄像机选择",
+    "Crop.Picture": "裁剪图片",
+    "Please.Select": "请选择要裁剪的图片",
+    "Crop.Success": "裁剪成功"
+  },
   "WebView.Demo": {
     "Description": "用于测试活动页的 WebView Demo 页",
     "Title": "WebView Demo"
