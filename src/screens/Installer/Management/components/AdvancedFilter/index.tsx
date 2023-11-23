@@ -1,64 +1,88 @@
-import { ChevronDown } from '@tamagui/lucide-icons'
+import { ChevronDown, Filter, Heart } from '@tamagui/lucide-icons'
+import { useToggle } from 'ahooks'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { SizableText, View, XStack } from 'tamagui'
 
 import { SheetMenu } from '@/components'
-import i18n from '@/i18n'
 
 import { Orderby } from '../../enums'
 
-const orderByTextMap = new Map([
-  [Orderby.Latest_Installation_Date, () => i18n.t('Installer.Management:Latest.Installation.Date')],
-  [
-    Orderby.Earlier_Installation_Date,
-    () => i18n.t('Installer.Management:Earlier.Installation.Date')
-  ],
-  [
-    Orderby.Daily_Production_High_to_Low,
-    () => i18n.t('Installer.Management:Daily.Production.High.To.Low')
-  ],
-  [
-    Orderby.Daily_Production_Low_to_High,
-    () => i18n.t('Installer.Management:Daily.Production.Low.To.High')
-  ],
-  [
-    Orderby.Maximum_Installed_Capacity,
-    () => i18n.t('Installer.Management:Maximum.Installed.Capacity')
-  ],
-  [
-    Orderby.Minimum_Installed_Capacity,
-    () => i18n.t('Installer.Management:Minimum.Installed.Capacity')
-  ]
-])
+interface Props {
+  setDrawerOpen: (open: boolean) => void
+}
 
-const orderBySheetMenu = Array.from(orderByTextMap).map(([value, text]) => ({
-  text: text(),
-  value
-}))
-
-export default function AdvancedFilter() {
+export default function AdvancedFilter(props: Props) {
   const [orderBy, setOrderBy] = useState(Orderby.Latest_Installation_Date)
+  const { t } = useTranslation('Installer.Management')
 
-  const [orderBySheetOpen, setOrderBySheetOpen] = useState(false)
+  const orderBySheetMenu = [
+    {
+      text: t('Latest.Installation.Date'),
+      value: Orderby.Latest_Installation_Date
+    },
+    {
+      text: t('Earlier.Installation.Date'),
+      value: Orderby.Earlier_Installation_Date
+    },
+    {
+      text: t('Daily.Production.High.To.Low'),
+      value: Orderby.Daily_Production_High_to_Low
+    },
+    {
+      text: t('Daily.Production.Low.To.High'),
+      value: Orderby.Daily_Production_Low_to_High
+    },
+    {
+      text: t('Maximum.Installed.Capacity'),
+      value: Orderby.Maximum_Installed_Capacity
+    },
+    {
+      text: t('Minimum.Installed.Capacity'),
+      value: Orderby.Minimum_Installed_Capacity
+    }
+  ]
 
-  const handleOpenOrderBySheet = () => setOrderBySheetOpen(true)
+  const [orderBySheetOpen, { set: setOrderBySheetOpen, setRight: handleOpenOrderBySheet }] =
+    useToggle(false)
+  const [starStatus, { toggle: toggleStarStatus }] = useToggle(false)
+
+  const getCurrentOrderByText = () => orderBySheetMenu.find((item) => item.value === orderBy)!.text
 
   return (
     <XStack
       paddingHorizontal="$4"
       paddingVertical="$2"
+      justifyContent="space-between"
+      alignItems="center"
     >
       <TouchableOpacity onPress={handleOpenOrderBySheet}>
         <XStack
           alignItems="center"
-          space="$2"
+          space="$1"
         >
-          <SizableText>{orderByTextMap.get(orderBy)!()}</SizableText>
-          <View marginTop="$1s">
+          <SizableText>{getCurrentOrderByText()}</SizableText>
+          <View marginTop="$1">
             <ChevronDown size="$1" />
           </View>
         </XStack>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={toggleStarStatus}>
+        <View theme="alt1">
+          <Heart
+            size="$1"
+            fill={starStatus ? 'red' : 'transparent'}
+            color={starStatus ? 'red' : undefined}
+          />
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => props.setDrawerOpen(true)}>
+        <View theme="alt1">
+          <Filter size="$1" />
+        </View>
       </TouchableOpacity>
 
       <SheetMenu

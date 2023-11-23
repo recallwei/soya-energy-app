@@ -14,7 +14,7 @@ interface Props {
 }
 
 export interface SheetMenuListItem<T = any> {
-  text: string
+  text: string | (() => string)
   value?: T
   onPress?: (value: SheetMenuListItem<T>) => void | Promise<void>
   color?: string
@@ -54,7 +54,9 @@ const SheetMenu = memo((props: Props) => {
           props.data.map((item, index) => (
             <Fragment key={index}>
               <TouchableOpacity onPress={() => handlePress(item)}>
-                <SizableText color={item.color}>{item.text}</SizableText>
+                <SizableText color={item.color}>
+                  {typeof item.text === 'function' ? item.text() : item.text}
+                </SizableText>
               </TouchableOpacity>
               <Separator width="100%" />
             </Fragment>

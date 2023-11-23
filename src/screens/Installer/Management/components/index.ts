@@ -1,5 +1,6 @@
 export { default as AdvancedFilter } from './AdvancedFilter'
 export { default as CodeScanner } from './CodeScanner'
+export { default as DrawerContent } from './DrawerContent'
 export { default as HeaderArea } from './HeaderArea'
 export { default as ScrollList } from './ScrollList'
 export { default as Statistics } from './Statistics'

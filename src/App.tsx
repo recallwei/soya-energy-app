@@ -9,6 +9,7 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query'
 import { useAsyncEffect } from 'ahooks'
+import { enableMapSet } from 'immer'
 import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { Appearance, AppState, Platform } from 'react-native'
@@ -22,6 +23,8 @@ import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useLangStore, useThemeStore } from './store'
 import { LangUtils, LoggerUtils, ThemeUtils } from './utils'
+
+enableMapSet()
 
 // Init toast and alert
 setup({

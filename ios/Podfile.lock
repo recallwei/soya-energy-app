@@ -526,6 +526,9 @@ PODS:
     - ZIPFoundation (= 0.9.11)
   - RNCAsyncStorage (1.19.8):
     - React-Core
+  - RNGestureHandler (2.13.4):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
   - RNImageCropPicker (0.40.2):
     - React-Core
     - React-RCTImage
@@ -659,6 +662,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeFileAccess (from `../node_modules/react-native-file-access`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -792,6 +796,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-file-access"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
   RNImageCropPicker:
     :path: "../node_modules/react-native-image-crop-picker"
   RNReanimated:
@@ -873,6 +879,7 @@ SPEC CHECKSUMS:
   ReactCommon: 5f704096ccf7733b390f59043b6fa9cc180ee4f6
   ReactNativeFileAccess: 4530e3be4d5069454c6c6389096d8cb78c897f2c
   RNCAsyncStorage: 687bb9e85dd3d45b966662440dcfc0cd962347e6
+  RNGestureHandler: 6e46dde1f87e5f018a54fe5d40cd0e0b942b49ee
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNReanimated: e0e3bccfedf3b31315ac8376fb46305feff99ecc
   RNScreens: 3c2d122f5e08c192e254c510b212306da97d2581
