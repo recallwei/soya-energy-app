@@ -8,7 +8,7 @@ import { Card } from '@/components'
 import { useThemeStore } from '@/store'
 import { CacheUtils } from '@/utils'
 
-import ProgressBar from './ProgressBar'
+import ProgressBar from '../ProgressBar'
 
 interface Item {
   id: string
@@ -105,8 +105,8 @@ export default function List() {
     shadowColor: '$shadowColor',
     shadowRadius: 4,
     shadowOpacity: 0.05,
-    paddingVertical: '$1',
-    paddingHorizontal: '$2',
+    paddingVertical: '$0.5',
+    paddingHorizontal: '$1.5',
     borderRadius: '$1'
   })
 
@@ -130,24 +130,24 @@ export default function List() {
               <YStack
                 justifyContent="space-between"
                 alignItems="center"
-                width="32%"
+                width="20%"
               >
                 <SizableText
                   marginTop="$2.5"
                   fontWeight="$semiBold"
-                  fontSize="$6"
+                  fontSize="$4"
                 >
                   {item.name}
                 </SizableText>
                 <CachedImage
                   source={item.url}
                   style={{
-                    width: '100%',
+                    width: '70%',
                     height: 120,
                     shadowRadius: 4,
                     shadowOpacity: 0.05,
-                    borderRadius: 4,
-                    backgroundColor: themeStore.theme === 'light' ? 'white' : '$gray6'
+                    borderRadius: 4
+                    // backgroundColor: themeStore.theme === 'light' ? 'white' : '$gray6'
                   }}
                 />
               </YStack>
@@ -157,7 +157,7 @@ export default function List() {
                 width="100%"
               >
                 <XStack
-                  width="64%"
+                  width="75%"
                   space="$2"
                 >
                   <StatisticCard>
@@ -167,9 +167,8 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize="$1">{t('Total')}</SizableText>
+                    <SizableText fontSize={10}>{t('Total')}</SizableText>
                   </StatisticCard>
-
                   <StatisticCard>
                     <SizableText
                       fontSize="$6"
@@ -177,11 +176,11 @@ export default function List() {
                     >
                       {item.total}%
                     </SizableText>
-                    <SizableText fontSize="$1">{t('Normal.Running.Rate')}</SizableText>
+                    <SizableText fontSize={10}>{t('Normal.Running.Rate')}</SizableText>
                   </StatisticCard>
                 </XStack>
                 <XStack
-                  width="64%"
+                  width="75%"
                   space="$2"
                 >
                   <StatisticCard>
@@ -191,7 +190,7 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize="$1">{t('Normal')}</SizableText>
+                    <SizableText fontSize={10}>{t('Normal')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="green"
@@ -208,7 +207,7 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize="$1">{t('Alarm')}</SizableText>
+                    <SizableText fontSize={10}>{t('Alarm')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="red"
@@ -220,7 +219,7 @@ export default function List() {
                   </StatisticCard>
                 </XStack>
                 <XStack
-                  width="64%"
+                  width="75%"
                   space="$2"
                 >
                   <StatisticCard>
@@ -230,7 +229,7 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize="$1">{t('Offline')}</SizableText>
+                    <SizableText fontSize={10}>{t('Offline')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="gray"
@@ -247,7 +246,7 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize="$1">{t('Not.Monitored')}</SizableText>
+                    <SizableText fontSize={10}>{t('Not.Monitored')}</SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="orange"
@@ -260,7 +259,6 @@ export default function List() {
                 </XStack>
               </YStack>
             </XStack>
-
             <ProgressBar />
           </YStack>
         </Card>

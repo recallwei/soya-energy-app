@@ -1,31 +1,29 @@
+import React from 'react'
 import { RefreshControl } from 'react-native'
 import { ScrollView, YStack } from 'tamagui'
 
 import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
 
-export default function ScrollList() {
-  const { refreshing, onRefresh } = useRefresh()
+interface Props {
+  refreshing: boolean
+  onRefresh: () => void
+}
 
+export default function ScrollList(props: Props) {
   return (
     <ScrollView
-      position="absolute"
-      bottom={0}
       width="100%"
-      height="75%"
-      backgroundColor="$blue10Dark"
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
+          refreshing={props.refreshing}
+          onRefresh={props.onRefresh}
         />
       }
     >
       <YStack
-        padding="$4"
+        paddingHorizontal="$4"
         space="$3"
-        marginBottom="$10"
       >
         <NoData />
       </YStack>

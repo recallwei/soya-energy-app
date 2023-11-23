@@ -1,13 +1,18 @@
 import { memo, type PropsWithChildren } from 'react'
 import { Sheet as TSheet } from 'tamagui'
 
+import { useSafeAreaPadding } from '@/hooks'
+
 interface Props extends PropsWithChildren {
   open?: boolean
   setOpen?: (open: boolean) => void
+  scrollable?: boolean
 }
 
 const Sheet = memo((props: Props) => {
-  const { open, setOpen, children } = props
+  const { open, setOpen, children, scrollable = false } = props
+  const { paddingBottom } = useSafeAreaPadding()
+
   return (
     <TSheet
       open={open}
@@ -15,6 +20,7 @@ const Sheet = memo((props: Props) => {
       snapPointsMode="fit"
       dismissOnSnapToBottom
       zIndex={100_000}
+      modal
       animation="medium"
     >
       <TSheet.Overlay
@@ -23,7 +29,14 @@ const Sheet = memo((props: Props) => {
         exitStyle={{ opacity: 0 }}
       />
       <TSheet.Handle />
-      <TSheet.Frame padding="$4">{children}</TSheet.Frame>
+      <TSheet.Frame paddingBottom={paddingBottom}>
+        <TSheet.ScrollView
+          maxHeight={400}
+          scrollEnabled={scrollable}
+        >
+          {children}
+        </TSheet.ScrollView>
+      </TSheet.Frame>
     </TSheet>
   )
 })

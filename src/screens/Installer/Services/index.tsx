@@ -1,79 +1,76 @@
 import { Laptop, Settings, ShieldCheck, Siren, Users2 } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ScrollView, View, XStack, YStack } from 'tamagui'
 
 import { HeadingTitle } from '@/components'
-import { useRefresh } from '@/hooks'
+import { useRefresh, useSafeAreaPadding } from '@/hooks'
 
 import { ServiceItem } from './components'
 
 export default function DemoScreen() {
-  const insets = useSafeAreaInsets()
+  const { insetsWithoutBottom } = useSafeAreaPadding()
   const { t } = useTranslation('Installer.Services')
 
   const { refreshing, onRefresh } = useRefresh()
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
-    >
-      <YStack
-        padding="$4"
-        space="$6"
+    <View {...insetsWithoutBottom}>
+      <ScrollView
+        minHeight="100%"
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
       >
-        <View space="$4">
-          <HeadingTitle title={t('Household.PV.Services')} />
-          <XStack space="$2">
-            <ServiceItem
-              icon={<Siren size="$2" />}
-              text={t('Alarm.Process')}
-            />
-            <ServiceItem
-              icon={<Laptop size="$2" />}
-              text={t('Remote.Configuration')}
-            />
-            <ServiceItem
-              icon={<ShieldCheck size="$2" />}
-              text={t('Warranty.Check')}
-            />
-            <ServiceItem
-              icon={<Siren size="$2" />}
-              text={t('Plant.Transfer')}
-            />
-          </XStack>
-        </View>
+        <YStack
+          padding="$4"
+          space="$4"
+        >
+          <View space="$4">
+            <HeadingTitle title={t('Household.PV.Services')} />
+            <XStack space="$2">
+              <ServiceItem
+                icon={<Siren size="$2" />}
+                text={t('Alarm.Process')}
+              />
+              <ServiceItem
+                icon={<Laptop size="$2" />}
+                text={t('Remote.Configuration')}
+              />
+              <ServiceItem
+                icon={<ShieldCheck size="$2" />}
+                text={t('Warranty.Check')}
+              />
+              <ServiceItem
+                icon={<Siren size="$2" />}
+                text={t('Plant.Transfer')}
+              />
+            </XStack>
+          </View>
 
-        <View space="$4">
-          <HeadingTitle title={t('Common.Services')} />
-          <XStack
-            space="$2"
-            width="50%"
-            paddingRight="$2"
-          >
-            <ServiceItem
-              icon={<Users2 size="$2" />}
-              text={t('My.Customers')}
-            />
-            <ServiceItem
-              icon={<Settings size="$2" />}
-              text={t('Electricity.Tariff.Settings')}
-            />
-          </XStack>
-        </View>
-      </YStack>
-    </ScrollView>
+          <View space="$4">
+            <HeadingTitle title={t('Common.Services')} />
+            <XStack
+              space="$2"
+              width="50%"
+              paddingRight="$2"
+            >
+              <ServiceItem
+                icon={<Users2 size="$2" />}
+                text={t('My.Customers')}
+              />
+              <ServiceItem
+                icon={<Settings size="$2" />}
+                text={t('Electricity.Tariff.Settings')}
+              />
+            </XStack>
+          </View>
+        </YStack>
+      </ScrollView>
+    </View>
   )
 }

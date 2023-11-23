@@ -9,6 +9,7 @@ import type { UserRole } from '@/enums'
  * @see https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
  */
 
+// 路由
 export type RootStackParamList = InstallerTabParamList &
   UserTabParamList & {
     ['Installer.Tabs']: NavigatorScreenParams<InstallerTabParamList>
@@ -22,6 +23,9 @@ export type RootStackParamList = InstallerTabParamList &
     ['Auth.SignUp']: { role: UserRole }
     ['Auth.SignUp.SelectRole']: undefined
     ['Auth.Forgot_Password']: undefined
+
+    // Camera
+    ['Camera.CodeScanner']: undefined
 
     // Common
     ['Common.Message']: undefined
@@ -116,7 +120,9 @@ export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenP
   T
 >
 
+// useRoute 泛型
 export type RouteProp<T extends keyof RootStackParamList> = ScreenProps<T>['route']
+// useNavigation 泛型
 export type Navigation<T extends keyof RootStackParamList> = ScreenProps<T>['navigation']
 
 /**
@@ -124,6 +130,7 @@ export type Navigation<T extends keyof RootStackParamList> = ScreenProps<T>['nav
  * @see https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
  */
 
+// 安装商 Tab
 export type InstallerTabParamList = {
   ['Installer.Home']: undefined
   ['Installer.Management']: undefined
@@ -137,6 +144,7 @@ export type InstallerTabScreenProps<T extends keyof InstallerTabParamList> = Com
   NativeStackScreenProps<RootStackParamList>
 >
 
+// 用户 Tab
 export type UserTabParamList = {
   ['User.Home']: undefined
   ['User.Statistics']: undefined

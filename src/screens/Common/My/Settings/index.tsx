@@ -3,18 +3,20 @@ import { Contact2, Languages, Palette, Power, Ruler, Trash2, XCircle } from '@ta
 import { useAsyncEffect } from 'ahooks'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { PortalProvider, ScrollView, YStack } from 'tamagui'
+import { ScrollView, YStack } from 'tamagui'
 
-import { AlertDialog, MenuItemCard } from '@/components'
-import { useAuthStore, useThemeStore } from '@/store'
+import type { SheetMenuListItem } from '@/components'
+import { AlertDialog, MenuItemCard, SheetMenu } from '@/components'
+import { globalStyles } from '@/constants'
+import { useAuthStore, useLangStore, useThemeStore } from '@/store'
 import { AuthUtils, CacheUtils, ThemeUtils, ToastUtils } from '@/utils'
-
-import { LanguageSelectSheet } from './components'
 
 export default function Screen() {
   const { t } = useTranslation('Common.My.Settings')
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
+  const langStore = useLangStore()
+
   const { navigate } = useNavigation()
 
   const [open, setOpen] = useState(false)
@@ -23,6 +25,26 @@ export default function Screen() {
   useAsyncEffect(async () => {
     setCacheMB(await getCacheSize())
   }, [])
+
+  const handleChangeLang = (lang: string) => {
+    langStore.setLang(lang)
+    setOpen(false)
+  }
+
+  const langList: SheetMenuListItem<string>[] = [
+    {
+      value: 'en-US',
+      text: 'English',
+      onPress: (value) => handleChangeLang(value.value!),
+      color: langStore.lang === 'en-US' ? globalStyles.primaryColor : '$color'
+    },
+    {
+      value: 'zh-CN',
+      text: '简体中文',
+      onPress: (value) => handleChangeLang(value.value!),
+      color: langStore.lang === 'zh-CN' ? globalStyles.primaryColor : '$color'
+    }
+  ]
 
   function convertToMB(cacheNum: number) {
     if (!cacheNum) return '0 MB'
@@ -60,7 +82,7 @@ export default function Screen() {
   }
 
   return (
-    <PortalProvider>
+    <>
       <ScrollView
         minHeight="100%"
         showsVerticalScrollIndicator={false}
@@ -118,10 +140,11 @@ export default function Screen() {
           />
         </YStack>
       </ScrollView>
-      <LanguageSelectSheet
+      <SheetMenu
         open={open}
         setOpen={setOpen}
+        data={langList}
       />
-    </PortalProvider>
+    </>
   )
 }

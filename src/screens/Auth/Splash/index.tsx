@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Dimensions } from 'react-native'
 import { Image, Progress, Spinner, YStack } from 'tamagui'
 
+import { useSafeAreaPadding } from '@/hooks'
 import { useThemeStore } from '@/store'
+import { DeviceUtils } from '@/utils'
 
 export default function Screen() {
-  const { width } = Dimensions.get('screen')
   const themeStore = useThemeStore()
+  const { insets } = useSafeAreaPadding()
 
   const [percent, setPercent] = useState(0)
 
@@ -43,6 +44,7 @@ export default function Screen() {
       bottom={0}
       left={0}
       right={0}
+      {...insets}
     >
       <Image
         source={{
@@ -51,7 +53,7 @@ export default function Screen() {
             : require('../../../../assets/images/soya-logo-light.png'),
           cache: 'force-cache'
         }}
-        width={width * 0.618}
+        width={DeviceUtils.SCREEN_WIDTH * 0.618}
         height={110}
         resizeMode="contain"
       />
@@ -62,7 +64,7 @@ export default function Screen() {
       <Progress
         size="$2"
         value={percent}
-        width={width * 0.8}
+        width={DeviceUtils.SCREEN_WIDTH * 0.8}
         alignSelf="center"
         marginTop="$7"
         marginBottom="$11"

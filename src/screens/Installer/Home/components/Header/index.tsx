@@ -9,8 +9,14 @@ export default function Header() {
     <XStack
       justifyContent="space-between"
       alignItems="center"
+      paddingHorizontal="$1"
     >
-      <SizableText size="$8">{AppMetaData.APP_NAME}</SizableText>
+      <SizableText
+        size="$8"
+        fontWeight="$bold"
+      >
+        {AppMetaData.APP_NAME}
+      </SizableText>
       <XStack
         space="$3"
         alignItems="center"

@@ -7,10 +7,9 @@ import { useEffect, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { KeyboardAvoidingView, Linking, Platform, TouchableOpacity } from 'react-native'
+import { KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native'
 import type { Image } from 'react-native-image-crop-picker'
 import ImagePicker from 'react-native-image-crop-picker'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import {
   Button,
   Image as TImage,
@@ -29,9 +28,10 @@ import * as yup from 'yup'
 import { Checkbox } from '@/components'
 import { globalStyles } from '@/constants'
 import { UserRole } from '@/enums'
+import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore } from '@/store'
 import type { RouteProp } from '@/types'
-import { ToastUtils } from '@/utils'
+import { DeviceUtils, ToastUtils } from '@/utils'
 
 interface FormData {
   username: string
@@ -53,7 +53,7 @@ const schema = yup
 export default function Screen() {
   const { t } = useTranslation(['Auth', 'Global'])
   const route = useRoute<RouteProp<'Auth.SignUp'>>()
-  const insets = useSafeAreaInsets()
+  const { paddingBottom } = useSafeAreaPadding()
   const authStore = useAuthStore()
 
   const { control, handleSubmit } = useForm<FormData>({
@@ -136,23 +136,15 @@ export default function Screen() {
       .catch(() => {})
   }
 
-  const handleOpenSettings = () => {
-    if (Platform.OS === 'ios') {
-      Linking.openURL('app-settings:')
-    } else {
-      Linking.openSettings()
-    }
-  }
+  const handleOpenSettings = () => DeviceUtils.openSettings()
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.select({ ios: 'padding', android: undefined })}
       keyboardVerticalOffset={120}
+      style={{ paddingBottom }}
     >
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        paddingBottom={insets.bottom}
-      >
+      <ScrollView showsVerticalScrollIndicator={false}>
         <YStack
           padding="$4"
           gap="$3"

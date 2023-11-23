@@ -24,12 +24,12 @@ export class LangUtils {
   }
 
   static getDeviceLang() {
-    const deviceLanguage =
-      Platform.OS === 'ios'
-        ? NativeModules.SettingsManager.settings.AppleLocale ||
-          NativeModules.SettingsManager.settings.AppleLanguages[0]
-        : NativeModules.I18nManager.localeIdentifier
-
+    const deviceLanguage = Platform.select({
+      ios:
+        NativeModules.SettingsManager.settings.AppleLocale ||
+        NativeModules.SettingsManager.settings.AppleLanguages[0],
+      android: NativeModules.I18nManager.localeIdentifier
+    })
     if (!deviceLanguage) return this.DEFAULT_LANG
     if (deviceLanguage.includes('en')) {
       return 'en-US'

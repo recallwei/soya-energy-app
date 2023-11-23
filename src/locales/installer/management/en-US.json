@@ -1,0 +1,23 @@
+{
+  "Plant": "Plant",
+  "Invertor": "Invertor",
+  "Battery": "Battery",
+  "Create.Plant.For.Me": "Create plant for me",
+  "Create.Plant.For.Owner": "Create plant for owner",
+  "SearchText.Placeholder": "Plant name/Invertor SN/ID",
+  "Status": {
+    "All": "All",
+    "Normal": "Normal",
+    "Alarm": "Alarm",
+    "Offline": "Offline",
+    "Not.Monitored": "Not monitored"
+  },
+  "Latest.Installation.Date": "Latest installation date",
+  "Earlier.Installation.Date": "Earlier installation date",
+  "Daily.Production": {
+    "High.To.Low": "Daily production: high to low",
+    "Low.To.High": "Daily production: low to high"
+  },
+  "Maximum.Installed.Capacity": "Maximum installed capacity",
+  "Minimum.Installed.Capacity": "Minimum installed capacity"
+}

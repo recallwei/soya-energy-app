@@ -1,12 +1,13 @@
 import { memo, type PropsWithChildren } from 'react'
+import type { CardProps } from 'tamagui'
 import { Card as TCard } from 'tamagui'
 
-interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren<CardProps> {
   width?: string | number
 }
 
 const Card = memo((props: Props) => {
-  const { width = '100%' } = props
+  const { width = '100%', children, ...rest } = props
   return (
     <TCard
       size="$4"
@@ -15,8 +16,9 @@ const Card = memo((props: Props) => {
       width={width}
       height="auto"
       pressStyle={{ scale: 0.95 }}
+      {...rest}
     >
-      <TCard.Header padded>{props.children}</TCard.Header>
+      <TCard.Header padded>{children}</TCard.Header>
     </TCard>
   )
 })

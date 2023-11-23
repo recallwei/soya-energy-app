@@ -13,6 +13,8 @@ import global_en_us from './global/en-US.json'
 import global_zh_cn from './global/zh-CN.json'
 import installer_home_en_us from './installer/home/en-US.json'
 import installer_home_zh_cn from './installer/home/zh-CN.json'
+import installer_management_en_us from './installer/management/en-US.json'
+import installer_management_zh_cn from './installer/management/zh-CN.json'
 import installer_services_en_us from './installer/services/en-US.json'
 import installer_services_zh_cn from './installer/services/zh-CN.json'
 import screen_en_us from './screen/en-US.json'
@@ -36,6 +38,7 @@ export const EN_US = {
   Screen: screen_en_us,
   Auth: auth_en_us,
   'Installer.Home': installer_home_en_us,
+  'Installer.Management': installer_management_en_us,
   'Installer.Services': installer_services_en_us,
   'Common.My': common_my_en_us,
   'Common.My.Settings': common_my_settings_en_us,
@@ -53,6 +56,7 @@ export const ZH_CN = {
   Screen: screen_zh_cn,
   Auth: auth_zh_cn,
   'Installer.Home': installer_home_zh_cn,
+  'Installer.Management': installer_management_zh_cn,
   'Installer.Services': installer_services_zh_cn,
   'Common.My': common_my_zh_cn,
   'Common.My.Settings': common_my_settings_zh_cn,

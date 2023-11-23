@@ -8,8 +8,7 @@ import { useCallback, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { DevSettings, Dimensions, TouchableOpacity } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { DevSettings, TouchableOpacity } from 'react-native'
 import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack } from 'tamagui'
 import * as yup from 'yup'
 
@@ -17,9 +16,10 @@ import { AuthAPI } from '@/api'
 import { Checkbox } from '@/components'
 import type { UserRole } from '@/enums'
 import { globalEnvConfig } from '@/env'
+import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
-import { AuthUtils, CodePushUtils, ToastUtils } from '@/utils'
+import { AuthUtils, CodePushUtils, DeviceUtils, ToastUtils } from '@/utils'
 
 interface FormData {
   username: string
@@ -34,8 +34,7 @@ const schema = yup
   .required()
 
 export default function Screen() {
-  const { width } = Dimensions.get('screen')
-  const insets = useSafeAreaInsets()
+  const { insets } = useSafeAreaPadding()
   const { t } = useTranslation('Auth')
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
@@ -128,8 +127,8 @@ export default function Screen() {
       paddingHorizontal="$6"
       alignItems="center"
       space="$4"
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
+      paddingTop={insets.paddingTop}
+      paddingBottom={insets.paddingBottom}
     >
       <YStack
         alignItems="center"
@@ -143,7 +142,7 @@ export default function Screen() {
               : require('../../../../assets/images/soya-logo-light.png'),
             cache: 'force-cache'
           }}
-          width={width * 0.618}
+          width={DeviceUtils.SCREEN_WIDTH * 0.618}
           height={110}
           resizeMode="contain"
         />
@@ -262,7 +261,7 @@ export default function Screen() {
 
       <View
         position="absolute"
-        bottom={insets.bottom}
+        bottom={insets.paddingBottom}
       >
         <Label
           onPress={() => {

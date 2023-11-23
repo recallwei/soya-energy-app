@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, Label, YStack } from 'tamagui'
+import { Button, Input, SizableText, YStack } from 'tamagui'
 
 export default function ForgotPasswordScreen() {
   const { t } = useTranslation(['Auth', 'Global'])
@@ -16,8 +16,8 @@ export default function ForgotPasswordScreen() {
       position="relative"
       height="100%"
     >
-      <YStack space="$2">
-        <Label>{t('Email.Text')}</Label>
+      <YStack>
+        <SizableText>{t('Email.Text')}</SizableText>
         <Input
           autoCapitalize="none"
           clearButtonMode="while-editing"
@@ -25,8 +25,8 @@ export default function ForgotPasswordScreen() {
         />
       </YStack>
 
-      <YStack space="$2">
-        <Label>{t('Verification.Code.Text')}</Label>
+      <YStack>
+        <SizableText>{t('Verification.Code.Text')}</SizableText>
         <Input
           autoCapitalize="none"
           clearButtonMode="while-editing"
@@ -34,8 +34,8 @@ export default function ForgotPasswordScreen() {
         />
       </YStack>
 
-      <YStack space="$2">
-        <Label>{t('New.Password.Text')}</Label>
+      <YStack>
+        <SizableText>{t('New.Password.Text')}</SizableText>
         <Input
           autoCapitalize="none"
           clearButtonMode="while-editing"
@@ -43,8 +43,8 @@ export default function ForgotPasswordScreen() {
         />
       </YStack>
 
-      <YStack space="$2">
-        <Label>{t('Confirm.Password.Text')}</Label>
+      <YStack>
+        <SizableText>{t('Confirm.Password.Text')}</SizableText>
         <Input
           autoCapitalize="none"
           clearButtonMode="while-editing"

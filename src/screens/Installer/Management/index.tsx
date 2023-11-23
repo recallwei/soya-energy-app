@@ -1,20 +1,30 @@
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { useState } from 'react'
 import { View } from 'tamagui'
 
-import { HeaderArea, ScrollList } from './components'
+import { useRefresh, useSafeAreaPadding } from '@/hooks'
 
-export default function InstallerManagementScreen() {
-  const insets = useSafeAreaInsets()
+import { AdvancedFilter, HeaderArea, ScrollList, Statistics } from './components'
+import { ManagementTab } from './enums'
+
+export default function Screen() {
+  const { insetsWithoutBottom } = useSafeAreaPadding()
+  const refresh = useRefresh()
+
+  const [currentTab, setCurrentTab] = useState<ManagementTab>(ManagementTab.Plant)
+
   return (
     <View
       height="100%"
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
+      {...insetsWithoutBottom}
     >
-      <HeaderArea />
-      <ScrollList />
+      <HeaderArea
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
+        {...refresh}
+      />
+      <Statistics />
+      <AdvancedFilter />
+      <ScrollList {...refresh} />
     </View>
   )
 }

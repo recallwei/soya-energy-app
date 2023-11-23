@@ -1,3 +1,5 @@
 export * from './useCodePush'
 export * from './useFocusNotifyOnChangeProps'
+export * from './useIsForeground'
 export * from './useRefresh'
+export * from './useSafeAreaPadding'

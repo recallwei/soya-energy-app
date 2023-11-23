@@ -1,39 +1,35 @@
-import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { RefreshControl, View } from 'react-native'
 import { ScrollView, YStack } from 'tamagui'
 
-import { useRefresh } from '@/hooks'
+import { useRefresh, useSafeAreaPadding } from '@/hooks'
 
 import { Header, List, Statistics } from './components'
 
-export default function DemoScreen() {
-  const insets = useSafeAreaInsets()
+export default function Screen() {
+  const { insetsWithoutBottom } = useSafeAreaPadding()
   const { refreshing, onRefresh } = useRefresh()
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
-    >
-      <YStack
-        padding="$4"
-        space="$3"
-        marginBottom="$10"
+    <View {...insetsWithoutBottom}>
+      <ScrollView
+        minHeight="100%"
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
       >
-        <Header />
-        <Statistics />
-        <List />
-      </YStack>
-    </ScrollView>
+        <YStack
+          padding="$4"
+          space="$3"
+        >
+          <Header />
+          <Statistics />
+          <List />
+        </YStack>
+      </ScrollView>
+    </View>
   )
 }
