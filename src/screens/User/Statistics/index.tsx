@@ -2,11 +2,11 @@ import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { RefreshControl } from 'react-native'
 import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/RenderStackBars'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Label, ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
-import { useRefresh } from '@/hooks'
+import { useRefresh, useSafeAreaPadding } from '@/hooks'
+import { useAuthStore } from '@/store'
 
 import { PieChartArea, StackChartArea } from './components'
 import { getMockPieChartData, getMockStackChartData } from './mock'
@@ -23,7 +23,8 @@ interface PieChartItem {
 type TimeTab = 'day' | 'month' | 'year' | 'lifetime'
 
 export default function StatisticsScreen() {
-  const insets = useSafeAreaInsets()
+  const { insets } = useSafeAreaPadding()
+  const authStore = useAuthStore()
 
   const [producedData, setProducedData] = useState<PieChartItem[]>([
     {
@@ -126,7 +127,7 @@ export default function StatisticsScreen() {
         />
       }
       contentContainerStyle={{
-        paddingTop: insets.top
+        paddingTop: authStore.isUser() ? insets.paddingTop : undefined
       }}
     >
       <YStack

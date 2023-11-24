@@ -339,7 +339,7 @@ export default function DrawerContent(props: Props) {
           flex={1}
           onPress={handleSubmit}
         >
-          {t('Global:Reset')}
+          {t('Global:Confirm')}
         </Button>
       </XStack>
     </View>

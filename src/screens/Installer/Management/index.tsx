@@ -16,18 +16,17 @@ import type { FormData } from './interfaces'
 
 export default function Screen() {
   const { insetsWithoutBottom, paddingTop } = useSafeAreaPadding()
-  const refresh = useRefresh()
+  const { data: { records: listData = [] } = {}, refetch } = useQuery({
+    queryKey: [PlantAPI.LIST_QUERY_KEY],
+    queryFn: () => PlantAPI.listMock(),
+    select: (data) => data.data
+  })
+  const refresh = useRefresh(async () => refetch())
   const themeStore = useThemeStore()
 
   const [currentTab, setCurrentTab] = useState<ManagementTab>(ManagementTab.Plant)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
-
-  const { data: { records: listData = [] } = {} } = useQuery({
-    queryKey: [],
-    queryFn: () => PlantAPI.list(),
-    select: (data) => data.data
-  })
 
   return (
     <Drawer

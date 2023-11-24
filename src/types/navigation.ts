@@ -146,7 +146,7 @@ export type InstallerTabScreenProps<T extends keyof InstallerTabParamList> = Com
 
 // 用户 Tab
 export type UserTabParamList = {
-  ['User.Home']: undefined
+  ['User.Home']: { id: string } | undefined
   ['User.Statistics']: undefined
   ['User.Devices']: undefined
   ['User.My']: undefined

@@ -1,14 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ScrollView, YStack } from 'tamagui'
 
-import { useRefresh } from '@/hooks'
+import { useRefresh, useSafeAreaPadding } from '@/hooks'
+import { useAuthStore } from '@/store'
 
 import { BatteryCard, HeaderArea, InputCard, OutputCard, TotalCard } from './components'
 
 export default function UserHomeScreen() {
-  const insets = useSafeAreaInsets()
+  const { insets } = useSafeAreaPadding()
+  const authStore = useAuthStore()
 
   const { refetch } = useQuery({
     queryKey: ['Status'],
@@ -32,7 +33,7 @@ export default function UserHomeScreen() {
         />
       }
       contentContainerStyle={{
-        paddingTop: insets.top
+        paddingTop: authStore.isUser() ? insets.paddingTop : undefined
       }}
     >
       <YStack

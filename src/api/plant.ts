@@ -13,21 +13,42 @@ export class PlantAPI {
   }
 
   static listMock() {
-    return new Promise<Plant[]>((resolve) => {
+    return new Promise<PageResponse<Plant>>((resolve) => {
       setTimeout(() => {
-        resolve([
-          {
-            id: '123',
-            siteCapacity: 'siteCapacity',
-            siteCode: 'siteCode',
-            siteGridType: 'siteGridType',
-            siteName: 'siteName',
-            siteNetType: 'siteNetType',
-            siteType: 'siteType',
-            siteUrl: 'siteUrl',
-            status: 0
+        resolve({
+          data: {
+            records: [
+              {
+                id: '123',
+                siteCapacity: '5.0',
+                siteCode: 'siteCode',
+                siteGridType: 'siteGridType',
+                siteName: 'siteName',
+                siteNetType: 'siteNetType',
+                siteType: 'siteType',
+                siteUrl: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
+                status: '1',
+                currentPower: '1.0',
+                productionToday: '1.0',
+                sitePosition: 'German'
+              },
+              {
+                id: '123',
+                siteCapacity: '55',
+                siteCode: 'siteCode',
+                siteGridType: 'siteGridType',
+                siteName: 'siteName',
+                siteNetType: 'siteNetType',
+                siteType: 'siteType',
+                siteUrl: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
+                status: '2',
+                currentPower: '1.0',
+                productionToday: '1.0',
+                sitePosition: 'Netherlands'
+              }
+            ]
           }
-        ])
+        })
       }, 500)
     })
   }

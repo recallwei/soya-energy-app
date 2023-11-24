@@ -36,7 +36,19 @@ export interface Plant {
    */
   status?: string
   /**
+   * 站点地址
+   */
+  sitePosition?: string
+  /**
    * 用户
    */
   userName?: string
+  /**
+   * 当前功率
+   */
+  currentPower?: string
+  /**
+   * 今日发电
+   */
+  productionToday?: string
 }

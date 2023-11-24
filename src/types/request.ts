@@ -1,8 +1,8 @@
 import type { BasePageModel } from '../constants/page'
 
 export interface Response {
-  code: number
-  msg: string
+  code?: number
+  msg?: string
 }
 
 export interface BaseResponse<T = any> extends Response {

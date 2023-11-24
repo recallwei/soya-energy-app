@@ -12,6 +12,12 @@ import { getColor } from '../../utils'
 export default function Statistics() {
   const { t } = useTranslation('Installer.Management')
 
+  const [activeStatus, setActiveStatus] = useState<TabStatus>(TabStatus.All)
+
+  const handleClickTab = (tab: (typeof tabList)[0]) => {
+    setActiveStatus(tab.value)
+  }
+
   const tabList = [
     {
       text: t('Status.All'),
@@ -35,12 +41,6 @@ export default function Statistics() {
     }
   ]
 
-  const [activeStatus, setActiveStatus] = useState<TabStatus>(TabStatus.All)
-
-  const handleClickTab = (tab: (typeof tabList)[0]) => {
-    setActiveStatus(tab.value)
-  }
-
   return (
     <View
       paddingHorizontal="$4"
@@ -52,7 +52,7 @@ export default function Statistics() {
           showsHorizontalScrollIndicator={false}
         >
           <XStack
-            space="$6"
+            space="$7"
             justifyContent="space-between"
             minWidth="100%"
           >

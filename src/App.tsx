@@ -19,10 +19,11 @@ import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
 import config from '../tamagui.config'
+import type { UserRole } from './enums'
 import { useCodePush } from './hooks'
 import Navigation from './Navigation'
-import { useLangStore, useThemeStore } from './store'
-import { LangUtils, LoggerUtils, ThemeUtils } from './utils'
+import { useAuthStore, useLangStore, useThemeStore } from './store'
+import { AuthUtils, LangUtils, LoggerUtils, ThemeUtils } from './utils'
 
 enableMapSet()
 
@@ -46,9 +47,22 @@ function onAppStateChange(status: AppStateStatus) {
 }
 
 function App() {
-  const [queryClient] = useState(() => new QueryClient())
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            retry: 1
+          },
+          mutations: {
+            retry: false
+          }
+        }
+      })
+  )
   const { theme } = useThemeStore()
   const langStore = useLangStore()
+  const authStore = useAuthStore()
 
   useCodePush()
 
@@ -57,6 +71,18 @@ function App() {
     useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
     LoggerUtils.printEnv()
     await LoggerUtils.printStorage()
+
+    if (await AuthUtils.isLogin()) {
+      authStore.login()
+    } else {
+      authStore.logout()
+    }
+
+    const role = await AuthUtils.getRole()
+    if (role) {
+      authStore.setUserRole(role as UserRole)
+    }
+    authStore.loaded()
   }, [])
 
   useEffect(() => {

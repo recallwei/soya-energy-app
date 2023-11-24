@@ -61,5 +61,8 @@
     "Text": "其他",
     "Partially.Offline": "部分离线"
   },
-  "To": "至"
+  "To": "至",
+  "Current.Power": "当前功率：",
+  "Production.Today": "今日发电：",
+  "Capacity": "装机容量："
 }

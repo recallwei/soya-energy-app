@@ -61,5 +61,8 @@
     "Text": "Others",
     "Partially.Offline": "Partially Offline"
   },
-  "To": "to"
+  "To": "to",
+  "Current.Power": "Current Power:",
+  "Production.Today": "Production Today:",
+  "Capacity": "Capacity:"
 }
