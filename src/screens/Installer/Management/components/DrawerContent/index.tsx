@@ -298,17 +298,37 @@ export default function DrawerContent(props: Props) {
               size="$3"
               flex={1}
               placeholder={t('Global:Min')}
+              value={props.advancedFilter.plantCapacityMin}
+              onChangeText={(text) =>
+                props.setAdvancedFilter((draft) => {
+                  draft.plantCapacityMin = text
+                })
+              }
             />
             <SizableText>{t('To')}</SizableText>
             <Input
               size="$3"
               flex={1}
               placeholder={t('Global:Max')}
+              value={props.advancedFilter.plantCapacityMax}
+              onChangeText={(text) =>
+                props.setAdvancedFilter((draft) => {
+                  draft.plantCapacityMax = text
+                })
+              }
             />
           </XStack>
 
           <HeadingTitle title={t('City')} />
-          <Input size="$3" />
+          <Input
+            size="$3"
+            value={props.advancedFilter.city}
+            onChangeText={(text) =>
+              props.setAdvancedFilter((draft) => {
+                draft.city = text
+              })
+            }
+          />
 
           <HeadingTitle title={t('Others.Text')} />
           <XStack space="$2">

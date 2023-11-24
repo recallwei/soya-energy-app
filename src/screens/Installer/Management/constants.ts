@@ -5,8 +5,8 @@ export const initialAdvanceFilter = {
   gridType: new Set<string>(),
   fundingMethod: new Set<string>(),
   loadMonitoring: null,
-  plantCapacityMin: null,
-  plantCapacityMax: null,
-  city: null,
+  plantCapacityMin: '',
+  plantCapacityMax: '',
+  city: '',
   others: new Set<string>()
 }

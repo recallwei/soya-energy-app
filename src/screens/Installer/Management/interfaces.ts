@@ -12,8 +12,8 @@ export interface MultiSelectOption {
 }
 
 export type FormData = {
-  plantCapacityMin: null | string
-  plantCapacityMax: null | string
-  city: null | string
+  plantCapacityMin: string
+  plantCapacityMax: string
+  city: string
 } & SingleSelectOption &
   MultiSelectOption
