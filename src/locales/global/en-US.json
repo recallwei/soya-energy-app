@@ -16,5 +16,11 @@
     "Success": "Success",
     "Warning": "Warning"
   },
-  "Choose.File": "Choose File"
+  "Choose.File": "Choose File",
+  "Y": "Yes",
+  "N": "No",
+  "Min": "Min",
+  "Max": "Max",
+  "Reset": "Reset",
+  "Confirm": "Confirm"
 }

@@ -69,21 +69,23 @@ export default function AdvancedFilter(props: Props) {
         </XStack>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={toggleStarStatus}>
-        <View theme="alt1">
-          <Heart
-            size="$1"
-            fill={starStatus ? 'red' : 'transparent'}
-            color={starStatus ? 'red' : undefined}
-          />
-        </View>
-      </TouchableOpacity>
+      <XStack space="$2.5">
+        <TouchableOpacity onPress={toggleStarStatus}>
+          <View theme="alt1">
+            <Heart
+              size="$1"
+              fill={starStatus ? 'red' : 'transparent'}
+              color={starStatus ? 'red' : undefined}
+            />
+          </View>
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => props.setDrawerOpen(true)}>
-        <View theme="alt1">
-          <Filter size="$1" />
-        </View>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => props.setDrawerOpen(true)}>
+          <View theme="alt1">
+            <Filter size="$1" />
+          </View>
+        </TouchableOpacity>
+      </XStack>
 
       <SheetMenu
         open={orderBySheetOpen}

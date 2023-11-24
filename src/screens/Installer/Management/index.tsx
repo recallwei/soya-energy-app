@@ -1,8 +1,10 @@
+import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { Drawer } from 'react-native-drawer-layout'
 import { View } from 'tamagui'
 import { useImmer } from 'use-immer'
 
+import { PlantAPI } from '@/api/plant'
 import { useRefresh, useSafeAreaPadding } from '@/hooks'
 import { useThemeStore } from '@/store'
 import { DeviceUtils } from '@/utils'
@@ -18,10 +20,14 @@ export default function Screen() {
   const themeStore = useThemeStore()
 
   const [currentTab, setCurrentTab] = useState<ManagementTab>(ManagementTab.Plant)
-
   const [drawerOpen, setDrawerOpen] = useState(false)
-
   const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
+
+  const { data: { records: listData = [] } = {} } = useQuery({
+    queryKey: [],
+    queryFn: () => PlantAPI.list(),
+    select: (data) => data.data
+  })
 
   return (
     <Drawer
@@ -51,7 +57,11 @@ export default function Screen() {
         />
         <Statistics />
         <AdvancedFilter setDrawerOpen={setDrawerOpen} />
-        <ScrollList {...refresh} />
+        <ScrollList
+          {...refresh}
+          listData={listData}
+          currentTab={currentTab}
+        />
       </View>
     </Drawer>
   )

@@ -16,5 +16,11 @@
     "Success": "成功",
     "Warning": "警告"
   },
-  "Choose.File": "选择文件"
+  "Choose.File": "选择文件",
+  "Y": "是",
+  "N": "否",
+  "Min": "最小值",
+  "Max": "最大值",
+  "Reset": "重置",
+  "Confirm": "确认"
 }

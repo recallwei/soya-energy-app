@@ -22,7 +22,7 @@ export default function UserTabBar() {
         backgroundColor: themeStore.getBgColor()
       }}
       screenOptions={() => ({
-        headerShown: false,
+        headerShown: authStore.isInstaller(),
         tabBarLabelStyle: {
           fontSize: 14,
           fontFamily: 'Nunito-Regular'

@@ -46,7 +46,7 @@ dependencies:
     version: 1.79.1(react-dom@18.2.0)(react-native-reanimated@3.5.4)(react-native@0.72.7)(react@18.2.0)
   '@tamagui/lucide-icons':
     specifier: ^1.79.1
-    version: 1.79.1(react-native-svg@13.14.0)(react@18.2.0)
+    version: 1.79.1(react-native-svg@14.0.0)(react@18.2.0)
   '@tanstack/react-query':
     specifier: ^5.8.4
     version: 5.8.4(react-dom@18.2.0)(react-native@0.72.7)(react@18.2.0)
@@ -100,16 +100,16 @@ dependencies:
     version: 8.1.0
   react-native-drawer-layout:
     specifier: ^3.2.2
-    version: 3.2.2(react-native-gesture-handler@2.13.4)(react-native-reanimated@3.5.4)(react-native@0.72.7)(react@18.2.0)
+    version: 3.2.2(react-native-gesture-handler@2.14.0)(react-native-reanimated@3.5.4)(react-native@0.72.7)(react@18.2.0)
   react-native-file-access:
     specifier: ^3.0.4
     version: 3.0.4(react-native@0.72.7)(react@18.2.0)
   react-native-gesture-handler:
-    specifier: ^2.13.4
-    version: 2.13.4(react-native@0.72.7)(react@18.2.0)
+    specifier: ^2.14.0
+    version: 2.14.0(react-native@0.72.7)(react@18.2.0)
   react-native-gifted-charts:
     specifier: ^1.3.19
-    version: 1.3.19(react-native-linear-gradient@2.8.3)(react-native-svg@13.14.0)(react-native@0.72.7)(react@18.2.0)
+    version: 1.3.19(react-native-linear-gradient@2.8.3)(react-native-svg@14.0.0)(react-native@0.72.7)(react@18.2.0)
   react-native-image-crop-picker:
     specifier: ^0.40.2
     version: 0.40.2(react-native@0.72.7)
@@ -126,11 +126,11 @@ dependencies:
     specifier: ^3.27.0
     version: 3.27.0(react-native@0.72.7)(react@18.2.0)
   react-native-svg:
-    specifier: ^13.14.0
-    version: 13.14.0(react-native@0.72.7)(react@18.2.0)
+    specifier: ^14.0.0
+    version: 14.0.0(react-native@0.72.7)(react@18.2.0)
   react-native-vision-camera:
-    specifier: ^3.6.9
-    version: 3.6.9(react-native@0.72.7)(react@18.2.0)
+    specifier: ^3.6.10
+    version: 3.6.10(react-native@0.72.7)(react@18.2.0)
   react-native-webview:
     specifier: ^13.6.3
     version: 13.6.3(react-native@0.72.7)(react@18.2.0)
@@ -4163,7 +4163,7 @@ packages:
       - immer
     dev: false
 
-  /@tamagui/helpers-icon@1.79.1(react-native-svg@13.14.0)(react@18.2.0):
+  /@tamagui/helpers-icon@1.79.1(react-native-svg@14.0.0)(react@18.2.0):
     resolution: {integrity: sha512-awJcgadkDhqk6UvFJqoc3a3+DMDZRpF0C/FioyQj+pcOSCUW/jg6vTLs8qwlbvdprf7xNODxkehS20IXZvjukw==}
     peerDependencies:
       react: '*'
@@ -4171,7 +4171,7 @@ packages:
     dependencies:
       '@tamagui/core': 1.79.1(react@18.2.0)
       react: 18.2.0
-      react-native-svg: 13.14.0(react-native@0.72.7)(react@18.2.0)
+      react-native-svg: 14.0.0(react-native@0.72.7)(react@18.2.0)
     dev: false
 
   /@tamagui/helpers-node@1.79.1:
@@ -4255,16 +4255,16 @@ packages:
       - react-native
     dev: false
 
-  /@tamagui/lucide-icons@1.79.1(react-native-svg@13.14.0)(react@18.2.0):
+  /@tamagui/lucide-icons@1.79.1(react-native-svg@14.0.0)(react@18.2.0):
     resolution: {integrity: sha512-SmFuMdlhW63ijg6mm6RCfaV24kfmrkd7YlDyB6Kb4ZfzhAVLGAXYav+FrYVjChtAYX0cbK+OZT9Jh8ImqSRFOg==}
     peerDependencies:
       react: '*'
       react-native-svg: '>=12'
     dependencies:
       '@tamagui/core': 1.79.1(react@18.2.0)
-      '@tamagui/helpers-icon': 1.79.1(react-native-svg@13.14.0)(react@18.2.0)
+      '@tamagui/helpers-icon': 1.79.1(react-native-svg@14.0.0)(react@18.2.0)
       react: 18.2.0
-      react-native-svg: 13.14.0(react-native@0.72.7)(react@18.2.0)
+      react-native-svg: 14.0.0(react-native@0.72.7)(react@18.2.0)
     dev: false
 
   /@tamagui/normalize-css-color@1.79.1:
@@ -11005,7 +11005,7 @@ packages:
       - supports-color
     dev: false
 
-  /react-native-drawer-layout@3.2.2(react-native-gesture-handler@2.13.4)(react-native-reanimated@3.5.4)(react-native@0.72.7)(react@18.2.0):
+  /react-native-drawer-layout@3.2.2(react-native-gesture-handler@2.14.0)(react-native-reanimated@3.5.4)(react-native@0.72.7)(react@18.2.0):
     resolution: {integrity: sha512-t28FVAhtrEJluIOpDpVNBWG74ij9ZguBC+FLmv/+lewhWTgZQ6rTw5GgQ9sUxmHx+ertcWG/uH0Jye7gbbm9jg==}
     peerDependencies:
       react: '*'
@@ -11015,7 +11015,7 @@ packages:
     dependencies:
       react: 18.2.0
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
-      react-native-gesture-handler: 2.13.4(react-native@0.72.7)(react@18.2.0)
+      react-native-gesture-handler: 2.14.0(react-native@0.72.7)(react@18.2.0)
       react-native-reanimated: 3.5.4(@babel/core@7.23.3)(@babel/plugin-proposal-nullish-coalescing-operator@7.18.6)(@babel/plugin-proposal-optional-chaining@7.21.0)(@babel/plugin-transform-arrow-functions@7.23.3)(@babel/plugin-transform-shorthand-properties@7.23.3)(@babel/plugin-transform-template-literals@7.23.3)(react-native@0.72.7)(react@18.2.0)
       use-latest-callback: 0.1.7(react@18.2.0)
     dev: false
@@ -11039,8 +11039,8 @@ packages:
       react: 18.2.0
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
 
-  /react-native-gesture-handler@2.13.4(react-native@0.72.7)(react@18.2.0):
-    resolution: {integrity: sha512-smpYOVbvWABpq2H+lmDnfOLCTH934aUPO1w2/pQXvm1j+M/vmGQmvgRDJOpXcks17HLtNNKXD6tcODf3aPqDfA==}
+  /react-native-gesture-handler@2.14.0(react-native@0.72.7)(react@18.2.0):
+    resolution: {integrity: sha512-cOmdaqbpzjWrOLUpX3hdSjsMby5wq3PIEdMq7okJeg9DmCzanysHSrktw1cXWNc/B5MAgxAn9J7Km0/4UIqKAQ==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -11054,7 +11054,7 @@ packages:
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
     dev: false
 
-  /react-native-gifted-charts@1.3.19(react-native-linear-gradient@2.8.3)(react-native-svg@13.14.0)(react-native@0.72.7)(react@18.2.0):
+  /react-native-gifted-charts@1.3.19(react-native-linear-gradient@2.8.3)(react-native-svg@14.0.0)(react-native@0.72.7)(react@18.2.0):
     resolution: {integrity: sha512-T7ydRfKMrsayrRFBMhCcR5Ogqj7V7d+ZeJAZFHkehvZz+/ER/0cjVXsMsyg9Sh+tK3dwib5lGbBjxK4T72tqDg==}
     peerDependencies:
       react: '*'
@@ -11065,7 +11065,7 @@ packages:
       react: 18.2.0
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
       react-native-linear-gradient: 2.8.3(react-native@0.72.7)(react@18.2.0)
-      react-native-svg: 13.14.0(react-native@0.72.7)(react@18.2.0)
+      react-native-svg: 14.0.0(react-native@0.72.7)(react@18.2.0)
     dev: false
 
   /react-native-image-crop-picker@0.40.2(react-native@0.72.7):
@@ -11134,8 +11134,8 @@ packages:
       warn-once: 0.1.1
     dev: false
 
-  /react-native-svg@13.14.0(react-native@0.72.7)(react@18.2.0):
-    resolution: {integrity: sha512-27ZnxUkHgWICimhuj6MuqBkISN53lVvgWJB7pIypjXysAyM+nqgQBPh4vXg+7MbqLBoYvR4PiBgKfwwGAqVxHg==}
+  /react-native-svg@14.0.0(react-native@0.72.7)(react@18.2.0):
+    resolution: {integrity: sha512-17W/gWXRUMS7p7PSHu/WyGkZUc1NzRTGxxXc0VqBLjzKSchyb0EmgsiWf9aKmfC6gmY0wcsmKZcGV41bCcNfBA==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -11146,8 +11146,8 @@ packages:
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
     dev: false
 
-  /react-native-vision-camera@3.6.9(react-native@0.72.7)(react@18.2.0):
-    resolution: {integrity: sha512-bUTLfcidLNQLiY6WD48T4y1qqE4bQ3GKdwQ6M0a/IyJhlHOSdkXlCoCMR/TByVUQZCZP7YEBuAUxgmVhQU/Ozg==}
+  /react-native-vision-camera@3.6.10(react-native@0.72.7)(react@18.2.0):
+    resolution: {integrity: sha512-eakVB5how542IIKSOGjfULNnqYcUw8MAsNknh0CB2ehD9G+yDBUPOCLhCqcnVW0AVNUGMZemBivusQPYKl41hQ==}
     peerDependencies:
       react: '*'
       react-native: '*'

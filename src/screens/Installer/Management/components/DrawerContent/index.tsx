@@ -1,11 +1,14 @@
+import { useTranslation } from 'react-i18next'
+import type { SizableTextProps } from 'tamagui'
 import { Button, Input, ScrollView, SizableText, View, XStack, YStack } from 'tamagui'
 import type { Updater } from 'use-immer'
 
 import { HeadingTitle } from '@/components'
 import { globalStyles } from '@/constants'
+import { BooleanEnum } from '@/enums'
 
 import { initialAdvanceFilter } from '../../constants'
-import { DisplayRange, PlantType } from '../../enums'
+import { DisplayRange, FundingMethod, GridType, Others, PlantType, UseType } from '../../enums'
 import type { FormData, MultiSelectOption, SingleSelectOption } from '../../interfaces'
 
 interface Props {
@@ -15,7 +18,8 @@ interface Props {
 }
 
 export default function DrawerContent(props: Props) {
-  const onChangeSingleSelect = ({ value, key }: { value: number; key: keyof SingleSelectOption }) =>
+  const { t } = useTranslation(['Installer.Management', 'Global'])
+  const onChangeSingleSelect = ({ value, key }: { value: string; key: keyof SingleSelectOption }) =>
     props.setAdvancedFilter((draft) => {
       if (draft[key] === value) {
         draft[key] = null
@@ -24,23 +28,20 @@ export default function DrawerContent(props: Props) {
       draft[key] = value
     })
 
-  const onChangeMultiSelect = ({ value, key }: { value: number; key: keyof MultiSelectOption }) =>
+  const onChangeMultiSelect = ({ value, key }: { value: string; key: keyof MultiSelectOption }) =>
     props.setAdvancedFilter((draft) => {
-      if ((draft[key] as Set<number>).has(value)) {
-        ;(draft[key] as Set<number>).delete(value)
+      if ((draft[key] as Set<string>).has(value)) {
+        ;(draft[key] as Set<string>).delete(value)
         return
       }
-      ;(draft[key] as Set<number>).add(value)
+      ;(draft[key] as Set<string>).add(value)
     })
 
-  const handleReset = () =>
-    props.setAdvancedFilter((draft) => {
-      // eslint-disable-next-line no-param-reassign, unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
-      draft = initialAdvanceFilter
-    })
+  const handleReset = () => {
+    props.setAdvancedFilter(() => ({ ...initialAdvanceFilter }))
+  }
 
   const handleSubmit = () => {
-    console.log(props.advancedFilter)
     props.setDrawerOpen(false)
   }
 
@@ -49,7 +50,7 @@ export default function DrawerContent(props: Props) {
     key,
     single
   }: {
-    value: number
+    value: string
     key: keyof SingleSelectOption
     single?: boolean
   }) => ({
@@ -58,7 +59,13 @@ export default function DrawerContent(props: Props) {
     size: '$3',
     onPress: () => onChangeSingleSelect({ value, key }),
     backgroundColor: props.advancedFilter[key] === value ? globalStyles.primaryColor : undefined,
-    color: props.advancedFilter[key] === value ? 'white' : undefined
+    color: props.advancedFilter[key] === value ? 'white' : undefined,
+    height: 'auto',
+    padding: '$2',
+    textProps: {
+      numberOfLines: 3,
+      textAlign: 'center'
+    } as SizableTextProps
   })
 
   const getMultiSelectProps = ({
@@ -66,7 +73,7 @@ export default function DrawerContent(props: Props) {
     key,
     single
   }: {
-    value: number
+    value: string
     key: keyof MultiSelectOption
     single?: boolean
   }) => ({
@@ -74,39 +81,45 @@ export default function DrawerContent(props: Props) {
     borderRadius: 4,
     size: '$3',
     onPress: () => onChangeMultiSelect({ value, key }),
-    backgroundColor: (props.advancedFilter[key] as Set<number>).has(value)
+    backgroundColor: (props.advancedFilter[key] as Set<string>).has(value)
       ? globalStyles.primaryColor
       : undefined,
-    color: (props.advancedFilter[key] as Set<number>).has(value) ? 'white' : undefined
+    color: (props.advancedFilter[key] as Set<string>).has(value) ? 'white' : undefined,
+    height: 'auto',
+    padding: '$2',
+    textProps: {
+      numberOfLines: 3,
+      textAlign: 'center'
+    } as SizableTextProps
   })
 
   return (
     <View height="100%">
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <YStack
           space="$3"
           padding="$3"
         >
-          <HeadingTitle title="显示范围" />
+          <HeadingTitle title={t('Display.Range.Text')} />
           <YStack space="$2">
             <XStack space="$2">
               <Button {...getSingleSelectProps({ value: DisplayRange.All, key: 'displayRange' })}>
-                全部
+                {t('Display.Range.All')}
               </Button>
               <Button {...getSingleSelectProps({ value: DisplayRange.My, key: 'displayRange' })}>
-                我的
+                {t('Display.Range.My')}
               </Button>
             </XStack>
             <XStack space="$2">
               <Button
                 {...getSingleSelectProps({ value: DisplayRange.Customer, key: 'displayRange' })}
               >
-                客户
+                {t('Display.Range.Customer')}
               </Button>
               <Button
                 {...getSingleSelectProps({ value: DisplayRange.Visitors, key: 'displayRange' })}
               >
-                访客
+                {t('Display.Range.Visitor')}
               </Button>
             </XStack>
             <XStack space="$2">
@@ -117,21 +130,21 @@ export default function DrawerContent(props: Props) {
                   single: true
                 })}
               >
-                其他
+                {t('Display.Range.Others')}
               </Button>
             </XStack>
           </YStack>
 
-          <HeadingTitle title="电站类型" />
+          <HeadingTitle title={t('PlantType.Text')} />
           <YStack space="$2">
             <XStack space="$2">
               <Button {...getMultiSelectProps({ value: PlantType.On_Grid, key: 'plantType' })}>
-                并网
+                {t('PlantType.On.Grid')}
               </Button>
               <Button
                 {...getMultiSelectProps({ value: PlantType.Energy_Storage, key: 'plantType' })}
               >
-                储能
+                {t('PlantType.Energy.Storage')}
               </Button>
             </XStack>
             <XStack space="$2">
@@ -142,127 +155,141 @@ export default function DrawerContent(props: Props) {
                   single: true
                 })}
               >
-                交流耦合
+                {t('PlantType.AC.Coupling')}
               </Button>
             </XStack>
           </YStack>
 
-          <HeadingTitle title="使用类型" />
+          <HeadingTitle title={t('Use.Type.Text')} />
           <XStack space="$2">
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: UseType.Home_Use,
+                key: 'useType'
+              })}
             >
-              家庭户用
+              {t('Use.Type.Home.Use')}
             </Button>
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: UseType.Industrial_And_Commercial_Roof,
+                key: 'useType'
+              })}
             >
-              工商业屋顶
+              {t('Use.Type.Industrial.And.Commercial.Roof')}
             </Button>
           </XStack>
           <XStack space="$2">
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: UseType.Ground_Mounted_Plant,
+                key: 'useType'
+              })}
             >
-              地面电站
+              {t('Use.Type.Ground.Mounted.Plant')}
             </Button>
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: UseType.Poverty_Alleviation_Power_Plant,
+                key: 'useType'
+              })}
             >
-              扶贫电站
+              {t('Use.Type.Poverty.Alleviation.Power.Plant')}
             </Button>
           </XStack>
 
-          <HeadingTitle title="并网类型" />
+          <HeadingTitle title={t('Grid.Type.Text')} />
           <YStack space="$2">
             <XStack space="$2">
               <Button
-                borderRadius={4}
-                flex={1}
-                size="$3"
+                {...getMultiSelectProps({
+                  value: GridType.Export_All_To_Grid,
+                  key: 'gridType'
+                })}
               >
-                全额上网
+                {t('Grid.Type.Export.All.To.Grid')}
               </Button>
               <Button
-                borderRadius={4}
-                flex={1}
-                size="$3"
+                {...getMultiSelectProps({
+                  value: GridType.Self_Consumption,
+                  key: 'gridType'
+                })}
               >
-                自发自用余额上网
+                {t('Grid.Type.Self.Consumption.And.Export.Surplus.Energy.To.Grid')}
               </Button>
             </XStack>
             <XStack space="$2">
               <Button
-                width="49%"
-                borderRadius={4}
-                size="$3"
+                {...getMultiSelectProps({
+                  value: GridType.Self_Consumption,
+                  key: 'gridType',
+                  single: true
+                })}
               >
-                离网模式
+                {t('Grid.Type.Off.Grid.Mode')}
               </Button>
             </XStack>
           </YStack>
 
-          <HeadingTitle title="出资方式" />
+          <HeadingTitle title={t('Funding.Method.Text')} />
           <XStack space="$2">
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: FundingMethod.Owner_Full_Payment,
+                key: 'fundingMethod'
+              })}
             >
-              业主全款
+              {t('Funding.Method.Owner.Full.Payment')}
             </Button>
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: FundingMethod.Owners_Loan,
+                key: 'fundingMethod'
+              })}
             >
-              业主贷款
+              {t('Funding.Method.Owners.Loan')}
             </Button>
           </XStack>
           <XStack space="$2">
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: FundingMethod.Self_Invested_Power_Plant,
+                key: 'fundingMethod'
+              })}
             >
-              自投电站
+              {t('Funding.Method.Self.Invested.Power.Plant')}
             </Button>
             <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
+              {...getMultiSelectProps({
+                value: FundingMethod.Joint_Venture_With_Owner,
+                key: 'fundingMethod'
+              })}
             >
-              与业主合资
-            </Button>
-          </XStack>
-
-          <HeadingTitle title="负载监控" />
-          <XStack space="$2">
-            <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
-            >
-              有
-            </Button>
-            <Button
-              borderRadius={4}
-              flex={1}
-              size="$3"
-            >
-              没有
+              {t('Funding.Method.Joint.Venture.With.Owner')}
             </Button>
           </XStack>
 
-          <HeadingTitle title="电站容量(kWp)" />
+          <HeadingTitle title={t('Load.Monitoring')} />
+          <XStack space="$2">
+            <Button
+              {...getSingleSelectProps({
+                value: BooleanEnum.Y,
+                key: 'loadMonitoring'
+              })}
+            >
+              {t('Global:Y')}
+            </Button>
+            <Button
+              {...getSingleSelectProps({
+                value: BooleanEnum.N,
+                key: 'loadMonitoring'
+              })}
+            >
+              {t('Global:N')}
+            </Button>
+          </XStack>
+
+          <HeadingTitle title={t('Plant.Capacity')} />
           <XStack
             alignItems="center"
             space="$2"
@@ -270,25 +297,29 @@ export default function DrawerContent(props: Props) {
             <Input
               size="$3"
               flex={1}
+              placeholder={t('Global:Min')}
             />
-            <SizableText>to</SizableText>
+            <SizableText>{t('To')}</SizableText>
             <Input
               size="$3"
               flex={1}
+              placeholder={t('Global:Max')}
             />
           </XStack>
 
-          <HeadingTitle title="城市" />
+          <HeadingTitle title={t('City')} />
           <Input size="$3" />
 
-          <HeadingTitle title="其他" />
+          <HeadingTitle title={t('Others.Text')} />
           <XStack space="$2">
             <Button
-              width="49%"
-              borderRadius={4}
-              size="$3"
+              {...getMultiSelectProps({
+                value: Others.Partially_Offline,
+                key: 'others',
+                single: true
+              })}
             >
-              部分离线
+              {t('Others.Partially.Offline')}
             </Button>
           </XStack>
         </YStack>
@@ -299,7 +330,7 @@ export default function DrawerContent(props: Props) {
           flex={1}
           onPress={handleReset}
         >
-          重置
+          {t('Global:Reset')}
         </Button>
         <Button
           borderRadius={0}
@@ -308,7 +339,7 @@ export default function DrawerContent(props: Props) {
           flex={1}
           onPress={handleSubmit}
         >
-          确认
+          {t('Global:Reset')}
         </Button>
       </XStack>
     </View>

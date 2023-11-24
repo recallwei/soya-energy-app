@@ -1,8 +1,8 @@
 import type { BasePageModel } from '../constants/page'
 
 export interface Response {
-  code?: number | string
-  message?: string
+  code: number
+  msg: string
 }
 
 export interface BaseResponse<T = any> extends Response {
@@ -10,10 +10,15 @@ export interface BaseResponse<T = any> extends Response {
 }
 
 export interface PageResponse<T = any> extends Response {
-  data: T
-  pageCount: number
-  pageSize: number
-  total: number
+  data: PageData<T>
+}
+
+interface PageData<T = any> {
+  records: T[]
+  current?: number
+  pages?: number
+  size?: number
+  total?: number
 }
 
 export enum OrderType {

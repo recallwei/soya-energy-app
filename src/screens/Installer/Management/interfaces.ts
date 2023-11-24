@@ -1,14 +1,14 @@
 export interface SingleSelectOption {
-  displayRange: null | number
+  displayRange: null | string
+  loadMonitoring: null | string
 }
 
 export interface MultiSelectOption {
-  plantType: Set<number>
-  useType: Set<number>
-  gridType: Set<number>
-  fundingMethod: Set<number>
-  loadMonitoring: Set<number>
-  others: Set<number>
+  plantType: Set<string>
+  useType: Set<string>
+  gridType: Set<string>
+  fundingMethod: Set<string>
+  others: Set<string>
 }
 
 export type FormData = {

@@ -1,6 +1,6 @@
 {
   "Plant": "电站",
-  "Invertor": "逆变器",
+  "Inverter": "逆变器",
   "Battery": "电池",
   "Create.Plant.For.Me": "自建户用电站",
   "Create.Plant.For.Owner": "代建户用电站",
@@ -19,5 +19,47 @@
     "Low.To.High": "日发电量最底"
   },
   "Maximum.Installed.Capacity": "装机容量最大",
-  "Minimum.Installed.Capacity": "装机容量最小"
+  "Minimum.Installed.Capacity": "装机容量最小",
+  "Display.Range": {
+    "Text": "显示范围",
+    "All": "全部",
+    "My": "我的",
+    "Customer": "客户",
+    "Visitor": "访客",
+    "Others": "其他"
+  },
+  "PlantType": {
+    "Text": "电站类型",
+    "On.Grid": "并网",
+    "Energy.Storage": "储能",
+    "AC.Coupling": "交流耦合"
+  },
+  "Use.Type": {
+    "Text": "使用类型",
+    "Home.Use": "家用",
+    "Industrial.And.Commercial.Roof": "工商业屋顶",
+    "Ground.Mounted.Plant": "地面电站",
+    "Poverty.Alleviation.Power.Plant": "扶贫电站"
+  },
+  "Grid.Type": {
+    "Text": "并网类型",
+    "Export.All.To.Grid": "全额上网",
+    "Self.Consumption.And.Export.Surplus.Energy.To.Grid": "自发自用并余电上网",
+    "Off.Grid.Mode": "离网模式"
+  },
+  "Funding.Method": {
+    "Text": "出资方式",
+    "Owner.Full.Payment": "业主全款",
+    "Owners.Loan": "业主贷款",
+    "Self.Invested.Power.Plant": "自投电站",
+    "Joint.Venture.With.Owner": "与业主合资"
+  },
+  "Load.Monitoring": "负载监控",
+  "Plant.Capacity": "电站容量（kWp）",
+  "City": "城市",
+  "Others": {
+    "Text": "其他",
+    "Partially.Offline": "部分离线"
+  },
+  "To": "至"
 }

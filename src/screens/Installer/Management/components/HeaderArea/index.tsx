@@ -19,7 +19,7 @@ interface Props {
 
 const tabList = [
   { text: () => i18n.t('Installer.Management:Plant'), value: ManagementTab.Plant },
-  { text: () => i18n.t('Installer.Management:Invertor'), value: ManagementTab.Invertor },
+  { text: () => i18n.t('Installer.Management:Inverter'), value: ManagementTab.Inverter },
   { text: () => i18n.t('Installer.Management:Battery'), value: ManagementTab.Battery }
 ]
 
