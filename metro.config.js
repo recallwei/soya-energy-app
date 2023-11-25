@@ -1,5 +1,7 @@
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config')
-const MetroSymlinksResolver = require('@rnx-kit/metro-resolver-symlinks')
+const {
+  createSentryMetroSerializer
+} = require('@sentry/react-native/dist/js/tools/sentryMetroSerializer')
 
 /**
  * Metro configuration
@@ -8,8 +10,8 @@ const MetroSymlinksResolver = require('@rnx-kit/metro-resolver-symlinks')
  * @type {import('metro-config').MetroConfig}
  */
 const config = {
-  resolver: {
-    resolveRequest: MetroSymlinksResolver() // NOTE: Resolve pnpm symlinks
+  serializer: {
+    customSerializer: createSentryMetroSerializer()
   }
 }
 

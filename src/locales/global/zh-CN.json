@@ -23,5 +23,21 @@
   "Toast.Default.Title.Loading": "加载中",
   "Toast.Default.Title.Success": "成功",
   "Toast.Default.Title.Warning": "警告",
-  "Y": "是"
+  "Y": "是",
+  "Code.Push.Sync.Status.Up.To.Date": "已是最新版本",
+  "Code.Push.Sync.Status.Update.Installed": "已安装完成",
+  "Code.Push.Sync.Status.Update.Ignored": "已忽略更新",
+  "Code.Push.Sync.Status.Unknown.Error": "未知错误",
+  "Code.Push.Sync.Status.Sync.In.Progress": "正在更新...",
+  "Code.Push.Sync.Status.Checking.For.Update": "正在检查更新...",
+  "Code.Push.Sync.Status.Awaiting.User.Action": "等待用户操作",
+  "Code.Push.Sync.Status.Downloading.Package": "正在下载更新...",
+  "Code.Push.Sync.Status.Installing.Update": "正在安装更新...",
+  "Code.Push.Upload.Dialog.Title": "更新提示",
+  "Code.Push.Upload.Dialog.Description.Prefix": "更新内容：",
+  "Code.Push.Upload.Dialog.Mandatory.Continue.Button.Label": "继续",
+  "Code.Push.Upload.Dialog.Mandatory.Update.Message": "该版本为强制更新，必须安装后才能继续使用",
+  "Code.Push.Upload.Dialog.Optional.Ignore.Button.Label": "忽略",
+  "Code.Push.Upload.Dialog.Optional.install.Button.Label": "安装",
+  "Code.Push.Upload.Dialog.Optional.Update.Message": "有新版本可用更新，是否安装？"
 }

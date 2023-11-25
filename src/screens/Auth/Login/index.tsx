@@ -8,7 +8,7 @@ import { useCallback, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { DevSettings, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack } from 'tamagui'
 import * as yup from 'yup'
 
@@ -19,7 +19,7 @@ import { globalEnvConfig } from '@/env'
 import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
-import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
+import { AuthUtils, CodePushUtils, DeviceUtils, ToastUtils } from '@/utils'
 
 interface FormData {
   username: string
@@ -264,13 +264,10 @@ export default function Screen() {
         bottom={insets.paddingBottom}
       >
         <Label
-          onPress={() => {
-            DevSettings.reload()
-            // CodePushUtils.syncCode()
-          }}
+          onPress={() => CodePushUtils.syncCode()}
           textAlign="center"
         >
-          {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}`}
+          {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}.${globalEnvConfig.VERSION_CODE}`}
         </Label>
       </View>
     </YStack>

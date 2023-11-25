@@ -40,7 +40,7 @@ export default function Screen() {
             icon={Settings}
             onPress={() => navigate('Common.My.Settings')}
           />
-          {globalEnvConfig.APP_ENVIRONMENT === 'DEV' && (
+          {globalEnvConfig.APP_ENVIRONMENT !== 'PROD' && (
             <MenuItemCard
               title={t('Dev.Menu.Title')}
               description={t('Dev.Menu.Description')}

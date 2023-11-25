@@ -1,30 +1,18 @@
 import { useEffect } from 'react'
-import type { AppStateStatus, NativeEventSubscription } from 'react-native'
+import type { AppStateStatus } from 'react-native'
 import { AppState } from 'react-native'
-import CodePush from 'react-native-code-push'
 
-import { globalEnvConfig } from '@/env'
+import { CodePushUtils } from '@/utils'
 
 export function useCodePush() {
   useEffect(() => {
     async function syncCode(appStateStatus: AppStateStatus) {
       if (appStateStatus === 'active') {
-        await CodePush.sync()
+        CodePushUtils.syncCode()
       }
     }
-
-    let appListener: NativeEventSubscription
-
-    if (globalEnvConfig.APP_ENVIRONMENT !== 'DEV') {
-      syncCode(AppState.currentState)
-
-      appListener = AppState.addEventListener('change', syncCode)
-    } else {
-      console.log('[CodePush] DEV 环境下不更新代码推送')
-    }
-
-    return () => {
-      appListener?.remove()
-    }
+    syncCode(AppState.currentState)
+    const appListener = AppState.addEventListener('change', syncCode)
+    return () => appListener.remove()
   }, [])
 }

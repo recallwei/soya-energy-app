@@ -67,7 +67,8 @@ def enableProguardInReleaseBuilds = false
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
-
+// Required by Sentry
+apply from: new File(["node", "--print", "require.resolve('@sentry/react-native/package.json')"].execute().text.trim(), "../sentry.gradle")
 android {
   ndkVersion rootProject.ext.ndkVersion
 
@@ -104,10 +105,16 @@ android {
   buildTypes {
     debug {
       signingConfig signingConfigs.debug
-      resValue "string", "CodePushDeploymentKey", '""'
+      resValue "string", "CodePushDeploymentKey", ''
+      versionCode 1
+      versionName "1.0"
+      applicationId "com.soya.energy.app.debug"
     }
     staging {
       resValue "string", "CodePushDeploymentKey", '"N3Pwz8vakGYcbNhsdksLbDkXXD_TfiVmbA-05"'
+      versionCode 1
+      versionName "1.0"
+      applicationId "com.soya.energy.app.staging"
     }
     release {
       // Caution! In production, you need to generate your own keystore file.

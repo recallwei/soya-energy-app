@@ -23,5 +23,21 @@
   "Toast.Default.Title.Loading": "Loading",
   "Toast.Default.Title.Success": "Success",
   "Toast.Default.Title.Warning": "Warning",
-  "Y": "Yes"
+  "Y": "Yes",
+  "Code.Push.Sync.Status.Up.To.Date": "Already up to date",
+  "Code.Push.Sync.Status.Update.Installed": "Update installed",
+  "Code.Push.Sync.Status.Update.Ignored": "Update ignored",
+  "Code.Push.Sync.Status.Unknown.Error": "Unknown error",
+  "Code.Push.Sync.Status.Sync.In.Progress": "Sync in progress",
+  "Code.Push.Sync.Status.Checking.For.Update": "Checking for update",
+  "Code.Push.Sync.Status.Awaiting.User.Action": "Awaiting user action",
+  "Code.Push.Sync.Status.Downloading.Package": "Downloading package",
+  "Code.Push.Sync.Status.Installing.Update": "Installing update",
+  "Code.Push.Upload.Dialog.Title": "Update available",
+  "Code.Push.Upload.Dialog.Description.Prefix": "Description: ",
+  "Code.Push.Upload.Dialog.Mandatory.Continue.Button.Label": "Continue",
+  "Code.Push.Upload.Dialog.Mandatory.Update.Message": "An update is available that must be installed.",
+  "Code.Push.Upload.Dialog.Optional.Ignore.Button.Label": "Ignore",
+  "Code.Push.Upload.Dialog.Optional.install.Button.Label": "Install",
+  "Code.Push.Upload.Dialog.Optional.Update.Message": "An update is available. Would you like to install it?"
 }

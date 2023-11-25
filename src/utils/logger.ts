@@ -6,7 +6,9 @@ import { globalEnvConfig } from '@/env'
 export class LoggerUtils {
   static printEnv() {
     console.log('----------------------- Env -----------------------')
-    console.log(globalEnvConfig)
+    Object.keys(globalEnvConfig).forEach((key) => {
+      console.log(`${key}: ${globalEnvConfig[key as keyof typeof globalEnvConfig]}`)
+    })
     console.log('')
   }
 

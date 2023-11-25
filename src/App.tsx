@@ -2,6 +2,7 @@ import './i18n'
 
 import { setup } from '@baronha/ting'
 import NetInfo from '@react-native-community/netinfo'
+import * as Sentry from '@sentry/react-native'
 import {
   focusManager,
   onlineManager,
@@ -20,10 +21,19 @@ import { TamaguiProvider } from 'tamagui'
 
 import config from '../tamagui.config'
 import type { UserRole } from './enums'
+import { globalEnvConfig } from './env'
 import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useAuthStore, useLangStore, useThemeStore } from './store'
 import { AuthUtils, LangUtils, LoggerUtils, ThemeUtils } from './utils'
+
+Sentry.init({
+  dsn: globalEnvConfig.SENTRY_DSN,
+  release: globalEnvConfig.APP_VERSION,
+  dist: globalEnvConfig.VERSION_CODE,
+  environment: globalEnvConfig.APP_ENVIRONMENT,
+  tracesSampleRate: 1.0
+})
 
 enableMapSet()
 
@@ -83,6 +93,7 @@ function App() {
       authStore.setUserRole(role as UserRole)
     }
     authStore.loaded()
+    Sentry.captureException(new Error('Custom error'))
   }, [])
 
   useEffect(() => {
@@ -124,26 +135,7 @@ function App() {
 }
 
 const AppWithCodePush = CodePush({
-  updateDialog: {
-    // title: 'Update available',
-    // optionalUpdateMessage: 'An update is available. Would you like to install it?',
-    // optionalInstallButtonLabel: 'Install',
-    // optionalIgnoreButtonLabel: 'Ignore',
-    // mandatoryContinueButtonLabel: 'Continue',
-    // mandatoryUpdateMessage: 'An update is available that must be installed.',
-    // descriptionPrefix: 'Description: ',
-    // appendReleaseDescription: true
-    title: '更新提示',
-    appendReleaseDescription: true,
-    descriptionPrefix: '更新内容：',
-    mandatoryContinueButtonLabel: '立即更新',
-    mandatoryUpdateMessage: '有新版本了，请您及时更新',
-    optionalIgnoreButtonLabel: '稍后',
-    optionalInstallButtonLabel: '后台更新',
-    optionalUpdateMessage: '有新版本了，是否更新？'
-  },
-  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
-  installMode: CodePush.InstallMode.IMMEDIATE
-})(App)
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME
+})(Sentry.wrap(App))
 
 export default AppWithCodePush

@@ -112,7 +112,7 @@ export default function UserMyScreen() {
             icon={Users}
             onPress={() => navigate('Community')}
           />
-          {globalEnvConfig.APP_ENVIRONMENT === 'DEV' && (
+          {globalEnvConfig.APP_ENVIRONMENT !== 'PROD' && (
             <MenuItemCard
               title="Dev Menu"
               description="Just for dev!"

@@ -570,8 +570,16 @@ PODS:
   - RNScreens (3.27.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
+  - RNSentry (5.14.1):
+    - hermes-engine
+    - React-Core
+    - React-hermes
+    - Sentry/HybridSDK (= 8.15.2)
   - RNSVG (14.0.0):
     - React-Core
+  - Sentry/HybridSDK (8.15.2):
+    - SentryPrivate (= 8.15.2)
+  - SentryPrivate (8.15.2)
   - SocketRocket (0.6.1)
   - SPAlert (4.2.0)
   - SSZipArchive (2.2.3)
@@ -666,6 +674,7 @@ DEPENDENCIES:
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - RNSVG (from `../node_modules/react-native-svg`)
   - "Ting (from `../node_modules/@baronha/ting`)"
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
@@ -689,6 +698,8 @@ SPEC REPOS:
     - JWT
     - libevent
     - OpenSSL-Universal
+    - Sentry
+    - SentryPrivate
     - SocketRocket
     - SPAlert
     - SSZipArchive
@@ -804,6 +815,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Ting:
@@ -826,7 +839,7 @@ SPEC CHECKSUMS:
   CodePush: 255d7607f428dcbec39085f81a206b170e01d012
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597
-  FBReactNativeSpec: 641d00887bf10e7b85a566304cec54b95a13f776
+  FBReactNativeSpec: 638095fe8a01506634d77b260ef8a322019ac671
   Flipper: 6edb735e6c3e332975d1b17956bcc584eccf5818
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
   Flipper-DoubleConversion: 2dc99b02f658daf147069aad9dbd29d8feb06d30
@@ -872,7 +885,7 @@ SPEC CHECKSUMS:
   React-RCTSettings: 506a5f09a455123a8873801b70aa7b4010b76b01
   React-RCTText: 3c71ecaad8ee010b79632ea2590f86c02f5cce17
   React-RCTVibration: d1b78ca38f61ea4b3e9ebb2ddbd0b5662631d99b
-  React-rncore: 9ae43de0174bcea2e9c2fb6dfa758523914f5ca8
+  React-rncore: bfc2f6568b6fecbae6f2f774e95c60c3c9e95bf2
   React-runtimeexecutor: 47b0a2d5bbb416db65ef881a6f7bdcfefa0001ab
   React-runtimescheduler: 7649c3b46c8dee1853691ecf60146a16ae59253c
   React-utils: 56838edeaaf651220d1e53cd0b8934fb8ce68415
@@ -881,9 +894,12 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 687bb9e85dd3d45b966662440dcfc0cd962347e6
   RNGestureHandler: 32a01c29ecc9bb0b5bf7bc0a33547f61b4dc2741
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
-  RNReanimated: e0e3bccfedf3b31315ac8376fb46305feff99ecc
+  RNReanimated: ab2e96c6d5591c3dfbb38a464f54c8d17fb34a87
   RNScreens: 3c2d122f5e08c192e254c510b212306da97d2581
+  RNSentry: ee1a9a80996414205d84ce9180c31bd855fd4641
   RNSVG: 255767813dac22db1ec2062c8b7e7b856d4e5ae6
+  Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
+  SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   SPAlert: 735da1f16a887e294719217572ce1f936d8c8782
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
