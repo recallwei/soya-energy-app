@@ -48,8 +48,8 @@ dependencies:
     specifier: ^1.79.1
     version: 1.79.1(react-native-svg@14.0.0)(react@18.2.0)
   '@tanstack/react-query':
-    specifier: ^5.8.4
-    version: 5.8.4(react-dom@18.2.0)(react-native@0.72.7)(react@18.2.0)
+    specifier: ^5.8.7
+    version: 5.8.7(react-dom@18.2.0)(react-native@0.72.7)(react@18.2.0)
   '@types/crypto-js':
     specifier: ^4.2.1
     version: 4.2.1
@@ -108,8 +108,8 @@ dependencies:
     specifier: ^2.14.0
     version: 2.14.0(react-native@0.72.7)(react@18.2.0)
   react-native-gifted-charts:
-    specifier: ^1.3.19
-    version: 1.3.19(react-native-linear-gradient@2.8.3)(react-native-svg@14.0.0)(react-native@0.72.7)(react@18.2.0)
+    specifier: ^1.3.23
+    version: 1.3.23(react-native-linear-gradient@2.8.3)(react-native-svg@14.0.0)(react-native@0.72.7)(react@18.2.0)
   react-native-image-crop-picker:
     specifier: ^0.40.2
     version: 0.40.2(react-native@0.72.7)
@@ -4872,12 +4872,12 @@ packages:
       - typescript
     dev: true
 
-  /@tanstack/query-core@5.8.3:
-    resolution: {integrity: sha512-SWFMFtcHfttLYif6pevnnMYnBvxKf3C+MHMH7bevyYfpXpTMsLB9O6nNGBdWSoPwnZRXFNyNeVZOw25Wmdasow==}
+  /@tanstack/query-core@5.8.7:
+    resolution: {integrity: sha512-58xOSkxxZK4SGQ/uzX8MDZHLGZCkxlgkPxnfhxUOL2uchnNHyay2UVcR3mQNMgaMwH1e2l+0n+zfS7+UJ/MAJw==}
     dev: false
 
-  /@tanstack/react-query@5.8.4(react-dom@18.2.0)(react-native@0.72.7)(react@18.2.0):
-    resolution: {integrity: sha512-CD+AkXzg8J72JrE6ocmuBEJfGzEzu/bzkD6sFXFDDB5yji9N20JofXZlN6n0+CaPJuIi+e4YLCbGsyPFKkfNQA==}
+  /@tanstack/react-query@5.8.7(react-dom@18.2.0)(react-native@0.72.7)(react@18.2.0):
+    resolution: {integrity: sha512-RYSSMmkhbJ7tPkf8w+MSRIXQLoUCm7DRnTLDcdf+uampupnriEsob3fVWTt9oaEj+AJWEKeCErDBdZeNcAzURQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -4888,7 +4888,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 5.8.3
+      '@tanstack/query-core': 5.8.7
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
@@ -11054,8 +11054,8 @@ packages:
       react-native: 0.72.7(@babel/core@7.23.3)(@babel/preset-env@7.23.3)(react@18.2.0)
     dev: false
 
-  /react-native-gifted-charts@1.3.19(react-native-linear-gradient@2.8.3)(react-native-svg@14.0.0)(react-native@0.72.7)(react@18.2.0):
-    resolution: {integrity: sha512-T7ydRfKMrsayrRFBMhCcR5Ogqj7V7d+ZeJAZFHkehvZz+/ER/0cjVXsMsyg9Sh+tK3dwib5lGbBjxK4T72tqDg==}
+  /react-native-gifted-charts@1.3.23(react-native-linear-gradient@2.8.3)(react-native-svg@14.0.0)(react-native@0.72.7)(react@18.2.0):
+    resolution: {integrity: sha512-90CSfDreFztfYeZHrg5GBKQiF653/JWS6dhqEYM+x2YvUP3eCzhahQ9i+MQfjNiA6LDS0KgwDKBoV0Uvv34ZZA==}
     peerDependencies:
       react: '*'
       react-native: '*'

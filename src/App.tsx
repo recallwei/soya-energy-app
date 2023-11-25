@@ -142,7 +142,7 @@ const AppWithCodePush = CodePush({
     optionalInstallButtonLabel: '后台更新',
     optionalUpdateMessage: '有新版本了，是否更新？'
   },
-  checkFrequency: CodePush.CheckFrequency.MANUAL,
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
   installMode: CodePush.InstallMode.IMMEDIATE
 })(App)
 

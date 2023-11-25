@@ -3,16 +3,13 @@ import { ScrollView, View, YStack } from 'tamagui'
 
 import { NoData } from '@/components'
 import { useRefresh, useSafeAreaPadding } from '@/hooks'
-import { useAuthStore } from '@/store'
 
 export default function Screen() {
   const { refreshing, onRefresh } = useRefresh()
-  const { insets } = useSafeAreaPadding()
-  const authStore = useAuthStore()
+  const { insetsWithoutBottom } = useSafeAreaPadding()
   return (
-    <View paddingTop={authStore.isUser() ? insets.paddingTop : undefined}>
+    <View {...insetsWithoutBottom}>
       <ScrollView
-        minHeight="100%"
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl

@@ -1,26 +1,27 @@
 {
   "Add": "Add",
+  "Alert.Default.Title.Error": "Error",
+  "Alert.Default.Title.Loading": "Loading",
+  "Alert.Default.Title.Success": "Success",
+  "Alert.Default.Title.Warning": "Warning",
   "Cancel": "Cancel",
-  "Confirm.Dialog.Default": {
-    "CancelText": "Cancel",
-    "ConfirmText": "Confirm",
-    "Description": "Are you sure to do this?",
-    "Title": "Confirm action"
-  },
+  "Choose.File": "Choose File",
+  "Confirm": "Confirm",
+  "Confirm.Dialog.Default.CancelText": "Cancel",
+  "Confirm.Dialog.Default.ConfirmText": "Confirm",
+  "Confirm.Dialog.Default.Description": "Are you sure to do this?",
+  "Confirm.Dialog.Default.Title": "Confirm action",
+  "Max": "Max",
+  "Min": "Min",
+  "N": "No",
   "No.Data": "No data",
+  "Others": "Others",
+  "Reset": "Reset",
   "Still.In.Development": "Still in development...",
   "Submit": "Submit",
-  "Toast.Default.Title": {
-    "Error": "Error",
-    "Loading": "Loading",
-    "Success": "Success",
-    "Warning": "Warning"
-  },
-  "Choose.File": "Choose File",
-  "Y": "Yes",
-  "N": "No",
-  "Min": "Min",
-  "Max": "Max",
-  "Reset": "Reset",
-  "Confirm": "Confirm"
+  "Toast.Default.Title.Error": "Error",
+  "Toast.Default.Title.Loading": "Loading",
+  "Toast.Default.Title.Success": "Success",
+  "Toast.Default.Title.Warning": "Warning",
+  "Y": "Yes"
 }

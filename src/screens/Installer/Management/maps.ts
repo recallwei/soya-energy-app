@@ -2,12 +2,12 @@ import i18n from '@/i18n'
 
 import { TabStatus } from './enums'
 
-const { t } = i18n
+const t = i18n.getFixedT(null, 'Installer.Management')
 
 export const tabStatusI18nMap = new Map<string, () => string>([
-  [TabStatus.All, () => t('Installer.Management:Status.All')],
-  [TabStatus.Normal, () => t('Installer.Management:Status.Normal')],
-  [TabStatus.Alarm, () => t('Installer.Management:Status.Alarm')],
-  [TabStatus.Offline, () => t('Installer.Management:Status.Offline')],
-  [TabStatus.NotMonitored, () => t('Installer.Management:Status.Not.Monitored')]
+  [TabStatus.All, () => t('Status.All')],
+  [TabStatus.Normal, () => t('Status.Normal')],
+  [TabStatus.Alarm, () => t('Status.Alarm')],
+  [TabStatus.Offline, () => t('Status.Offline')],
+  [TabStatus.NotMonitored, () => t('Status.Not.Monitored')]
 ])

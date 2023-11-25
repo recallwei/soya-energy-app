@@ -13,7 +13,7 @@ import { globalEnvConfig } from '@/env'
 import i18n from '@/i18n'
 import { AuthUtils, ToastUtils } from '@/utils'
 
-const { t } = i18n
+const t = i18n.getFixedT(null, 'Global')
 class Request {
   instance: AxiosInstance
 
@@ -86,17 +86,17 @@ class Request {
       case ResponseStatusCode.UNAUTHORIZED:
         await AuthUtils.removeToken()
         console.error(errorMessage)
-        ToastUtils.error({ title: t('Global:Status.Code.401'), message: errorMessage })
+        ToastUtils.error({ title: t('Status.Code.401'), message: errorMessage })
         break
       case ResponseStatusCode.FORBIDDEN:
         console.error(errorMessage)
-        ToastUtils.error({ title: t('Global:Status.Code.403'), message: errorMessage })
+        ToastUtils.error({ title: t('Status.Code.403'), message: errorMessage })
         break
       case ResponseStatusCode.INTERNAL_SERVER_ERROR:
       case ResponseStatusCode.BAD_GATEWAY:
       case ResponseStatusCode.GATEWAY_TIMEOUT:
         console.error(errorMessage)
-        ToastUtils.error({ title: t('Global:Status.Code.500'), message: errorMessage })
+        ToastUtils.error({ title: t('Status.Code.500'), message: errorMessage })
         break
       case ResponseStatusCode.BAD_REQUEST:
       case ResponseStatusCode.NOT_FOUND:

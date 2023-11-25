@@ -17,10 +17,12 @@ interface Props {
   endRefresh: () => void
 }
 
+const tFunc = i18n.getFixedT(null, 'Installer.Management')
+
 const tabList = [
-  { text: () => i18n.t('Installer.Management:Plant'), value: ManagementTab.Plant },
-  { text: () => i18n.t('Installer.Management:Inverter'), value: ManagementTab.Inverter },
-  { text: () => i18n.t('Installer.Management:Battery'), value: ManagementTab.Battery }
+  { text: () => tFunc('Plant'), value: ManagementTab.Plant },
+  { text: () => tFunc('Inverter'), value: ManagementTab.Inverter },
+  { text: () => tFunc('Battery'), value: ManagementTab.Battery }
 ]
 
 export default function HeaderArea(props: Props) {

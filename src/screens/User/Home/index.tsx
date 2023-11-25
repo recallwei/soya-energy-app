@@ -1,15 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import { RefreshControl } from 'react-native'
-import { ScrollView, YStack } from 'tamagui'
+import { ScrollView, View, YStack } from 'tamagui'
 
 import { useRefresh, useSafeAreaPadding } from '@/hooks'
-import { useAuthStore } from '@/store'
 
 import { BatteryCard, HeaderArea, InputCard, OutputCard, TotalCard } from './components'
 
-export default function UserHomeScreen() {
-  const { insets } = useSafeAreaPadding()
-  const authStore = useAuthStore()
+export default function Screen() {
+  const { insetsWithoutBottom } = useSafeAreaPadding()
 
   const { refetch } = useQuery({
     queryKey: ['Status'],
@@ -24,32 +22,31 @@ export default function UserHomeScreen() {
   const { refreshing, onRefresh } = useRefresh(refetch)
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      contentContainerStyle={{
-        paddingTop: authStore.isUser() ? insets.paddingTop : undefined
-      }}
-    >
-      <YStack
-        padding="$4"
-        space="$2"
+    <View {...insetsWithoutBottom}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
       >
-        <HeaderArea />
+        <YStack
+          padding="$4"
+          space="$2"
+        >
+          <HeaderArea />
 
-        <TotalCard />
+          <TotalCard />
 
-        <InputCard />
+          <InputCard />
 
-        <OutputCard />
+          <OutputCard />
 
-        <BatteryCard />
-      </YStack>
-    </ScrollView>
+          <BatteryCard />
+        </YStack>
+      </ScrollView>
+    </View>
   )
 }

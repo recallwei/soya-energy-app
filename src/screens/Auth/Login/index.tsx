@@ -19,7 +19,7 @@ import { globalEnvConfig } from '@/env'
 import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
-import { AuthUtils, CodePushUtils, DeviceUtils, ToastUtils } from '@/utils'
+import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
 
 interface FormData {
   username: string
@@ -266,7 +266,7 @@ export default function Screen() {
         <Label
           onPress={() => {
             DevSettings.reload()
-            CodePushUtils.syncCode()
+            // CodePushUtils.syncCode()
           }}
           textAlign="center"
         >

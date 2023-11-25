@@ -1,23 +1,19 @@
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { ScrollView, YStack } from 'tamagui'
+import { ScrollView, View, YStack } from 'tamagui'
+
+import { useSafeAreaPadding } from '@/hooks'
 
 import { SolarArray } from './components'
 
-export default function ArrayScreen() {
-  const insets = useSafeAreaInsets()
+export default function Screen() {
+  const { insetsWithoutBottom } = useSafeAreaPadding()
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      minHeight="100%"
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
-    >
-      <YStack padding="$4">
-        <SolarArray />
-      </YStack>
-    </ScrollView>
+    <View {...insetsWithoutBottom}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <YStack padding="$4">
+          <SolarArray />
+        </YStack>
+      </ScrollView>
+    </View>
   )
 }

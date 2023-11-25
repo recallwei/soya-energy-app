@@ -3,6 +3,7 @@ appcenter
 baronha
 brucesong
 cocoapods
+codepush
 commitlint
 Gantt
 georstat
@@ -21,5 +22,6 @@ Raipiot
 Signup
 tamagui
 tanstack
+xcodeproj
 Zipcode
 Zustand

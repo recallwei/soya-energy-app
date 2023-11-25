@@ -6,7 +6,6 @@ import { Label, ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YSt
 
 import { Card } from '@/components'
 import { useRefresh, useSafeAreaPadding } from '@/hooks'
-import { useAuthStore } from '@/store'
 
 import { PieChartArea, StackChartArea } from './components'
 import { getMockPieChartData, getMockStackChartData } from './mock'
@@ -22,9 +21,8 @@ interface PieChartItem {
 
 type TimeTab = 'day' | 'month' | 'year' | 'lifetime'
 
-export default function StatisticsScreen() {
-  const { insets } = useSafeAreaPadding()
-  const authStore = useAuthStore()
+export default function Screen() {
+  const { insetsWithoutBottom } = useSafeAreaPadding()
 
   const [producedData, setProducedData] = useState<PieChartItem[]>([
     {
@@ -117,287 +115,285 @@ export default function StatisticsScreen() {
   }
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      contentContainerStyle={{
-        paddingTop: authStore.isUser() ? insets.paddingTop : undefined
-      }}
-    >
-      <YStack
-        padding="$4"
-        space="$3"
+    <View {...insetsWithoutBottom}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
       >
-        <ToggleGroup
-          alignSelf="center"
-          orientation="horizontal"
-          type="single"
-          size="$4"
-          disableDeactivation
-          value={currentTimeTab}
-          onValueChange={(value: TimeTab) => {
-            setCurrentTimeTab(value)
-          }}
+        <YStack
+          padding="$4"
+          space="$3"
         >
-          <ToggleGroup.Item
-            value="day"
-            width="auto"
+          <ToggleGroup
+            alignSelf="center"
+            orientation="horizontal"
+            type="single"
+            size="$4"
+            disableDeactivation
+            value={currentTimeTab}
+            onValueChange={(value: TimeTab) => {
+              setCurrentTimeTab(value)
+            }}
           >
-            <Text fontFamily="$body">Day</Text>
-          </ToggleGroup.Item>
-          <ToggleGroup.Item
-            value="month"
-            width="auto"
-          >
-            <Text fontFamily="$body">Month</Text>
-          </ToggleGroup.Item>
-          <ToggleGroup.Item
-            value="year"
-            width="auto"
-          >
-            <Text fontFamily="$body">Year</Text>
-          </ToggleGroup.Item>
-          <ToggleGroup.Item
-            value="lifetime"
-            width="auto"
-          >
-            <Text fontFamily="$body">Life Time</Text>
-          </ToggleGroup.Item>
-        </ToggleGroup>
-
-        <Label>Produced</Label>
-
-        <PieChartArea
-          data={producedData}
-          unit="kWh"
-        />
-
-        <Label>Consumed</Label>
-
-        <PieChartArea
-          data={consumedData}
-          unit="kWh"
-        />
-
-        <View
-          marginTop="$4"
-          height={150}
-        >
-          <StackChartArea data={stackChartData} />
-        </View>
-
-        <XStack
-          justifyContent="space-between"
-          alignItems="flex-start"
-        >
-          <YStack
-            justifyContent="center"
-            alignItems="center"
-            space="$2"
-          >
-            <Switch
-              size="$3"
-              backgroundColor="#dddddd"
-              checked={produced}
-              onCheckedChange={handleChangeProduced}
+            <ToggleGroup.Item
+              value="day"
+              width="auto"
             >
-              <Switch.Thumb
-                animation="quick"
-                backgroundColor="#0078d7"
-              />
-            </Switch>
-            <Label>Produced</Label>
-          </YStack>
+              <Text fontFamily="$body">Day</Text>
+            </ToggleGroup.Item>
+            <ToggleGroup.Item
+              value="month"
+              width="auto"
+            >
+              <Text fontFamily="$body">Month</Text>
+            </ToggleGroup.Item>
+            <ToggleGroup.Item
+              value="year"
+              width="auto"
+            >
+              <Text fontFamily="$body">Year</Text>
+            </ToggleGroup.Item>
+            <ToggleGroup.Item
+              value="lifetime"
+              width="auto"
+            >
+              <Text fontFamily="$body">Life Time</Text>
+            </ToggleGroup.Item>
+          </ToggleGroup>
 
-          <YStack
-            justifyContent="center"
-            alignItems="center"
-            space="$2"
+          <Label>Produced</Label>
+
+          <PieChartArea
+            data={producedData}
+            unit="kWh"
+          />
+
+          <Label>Consumed</Label>
+
+          <PieChartArea
+            data={consumedData}
+            unit="kWh"
+          />
+
+          <View
+            marginTop="$4"
+            height={150}
           >
-            <Switch
-              size="$3"
-              backgroundColor="#dddddd"
-              checked={consumed}
-              onCheckedChange={handleChangeConsumed}
-            >
-              <Switch.Thumb
-                animation="quick"
-                backgroundColor="#f59a23"
-              />
-            </Switch>
-            <Label>Consumed</Label>
-          </YStack>
+            <StackChartArea data={stackChartData} />
+          </View>
 
-          <YStack
-            justifyContent="center"
-            alignItems="center"
-            space="$2"
+          <XStack
+            justifyContent="space-between"
+            alignItems="flex-start"
           >
-            <Switch
-              size="$3"
-              backgroundColor="#dddddd"
-              checked={imported}
-              onCheckedChange={handleChangeImported}
-            >
-              <Switch.Thumb animation="quick" />
-            </Switch>
-            <Label>Imported/</Label>
-            <Label>Exported</Label>
-          </YStack>
-
-          <YStack
-            justifyContent="center"
-            alignItems="center"
-            space="$2"
-          >
-            <Switch
-              size="$3"
-              backgroundColor="#dddddd"
-              checked={charged}
-              onCheckedChange={handleChangeCharged}
-            >
-              <Switch.Thumb animation="quick" />
-            </Switch>
-            <Label>Charged/</Label>
-            <Label>Discharged</Label>
-          </YStack>
-        </XStack>
-
-        <Label>Performance</Label>
-
-        <Card>
-          <YStack gap="$4">
-            <XStack>
-              <Label>Energy Independence: </Label>
-              <Label color="green">89%</Label>
-            </XStack>
-            <Slider
-              defaultValue={[80]}
-              max={100}
-              step={1}
-              size="$2"
-              backgroundColor="#dddddd"
-            >
-              <Slider.Track backgroundColor="#dddddd">
-                <Slider.TrackActive backgroundColor="green" />
-              </Slider.Track>
-              <Slider.Thumb
-                index={0}
-                circular
-                elevate
-                backgroundColor="green"
-                borderColor="#dfdfdf"
-                borderWidth={6}
-              />
-            </Slider>
-            <Label marginTop="$2">Measures your independence from the utility grid</Label>
-          </YStack>
-        </Card>
-
-        <Card>
-          <YStack gap="$4">
-            <XStack>
-              <Label fontWeight="500">Currency Equivalent</Label>
-            </XStack>
-
-            <XStack
+            <YStack
               justifyContent="center"
               alignItems="center"
-              gap="$10"
+              space="$2"
             >
-              <YStack
-                justifyContent="center"
-                alignItems="center"
-                gap="$1"
+              <Switch
+                size="$3"
+                backgroundColor="#dddddd"
+                checked={produced}
+                onCheckedChange={handleChangeProduced}
               >
-                <Label
-                  color="#0078d7"
-                  fontWeight="600"
-                >
-                  10.0 kWh
-                </Label>
-                <Label>Net Exported</Label>
-              </YStack>
-              <Label>=</Label>
-              <YStack
-                justifyContent="center"
-                alignItems="center"
-                gap="$1"
-              >
-                <Label color="#333333">$ 9.0</Label>
-                <Label>Equivalent</Label>
-              </YStack>
-            </XStack>
-          </YStack>
-        </Card>
+                <Switch.Thumb
+                  animation="quick"
+                  backgroundColor="#0078d7"
+                />
+              </Switch>
+              <Label>Produced</Label>
+            </YStack>
 
-        <Card>
-          <YStack gap="$4">
-            <XStack>
-              <Label>Environmental Impact</Label>
-            </XStack>
-
-            <XStack
+            <YStack
               justifyContent="center"
               alignItems="center"
+              space="$2"
             >
-              <YStack
-                justifyContent="center"
-                alignItems="center"
-                gap="$1"
-                width="50%"
+              <Switch
+                size="$3"
+                backgroundColor="#dddddd"
+                checked={consumed}
+                onCheckedChange={handleChangeConsumed}
               >
-                <Label color="#0078d7">35.9 kWh</Label>
-                <Label>Equivalent</Label>
-              </YStack>
-              <YStack
-                justifyContent="center"
-                alignItems="center"
-                gap="$1"
-                width="50%"
-              >
-                <Label>CO₂ Reduction</Label>
-                <Label color="#333333">26.0 KG</Label>
-              </YStack>
-            </XStack>
-          </YStack>
-        </Card>
+                <Switch.Thumb
+                  animation="quick"
+                  backgroundColor="#f59a23"
+                />
+              </Switch>
+              <Label>Consumed</Label>
+            </YStack>
 
-        <Card>
-          <YStack gap="$4">
-            <XStack>
-              <Label>Net Exported</Label>
-            </XStack>
-
-            <XStack
-              justifyContent="flex-start"
+            <YStack
+              justifyContent="center"
               alignItems="center"
-              gap="$13"
+              space="$2"
             >
-              <YStack
+              <Switch
+                size="$3"
+                backgroundColor="#dddddd"
+                checked={imported}
+                onCheckedChange={handleChangeImported}
+              >
+                <Switch.Thumb animation="quick" />
+              </Switch>
+              <Label>Imported/</Label>
+              <Label>Exported</Label>
+            </YStack>
+
+            <YStack
+              justifyContent="center"
+              alignItems="center"
+              space="$2"
+            >
+              <Switch
+                size="$3"
+                backgroundColor="#dddddd"
+                checked={charged}
+                onCheckedChange={handleChangeCharged}
+              >
+                <Switch.Thumb animation="quick" />
+              </Switch>
+              <Label>Charged/</Label>
+              <Label>Discharged</Label>
+            </YStack>
+          </XStack>
+
+          <Label>Performance</Label>
+
+          <Card>
+            <YStack gap="$4">
+              <XStack>
+                <Label>Energy Independence: </Label>
+                <Label color="green">89%</Label>
+              </XStack>
+              <Slider
+                defaultValue={[80]}
+                max={100}
+                step={1}
+                size="$2"
+                backgroundColor="#dddddd"
+              >
+                <Slider.Track backgroundColor="#dddddd">
+                  <Slider.TrackActive backgroundColor="green" />
+                </Slider.Track>
+                <Slider.Thumb
+                  index={0}
+                  circular
+                  elevate
+                  backgroundColor="green"
+                  borderColor="#dfdfdf"
+                  borderWidth={6}
+                />
+              </Slider>
+              <Label marginTop="$2">Measures your independence from the utility grid</Label>
+            </YStack>
+          </Card>
+
+          <Card>
+            <YStack gap="$4">
+              <XStack>
+                <Label fontWeight="500">Currency Equivalent</Label>
+              </XStack>
+
+              <XStack
                 justifyContent="center"
                 alignItems="center"
-                gap="$1"
-                width="50%"
+                gap="$10"
               >
-                <Label
-                  color="#0078d7"
-                  fontWeight="600"
+                <YStack
+                  justifyContent="center"
+                  alignItems="center"
+                  gap="$1"
                 >
-                  10.0 kWh
-                </Label>
+                  <Label
+                    color="#0078d7"
+                    fontWeight="600"
+                  >
+                    10.0 kWh
+                  </Label>
+                  <Label>Net Exported</Label>
+                </YStack>
+                <Label>=</Label>
+                <YStack
+                  justifyContent="center"
+                  alignItems="center"
+                  gap="$1"
+                >
+                  <Label color="#333333">$ 9.0</Label>
+                  <Label>Equivalent</Label>
+                </YStack>
+              </XStack>
+            </YStack>
+          </Card>
+
+          <Card>
+            <YStack gap="$4">
+              <XStack>
+                <Label>Environmental Impact</Label>
+              </XStack>
+
+              <XStack
+                justifyContent="center"
+                alignItems="center"
+              >
+                <YStack
+                  justifyContent="center"
+                  alignItems="center"
+                  gap="$1"
+                  width="50%"
+                >
+                  <Label color="#0078d7">35.9 kWh</Label>
+                  <Label>Equivalent</Label>
+                </YStack>
+                <YStack
+                  justifyContent="center"
+                  alignItems="center"
+                  gap="$1"
+                  width="50%"
+                >
+                  <Label>CO₂ Reduction</Label>
+                  <Label color="#333333">26.0 KG</Label>
+                </YStack>
+              </XStack>
+            </YStack>
+          </Card>
+
+          <Card>
+            <YStack gap="$4">
+              <XStack>
                 <Label>Net Exported</Label>
-              </YStack>
-            </XStack>
-          </YStack>
-        </Card>
-      </YStack>
-    </ScrollView>
+              </XStack>
+
+              <XStack
+                justifyContent="flex-start"
+                alignItems="center"
+                gap="$13"
+              >
+                <YStack
+                  justifyContent="center"
+                  alignItems="center"
+                  gap="$1"
+                  width="50%"
+                >
+                  <Label
+                    color="#0078d7"
+                    fontWeight="600"
+                  >
+                    10.0 kWh
+                  </Label>
+                  <Label>Net Exported</Label>
+                </YStack>
+              </XStack>
+            </YStack>
+          </Card>
+        </YStack>
+      </ScrollView>
+    </View>
   )
 }

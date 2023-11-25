@@ -1,26 +1,27 @@
 {
   "Add": "添加",
+  "Alert.Default.Title.Error": "错误",
+  "Alert.Default.Title.Loading": "加载中",
+  "Alert.Default.Title.Success": "成功",
+  "Alert.Default.Title.Warning": "警告",
   "Cancel": "取消",
-  "Confirm.Dialog.Default": {
-    "CancelText": "取消",
-    "ConfirmText": "确定",
-    "Description": "确定执行此操作吗？",
-    "Title": "提示"
-  },
+  "Choose.File": "选择文件",
+  "Confirm": "确认",
+  "Confirm.Dialog.Default.CancelText": "取消",
+  "Confirm.Dialog.Default.ConfirmText": "确定",
+  "Confirm.Dialog.Default.Description": "确定执行此操作吗？",
+  "Confirm.Dialog.Default.Title": "提示",
+  "Max": "最大值",
+  "Min": "最小值",
+  "N": "否",
   "No.Data": "暂无数据",
+  "Others": "其他",
+  "Reset": "重置",
   "Still.In.Development": "功能正在开发中...",
   "Submit": "提交",
-  "Toast.Default.Title": {
-    "Error": "错误",
-    "Loading": "加载中",
-    "Success": "成功",
-    "Warning": "警告"
-  },
-  "Choose.File": "选择文件",
-  "Y": "是",
-  "N": "否",
-  "Min": "最小值",
-  "Max": "最大值",
-  "Reset": "重置",
-  "Confirm": "确认"
+  "Toast.Default.Title.Error": "错误",
+  "Toast.Default.Title.Loading": "加载中",
+  "Toast.Default.Title.Success": "成功",
+  "Toast.Default.Title.Warning": "警告",
+  "Y": "是"
 }
