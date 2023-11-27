@@ -14,26 +14,16 @@ import { enableMapSet } from 'immer'
 import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { Appearance, AppState, Platform } from 'react-native'
-import CodePush from 'react-native-code-push'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
 import config from '../tamagui.config'
 import type { UserRole } from './enums'
-import { globalEnvConfig } from './env'
 import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useAuthStore, useLangStore, useThemeStore } from './store'
 import { AuthUtils, LangUtils, LoggerUtils, ThemeUtils } from './utils'
-
-Sentry.init({
-  dsn: globalEnvConfig.SENTRY_DSN,
-  release: globalEnvConfig.APP_VERSION,
-  dist: globalEnvConfig.VERSION_CODE,
-  environment: globalEnvConfig.APP_ENVIRONMENT,
-  tracesSampleRate: 1.0
-})
 
 enableMapSet()
 
@@ -74,8 +64,6 @@ function App() {
   const langStore = useLangStore()
   const authStore = useAuthStore()
 
-  useCodePush()
-
   useAsyncEffect(async () => {
     langStore.setLang(await LangUtils.getDefaultLang())
     useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
@@ -92,8 +80,6 @@ function App() {
     if (role) {
       authStore.setUserRole(role as UserRole)
     }
-    authStore.loaded()
-    Sentry.captureException(new Error('Custom error'))
   }, [])
 
   useEffect(() => {
@@ -119,6 +105,8 @@ function App() {
     }
   }, [])
 
+  useCodePush()
+
   return (
     <QueryClientProvider client={queryClient}>
       <TamaguiProvider
@@ -134,8 +122,6 @@ function App() {
   )
 }
 
-const AppWithCodePush = CodePush({
-  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME
-})(Sentry.wrap(App))
+const AppWithCodePush = Sentry.wrap(App)
 
 export default AppWithCodePush

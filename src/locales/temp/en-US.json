@@ -24,5 +24,9 @@
   "WebView.Demo": {
     "Description": "WebView Demo for events page",
     "Title": "WebView Demo"
+  },
+  "Manual.Update": {
+    "Description": "A method to update app version manually",
+    "Title": "Manual Update Version"
   }
 }

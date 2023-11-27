@@ -76,7 +76,7 @@ android {
 
   namespace "com.SoyaEnergyApp"
   defaultConfig {
-    applicationId "com.soya.energy.app"
+    applicationId "com.soya.energy"
     minSdkVersion rootProject.ext.minSdkVersion
     targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
@@ -91,6 +91,12 @@ android {
       keyPassword 'android'
     }
     staging {
+      if (project.hasProperty('SOYA_ENERGY_TEST_STORE_FILE')) {
+        storeFile file(SOYA_ENERGY_TEST_STORE_FILE)
+        storePassword SOYA_ENERGY_TEST_STORE_PASSWORD
+        keyAlias SOYA_ENERGY_TEST_KEY_ALIAS
+        keyPassword SOYA_ENERGY_TEST_KEY_PASSWORD
+      }
     }
     release {
       if (project.hasProperty('SOYA_ENERGY_TEST_STORE_FILE')) {
@@ -100,21 +106,23 @@ android {
         keyPassword SOYA_ENERGY_TEST_KEY_PASSWORD
       }
     }
-
   }
   buildTypes {
     debug {
       signingConfig signingConfigs.debug
-      resValue "string", "CodePushDeploymentKey", ''
-      versionCode 1
-      versionName "1.0"
-      applicationId "com.soya.energy.app.debug"
+      resValue "string", "CodePushDeploymentKey", '""'
     }
     staging {
+      initWith release
+      matchingFallbacks.add("release")
+      signingConfig signingConfigs.staging
+      minifyEnabled enableProguardInReleaseBuilds
+      proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
       resValue "string", "CodePushDeploymentKey", '"N3Pwz8vakGYcbNhsdksLbDkXXD_TfiVmbA-05"'
-      versionCode 1
-      versionName "1.0"
-      applicationId "com.soya.energy.app.staging"
+      debuggable false
+      defaultConfig.versionCode 1
+      defaultConfig.versionName "1.0"
+      applicationIdSuffix ".staging"
     }
     release {
       // Caution! In production, you need to generate your own keystore file.
@@ -122,6 +130,7 @@ android {
       signingConfig signingConfigs.release
       minifyEnabled enableProguardInReleaseBuilds
       proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+      debuggable false
       resValue "string", "CodePushDeploymentKey", '"ZfncbyT5Dxul9EJeHEBlPHSHq6AcraeS0se9r"'
     }
   }

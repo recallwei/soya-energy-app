@@ -19,7 +19,7 @@ import { globalEnvConfig } from '@/env'
 import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
-import { AuthUtils, CodePushUtils, DeviceUtils, ToastUtils } from '@/utils'
+import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
 
 interface FormData {
   username: string
@@ -121,155 +121,159 @@ export default function Screen() {
   }
 
   return (
-    <YStack
-      height="100%"
-      minWidth={300}
-      paddingHorizontal="$6"
-      alignItems="center"
-      space="$4"
-      paddingTop={insets.paddingTop}
-      paddingBottom={insets.paddingBottom}
-    >
+    <>
       <YStack
-        alignItems="center"
-        marginBottom="$3"
-        paddingTop="$12"
+        position="absolute"
+        left={0}
+        right={0}
+        top={0}
+        bottom={0}
+        paddingHorizontal="$6"
+        justifyContent="center"
+        space="$4"
+        marginBottom="28%"
       >
-        <Image
-          source={{
-            uri: themeStore.isDark()
-              ? require('../../../../assets/images/soya-logo-dark.png')
-              : require('../../../../assets/images/soya-logo-light.png'),
-            cache: 'force-cache'
-          }}
-          width={DeviceUtils.SCREEN_WIDTH * 0.618}
-          height={110}
-          resizeMode="contain"
-        />
-      </YStack>
-      <Controller
-        name="username"
-        control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <XStack
-            width="100%"
-            position="relative"
-          >
-            <Input
+        <YStack
+          alignItems="center"
+          marginBottom="$3"
+        >
+          <Image
+            source={{
+              uri: themeStore.isDark()
+                ? require('../../../../assets/images/soya-logo-dark.png')
+                : require('../../../../assets/images/soya-logo-light.png'),
+              cache: 'force-cache'
+            }}
+            width={DeviceUtils.SCREEN_WIDTH * 0.618}
+            height={110}
+            resizeMode="contain"
+          />
+        </YStack>
+        <Controller
+          name="username"
+          control={control}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <XStack
               width="100%"
-              maxLength={20}
-              paddingLeft="$7"
-              placeholder={t('Account.Placeholder')}
-              autoCapitalize="none"
-              value={value}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              disabled={isLoading}
-              clearButtonMode="never"
-              borderColor={errors.username ? 'red' : undefined}
-            />
-            <View
-              position="absolute"
-              left="$3"
-              alignSelf="center"
-              theme="alt2"
+              position="relative"
             >
-              <User2 size="$1" />
-            </View>
-          </XStack>
-        )}
-      />
-
-      <Controller
-        name="password"
-        control={control}
-        rules={{
-          required: true,
-          min: 6,
-          max: 20
-        }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <XStack
-            width="100%"
-            position="relative"
-          >
-            <Input
-              width="100%"
-              maxLength={20}
-              paddingHorizontal="$7"
-              placeholder={t('Password.Placeholder')}
-              autoCapitalize="none"
-              value={value}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              secureTextEntry={!showPassword}
-              disabled={isLoading}
-              clearButtonMode="never"
-              borderColor={errors.password ? 'red' : undefined}
-            />
-            <View
-              position="absolute"
-              left="$3"
-              alignSelf="center"
-              theme="alt2"
-            >
-              <Lock size="$1" />
-            </View>
-            {value.length > 0 && (
+              <Input
+                width="100%"
+                maxLength={20}
+                paddingLeft="$7"
+                placeholder={t('Account.Placeholder')}
+                autoCapitalize="none"
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                disabled={isLoading}
+                clearButtonMode="never"
+                borderColor={errors.username ? 'red' : undefined}
+              />
               <View
                 position="absolute"
-                right="$3"
+                left="$3"
                 alignSelf="center"
                 theme="alt2"
-                onPress={() => setShowPassword((prev) => !prev)}
               >
-                {showPassword ? <EyeOff size="$1" /> : <Eye size="$1" />}
+                <User2 size="$1" />
               </View>
-            )}
-          </XStack>
-        )}
-      />
+            </XStack>
+          )}
+        />
 
-      <Checkbox
-        width="100%"
-        label={t('Remember.Password')}
-        disabled={isLoading}
-        checked={rememberPassword}
-        onCheckedChange={(checked: boolean) => {
-          setRememberPassword(checked)
-        }}
-      />
-      <Button
-        width="100%"
-        onPress={handleSubmit(handleLogin, handleSubmitError)}
-        disabled={isLoading}
-        icon={isLoading ? <Spinner /> : undefined}
-      >
-        {t('Login')}
-      </Button>
-      <XStack
-        justifyContent="space-between"
-        width="100%"
-      >
-        <TouchableOpacity onPress={() => navigation.navigate('Auth.Forgot_Password')}>
-          <SizableText>{t('Forgot.Password')}</SizableText>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Auth.SignUp.SelectRole')}>
-          <SizableText>{t('Signup')}</SizableText>
-        </TouchableOpacity>
-      </XStack>
+        <Controller
+          name="password"
+          control={control}
+          rules={{
+            required: true,
+            min: 6,
+            max: 20
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <XStack
+              width="100%"
+              position="relative"
+            >
+              <Input
+                width="100%"
+                maxLength={20}
+                paddingHorizontal="$7"
+                placeholder={t('Password.Placeholder')}
+                autoCapitalize="none"
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                secureTextEntry={!showPassword}
+                disabled={isLoading}
+                clearButtonMode="never"
+                borderColor={errors.password ? 'red' : undefined}
+              />
+              <View
+                position="absolute"
+                left="$3"
+                alignSelf="center"
+                theme="alt2"
+              >
+                <Lock size="$1" />
+              </View>
+              {value.length > 0 && (
+                <View
+                  position="absolute"
+                  right="$3"
+                  alignSelf="center"
+                  theme="alt2"
+                  onPress={() => setShowPassword((prev) => !prev)}
+                >
+                  {showPassword ? <EyeOff size="$1" /> : <Eye size="$1" />}
+                </View>
+              )}
+            </XStack>
+          )}
+        />
 
-      <View
-        position="absolute"
-        bottom={insets.paddingBottom}
-      >
-        <Label
-          onPress={() => CodePushUtils.syncCode()}
-          textAlign="center"
+        <Checkbox
+          width="100%"
+          label={t('Remember.Password')}
+          disabled={isLoading}
+          checked={rememberPassword}
+          onCheckedChange={(checked: boolean) => {
+            setRememberPassword(checked)
+          }}
+        />
+        <Button
+          width="100%"
+          onPress={handleSubmit(handleLogin, handleSubmitError)}
+          disabled={isLoading}
+          icon={isLoading ? <Spinner /> : undefined}
         >
-          {`${globalEnvConfig.APP_ENVIRONMENT} - v${globalEnvConfig.APP_VERSION}.${globalEnvConfig.VERSION_CODE}`}
-        </Label>
-      </View>
-    </YStack>
+          {t('Login')}
+        </Button>
+        <XStack
+          justifyContent="space-between"
+          width="100%"
+        >
+          <TouchableOpacity onPress={() => navigation.navigate('Auth.Forgot_Password')}>
+            <SizableText>{t('Forgot.Password')}</SizableText>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Auth.SignUp.SelectRole')}>
+            <SizableText>{t('Signup')}</SizableText>
+          </TouchableOpacity>
+        </XStack>
+      </YStack>
+
+      {authStore.packageMetadata && (
+        <YStack
+          position="absolute"
+          left={0}
+          right={0}
+          bottom={insets.paddingBottom}
+        >
+          <Label textAlign="center">
+            {`${globalEnvConfig.APP_ENVIRONMENT} - ${authStore.packageMetadata.appVersion}.${authStore.packageMetadata.label}`}
+          </Label>
+        </YStack>
+      )}
+    </>
   )
 }

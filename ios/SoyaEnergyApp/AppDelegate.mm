@@ -2,6 +2,9 @@
 
 #import <React/RCTBundleURLProvider.h>
 
+// Image Cache limit
+// #import <React/RCTImageCache.h>
+
 // App Center
 #import <AppCenterReactNativeShared/AppCenterReactNativeShared.h>
 #import <AppCenterReactNative.h>
@@ -10,6 +13,7 @@
 
 // Code Push
 #import <CodePush/CodePush.h>
+
 
 @implementation AppDelegate
 
@@ -26,6 +30,10 @@
   [AppCenterReactNative register];
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
+
+  // Image Cache limits
+  // https://github.com/facebook/react-native-website/issues/3927
+  // RTCSetImageCacheLimits(4 * 1024 * 1024, 200 * 1024 * 1024);
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

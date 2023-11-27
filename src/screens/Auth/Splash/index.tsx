@@ -1,38 +1,13 @@
-import { useEffect, useState } from 'react'
 import { Image, Progress, Spinner, YStack } from 'tamagui'
 
 import { useSafeAreaPadding } from '@/hooks'
-import { useThemeStore } from '@/store'
+import { useAuthStore, useThemeStore } from '@/store'
 import { DeviceUtils } from '@/utils'
 
 export default function Screen() {
   const themeStore = useThemeStore()
+  const authStore = useAuthStore()
   const { insets } = useSafeAreaPadding()
-
-  const [percent, setPercent] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setPercent((prevPercent) => {
-        if (prevPercent === 100) {
-          clearInterval(timer)
-          return prevPercent
-        }
-
-        return prevPercent + 2
-      })
-    }, 100)
-
-    const timeout = setTimeout(() => {
-      setPercent(100)
-      clearInterval(timer)
-    }, 1200)
-
-    return () => {
-      clearInterval(timer)
-      clearTimeout(timeout)
-    }
-  }, [])
 
   return (
     <YStack
@@ -45,6 +20,7 @@ export default function Screen() {
       left={0}
       right={0}
       {...insets}
+      marginBottom="28%"
     >
       <Image
         source={{
@@ -63,11 +39,11 @@ export default function Screen() {
       />
       <Progress
         size="$2"
-        value={percent}
+        value={authStore.downloadProgress}
         width={DeviceUtils.SCREEN_WIDTH * 0.8}
         alignSelf="center"
-        marginTop="$7"
-        marginBottom="$11"
+        marginTop="$4"
+        opacity={authStore.downloadProgress > 0 ? 1 : 0}
       >
         <Progress.Indicator animation="bouncy" />
       </Progress>

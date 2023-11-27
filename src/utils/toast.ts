@@ -27,6 +27,6 @@ export class ToastUtils {
 
   static loading(options?: ToastOptions) {
     const { title = t('Toast.Default.Title.Loading'), message = '' } = options ?? {}
-    toast({ title, message, haptic: 'none', preset: 'spinner' })
+    toast({ title, message, haptic: 'success', preset: 'spinner' })
   }
 }

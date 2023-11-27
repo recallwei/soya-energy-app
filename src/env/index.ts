@@ -7,6 +7,9 @@ class GlobalEnvConfig {
 
   readonly BASE_API_URL: string
 
+  /**
+   * Sentry DSN
+   */
   readonly SENTRY_DSN: string =
     'https://07b30ab33244299a26950641569b63f9:c8db5b8af6c0cb9bd386c2ebc95ebb14@o4506115253993472.ingest.sentry.io/450611525556633'
 
@@ -22,7 +25,7 @@ class GlobalEnvConfig {
         this.APP_ENVIRONMENT = 'STAGING'
         this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-app'
         this.APP_VERSION = '1.0'
-        this.VERSION_CODE = '8'
+        this.VERSION_CODE = '1'
         break
       case 'DEV':
       default:
