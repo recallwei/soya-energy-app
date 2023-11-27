@@ -6,6 +6,7 @@ import { Label, ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YSt
 
 import { Card } from '@/components'
 import { useRefresh, useSafeAreaPadding } from '@/hooks'
+import { useAuthStore } from '@/store'
 
 import { PieChartArea, StackChartArea } from './components'
 import { getMockPieChartData, getMockStackChartData } from './mock'
@@ -23,6 +24,7 @@ type TimeTab = 'day' | 'month' | 'year' | 'lifetime'
 
 export default function Screen() {
   const { insetsWithoutBottom } = useSafeAreaPadding()
+  const authStore = useAuthStore()
 
   const [producedData, setProducedData] = useState<PieChartItem[]>([
     {
@@ -115,7 +117,7 @@ export default function Screen() {
   }
 
   return (
-    <View {...insetsWithoutBottom}>
+    <View {...(authStore.isUser() && insetsWithoutBottom)}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         refreshControl={

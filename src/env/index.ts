@@ -1,8 +1,4 @@
 class GlobalEnvConfig {
-  readonly APP_VERSION: string
-
-  readonly VERSION_CODE: string
-
   readonly APP_ENVIRONMENT: 'DEV' | 'STAGING' | 'PROD'
 
   readonly BASE_API_URL: string
@@ -18,21 +14,15 @@ class GlobalEnvConfig {
       case 'PROD':
         this.APP_ENVIRONMENT = 'PROD'
         this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-app'
-        this.APP_VERSION = '1.0'
-        this.VERSION_CODE = '1'
         break
       case 'STAGING':
         this.APP_ENVIRONMENT = 'STAGING'
         this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-app'
-        this.APP_VERSION = '1.0'
-        this.VERSION_CODE = '1'
         break
       case 'DEV':
       default:
         this.APP_ENVIRONMENT = 'DEV'
         this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-app'
-        this.APP_VERSION = '1.0'
-        this.VERSION_CODE = '1'
         break
     }
   }

@@ -1,6 +1,6 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
-import { Circle, MapPin } from '@tamagui/lucide-icons'
+import { Circle, Component, MapPin } from '@tamagui/lucide-icons'
 import { useAsyncEffect } from 'ahooks'
 import React, { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -68,11 +68,15 @@ const CardContent = memo(({ data, currentTab }: { data: Plant; currentTab: Manag
     case ManagementTab.Plant:
       return (
         <YStack space="$1">
-          <XStack>
+          <XStack alignItems="center">
             <StatusBadge {...data} />
           </XStack>
-          <XStack>
-            <SizableText>{data.siteName}</SizableText>
+          <XStack
+            alignItems="center"
+            space="$2"
+          >
+            <Component size={16} />
+            <SizableText fontWeight="$bold">{data.siteName}</SizableText>
           </XStack>
           <XStack
             alignItems="center"
@@ -150,7 +154,19 @@ export default function ScrollList(props: Props) {
   const { navigate } = useNavigation()
 
   const handleClickCard = (id: string) => {
-    navigate('User.Tabs', { screen: 'User.Home', params: { id } })
+    switch (props.currentTab) {
+      case ManagementTab.Plant:
+        navigate('User.Tabs', { screen: 'User.Home', params: { id } })
+        break
+      case ManagementTab.Inverter:
+        navigate('User.Devices.Invertor_Detail', { id })
+        break
+      case ManagementTab.Battery:
+        navigate('User.Devices.Battery_Detail', { id })
+        break
+      default:
+        break
+    }
   }
   return (
     <ScrollView

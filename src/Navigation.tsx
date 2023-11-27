@@ -63,6 +63,8 @@ import {
   SystemReportsScreen,
   SystemScreen,
   SystemSiteDetailsScreen,
+  UserDevicesBatteryDetailScreen,
+  UserDevicesInvertorDetailScreen,
   WebViewDemoScreen
 } from '@/screens'
 import { useAuthStore, useTabsStore, useThemeStore } from '@/store'
@@ -244,6 +246,17 @@ export default function Navigation() {
                   name="Common.My.Settings.System_Units"
                   component={CommonMySettingsSystemUnitsScreen}
                   options={{ title: t('Common.My.Settings.System.Units') }}
+                />
+
+                <Stack.Screen
+                  name="User.Devices.Invertor_Detail"
+                  component={UserDevicesInvertorDetailScreen}
+                  options={{ title: t('User.Devices.Inverter.Detail') }}
+                />
+                <Stack.Screen
+                  name="User.Devices.Battery_Detail"
+                  component={UserDevicesBatteryDetailScreen}
+                  options={{ title: t('User.Devices.Battery.Detail') }}
                 />
 
                 <Stack.Screen

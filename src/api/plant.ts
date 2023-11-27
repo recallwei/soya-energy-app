@@ -23,7 +23,7 @@ export class PlantAPI {
                 siteCapacity: '5.0',
                 siteCode: 'siteCode',
                 siteGridType: 'siteGridType',
-                siteName: 'siteName',
+                siteName: '荷兰阿姆斯特丹测试样机',
                 siteNetType: 'siteNetType',
                 siteType: 'siteType',
                 siteUrl: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
@@ -37,7 +37,7 @@ export class PlantAPI {
                 siteCapacity: '55',
                 siteCode: 'siteCode',
                 siteGridType: 'siteGridType',
-                siteName: 'siteName',
+                siteName: '苏州工业园区测试样机',
                 siteNetType: 'siteNetType',
                 siteType: 'siteType',
                 siteUrl: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
@@ -45,6 +45,20 @@ export class PlantAPI {
                 currentPower: '1.0',
                 productionToday: '1.0',
                 sitePosition: 'Netherlands'
+              },
+              {
+                id: '123',
+                siteCapacity: '5.0',
+                siteCode: 'siteCode',
+                siteGridType: 'siteGridType',
+                siteName: '德国法兰克福测试样机',
+                siteNetType: 'siteNetType',
+                siteType: 'siteType',
+                siteUrl: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
+                status: '1',
+                currentPower: '1.0',
+                productionToday: '1.0',
+                sitePosition: 'German'
               }
             ]
           }

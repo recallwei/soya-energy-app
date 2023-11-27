@@ -106,7 +106,7 @@ export default function List() {
     shadowRadius: 4,
     shadowOpacity: 0.05,
     paddingVertical: '$0.5',
-    paddingHorizontal: '$1.5',
+    paddingHorizontal: '$2',
     borderRadius: '$1'
   })
 
@@ -120,7 +120,7 @@ export default function List() {
       renderItem={({ item }) => (
         <Card key={item.id}>
           <YStack
-            space="$3"
+            space="$2"
             width="100%"
           >
             <XStack
@@ -167,7 +167,12 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize={10}>{t('Total')}</SizableText>
+                    <SizableText
+                      lineHeight={16}
+                      fontSize={10}
+                    >
+                      {t('Total')}
+                    </SizableText>
                   </StatisticCard>
                   <StatisticCard>
                     <SizableText
@@ -176,7 +181,12 @@ export default function List() {
                     >
                       {item.total}%
                     </SizableText>
-                    <SizableText fontSize={10}>{t('Normal.Running.Rate')}</SizableText>
+                    <SizableText
+                      lineHeight={16}
+                      fontSize={10}
+                    >
+                      {t('Normal.Running.Rate')}
+                    </SizableText>
                   </StatisticCard>
                 </XStack>
                 <XStack
@@ -190,7 +200,12 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize={10}>{t('Normal')}</SizableText>
+                    <SizableText
+                      lineHeight={16}
+                      fontSize={10}
+                    >
+                      {t('Normal')}
+                    </SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="green"
@@ -207,7 +222,12 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize={10}>{t('Alarm')}</SizableText>
+                    <SizableText
+                      lineHeight={16}
+                      fontSize={10}
+                    >
+                      {t('Alarm')}
+                    </SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="red"
@@ -229,7 +249,12 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize={10}>{t('Offline')}</SizableText>
+                    <SizableText
+                      lineHeight={16}
+                      fontSize={10}
+                    >
+                      {t('Offline')}
+                    </SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="gray"
@@ -246,7 +271,12 @@ export default function List() {
                     >
                       {item.total}
                     </SizableText>
-                    <SizableText fontSize={10}>{t('Not.Monitored')}</SizableText>
+                    <SizableText
+                      lineHeight={16}
+                      fontSize={10}
+                    >
+                      {t('Not.Monitored')}
+                    </SizableText>
                     <Circle
                       size="$0.75"
                       backgroundColor="orange"

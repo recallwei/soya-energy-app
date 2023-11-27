@@ -38,6 +38,17 @@ export { default as UserHomeScreen } from './User/Home'
 export { default as UserMyScreen } from './User/My'
 export { default as UserStatisticsScreen } from './User/Statistics'
 
+// Device
+export { default as UserDevicesBatteryDetailScreen } from './User/Devices/BatteryDetail'
+export { default as UserDevicesInvertorDetailScreen } from './User/Devices/InverterDetail'
+
+// ------ Temp screens ------
+export { default as DemoScreen } from './Temp/Demo'
+export { default as DevMenuScreen } from './Temp/DevMenu'
+export { default as ImageCacheTestScreen } from './Temp/ImageCacheTest'
+export { default as ImagePicker } from './Temp/ImagePicker'
+export { default as WebViewDemoScreen } from './Temp/WebView'
+
 // Status
 export { default as LiveStatusScreen } from './User/Home/LiveStatus'
 // Menu
@@ -83,10 +94,3 @@ export { default as SettingsLoadControlScreen } from './User/My/Settings/LoadCon
 export { default as SettingsPerformanceScreen } from './User/My/Settings/Performance'
 export { default as SettingsPerformanceCurrencyScreen } from './User/My/Settings/Performance/Currency'
 export { default as SettingsPerformanceEnergyScreen } from './User/My/Settings/Performance/Energy'
-
-// Temp
-export { default as DemoScreen } from './Temp/Demo'
-export { default as DevMenuScreen } from './Temp/DevMenu'
-export { default as ImageCacheTestScreen } from './Temp/ImageCacheTest'
-export { default as ImagePicker } from './Temp/ImagePicker'
-export { default as WebViewDemoScreen } from './Temp/WebView'

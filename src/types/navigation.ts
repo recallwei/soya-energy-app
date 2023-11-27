@@ -48,11 +48,17 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.My.Settings.Personal_Info']: undefined
     ['Common.My.Settings.System_Units']: undefined
 
-    // Installer
-    ['Installer.Home']: undefined
-    ['Installer.Management']: undefined
-    ['Installer.Services']: undefined
-    ['Installer.Guide']: undefined
+    // User
+    ['User.Devices']: undefined
+    ['User.Devices.Invertor_Detail']: { id: string } | undefined
+    ['User.Devices.Battery_Detail']: { id: string } | undefined
+
+    // Temp
+    ['Temp.Dev_Menu']: undefined
+    ['Temp.Demo']: undefined
+    ['Temp.WebView_Demo']: undefined
+    ['Temp.Image_Cache_Test']: undefined
+    ['Temp.Image_Picker']: undefined
 
     LiveStatus: undefined
     // Menu
@@ -101,13 +107,6 @@ export type RootStackParamList = InstallerTabParamList &
     SettingsPerformance: undefined
     SettingsPerformanceEnergy: undefined
     SettingsPerformanceCurrency: undefined
-
-    // Temp
-    ['Temp.Dev_Menu']: undefined
-    ['Temp.Demo']: undefined
-    ['Temp.WebView_Demo']: undefined
-    ['Temp.Image_Cache_Test']: undefined
-    ['Temp.Image_Picker']: undefined
   }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

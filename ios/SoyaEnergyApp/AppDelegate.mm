@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <React/RCTImageCache.h>
 
 // Image Cache limit
 // #import <React/RCTImageCache.h>
@@ -32,8 +33,7 @@
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
 
   // Image Cache limits
-  // https://github.com/facebook/react-native-website/issues/3927
-  // RTCSetImageCacheLimits(4 * 1024 * 1024, 200 * 1024 * 1024);
+  RCTSetImageCacheLimits(4 * 1024 * 1024, 200 * 1024 * 1024);
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

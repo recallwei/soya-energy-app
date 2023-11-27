@@ -31,10 +31,16 @@
   "Temp.Image.Cache.Test": "图片缓存测试",
   "Temp.Image.Picker": "图片上传",
   "Temp.WebView.Demo": "WebView Demo",
-  "User.Tabs": {
-    "Devices": "设备",
-    "Home": "主页",
-    "My": "我的",
-    "Statistics": "统计"
+  "User": {
+    "Tabs": {
+      "Devices": "设备",
+      "Home": "主页",
+      "My": "我的",
+      "Statistics": "统计"
+    },
+    "Devices": {
+      "Inverter.Detail": "逆变器详情",
+      "Battery.Detail": "电池详情"
+    }
   }
 }

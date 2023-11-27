@@ -31,10 +31,16 @@
   "Temp.Image.Cache.Test": "Image Cache Test",
   "Temp.Image.Picker": "Image Picker",
   "Temp.WebView.Demo": "WebView Demo",
-  "User.Tabs": {
-    "Devices": "Devices",
-    "Home": "Home",
-    "My": "My",
-    "Statistics": "Statistics"
+  "User": {
+    "Tabs": {
+      "Devices": "Devices",
+      "Home": "Home",
+      "My": "My",
+      "Statistics": "Statistics"
+    },
+    "Devices": {
+      "Inverter.Detail": "Inverter Detail",
+      "Battery.Detail": "Battery Detail"
+    }
   }
 }

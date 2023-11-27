@@ -11,7 +11,6 @@ const Tab = createBottomTabNavigator<UserTabParamList>()
 
 export default function UserTabBar() {
   const { t } = useTranslation('Screen')
-
   const authStore = useAuthStore()
   const tabStore = useTabsStore()
   const themeStore = useThemeStore()

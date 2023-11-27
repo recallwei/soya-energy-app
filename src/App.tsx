@@ -2,7 +2,6 @@ import './i18n'
 
 import { setup } from '@baronha/ting'
 import NetInfo from '@react-native-community/netinfo'
-import * as Sentry from '@sentry/react-native'
 import {
   focusManager,
   onlineManager,
@@ -122,6 +121,6 @@ function App() {
   )
 }
 
-const AppWithCodePush = Sentry.wrap(App)
+const AppWithCodePush = App
 
 export default AppWithCodePush
