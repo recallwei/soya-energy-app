@@ -20,6 +20,7 @@ export { default as CommonMyPrivacyManagementSystemPermissionScreen } from './Co
 export { default as CommonMySettingsScreen } from './Common/My/Settings'
 export { default as CommonMySettingsCancelAccountScreen } from './Common/My/Settings/CancelAccount'
 export { default as CommonMySettingsPersonalInfoScreen } from './Common/My/Settings/PersonalInfo'
+export { default as CommonMySettingsPersonalInfoEditScreen } from './Common/My/Settings/PersonalInfo/Edit'
 export { default as CommonMySettingsSystemUnitsScreen } from './Common/My/Settings/SystemUnits'
 
 // ------ Installer screens ------

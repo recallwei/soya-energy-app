@@ -44,6 +44,7 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.My.Settings']: undefined
     ['Common.My.Settings.Cancel_Account']: undefined
     ['Common.My.Settings.Personal_Info']: undefined
+    ['Common.My.Settings.Personal_Info.Edit']: undefined
     ['Common.My.Settings.System_Units']: undefined
 
     // User

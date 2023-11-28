@@ -7,6 +7,7 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Settings } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
+import { TouchableOpacity } from 'react-native'
 
 import { InstallerTabBar, UserTabBar } from '@/navigators'
 import {
@@ -29,6 +30,7 @@ import {
   CommonMyPrivacyManagementPushNoticeScreen,
   CommonMyPrivacyManagementScreen,
   CommonMyPrivacyManagementSystemPermissionScreen,
+  CommonMySettingsPersonalInfoEditScreen,
   CommonMySettingsPersonalInfoScreen,
   CommonMySettingsScreen,
   CommonMySettingsSystemUnitsScreen,
@@ -235,11 +237,13 @@ export default function Navigation() {
                   options={({ navigation }) => ({
                     title: t('Common.Message'),
                     headerRight: () => (
-                      <Settings
+                      <TouchableOpacity
                         onPress={() =>
                           navigation.navigate('Common.My.Privacy_Management.Push_Notice')
                         }
-                      />
+                      >
+                        <Settings size="$1" />
+                      </TouchableOpacity>
                     )
                   })}
                 />
@@ -299,6 +303,11 @@ export default function Navigation() {
                   name="Common.My.Settings.Personal_Info"
                   component={CommonMySettingsPersonalInfoScreen}
                   options={{ title: t('Common.My.Settings.Personal.Info') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Settings.Personal_Info.Edit"
+                  component={CommonMySettingsPersonalInfoEditScreen}
+                  options={{ title: t('Common.My.Settings.Personal.Info.Edit') }}
                 />
                 <Stack.Screen
                   name="Common.My.Settings.System_Units"

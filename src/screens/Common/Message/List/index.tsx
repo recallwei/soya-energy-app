@@ -67,7 +67,7 @@ export default function Screen() {
             renderItem={({ item }) => (
               <MenuItemCard
                 description={item.content}
-                descriptionLines={3}
+                descriptionLines={2}
                 header
                 headerLeftText={item.title}
                 headerRightText={item.date}

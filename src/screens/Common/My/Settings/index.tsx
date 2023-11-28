@@ -92,7 +92,7 @@ export default function Screen() {
             title={t('Personal.Info.Title')}
             description={t('Personal.Info.Description')}
             icon={Contact2}
-            onPress={() => navigate('Common.My.Privacy_Management')}
+            onPress={() => navigate('Common.My.Settings.Personal_Info')}
           />
           <MenuItemCard
             title={t('Language.Title')}

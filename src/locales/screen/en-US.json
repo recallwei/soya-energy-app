@@ -6,6 +6,7 @@
   "Common.Message": "Message",
   "Common.Message.List": "Message List",
   "Common.Message.Detail": "Message Detail",
+  "Common.My.About.Us": "About Us",
   "Common.My.Privacy.Management": "Privacy Management",
   "Common.My.Privacy.Management.Agreement.And.Policy": "Agreement And Policy",
   "Common.My.Privacy.Management.Agreement.And.Policy.Privacy.Policy": "Pricy Policy",
@@ -15,6 +16,7 @@
   "Common.My.Settings": "Settings",
   "Common.My.Settings.Cancel.Account": "Cancel Account",
   "Common.My.Settings.Personal.Info": "Personal Info",
+  "Common.My.Settings.Personal.Info.Edit": "Edit Info",
   "Common.My.Settings.System.Units": "System Units",
   "Installer.Tabs": {
     "Guide": "Guide",

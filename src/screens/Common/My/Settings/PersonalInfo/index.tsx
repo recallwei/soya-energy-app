@@ -1,35 +1,36 @@
-import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { ScrollView, YStack } from 'tamagui'
-
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { CachedImage } from '@georstat/react-native-image-cache'
+import { ChevronRight } from '@tamagui/lucide-icons'
+import { Card, SizableText, XStack, YStack } from 'tamagui'
 
 export default function Screen() {
-  const insets = useSafeAreaInsets()
-  const { refreshing, onRefresh } = useRefresh()
+  const userAvatar = 'https://avatars.githubusercontent.com/u/62941121?v=4'
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
+    <YStack
+      padding="$4"
+      space="$1"
     >
-      <YStack
-        padding="$4"
-        space="$3"
-      >
-        <NoData />
-      </YStack>
-    </ScrollView>
+      <XStack>
+        <CachedImage
+          source={userAvatar}
+          style={{
+            width: 100,
+            height: 100,
+            shadowRadius: 4,
+            shadowOpacity: 0.05
+          }}
+          imageStyle={{
+            borderRadius: 50
+          }}
+        />
+        <XStack>
+          <SizableText>Edit</SizableText>
+          <ChevronRight />
+        </XStack>
+      </XStack>
+      <Card>
+        <Card.Footer />
+      </Card>
+    </YStack>
   )
 }
