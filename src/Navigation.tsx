@@ -5,6 +5,7 @@ import {
   useNavigationContainerRef
 } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Settings } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 
 import { InstallerTabBar, UserTabBar } from '@/navigators'
@@ -19,7 +20,15 @@ import {
   AuthSignUpSelectRoleScreen,
   AuthSplashScreen,
   CommonAboutUsScreen,
+  CommonMessageDetailScreen,
+  CommonMessageListScreen,
+  CommonMessageScreen,
+  CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen,
+  CommonMyPrivacyManagementAgreementAndPolicyScreen,
+  CommonMyPrivacyManagementEmailPushScreen,
+  CommonMyPrivacyManagementPushNoticeScreen,
   CommonMyPrivacyManagementScreen,
+  CommonMyPrivacyManagementSystemPermissionScreen,
   CommonMySettingsPersonalInfoScreen,
   CommonMySettingsScreen,
   CommonMySettingsSystemUnitsScreen,
@@ -206,7 +215,6 @@ export default function Navigation() {
                     }}
                   />
                 )}
-
                 <Stack.Screen
                   name="User.Tabs"
                   component={UserTabBar}
@@ -221,11 +229,61 @@ export default function Navigation() {
                     title: getUserTabTitleI18nText(tabStore.userCurrentTab)
                   }}
                 />
-
+                <Stack.Screen
+                  name="Common.Message"
+                  component={CommonMessageScreen}
+                  options={({ navigation }) => ({
+                    title: t('Common.Message'),
+                    headerRight: () => (
+                      <Settings
+                        onPress={() =>
+                          navigation.navigate('Common.My.Privacy_Management.Push_Notice')
+                        }
+                      />
+                    )
+                  })}
+                />
+                <Stack.Screen
+                  name="Common.Message.List"
+                  component={CommonMessageListScreen}
+                  options={{ title: t('Common.Message.List') }}
+                />
+                <Stack.Screen
+                  name="Common.Message.Detail"
+                  component={CommonMessageDetailScreen}
+                  options={{ title: t('Common.Message.Detail') }}
+                />
                 <Stack.Screen
                   name="Common.My.Privacy_Management"
                   component={CommonMyPrivacyManagementScreen}
                   options={{ title: t('Common.My.Privacy.Management') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Privacy_Management.Agreement_And_Policy"
+                  component={CommonMyPrivacyManagementAgreementAndPolicyScreen}
+                  options={{ title: t('Common.My.Privacy.Management.Agreement.And.Policy') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Privacy_Management.Agreement_And_Policy.Privacy_Policy"
+                  component={CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen}
+                  options={{
+                    title: t('Common.My.Privacy.Management.Agreement.And.Policy.Privacy.Policy')
+                  }}
+                />
+                <Stack.Screen
+                  name="Common.My.Privacy_Management.System_Permission"
+                  component={CommonMyPrivacyManagementSystemPermissionScreen}
+                  options={{ title: t('Common.My.Privacy.Management.System.Permission') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Privacy_Management.Email_Push"
+                  component={CommonMyPrivacyManagementEmailPushScreen}
+                  options={{ title: t('Common.My.Privacy.Management.Email.Push') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Privacy_Management.Push_Notice"
+                  component={CommonMyPrivacyManagementPushNoticeScreen}
+                  options={{ title: t('Common.My.Privacy.Management.Push.Notice') }}
                 />
                 <Stack.Screen
                   name="Common.My.About_Us"

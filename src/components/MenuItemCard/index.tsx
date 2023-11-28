@@ -1,6 +1,6 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
 import { memo, useState } from 'react'
-import { Card, SizableText, Switch, View, XStack, YStack } from 'tamagui'
+import { Card, Separator, SizableText, Switch, View, XStack, YStack } from 'tamagui'
 
 import { globalStyles } from '@/constants'
 
@@ -10,24 +10,36 @@ interface Props {
   icon?: any
   onPress?: () => void
   switcher?: boolean
+  onSwitch?: (value: boolean) => void
+  switchValue?: boolean
+  setSwitchValue?: (value: boolean) => void
+  header?: boolean
+  headerLeftText?: string
+  headerRightText?: string
+  descriptionLines?: number
+  hideAction?: boolean
 }
 
 export const MenuItemCard = memo((props: Props) => {
   const [isPressing, setIsPressing] = useState(false)
-  const [isSwitcherOn, setIsSwitcherOn] = useState(false)
 
-  const handlePress = () => {
-    if (props.switcher) {
-      setIsSwitcherOn(!isSwitcherOn)
+  const handleSwitchPress = () => {
+    const switchValue = !props.switchValue
+    if (typeof props.setSwitchValue === 'function') {
+      props.setSwitchValue(switchValue)
+    }
+    if (typeof props.onSwitch === 'function') {
+      props.onSwitch(switchValue)
     }
     if (typeof props.onPress === 'function') {
       props.onPress()
     }
   }
 
-  const handleSwitchPress = () => {
-    setIsSwitcherOn(!isSwitcherOn)
-    if (typeof props.onPress === 'function') {
+  const handlePress = () => {
+    if (props.switcher) {
+      handleSwitchPress()
+    } else if (typeof props.onPress === 'function') {
       props.onPress()
     }
   }
@@ -47,7 +59,30 @@ export const MenuItemCard = memo((props: Props) => {
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
     >
-      <Card.Header
+      {props.header && (
+        <Card.Header padded>
+          <XStack
+            alignItems="center"
+            justifyContent="space-between"
+            marginHorizontal="$2"
+          >
+            <SizableText
+              size="$4"
+              opacity={props.headerLeftText ? 1 : 0}
+            >
+              {props.headerLeftText}
+            </SizableText>
+            <SizableText
+              size="$4"
+              opacity={props.headerRightText ? 1 : 0}
+            >
+              {props.headerRightText}
+            </SizableText>
+          </XStack>
+        </Card.Header>
+      )}
+      {props.header && <Separator />}
+      <Card.Footer
         padded
         position="relative"
       >
@@ -61,57 +96,66 @@ export const MenuItemCard = memo((props: Props) => {
               <props.icon size="$1.5" />
             </View>
           )}
-          <YStack marginRight={60}>
-            <SizableText
-              fontFamily="$body"
-              fontWeight="$medium"
-            >
-              {props.title}
-            </SizableText>
-            <SizableText
-              fontFamily="$body"
-              fontSize="$2"
-            >
-              {props.description}
-            </SizableText>
+          {/* eslint-disable-next-line no-nested-ternary */}
+          <YStack marginRight={props.hideAction ? undefined : props.switcher ? 75 : 60}>
+            {props.title && (
+              <SizableText
+                fontFamily="$body"
+                fontWeight="$medium"
+              >
+                {props.title}
+              </SizableText>
+            )}
+            {props.description && (
+              <SizableText
+                fontFamily="$body"
+                fontSize="$2"
+                numberOfLines={props.descriptionLines}
+                ellipsizeMode={props.descriptionLines ? 'tail' : undefined}
+              >
+                {props.description}
+              </SizableText>
+            )}
           </YStack>
         </XStack>
 
-        <View
-          position="absolute"
-          right={10}
-          top={0}
-          bottom={0}
-          justifyContent="center"
-          alignItems="center"
-          alignSelf="center"
-          animation="bouncy"
-          style={
-            !props.switcher && {
-              transform: [
-                {
-                  translateX: isPressing ? -10 : 0
-                }
-              ]
+        {!props.hideAction && (
+          <View
+            position="absolute"
+            right={10}
+            top={0}
+            bottom={0}
+            justifyContent="center"
+            alignItems="center"
+            alignSelf="center"
+            animation="bouncy"
+            style={
+              !props.switcher && {
+                transform: [
+                  {
+                    translateX: isPressing ? -10 : 0
+                  }
+                ]
+              }
             }
-          }
-        >
-          {props.switcher ? (
-            <Switch
-              size="$2"
-              checked={isSwitcherOn}
-              onPress={handleSwitchPress}
-            >
-              <Switch.Thumb
-                animation="medium"
-                backgroundColor={globalStyles.primaryColor}
-              />
-            </Switch>
-          ) : (
-            <ChevronRight />
-          )}
-        </View>
-      </Card.Header>
+          >
+            {props.switcher ? (
+              <Switch
+                size="$2"
+                checked={props.switchValue}
+                onPress={handleSwitchPress}
+              >
+                <Switch.Thumb
+                  animation="medium"
+                  backgroundColor={globalStyles.primaryColor}
+                />
+              </Switch>
+            ) : (
+              <ChevronRight />
+            )}
+          </View>
+        )}
+      </Card.Footer>
     </Card>
   )
 })

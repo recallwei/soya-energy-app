@@ -1,35 +1,70 @@
-import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { ScrollView, YStack } from 'tamagui'
+import { Image, SizableText, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { MenuItemCard } from '@/components'
+import { globalEnvConfig } from '@/env'
+import { useSafeAreaPadding } from '@/hooks'
+import { useAuthStore, useThemeStore } from '@/store'
+import { CodePushUtils, DeviceUtils } from '@/utils'
 
 export default function Screen() {
-  const insets = useSafeAreaInsets()
-  const { refreshing, onRefresh } = useRefresh()
+  const { insets } = useSafeAreaPadding()
+  const themeStore = useThemeStore()
+  const authStore = useAuthStore()
+
+  const handleUpgrade = () => CodePushUtils.syncCode()
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
+    <YStack
+      padding="$4"
+      space="$3"
+      paddingBottom={insets.paddingBottom}
+      height="100%"
     >
-      <YStack
-        padding="$4"
-        space="$3"
+      <Image
+        source={{
+          uri: themeStore.isDark()
+            ? require('../../../../../assets/images/soya-logo-dark.png')
+            : require('../../../../../assets/images/soya-logo-light.png'),
+          cache: 'force-cache'
+        }}
+        width={DeviceUtils.SCREEN_WIDTH * 0.618}
+        height={110}
+        resizeMode="contain"
+        alignSelf="center"
+      />
+
+      {authStore.packageMetadata && (
+        <SizableText
+          textAlign="center"
+          size="$7"
+          fontWeight="$semiBold"
+        >
+          {`${globalEnvConfig.APP_ENVIRONMENT} - ${authStore.packageMetadata.appVersion}.${authStore.packageMetadata.label}`}
+        </SizableText>
+      )}
+
+      <MenuItemCard title="Platform Usage Agreement" />
+      <MenuItemCard title="Enterprise and other third-party privacy agreement" />
+      <MenuItemCard title="Summary of Privacy Agreement" />
+      <MenuItemCard
+        title="Version update"
+        description={
+          authStore.packageMetadata
+            ? `${authStore.packageMetadata.appVersion}.${authStore.packageMetadata.label}`
+            : ''
+        }
+        onPress={handleUpgrade}
+      />
+
+      <SizableText
+        position="absolute"
+        alignSelf="center"
+        textAlign="center"
+        bottom={insets.paddingBottom}
+        size="$3"
       >
-        <NoData />
-      </YStack>
-    </ScrollView>
+        Copyright All rights reserved Soya Energy，Ltd.
+      </SizableText>
+    </YStack>
   )
 }

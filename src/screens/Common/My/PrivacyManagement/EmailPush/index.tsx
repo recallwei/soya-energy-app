@@ -1,34 +1,28 @@
-import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { Send } from '@tamagui/lucide-icons'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { MenuItemCard } from '@/components'
 
 export default function Screen() {
-  const insets = useSafeAreaInsets()
-  const { refreshing, onRefresh } = useRefresh()
+  const { t } = useTranslation('Common.My.Privacy_Management')
+  const [canPush, setCanPush] = useState(false)
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
-    >
+    <ScrollView showsVerticalScrollIndicator={false}>
       <YStack
         padding="$4"
         space="$3"
       >
-        <NoData />
+        <MenuItemCard
+          title={t('Permission.To.Push.Email.Title')}
+          description={t('Permission.To.Push.Email.Description')}
+          icon={Send}
+          switcher
+          switchValue={canPush}
+          setSwitchValue={setCanPush}
+        />
       </YStack>
     </ScrollView>
   )

@@ -7,10 +7,8 @@ export { default as AuthSplashScreen } from './Auth/Splash'
 
 // ------ Common screens ------
 export { default as CommonMessageScreen } from './Common/Message'
-export { default as CommonMessageAlarmScreen } from './Common/Message/Alarm'
-export { default as CommonMessageEventScreen } from './Common/Message/Event'
-export { default as CommonMessageServiceScreen } from './Common/Message/Service'
-export { default as CommonMessageSystemScreen } from './Common/Message/System'
+export { default as CommonMessageDetailScreen } from './Common/Message/Detail'
+export { default as CommonMessageListScreen } from './Common/Message/List'
 export { default as CommonMyScreen } from './Common/My'
 export { default as CommonAboutUsScreen } from './Common/My/AboutUs'
 export { default as CommonMyPrivacyManagementScreen } from './Common/My/PrivacyManagement'

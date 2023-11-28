@@ -1,7 +1,7 @@
 import { RefreshControl, View } from 'react-native'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
+import { MenuItemCard } from '@/components'
 import { useRefresh } from '@/hooks'
 
 export default function Screen() {
@@ -22,7 +22,13 @@ export default function Screen() {
           padding="$4"
           space="$3"
         >
-          <NoData />
+          <MenuItemCard
+            hideAction
+            header
+            headerLeftText="通知标题"
+            headerRightText="2022/06/22"
+            description="通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容"
+          />
         </YStack>
       </ScrollView>
     </View>

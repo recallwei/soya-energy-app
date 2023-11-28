@@ -1,34 +1,39 @@
-import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { Bluetooth, Camera, MapPin } from '@tamagui/lucide-icons'
+import { useTranslation } from 'react-i18next'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { MenuItemCard } from '@/components'
+import { DeviceUtils } from '@/utils'
 
 export default function Screen() {
-  const insets = useSafeAreaInsets()
-  const { refreshing, onRefresh } = useRefresh()
+  const { t } = useTranslation(['Common.My.Privacy_Management', 'Global'])
+
+  const openSettings = () => DeviceUtils.openSettings()
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
-    >
+    <ScrollView showsVerticalScrollIndicator={false}>
       <YStack
         padding="$4"
         space="$3"
       >
-        <NoData />
+        <MenuItemCard
+          title={t('Location.Title')}
+          description={t('Location.Description')}
+          icon={MapPin}
+          onPress={openSettings}
+        />
+        <MenuItemCard
+          title={t('Camera.Title')}
+          description={t('Camera.Description')}
+          icon={Camera}
+          onPress={openSettings}
+        />
+        <MenuItemCard
+          title={t('Bluetooth.Title')}
+          description={t('Bluetooth.Description')}
+          icon={Bluetooth}
+          onPress={openSettings}
+        />
       </YStack>
     </ScrollView>
   )

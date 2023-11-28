@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import { BellRing, Share2 } from '@tamagui/lucide-icons'
 import { TouchableOpacity } from 'react-native'
 import { SizableText, XStack } from 'tamagui'
@@ -5,6 +6,7 @@ import { SizableText, XStack } from 'tamagui'
 import { AppMetaData } from '@/constants'
 
 export default function Header() {
+  const { navigate } = useNavigation()
   return (
     <XStack
       justifyContent="space-between"
@@ -21,7 +23,7 @@ export default function Header() {
         space="$3"
         alignItems="center"
       >
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigate('Common.Message')}>
           <BellRing size="$1" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}}>

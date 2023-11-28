@@ -29,10 +29,8 @@ export type RootStackParamList = InstallerTabParamList &
 
     // Common
     ['Common.Message']: undefined
-    ['Common.Message.Alarm']: undefined
-    ['Common.Message.System']: undefined
-    ['Common.Message.Event']: undefined
-    ['Common.Message.Service']: undefined
+    ['Common.Message.List']: { type: string }
+    ['Common.Message.Detail']: { id: string; type: string }
 
     ['Common.My.Privacy_Management']: undefined
     ['Common.My.Privacy_Management.Agreement_And_Policy']: undefined

@@ -5,6 +5,7 @@ brucesong
 cocoapods
 codepush
 commitlint
+ellipsize
 Gantt
 georstat
 gradlew

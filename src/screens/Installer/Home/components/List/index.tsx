@@ -118,7 +118,7 @@ export default function List() {
       data={mockData}
       keyExtractor={({ id }: Item) => id}
       renderItem={({ item }) => (
-        <Card key={item.id}>
+        <Card>
           <YStack
             space="$2"
             width="100%"

@@ -83,10 +83,7 @@ export default function Screen() {
 
   return (
     <>
-      <ScrollView
-        minHeight="100%"
-        showsVerticalScrollIndicator={false}
-      >
+      <ScrollView showsVerticalScrollIndicator={false}>
         <YStack
           padding="$4"
           space="$3"
@@ -130,7 +127,8 @@ export default function Screen() {
             description={t('Dark.Mode.Description')}
             icon={Palette}
             switcher
-            onPress={handleChangeTheme}
+            switchValue={themeStore.isDark()}
+            onSwitch={handleChangeTheme}
           />
           <MenuItemCard
             title={t('Sign.Out.Title')}

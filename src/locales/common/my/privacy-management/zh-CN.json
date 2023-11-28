@@ -1,0 +1,46 @@
+{
+  "Agreement.And.Policy": {
+    "Title": "隐私协议"
+  },
+  "Email.Push": {
+    "Title": "邮件推送"
+  },
+  "Push.Notice": {
+    "Title": "消息推送"
+  },
+  "System.Permission": {
+    "Title": "系统权限"
+  },
+  "Location": {
+    "Title": "位置",
+    "Description": "允许应用访问您的位置信息，获取当前位置，用于设置电站位置、设备配网、设备本地模式"
+  },
+  "Camera": {
+    "Title": "相机",
+    "Description": "允许应用访问您的摄像头，用于设置电站封面、个人头像、扫描设备 SN 码"
+  },
+  "Bluetooth": {
+    "Title": "蓝牙",
+    "Description": "允许应用访问您的蓝牙，用于设备配网、设备本地模式"
+  },
+  "Permission.To.Push.Email": {
+    "Title": "邮件推送权限",
+    "Description": "同意给我的邮箱推送邮件"
+  },
+  "Alarm.Push": {
+    "Title": "告警推送",
+    "Description": "同意接收设备告警、异常等消息"
+  },
+  "System.Message": {
+    "Title": "系统消息",
+    "Description": "同意接收系统更新、运维等消息"
+  },
+  "Service.Info": {
+    "Title": "服务消息",
+    "Description": "同意接收售后、增值服务等消息"
+  },
+  "Activity.Message": {
+    "Title": "活动消息",
+    "Description": "同意接收用户运营、销售等消息"
+  }
+}

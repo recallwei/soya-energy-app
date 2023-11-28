@@ -587,7 +587,7 @@ PODS:
     - React-Core
     - SPAlert (= 4.2.0)
   - TOCropViewController (2.6.1)
-  - VisionCamera (3.6.10):
+  - VisionCamera (3.6.11):
     - React
     - React-callinvoker
     - React-Core
@@ -905,7 +905,7 @@ SPEC CHECKSUMS:
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Ting: 8f31e1ea5195095e69645fb574b8038511a19d35
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  VisionCamera: 68c2909157ab030cf851fb28c77ef2dbef029487
+  VisionCamera: 7ca35d6f0161f6abf2e291f595900b4ecbf86cf5
   Yoga: 4c3aa327e4a6a23eeacd71f61c81df1bcdf677d5
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197

@@ -352,7 +352,9 @@ export default function Screen() {
               <View>
                 <Paragraph>{t('Company.Logo.Settings.Description')}</Paragraph>
                 <TouchableOpacity onPress={handleOpenSettings}>
-                  <SizableText style={{ color: globalStyles.primaryColor }}>Click here</SizableText>
+                  <SizableText style={{ color: globalStyles.primaryColor }}>
+                    {t('Global:Go.To.Set')}
+                  </SizableText>
                 </TouchableOpacity>
               </View>
             </>

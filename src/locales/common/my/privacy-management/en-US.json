@@ -1,0 +1,46 @@
+{
+  "Agreement.And.Policy": {
+    "Title": "Agreement and Policy"
+  },
+  "Email.Push": {
+    "Title": "Email Push"
+  },
+  "Push.Notice": {
+    "Title": "Push Notice"
+  },
+  "System.Permission": {
+    "Title": "System Permission"
+  },
+  "Location": {
+    "Title": "Location",
+    "Description": "Get the current location to set the plant location, distribution network, and local mode of devices."
+  },
+  "Camera": {
+    "Title": "Camera",
+    "Description": "Access camera to set the cover of the plant. Set personal avatar, and scan device SN."
+  },
+  "Bluetooth": {
+    "Title": "Bluetooth",
+    "Description": "Connect and access Bluetooth devices (for device network allocation, device local mode)."
+  },
+  "Permission.To.Push.Email": {
+    "Title": "Permission to push email",
+    "Description": "Agree to receive email notifications"
+  },
+  "Alarm.Push": {
+    "Title": "Alarm Push",
+    "Description": "Agree to receive messages on device alarms and exceptions"
+  },
+  "System.Message": {
+    "Title": "System Message",
+    "Description": "Agree to receive messages on system update and O&M"
+  },
+  "Service.Info": {
+    "Title": "Service Info",
+    "Description": "Agree to receive messages on after-sale and value-added services"
+  },
+  "Activity.Message": {
+    "Title": "Activity Message",
+    "Description": "Agree to receive messages on user operation and marketing"
+  }
+}

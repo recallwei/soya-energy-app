@@ -1,28 +1,57 @@
-import { RefreshControl } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { AlertOctagon, Bell, MessageCircle, Wrench } from '@tamagui/lucide-icons'
+import { useTranslation } from 'react-i18next'
 import { ScrollView, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { MenuItemCard } from '@/components'
+import { MessageType } from '@/enums'
 
 export default function Screen() {
-  const { refreshing, onRefresh } = useRefresh()
+  const { t } = useTranslation('Common.My.Privacy_Management')
+  const { navigate } = useNavigation()
 
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-    >
+    <ScrollView showsVerticalScrollIndicator={false}>
       <YStack
         padding="$4"
         space="$3"
       >
-        <NoData />
+        <MenuItemCard
+          title={t('Alarm.Push.Title')}
+          icon={AlertOctagon}
+          onPress={() =>
+            navigate('Common.Message.List', {
+              type: MessageType.Alarm
+            })
+          }
+        />
+        <MenuItemCard
+          title={t('System.Message.Title')}
+          icon={Bell}
+          onPress={() =>
+            navigate('Common.Message.List', {
+              type: MessageType.System
+            })
+          }
+        />
+        <MenuItemCard
+          title={t('Service.Info.Title')}
+          icon={Wrench}
+          onPress={() =>
+            navigate('Common.Message.List', {
+              type: MessageType.Service
+            })
+          }
+        />
+        <MenuItemCard
+          title={t('Activity.Message.Title')}
+          icon={MessageCircle}
+          onPress={() =>
+            navigate('Common.Message.List', {
+              type: MessageType.Event
+            })
+          }
+        />
       </YStack>
     </ScrollView>
   )
