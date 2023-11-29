@@ -6,6 +6,7 @@ import { globalStyles } from '@/constants'
 
 interface Props {
   title?: string
+  rightTitle?: string
   description?: string
   icon?: any
   onPress?: () => void
@@ -101,7 +102,15 @@ export const MenuItemCard = memo((props: Props) => {
                 </View>
               )}
               <YStack flexShrink={1}>
-                {props.title && <SizableText fontWeight="$medium">{props.title}</SizableText>}
+                <XStack
+                  justifyContent="space-between"
+                  alignItems="center"
+                  width="100%"
+                  paddingRight="$2.5"
+                >
+                  {props.title && <SizableText fontWeight="$medium">{props.title}</SizableText>}
+                  {props.rightTitle && <SizableText>{props.rightTitle}</SizableText>}
+                </XStack>
                 {props.description && (
                   <SizableText
                     fontSize="$2"

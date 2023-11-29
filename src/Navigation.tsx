@@ -30,6 +30,7 @@ import {
   CommonMyPrivacyManagementPushNoticeScreen,
   CommonMyPrivacyManagementScreen,
   CommonMyPrivacyManagementSystemPermissionScreen,
+  CommonMySettingsCancelAccountScreen,
   CommonMySettingsPersonalInfoEditScreen,
   CommonMySettingsPersonalInfoScreen,
   CommonMySettingsScreen,
@@ -313,6 +314,11 @@ export default function Navigation() {
                   name="Common.My.Settings.System_Units"
                   component={CommonMySettingsSystemUnitsScreen}
                   options={{ title: t('Common.My.Settings.System.Units') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Settings.Cancel_Account"
+                  component={CommonMySettingsCancelAccountScreen}
+                  options={{ title: t('Common.My.Settings.Cancel.Account') }}
                 />
 
                 <Stack.Screen

@@ -121,6 +121,7 @@ export default function Screen() {
             title={t('Cancel.Account.Title')}
             description={t('Cancel.Account.Description')}
             icon={XCircle}
+            onPress={() => navigate('Common.My.Settings.Cancel_Account')}
           />
           <MenuItemCard
             title={t('Dark.Mode.Title')}

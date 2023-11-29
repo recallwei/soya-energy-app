@@ -1,35 +1,28 @@
-import { RefreshControl } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { ScrollView, YStack } from 'tamagui'
+import { Button, Paragraph, SizableText, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
-import { useRefresh } from '@/hooks'
+import { Checkbox } from '@/components'
+import { useSafeAreaPadding } from '@/hooks'
 
 export default function Screen() {
-  const insets = useSafeAreaInsets()
-  const { refreshing, onRefresh } = useRefresh()
-
+  const { insets } = useSafeAreaPadding()
   return (
-    <ScrollView
-      minHeight="100%"
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        />
-      }
-      paddingTop={insets.top}
-      paddingBottom={insets.bottom}
-      paddingLeft={insets.left}
-      paddingRight={insets.right}
+    <YStack
+      padding="$4"
+      space="$3"
+      height="100%"
+      justifyContent="space-between"
+      paddingBottom={insets.paddingBottom}
     >
-      <YStack
-        padding="$4"
-        space="$3"
-      >
-        <NoData />
+      <YStack space="$1">
+        <Paragraph marginBottom="$2">注销后，账户将被永久删除，不可恢复。</Paragraph>
+        <SizableText size="$3">1. 该账号与电站已无绑定关系</SizableText>
+        <SizableText size="$3">2. 该账号与其他账号无关联关系</SizableText>
+        <SizableText size="$3">3. 该账号无服务、资金未完结等情况</SizableText>
       </YStack>
-    </ScrollView>
+      <YStack space="$3">
+        <Checkbox label="已阅读并同意《账户注销协议》" />
+        <Button>申请注销</Button>
+      </YStack>
+    </YStack>
   )
 }
