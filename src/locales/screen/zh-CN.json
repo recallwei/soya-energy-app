@@ -37,6 +37,10 @@
       "My": "我的",
       "Statistics": "统计"
     },
+    "Home": {
+      "Weather.Forecast.Settings": "天气预报设置",
+      "Select.Location": "选择位置"
+    },
     "Devices": {
       "Inverter.Detail": "逆变器详情",
       "Battery.Detail": "电池详情"

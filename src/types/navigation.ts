@@ -48,6 +48,8 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.My.Settings.System_Units']: undefined
 
     // User
+    ['User.Home.Weather_Forecast_Settings']: undefined
+    ['User.Home.Select_Location']: undefined
     ['User.Devices']: undefined
     ['User.Devices.Invertor_Detail']: { id: string } | undefined
     ['User.Devices.Battery_Detail']: { id: string } | undefined

@@ -18,12 +18,10 @@ import { Label, ScrollView, Square, View, XStack, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { globalEnvConfig } from '@/env'
-import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore } from '@/store'
 import { AuthUtils } from '@/utils'
 
 export default function UserMyScreen() {
-  const { insetsWithoutBottom } = useSafeAreaPadding()
   const { t } = useTranslation('Menu')
   const authStore = useAuthStore()
   const { navigate } = useNavigation()
@@ -37,7 +35,7 @@ export default function UserMyScreen() {
   }
 
   return (
-    <View {...insetsWithoutBottom}>
+    <View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <YStack
           padding="$4"

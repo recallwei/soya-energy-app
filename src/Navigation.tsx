@@ -77,6 +77,8 @@ import {
   SystemSiteDetailsScreen,
   UserDevicesBatteryDetailScreen,
   UserDevicesInvertorDetailScreen,
+  UserHomeSelectLocationScreen,
+  UserHomeWeatherForecastSettingsScreen,
   WebViewDemoScreen
 } from '@/screens'
 import { useAuthStore, useTabsStore, useThemeStore } from '@/store'
@@ -222,7 +224,7 @@ export default function Navigation() {
                   name="User.Tabs"
                   component={UserTabBar}
                   options={{
-                    headerShown: authStore.isInstaller(),
+                    headerShown: false,
                     headerBackButtonMenuEnabled: true,
                     animation: 'simple_push',
                     animationTypeForReplace: 'push',
@@ -319,6 +321,17 @@ export default function Navigation() {
                   name="Common.My.Settings.Cancel_Account"
                   component={CommonMySettingsCancelAccountScreen}
                   options={{ title: t('Common.My.Settings.Cancel.Account') }}
+                />
+
+                <Stack.Screen
+                  name="User.Home.Weather_Forecast_Settings"
+                  component={UserHomeWeatherForecastSettingsScreen}
+                  options={{ title: t('User.Home.Weather.Forecast.Settings') }}
+                />
+                <Stack.Screen
+                  name="User.Home.Select_Location"
+                  component={UserHomeSelectLocationScreen}
+                  options={{ title: t('User.Home.Select.Location') }}
                 />
 
                 <Stack.Screen

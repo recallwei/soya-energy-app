@@ -2,15 +2,12 @@ import { RefreshControl } from 'react-native'
 import { ScrollView, View, YStack } from 'tamagui'
 
 import { NoData } from '@/components'
-import { useRefresh, useSafeAreaPadding } from '@/hooks'
-import { useAuthStore } from '@/store'
+import { useRefresh } from '@/hooks'
 
 export default function Screen() {
   const { refreshing, onRefresh } = useRefresh()
-  const { insetsWithoutBottom } = useSafeAreaPadding()
-  const authStore = useAuthStore()
   return (
-    <View {...(authStore.isUser() && insetsWithoutBottom)}>
+    <View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         refreshControl={

@@ -5,8 +5,7 @@ import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/Rend
 import { Label, ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
-import { useRefresh, useSafeAreaPadding } from '@/hooks'
-import { useAuthStore } from '@/store'
+import { useRefresh } from '@/hooks'
 
 import { PieChartArea, StackChartArea } from './components'
 import { getMockPieChartData, getMockStackChartData } from './mock'
@@ -23,9 +22,6 @@ interface PieChartItem {
 type TimeTab = 'day' | 'month' | 'year' | 'lifetime'
 
 export default function Screen() {
-  const { insetsWithoutBottom } = useSafeAreaPadding()
-  const authStore = useAuthStore()
-
   const [producedData, setProducedData] = useState<PieChartItem[]>([
     {
       label: 'Spontaneous self use',
@@ -117,7 +113,7 @@ export default function Screen() {
   }
 
   return (
-    <View {...(authStore.isUser() && insetsWithoutBottom)}>
+    <View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         refreshControl={

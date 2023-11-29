@@ -37,6 +37,10 @@
       "My": "My",
       "Statistics": "Statistics"
     },
+    "Home": {
+      "Weather.Forecast.Settings": "Weather Forecast Settings",
+      "Select.Location": "Select Location"
+    },
     "Devices": {
       "Inverter.Detail": "Inverter Detail",
       "Battery.Detail": "Battery Detail"

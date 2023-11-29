@@ -2,15 +2,11 @@ import { useQuery } from '@tanstack/react-query'
 import { RefreshControl } from 'react-native'
 import { ScrollView, View, YStack } from 'tamagui'
 
-import { useRefresh, useSafeAreaPadding } from '@/hooks'
-import { useAuthStore } from '@/store'
+import { useRefresh } from '@/hooks'
 
 import { BatteryCard, HeaderArea, InputCard, OutputCard, TotalCard } from './components'
 
 export default function Screen() {
-  const { insetsWithoutBottom } = useSafeAreaPadding()
-  const authStore = useAuthStore()
-
   const { refetch } = useQuery({
     queryKey: ['Status'],
     queryFn: () =>
@@ -24,7 +20,7 @@ export default function Screen() {
   const { refreshing, onRefresh } = useRefresh(refetch)
 
   return (
-    <View {...(authStore.isUser() && insetsWithoutBottom)}>
+    <View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         refreshControl={
@@ -39,13 +35,9 @@ export default function Screen() {
           space="$2"
         >
           <HeaderArea />
-
           <TotalCard />
-
           <InputCard />
-
           <OutputCard />
-
           <BatteryCard />
         </YStack>
       </ScrollView>

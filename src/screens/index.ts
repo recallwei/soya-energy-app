@@ -37,6 +37,10 @@ export { default as UserHomeScreen } from './User/Home'
 export { default as UserMyScreen } from './User/My'
 export { default as UserStatisticsScreen } from './User/Statistics'
 
+// Home
+export { default as UserHomeSelectLocationScreen } from './User/Home/SelectLocation'
+export { default as UserHomeWeatherForecastSettingsScreen } from './User/Home/WeatherForecastSettings'
+
 // Device
 export { default as UserDevicesBatteryDetailScreen } from './User/Devices/BatteryDetail'
 export { default as UserDevicesInvertorDetailScreen } from './User/Devices/InverterDetail'

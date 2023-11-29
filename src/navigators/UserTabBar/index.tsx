@@ -1,8 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { BarChart4, CloudLightning, Home, Menu } from '@tamagui/lucide-icons'
+import { useNavigation } from '@react-navigation/native'
+import { BarChart4, CloudLightning, Home, Menu, MoreHorizontal } from '@tamagui/lucide-icons'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { TouchableOpacity } from 'react-native'
 import { View } from 'tamagui'
 
+import type { SheetMenuListItem } from '@/components'
+import { SheetMenu } from '@/components'
 import { UserDevicesScreen, UserHomeScreen, UserMyScreen, UserStatisticsScreen } from '@/screens'
 import { useAuthStore, useTabsStore, useThemeStore } from '@/store'
 import type { UserTabParamList } from '@/types'
@@ -14,6 +19,16 @@ export default function UserTabBar() {
   const authStore = useAuthStore()
   const tabStore = useTabsStore()
   const themeStore = useThemeStore()
+  const { navigate } = useNavigation()
+
+  const [homeSheetOpen, setHomeSheetOpen] = useState(false)
+
+  const homeSheetMenuData: SheetMenuListItem[] = [
+    {
+      text: '天气',
+      onPress: () => navigate('User.Home.Weather_Forecast_Settings')
+    }
+  ]
 
   return (
     <Tab.Navigator
@@ -21,7 +36,32 @@ export default function UserTabBar() {
         backgroundColor: themeStore.getBgColor()
       }}
       screenOptions={() => ({
-        headerShown: false,
+        headerShown: true,
+        headerTintColor: themeStore.getTextColor(),
+        headerBackTitle: '', // iOS only,
+        headerBackTitleVisible: false,
+        headerBackTitleStyle: {
+          fontSize: 18,
+          fontFamily: 'Nunito-Regular'
+        },
+        headerBackButtonMenuEnabled: true,
+        headerStyle: {
+          backgroundColor: themeStore.getBgColor(),
+          shadowColor: themeStore.isDark() ? '#111111' : '#333333'
+        },
+        contentStyle: {
+          backgroundColor: themeStore.getBgColor()
+        },
+        headerTitleStyle: {
+          fontSize: 18,
+          fontFamily: 'Nunito-SemiBold',
+          color: themeStore.getTextColor()
+        },
+        animation: 'slide_from_right',
+        statusBarStyle: themeStore.isDark() ? 'light' : 'dark', // iOS only
+        statusBarColor: themeStore.getBgColor(), // Android only
+        statusBarAnimation: 'slide',
+        animationTypeForReplace: 'pop',
         tabBarLabelStyle: {
           fontSize: 14,
           fontFamily: 'Nunito-Regular'
@@ -37,7 +77,7 @@ export default function UserTabBar() {
       <Tab.Screen
         name="User.Home"
         component={UserHomeScreen}
-        options={{
+        options={() => ({
           headerTitle: t('User.Tabs.Home'),
           tabBarLabel: t('User.Tabs.Home'),
           tabBarIcon: ({ color }) => (
@@ -47,8 +87,22 @@ export default function UserTabBar() {
                 size={20}
               />
             </View>
-          )
-        }}
+          ),
+          headerRight: () => (
+            <TouchableOpacity onPress={() => setHomeSheetOpen(true)}>
+              <MoreHorizontal size="$1" />
+              <SheetMenu
+                open={homeSheetOpen}
+                setOpen={setHomeSheetOpen}
+                data={homeSheetMenuData}
+                autoClose
+              />
+            </TouchableOpacity>
+          ),
+          headerRightContainerStyle: {
+            paddingRight: 18
+          }
+        })}
         listeners={{
           focus: () => tabStore.changeUserTab('User.Home')
         }}
