@@ -8,6 +8,8 @@ import { globalEnvConfig } from '@/env'
 import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore } from '@/store'
 
+import { UserAvatar } from './components'
+
 export default function Screen() {
   const { paddingTop } = useSafeAreaPadding()
   const { t } = useTranslation('Common.My')
@@ -24,6 +26,7 @@ export default function Screen() {
           padding="$4"
           space="$2"
         >
+          <UserAvatar />
           <MenuItemCard
             title={t('Privacy.Management.Title')}
             description={t('Privacy.Management.Description')}
@@ -42,12 +45,6 @@ export default function Screen() {
             icon={Settings}
             onPress={() => navigate('Common.My.Settings')}
           />
-          {/* <MenuItemCard
-            title={t('Settings.Title')}
-            description={t('Settings.Description')}
-            icon={Settings}
-            onPress={() => navigate('Common.My.Settings')}
-          /> */}
           {globalEnvConfig.APP_ENVIRONMENT !== 'PROD' && (
             <MenuItemCard
               title={t('Dev.Menu.Title')}

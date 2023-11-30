@@ -16,7 +16,7 @@ export default function Screen() {
   return (
     <YStack
       padding="$4"
-      space="$3"
+      space="$2"
       paddingBottom={insets.paddingBottom}
       height="100%"
     >

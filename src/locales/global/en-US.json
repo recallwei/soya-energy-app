@@ -40,5 +40,6 @@
   "Code.Push.Upload.Dialog.Optional.Ignore.Button.Label": "Ignore",
   "Code.Push.Upload.Dialog.Optional.install.Button.Label": "Install",
   "Code.Push.Upload.Dialog.Optional.Update.Message": "An update is available. Would you like to install it?",
-  "Go.To.Set": "Go to set"
+  "Go.To.Set": "Go to set",
+  "Edit": "Edit"
 }

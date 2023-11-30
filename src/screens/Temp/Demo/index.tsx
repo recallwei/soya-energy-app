@@ -20,7 +20,7 @@ export default function Screen() {
       >
         <YStack
           padding="$4"
-          space="$3"
+          space="$2"
         >
           <NoData />
         </YStack>

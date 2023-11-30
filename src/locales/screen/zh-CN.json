@@ -15,8 +15,8 @@
   "Common.My.Privacy.Management.System.Permission": "系统权限",
   "Common.My.Settings": "设置",
   "Common.My.Settings.Cancel.Account": "注销账号",
-  "Common.My.Settings.Personal.Info": "个人信息",
-  "Common.My.Settings.Personal.Info.Edit": "编辑信息",
+  "Common.My.Personal.Info": "个人信息",
+  "Common.My.Personal.Info.Edit": "编辑信息",
   "Common.My.Settings.System.Units": "系统单位",
   "Common.Plant": {
     "Detail": "电站详情",

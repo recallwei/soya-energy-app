@@ -14,7 +14,7 @@ export default function Screen() {
     <ScrollView showsVerticalScrollIndicator={false}>
       <YStack
         padding="$4"
-        space="$3"
+        space="$2"
       >
         <MenuItemCard
           title={t('Location.Title')}

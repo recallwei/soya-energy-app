@@ -36,6 +36,9 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.Plant.Create.Scan_SN']: undefined
     ['Common.Plant.Create.Form']: { code: string }
 
+    ['Common.My.Personal_Info']: undefined
+    ['Common.My.Personal_Info.Edit']: undefined
+
     ['Common.My.Privacy_Management']: undefined
     ['Common.My.Privacy_Management.Agreement_And_Policy']: undefined
     ['Common.My.Privacy_Management.Agreement_And_Policy.Privacy_Policy']: undefined
@@ -47,8 +50,6 @@ export type RootStackParamList = InstallerTabParamList &
 
     ['Common.My.Settings']: undefined
     ['Common.My.Settings.Cancel_Account']: undefined
-    ['Common.My.Settings.Personal_Info']: undefined
-    ['Common.My.Settings.Personal_Info.Edit']: undefined
     ['Common.My.Settings.System_Units']: undefined
 
     // User

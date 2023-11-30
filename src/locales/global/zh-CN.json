@@ -40,5 +40,6 @@
   "Code.Push.Upload.Dialog.Optional.Ignore.Button.Label": "忽略",
   "Code.Push.Upload.Dialog.Optional.install.Button.Label": "安装",
   "Code.Push.Upload.Dialog.Optional.Update.Message": "有新版本可用更新，是否安装？",
-  "Go.To.Set": "前往设置"
+  "Go.To.Set": "前往设置",
+  "Edit": "编辑"
 }

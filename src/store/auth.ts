@@ -2,6 +2,7 @@ import type { LocalPackage } from 'react-native-code-push'
 import { create } from 'zustand'
 
 import { UserRole } from '@/enums'
+import type { UserInfo } from '@/types'
 
 interface State {
   isLogin: boolean
@@ -9,6 +10,7 @@ interface State {
   userRole: UserRole
   downloadProgress: number
   packageMetadata: LocalPackage | null
+  userInfo: UserInfo
 }
 
 interface Actions {
@@ -28,7 +30,11 @@ const initialState: State = {
   isLoading: true,
   userRole: UserRole.INSTALLER,
   downloadProgress: 0,
-  packageMetadata: null
+  packageMetadata: null,
+  userInfo: {
+    username: 'Bruce',
+    avatarUrl: 'https://avatars.githubusercontent.com/u/62941121?v=4'
+  }
 }
 
 export const useAuthStore = create<State & Actions>()((set, get) => ({

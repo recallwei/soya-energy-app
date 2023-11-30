@@ -22,6 +22,8 @@ import {
   CommonMessageListScreen,
   CommonMessageScreen,
   CommonMyAboutUsScreen,
+  CommonMyPersonalInfoEditScreen,
+  CommonMyPersonalInfoScreen,
   CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen,
   CommonMyPrivacyManagementAgreementAndPolicyScreen,
   CommonMyPrivacyManagementEmailPushScreen,
@@ -29,8 +31,6 @@ import {
   CommonMyPrivacyManagementScreen,
   CommonMyPrivacyManagementSystemPermissionScreen,
   CommonMySettingsCancelAccountScreen,
-  CommonMySettingsPersonalInfoEditScreen,
-  CommonMySettingsPersonalInfoScreen,
   CommonMySettingsScreen,
   CommonMySettingsSystemUnitsScreen,
   CommonPlantCreateFormScreen,
@@ -259,6 +259,7 @@ export default function Navigation() {
                           )
                         case 'User.Devices':
                         case 'User.Battery':
+                        case 'User.Analysis':
                         case 'User.My':
                           return (
                             <SizableText>
@@ -384,14 +385,14 @@ export default function Navigation() {
                   options={{ title: t('Common.My.Settings') }}
                 />
                 <Stack.Screen
-                  name="Common.My.Settings.Personal_Info"
-                  component={CommonMySettingsPersonalInfoScreen}
-                  options={{ title: t('Common.My.Settings.Personal.Info') }}
+                  name="Common.My.Personal_Info"
+                  component={CommonMyPersonalInfoScreen}
+                  options={{ title: t('Common.My.Personal.Info') }}
                 />
                 <Stack.Screen
-                  name="Common.My.Settings.Personal_Info.Edit"
-                  component={CommonMySettingsPersonalInfoEditScreen}
-                  options={{ title: t('Common.My.Settings.Personal.Info.Edit') }}
+                  name="Common.My.Personal_Info.Edit"
+                  component={CommonMyPersonalInfoEditScreen}
+                  options={{ title: t('Common.My.Personal.Info.Edit') }}
                 />
                 <Stack.Screen
                   name="Common.My.Settings.System_Units"
