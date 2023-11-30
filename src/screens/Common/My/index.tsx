@@ -6,17 +6,19 @@ import { ScrollView, View, YStack } from 'tamagui'
 import { MenuItemCard } from '@/components'
 import { globalEnvConfig } from '@/env'
 import { useSafeAreaPadding } from '@/hooks'
+import { useAuthStore } from '@/store'
 
 export default function Screen() {
-  const { insetsWithoutBottom } = useSafeAreaPadding()
+  const { paddingTop } = useSafeAreaPadding()
   const { t } = useTranslation('Common.My')
   const { navigate } = useNavigation()
+  const authStore = useAuthStore()
 
   return (
-    <View {...insetsWithoutBottom}>
+    <View paddingTop={authStore.isInstaller() && paddingTop}>
       <ScrollView
-        minHeight="100%"
         showsVerticalScrollIndicator={false}
+        height="100%"
       >
         <YStack
           padding="$4"
@@ -40,6 +42,12 @@ export default function Screen() {
             icon={Settings}
             onPress={() => navigate('Common.My.Settings')}
           />
+          {/* <MenuItemCard
+            title={t('Settings.Title')}
+            description={t('Settings.Description')}
+            icon={Settings}
+            onPress={() => navigate('Common.My.Settings')}
+          /> */}
           {globalEnvConfig.APP_ENVIRONMENT !== 'PROD' && (
             <MenuItemCard
               title={t('Dev.Menu.Title')}

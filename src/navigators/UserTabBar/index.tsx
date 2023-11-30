@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { BarChart4, CloudLightning, Home, Menu } from '@tamagui/lucide-icons'
+import { Home, PieChart, ServerCrash, UserCircle2 } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { View } from 'tamagui'
 
-import { UserDevicesScreen, UserHomeScreen, UserMyScreen, UserStatisticsScreen } from '@/screens'
+import { CommonMyScreen, UserAnalysisScreen, UserDevicesScreen, UserHomeScreen } from '@/screens'
 import { useAuthStore, useTabsStore, useThemeStore } from '@/store'
+import { SVG } from '@/svg'
 import type { UserTabParamList } from '@/types'
 
 const Tab = createBottomTabNavigator<UserTabParamList>()
@@ -54,25 +55,6 @@ export default function UserTabBar() {
         }}
       />
       <Tab.Screen
-        name="User.Statistics"
-        component={UserStatisticsScreen}
-        options={{
-          headerTitle: t('User.Tabs.Statistics'),
-          tabBarLabel: t('User.Tabs.Statistics'),
-          tabBarIcon: ({ color }) => (
-            <View marginTop="$3">
-              <CloudLightning
-                color={color}
-                size={20}
-              />
-            </View>
-          )
-        }}
-        listeners={{
-          focus: () => tabStore.changeUserTab('User.Statistics')
-        }}
-      />
-      <Tab.Screen
         name="User.Devices"
         component={UserDevicesScreen}
         options={{
@@ -80,7 +62,7 @@ export default function UserTabBar() {
           tabBarLabel: t('User.Tabs.Devices'),
           tabBarIcon: ({ color }) => (
             <View marginTop="$3">
-              <BarChart4
+              <ServerCrash
                 color={color}
                 size={20}
               />
@@ -91,17 +73,54 @@ export default function UserTabBar() {
           focus: () => tabStore.changeUserTab('User.Devices')
         }}
       />
-      {/* Only show this tab when user role is `User` */}
+      <Tab.Screen
+        name="User.Battery"
+        component={UserDevicesScreen}
+        options={{
+          headerTitle: t('User.Tabs.Battery'),
+          tabBarLabel: t('User.Tabs.Battery'),
+          tabBarIcon: ({ color }) => (
+            <View marginTop="$3">
+              <SVG.BatteryVerticalHigh
+                color={color}
+                width={20}
+              />
+            </View>
+          )
+        }}
+        listeners={{
+          focus: () => tabStore.changeUserTab('User.Devices')
+        }}
+      />
+      <Tab.Screen
+        name="User.Analysis"
+        component={UserAnalysisScreen}
+        options={{
+          headerTitle: t('User.Tabs.Analysis'),
+          tabBarLabel: t('User.Tabs.Analysis'),
+          tabBarIcon: ({ color }) => (
+            <View marginTop="$3">
+              <PieChart
+                color={color}
+                size={20}
+              />
+            </View>
+          )
+        }}
+        listeners={{
+          focus: () => tabStore.changeUserTab('User.Analysis')
+        }}
+      />
       {authStore.isUser() && (
         <Tab.Screen
           name="User.My"
-          component={UserMyScreen}
+          component={CommonMyScreen}
           options={{
             headerTitle: t('User.Tabs.My'),
             tabBarLabel: t('User.Tabs.My'),
             tabBarIcon: ({ color }) => (
               <View marginTop="$3">
-                <Menu
+                <UserCircle2
                   color={color}
                   size={20}
                 />

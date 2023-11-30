@@ -65,54 +65,6 @@ export type RootStackParamList = InstallerTabParamList &
     ['Temp.WebView_Demo']: undefined
     ['Temp.Image_Cache_Test']: undefined
     ['Temp.Image_Picker']: undefined
-
-    LiveStatus: undefined
-    // Menu
-    Notification: undefined
-    System: undefined
-    Account: undefined
-    Settings: undefined
-    Services: undefined
-    Support: undefined
-    Explore: undefined
-    Community: undefined
-
-    // System
-    SystemSiteDetails: undefined
-    SystemReports: undefined
-    SystemDevices: undefined
-    SystemDevicesGateway: undefined
-    SystemDevicesBattery: undefined
-    SystemDevicesSystemControl: undefined
-    SystemDevicesMicroinverters: undefined
-    SystemDevicesLoads: undefined
-    SystemLiveStatus: undefined
-    SystemLiveVitals: undefined
-    SystemEventHistory: undefined
-    SystemBackupHistory: undefined
-
-    // Account
-    AccountMyInfo: undefined
-    AccountMyNotifications: undefined
-    AccountMyAccessControl: undefined
-
-    // Settings
-    SettingsBattery: undefined
-    SettingsLoadControl: undefined
-    SettingsElectricityRate: undefined
-    SettingsElectricityRateStructure: undefined
-    SettingsElectricityRateStructureEdit: undefined
-    SettingsElectricityRateStructureEditAutofill: undefined
-    SettingsElectricityRateStructureEditManual: undefined
-    SettingsAddElectricityExportRate: undefined
-    SettingsAddElectricityExportRateNEM: undefined
-    SettingsAddElectricityExportRateNet: undefined
-    SettingsAddElectricityExportRateGross: undefined
-    SettingsAddElectricityExportRateOther: undefined
-    SettingsConnectivity: undefined
-    SettingsPerformance: undefined
-    SettingsPerformanceEnergy: undefined
-    SettingsPerformanceCurrency: undefined
   }
 
 export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<
@@ -147,8 +99,9 @@ export type InstallerTabScreenProps<T extends keyof InstallerTabParamList> = Com
 // 用户 Tab
 export type UserTabParamList = {
   ['User.Home']: { id: string } | undefined
-  ['User.Statistics']: undefined
   ['User.Devices']: undefined
+  ['User.Battery']: undefined
+  ['User.Analysis']: undefined
   ['User.My']: undefined
 }
 

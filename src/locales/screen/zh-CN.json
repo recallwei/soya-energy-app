@@ -39,10 +39,11 @@
   "Temp.WebView.Demo": "WebView Demo",
   "User": {
     "Tabs": {
-      "Devices": "设备",
       "Home": "主页",
-      "My": "我的",
-      "Statistics": "统计"
+      "Devices": "设备",
+      "Battery": "电池",
+      "Analysis": "分析",
+      "My": "我的"
     },
     "Home": {
       "Weather.Forecast.Settings": "天气预报设置",

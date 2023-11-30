@@ -39,10 +39,11 @@
   "Temp.WebView.Demo": "WebView Demo",
   "User": {
     "Tabs": {
-      "Devices": "Devices",
       "Home": "Home",
-      "My": "My",
-      "Statistics": "Statistics"
+      "Devices": "Devices",
+      "Battery": "Battery",
+      "Analysis": "Analysis",
+      "My": "My"
     },
     "Home": {
       "Weather.Forecast.Settings": "Weather Forecast Settings",
