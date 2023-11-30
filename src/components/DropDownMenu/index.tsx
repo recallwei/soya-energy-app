@@ -40,6 +40,7 @@ const DropDownMenu = memo((props: Props) => {
         sheet={sheet}
         autoClose
         data={sheetMenu.data}
+        footer={sheetMenu.footer}
       />
     </>
   )

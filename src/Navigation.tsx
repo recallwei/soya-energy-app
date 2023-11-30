@@ -5,11 +5,11 @@ import {
   useNavigationContainerRef
 } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { BellRing, MoreHorizontal, Settings } from '@tamagui/lucide-icons'
+import { BellRing, MoreHorizontal, PlusCircle, Settings } from '@tamagui/lucide-icons'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
-import { XStack } from 'tamagui'
+import { SizableText, XStack } from 'tamagui'
 
 import { InstallerTabBar, UserTabBar } from '@/navigators'
 import {
@@ -22,10 +22,10 @@ import {
   AuthSignUpScreen,
   AuthSignUpSelectRoleScreen,
   AuthSplashScreen,
-  CommonAboutUsScreen,
   CommonMessageDetailScreen,
   CommonMessageListScreen,
   CommonMessageScreen,
+  CommonMyAboutUsScreen,
   CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen,
   CommonMyPrivacyManagementAgreementAndPolicyScreen,
   CommonMyPrivacyManagementEmailPushScreen,
@@ -37,6 +37,9 @@ import {
   CommonMySettingsPersonalInfoScreen,
   CommonMySettingsScreen,
   CommonMySettingsSystemUnitsScreen,
+  CommonPlantCreateFormScreen,
+  CommonPlantCreateScanSNScreen,
+  CommonPlantDetailScreen,
   CommunityScreen,
   DemoScreen,
   DevMenuScreen,
@@ -81,6 +84,7 @@ import {
   UserDevicesInvertorDetailScreen,
   UserHomeSelectLocationScreen,
   UserHomeWeatherForecastSettingsScreen,
+  UserPlantManagementScreen,
   WebViewDemoScreen
 } from '@/screens'
 import { useAuthStore, usePlantStore, useTabsStore, useThemeStore } from '@/store'
@@ -246,6 +250,38 @@ export default function Navigation() {
                             setOpen: setHomePlantSheetOpen,
                             scrollable: true
                           },
+                          footer: (
+                            <XStack justifyContent="space-between">
+                              <TouchableOpacity
+                                onPress={() => {
+                                  navigation.navigate('Common.Plant.Create.Scan_SN')
+                                  setHomePlantSheetOpen(false)
+                                }}
+                              >
+                                <XStack
+                                  alignItems="center"
+                                  space="$2"
+                                >
+                                  <PlusCircle size="$1" />
+                                  <SizableText>添加</SizableText>
+                                </XStack>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                onPress={() => {
+                                  navigation.navigate('User.Plant.Management')
+                                  setHomePlantSheetOpen(false)
+                                }}
+                              >
+                                <XStack
+                                  alignItems="center"
+                                  space="$2"
+                                >
+                                  <SizableText>管理</SizableText>
+                                  <Settings size="$1" />
+                                </XStack>
+                              </TouchableOpacity>
+                            </XStack>
+                          ),
                           data: plantStore.plantList.map<SheetMenuListItem>((item) => ({
                             text: item.siteName,
                             value: item.id,
@@ -259,11 +295,13 @@ export default function Navigation() {
                         case 'User.Home':
                           return (
                             <XStack space="$3">
-                              <TouchableOpacity
-                                onPress={() => navigation.navigate('Common.Message')}
-                              >
-                                <BellRing size="$1" />
-                              </TouchableOpacity>
+                              {authStore.isUser() && (
+                                <TouchableOpacity
+                                  onPress={() => navigation.navigate('Common.Message')}
+                                >
+                                  <BellRing size="$1" />
+                                </TouchableOpacity>
+                              )}
                               <TouchableOpacity onPress={() => setHomeSheetOpen(true)}>
                                 <MoreHorizontal size="$1" />
                                 <SheetMenu
@@ -310,6 +348,21 @@ export default function Navigation() {
                   options={{ title: t('Common.Message.Detail') }}
                 />
                 <Stack.Screen
+                  name="Common.Plant.Detail"
+                  component={CommonPlantDetailScreen}
+                  options={{ title: t('Common.Plant.Detail') }}
+                />
+                <Stack.Screen
+                  name="Common.Plant.Create.Scan_SN"
+                  component={CommonPlantCreateScanSNScreen}
+                  options={{ title: t('Common.Plant.Create.Scan.SN') }}
+                />
+                <Stack.Screen
+                  name="Common.Plant.Create.Form"
+                  component={CommonPlantCreateFormScreen}
+                  options={{ title: t('Common.Plant.Create.Form') }}
+                />
+                <Stack.Screen
                   name="Common.My.Privacy_Management"
                   component={CommonMyPrivacyManagementScreen}
                   options={{ title: t('Common.My.Privacy.Management') }}
@@ -343,7 +396,7 @@ export default function Navigation() {
                 />
                 <Stack.Screen
                   name="Common.My.About_Us"
-                  component={CommonAboutUsScreen}
+                  component={CommonMyAboutUsScreen}
                   options={{ title: t('Common.My.About.Us') }}
                 />
                 <Stack.Screen
@@ -371,7 +424,6 @@ export default function Navigation() {
                   component={CommonMySettingsCancelAccountScreen}
                   options={{ title: t('Common.My.Settings.Cancel.Account') }}
                 />
-
                 <Stack.Screen
                   name="User.Home.Weather_Forecast_Settings"
                   component={UserHomeWeatherForecastSettingsScreen}
@@ -382,7 +434,11 @@ export default function Navigation() {
                   component={UserHomeSelectLocationScreen}
                   options={{ title: t('User.Home.Select.Location') }}
                 />
-
+                <Stack.Screen
+                  name="User.Plant.Management"
+                  component={UserPlantManagementScreen}
+                  options={{ title: t('User.Plant.Management') }}
+                />
                 <Stack.Screen
                   name="User.Devices.Invertor_Detail"
                   component={UserDevicesInvertorDetailScreen}
@@ -393,7 +449,6 @@ export default function Navigation() {
                   component={UserDevicesBatteryDetailScreen}
                   options={{ title: t('User.Devices.Battery.Detail') }}
                 />
-
                 <Stack.Screen
                   name="LiveStatus"
                   component={LiveStatusScreen}
@@ -678,7 +733,6 @@ export default function Navigation() {
                     title: t('Global:Screens.Settings.Performance.Currency')
                   }}
                 />
-
                 {/* Temp */}
                 <Stack.Screen
                   name="Temp.Dev_Menu"

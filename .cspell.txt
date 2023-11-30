@@ -6,6 +6,7 @@ cocoapods
 codepush
 commitlint
 ellipsize
+flatlist
 Gantt
 georstat
 gradlew

@@ -18,6 +18,13 @@
   "Common.My.Settings.Personal.Info": "Personal Info",
   "Common.My.Settings.Personal.Info.Edit": "Edit Info",
   "Common.My.Settings.System.Units": "System Units",
+  "Common.Plant": {
+    "Detail": "Plant Detail",
+    "Create": {
+      "Scan.SN": "Create Plant",
+      "Form": "Create Plant"
+    }
+  },
   "Installer.Tabs": {
     "Guide": "Guide",
     "Home": "Home",
@@ -40,6 +47,9 @@
     "Home": {
       "Weather.Forecast.Settings": "Weather Forecast Settings",
       "Select.Location": "Select Location"
+    },
+    "Plant": {
+      "Management": "Management"
     },
     "Devices": {
       "Inverter.Detail": "Inverter Detail",

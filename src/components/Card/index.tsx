@@ -4,10 +4,11 @@ import { Card as TCard } from 'tamagui'
 
 interface Props extends PropsWithChildren<CardProps> {
   width?: string | number
+  disablePressScale?: boolean
 }
 
 const Card = memo((props: Props) => {
-  const { width = '100%', children, ...rest } = props
+  const { width = '100%', disablePressScale, children, ...rest } = props
   return (
     <TCard
       size="$4"
@@ -15,7 +16,7 @@ const Card = memo((props: Props) => {
       animation="bouncy"
       width={width}
       height="auto"
-      pressStyle={{ scale: 0.95 }}
+      pressStyle={{ scale: disablePressScale ? 1 : 0.95 }}
       {...rest}
     >
       <TCard.Header padded>{children}</TCard.Header>

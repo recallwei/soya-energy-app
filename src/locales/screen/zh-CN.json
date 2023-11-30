@@ -18,6 +18,13 @@
   "Common.My.Settings.Personal.Info": "个人信息",
   "Common.My.Settings.Personal.Info.Edit": "编辑信息",
   "Common.My.Settings.System.Units": "系统单位",
+  "Common.Plant": {
+    "Detail": "电站详情",
+    "Create": {
+      "Scan.SN": "创建电站",
+      "Form": "创建电站"
+    }
+  },
   "Installer.Tabs": {
     "Guide": "指引",
     "Home": "主页",
@@ -40,6 +47,9 @@
     "Home": {
       "Weather.Forecast.Settings": "天气预报设置",
       "Select.Location": "选择位置"
+    },
+    "Plant": {
+      "Management": "管理"
     },
     "Devices": {
       "Inverter.Detail": "逆变器详情",

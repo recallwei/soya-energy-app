@@ -9,6 +9,7 @@ interface State {
 
 interface Actions {
   setCurrentPlant: (plant: Plant) => void
+  setPlantList: (plantList: Plant[]) => void
 }
 
 const initialState: State = {
@@ -30,5 +31,6 @@ const initialState: State = {
 
 export const usePlantStore = create<State & Actions>()((set) => ({
   ...initialState,
-  setCurrentPlant: (plant: Plant) => set({ currentPlant: plant })
+  setCurrentPlant: (plant: Plant) => set({ currentPlant: plant }),
+  setPlantList: (plantList: Plant[]) => set({ plantList })
 }))

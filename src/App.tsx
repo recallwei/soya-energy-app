@@ -13,6 +13,7 @@ import { enableMapSet } from 'immer'
 import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { Appearance, AppState, Platform } from 'react-native'
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
@@ -44,6 +45,12 @@ function onAppStateChange(status: AppStateStatus) {
     focusManager.setFocused(status === 'active')
   }
 }
+
+const GestureHandlerProvider = gestureHandlerRootHOC(() => (
+  <SafeAreaProvider>
+    <Navigation />
+  </SafeAreaProvider>
+))
 
 function App() {
   const [queryClient] = useState(
@@ -112,9 +119,7 @@ function App() {
         config={config}
         defaultTheme={theme}
       >
-        <SafeAreaProvider>
-          <Navigation />
-        </SafeAreaProvider>
+        <GestureHandlerProvider />
       </TamaguiProvider>
       <FlipperAsyncStorage />
     </QueryClientProvider>

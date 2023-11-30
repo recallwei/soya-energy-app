@@ -6,11 +6,19 @@ export { default as AuthSignUpSelectRoleScreen } from './Auth/SignUp/SelectRole'
 export { default as AuthSplashScreen } from './Auth/Splash'
 
 // ------ Common screens ------
+// Message
 export { default as CommonMessageScreen } from './Common/Message'
 export { default as CommonMessageDetailScreen } from './Common/Message/Detail'
 export { default as CommonMessageListScreen } from './Common/Message/List'
+
+// Plant
+export { default as CommonPlantCreateFormScreen } from './Common/Plant/Create/Form'
+export { default as CommonPlantCreateScanSNScreen } from './Common/Plant/Create/ScanSN'
+export { default as CommonPlantDetailScreen } from './Common/Plant/Detail'
+
+// My
 export { default as CommonMyScreen } from './Common/My'
-export { default as CommonAboutUsScreen } from './Common/My/AboutUs'
+export { default as CommonMyAboutUsScreen } from './Common/My/AboutUs'
 export { default as CommonMyPrivacyManagementScreen } from './Common/My/PrivacyManagement'
 export { default as CommonMyPrivacyManagementAgreementAndPolicyScreen } from './Common/My/PrivacyManagement/AgreementAndPolicy'
 export { default as CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen } from './Common/My/PrivacyManagement/AgreementAndPolicy/PrivacyPolicy'
@@ -40,6 +48,9 @@ export { default as UserStatisticsScreen } from './User/Statistics'
 // Home
 export { default as UserHomeSelectLocationScreen } from './User/Home/SelectLocation'
 export { default as UserHomeWeatherForecastSettingsScreen } from './User/Home/WeatherForecastSettings'
+
+// Plant
+export { default as UserPlantManagementScreen } from './User/Plant/Management'
 
 // Device
 export { default as UserDevicesBatteryDetailScreen } from './User/Devices/BatteryDetail'

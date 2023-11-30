@@ -20,7 +20,7 @@ export default function Header() {
         {AppMetaData.APP_NAME}
       </SizableText>
       <XStack
-        space="$2"
+        space="$3"
         alignItems="center"
       >
         <TouchableOpacity onPress={() => navigate('Common.Message')}>

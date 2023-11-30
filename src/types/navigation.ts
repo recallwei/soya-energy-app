@@ -32,6 +32,10 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.Message.List']: { type: string }
     ['Common.Message.Detail']: { id: string; type: string }
 
+    ['Common.Plant.Detail']: { id: string }
+    ['Common.Plant.Create.Scan_SN']: undefined
+    ['Common.Plant.Create.Form']: { code: string }
+
     ['Common.My.Privacy_Management']: undefined
     ['Common.My.Privacy_Management.Agreement_And_Policy']: undefined
     ['Common.My.Privacy_Management.Agreement_And_Policy.Privacy_Policy']: undefined
@@ -50,6 +54,7 @@ export type RootStackParamList = InstallerTabParamList &
     // User
     ['User.Home.Weather_Forecast_Settings']: undefined
     ['User.Home.Select_Location']: undefined
+    ['User.Plant.Management']: undefined
     ['User.Devices']: undefined
     ['User.Devices.Invertor_Detail']: { id: string } | undefined
     ['User.Devices.Battery_Detail']: { id: string } | undefined
@@ -109,11 +114,6 @@ export type RootStackParamList = InstallerTabParamList &
     SettingsPerformanceEnergy: undefined
     SettingsPerformanceCurrency: undefined
   }
-
-export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<
-  RootStackParamList,
-  T
->
 
 export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<
   RootStackParamList,

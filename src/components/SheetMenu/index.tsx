@@ -1,7 +1,8 @@
+import type { ReactNode } from 'react'
 import React, { Fragment, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
-import { Separator, SizableText, YStack } from 'tamagui'
+import { Separator, SizableText, View, YStack } from 'tamagui'
 
 import type { SheetProps } from '../Sheet'
 import Sheet from '../Sheet'
@@ -9,7 +10,7 @@ import Sheet from '../Sheet'
 export interface SheetMenuProps {
   data?: SheetMenuListItem[]
   sheet?: SheetProps
-  footer?: React.ReactNode
+  footer?: ReactNode
   autoClose?: boolean
 }
 
@@ -45,25 +46,27 @@ const SheetMenu = memo((props: SheetMenuProps) => {
       setOpen={sheet.setOpen}
       scrollable={sheet.scrollable}
     >
-      <YStack
-        gap="$2"
-        padding="$4"
-        alignItems="center"
-        flex={1}
-      >
-        {props.data &&
-          props.data.map((item, index) => (
-            <Fragment key={index}>
-              <TouchableOpacity onPress={() => handlePress(item)}>
-                <SizableText color={item.color}>
-                  {typeof item.text === 'function' ? item.text() : item.text}
-                </SizableText>
-              </TouchableOpacity>
-              <Separator width="100%" />
-            </Fragment>
-          ))}
-        <SizableText onPress={handleCancel}>{t('Cancel')}</SizableText>
-        {props.footer && props.footer}
+      <YStack padding="$4">
+        <View
+          gap="$3"
+          alignItems="center"
+          flex={1}
+        >
+          {props.data &&
+            props.data.map((item, index) => (
+              <Fragment key={index}>
+                <TouchableOpacity onPress={() => handlePress(item)}>
+                  <SizableText color={item.color}>
+                    {typeof item.text === 'function' ? item.text() : item.text}
+                  </SizableText>
+                </TouchableOpacity>
+                <Separator width="100%" />
+              </Fragment>
+            ))}
+          <SizableText onPress={handleCancel}>{t('Cancel')}</SizableText>
+          {props.footer && <Separator width="100%" />}
+        </View>
+        {props.footer && <View marginTop="$3">{props.footer}</View>}
       </YStack>
     </Sheet>
   )
