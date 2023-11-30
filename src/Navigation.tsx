@@ -5,9 +5,11 @@ import {
   useNavigationContainerRef
 } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Settings } from '@tamagui/lucide-icons'
+import { BellRing, MoreHorizontal, Settings } from '@tamagui/lucide-icons'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
+import { XStack } from 'tamagui'
 
 import { InstallerTabBar, UserTabBar } from '@/navigators'
 import {
@@ -81,8 +83,11 @@ import {
   UserHomeWeatherForecastSettingsScreen,
   WebViewDemoScreen
 } from '@/screens'
-import { useAuthStore, useTabsStore, useThemeStore } from '@/store'
+import { useAuthStore, usePlantStore, useTabsStore, useThemeStore } from '@/store'
 import type { InstallerTabParamList, RootStackParamList, UserTabParamList } from '@/types'
+
+import type { SheetMenuListItem } from './components'
+import { DropDownMenu, SheetMenu } from './components'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -92,9 +97,20 @@ export default function Navigation() {
   const authStore = useAuthStore()
   const tabStore = useTabsStore()
   const themeStore = useThemeStore()
+  const plantStore = usePlantStore()
 
   const navigationRef = useNavigationContainerRef()
   useFlipper(navigationRef)
+
+  const [homePlantSheetOpen, setHomePlantSheetOpen] = useState(false)
+  const [homeSheetOpen, setHomeSheetOpen] = useState(false)
+
+  const getHomeSheetMenuData = (navigation: any): SheetMenuListItem[] => [
+    {
+      text: '天气',
+      onPress: () => navigation.navigate('User.Home.Weather_Forecast_Settings')
+    }
+  ]
 
   function getInstallerTabTitleI18nText(tabName: keyof InstallerTabParamList): string {
     switch (tabName) {
@@ -211,11 +227,6 @@ export default function Navigation() {
                     component={InstallerTabBar}
                     options={{
                       headerShown: false,
-                      animation: 'simple_push',
-                      animationTypeForReplace: 'push',
-                      contentStyle: {
-                        backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
-                      },
                       title: getInstallerTabTitleI18nText(tabStore.installerCurrentTab)
                     }}
                   />
@@ -223,16 +234,54 @@ export default function Navigation() {
                 <Stack.Screen
                   name="User.Tabs"
                   component={UserTabBar}
-                  options={{
-                    headerShown: false,
-                    headerBackButtonMenuEnabled: true,
-                    animation: 'simple_push',
-                    animationTypeForReplace: 'push',
-                    contentStyle: {
-                      backgroundColor: themeStore.isDark() ? '#333333' : '#ffffff'
-                    },
-                    title: getUserTabTitleI18nText(tabStore.userCurrentTab)
-                  }}
+                  options={({ navigation }) => ({
+                    headerShown: true,
+                    title: getUserTabTitleI18nText(tabStore.userCurrentTab),
+                    headerTitle: () => (
+                      <DropDownMenu
+                        text={plantStore.currentPlant.siteName}
+                        sheetMenu={{
+                          sheet: {
+                            open: homePlantSheetOpen,
+                            setOpen: setHomePlantSheetOpen,
+                            scrollable: true
+                          },
+                          data: plantStore.plantList.map<SheetMenuListItem>((item) => ({
+                            text: item.siteName,
+                            value: item.id,
+                            onPress: () => plantStore.setCurrentPlant(item)
+                          }))
+                        }}
+                      />
+                    ),
+                    headerRight: () => {
+                      switch (tabStore.userCurrentTab) {
+                        case 'User.Home':
+                          return (
+                            <XStack space="$3">
+                              <TouchableOpacity
+                                onPress={() => navigation.navigate('Common.Message')}
+                              >
+                                <BellRing size="$1" />
+                              </TouchableOpacity>
+                              <TouchableOpacity onPress={() => setHomeSheetOpen(true)}>
+                                <MoreHorizontal size="$1" />
+                                <SheetMenu
+                                  data={getHomeSheetMenuData(navigation)}
+                                  sheet={{
+                                    open: homeSheetOpen,
+                                    setOpen: setHomeSheetOpen
+                                  }}
+                                  autoClose
+                                />
+                              </TouchableOpacity>
+                            </XStack>
+                          )
+                        default:
+                          return null
+                      }
+                    }
+                  })}
                 />
                 <Stack.Screen
                   name="Common.Message"

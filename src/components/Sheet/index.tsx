@@ -3,13 +3,13 @@ import { Sheet as TSheet } from 'tamagui'
 
 import { useSafeAreaPadding } from '@/hooks'
 
-interface Props extends PropsWithChildren {
+export interface SheetProps extends PropsWithChildren {
   open?: boolean
   setOpen?: (open: boolean) => void
   scrollable?: boolean
 }
 
-const Sheet = memo((props: Props) => {
+const Sheet = memo((props: SheetProps) => {
   const { open, setOpen, children, scrollable = false } = props
   const { paddingBottom } = useSafeAreaPadding()
 

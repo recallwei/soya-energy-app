@@ -98,7 +98,7 @@ export default function Screen() {
       >
         <YStack
           padding="$4"
-          space="$3"
+          space="$2"
         >
           <Button onPress={handleOpenImagePicker}>{t('Image.Picker.Select.From.Gallery')}</Button>
           <Button onPress={handleOpenCamera}>{t('Image.Picker.Select.From.Camera')}</Button>

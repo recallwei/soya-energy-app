@@ -405,7 +405,7 @@ PODS:
     - glog
   - react-native-flipper (0.163.0):
     - React-Core
-  - react-native-netinfo (11.1.0):
+  - react-native-netinfo (11.1.1):
     - React-Core
   - react-native-safe-area-context (4.7.4):
     - React-Core
@@ -524,7 +524,7 @@ PODS:
   - ReactNativeFileAccess (3.0.4):
     - React-Core
     - ZIPFoundation (= 0.9.11)
-  - RNCAsyncStorage (1.20.0):
+  - RNCAsyncStorage (1.21.0):
     - React-Core
   - RNGestureHandler (2.14.0):
     - RCT-Folly (= 2021.07.22.00)
@@ -845,7 +845,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 8baadae51f01d867c3921213a25ab78ab4fbcd91
   React-logger: 8edc785c47c8686c7962199a307015e2ce9a0e4f
   react-native-flipper: 2d552a8178d839ef378220101fb7f0cd5b2a8003
-  react-native-netinfo: 3aa5637c18834966e0c932de8ae1ae56fea20a97
+  react-native-netinfo: b0ae7d0f76302eaf249de7b2b7add297e155b1d0
   react-native-safe-area-context: 2cd91d532de12acdb0a9cbc8d43ac72a8e4c897c
   react-native-webview: 88293a0f23eca8465c0433c023ec632930e644d0
   React-NativeModulesApple: b6868ee904013a7923128892ee4a032498a1024a
@@ -866,7 +866,7 @@ SPEC CHECKSUMS:
   React-utils: 56838edeaaf651220d1e53cd0b8934fb8ce68415
   ReactCommon: 5f704096ccf7733b390f59043b6fa9cc180ee4f6
   ReactNativeFileAccess: 4530e3be4d5069454c6c6389096d8cb78c897f2c
-  RNCAsyncStorage: f861badaced77231ab3781c465a8425f000191aa
+  RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNGestureHandler: 32a01c29ecc9bb0b5bf7bc0a33547f61b4dc2741
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNReanimated: 1dcf7602777a195cf34f1dcd658037a80a2c8af1

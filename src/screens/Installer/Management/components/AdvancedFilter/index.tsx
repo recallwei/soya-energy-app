@@ -1,11 +1,11 @@
-import { ChevronDown, Filter, Heart } from '@tamagui/lucide-icons'
+import { Filter, Heart } from '@tamagui/lucide-icons'
 import { useToggle } from 'ahooks'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
-import { SizableText, View, XStack } from 'tamagui'
+import { View, XStack } from 'tamagui'
 
-import { SheetMenu } from '@/components'
+import { DropDownMenu } from '@/components'
 
 import { Orderby } from '../../enums'
 
@@ -44,8 +44,7 @@ export default function AdvancedFilter(props: Props) {
     }
   ]
 
-  const [orderBySheetOpen, { set: setOrderBySheetOpen, setRight: handleOpenOrderBySheet }] =
-    useToggle(false)
+  const [orderBySheetOpen, { set: setOrderBySheetOpen }] = useToggle(false)
   const [starStatus, { toggle: toggleStarStatus }] = useToggle(false)
 
   const getCurrentOrderByText = () => orderBySheetMenu.find((item) => item.value === orderBy)!.text
@@ -57,17 +56,16 @@ export default function AdvancedFilter(props: Props) {
       justifyContent="space-between"
       alignItems="center"
     >
-      <TouchableOpacity onPress={handleOpenOrderBySheet}>
-        <XStack
-          alignItems="center"
-          space="$1"
-        >
-          <SizableText>{getCurrentOrderByText()}</SizableText>
-          <View marginTop="$1">
-            <ChevronDown size="$1" />
-          </View>
-        </XStack>
-      </TouchableOpacity>
+      <DropDownMenu
+        text={getCurrentOrderByText()}
+        sheetMenu={{
+          sheet: { open: orderBySheetOpen, setOpen: setOrderBySheetOpen },
+          data: orderBySheetMenu.map((item) => ({
+            ...item,
+            onPress: () => setOrderBy(item.value)
+          }))
+        }}
+      />
 
       <XStack space="$2.5">
         <TouchableOpacity onPress={toggleStarStatus}>
@@ -86,16 +84,6 @@ export default function AdvancedFilter(props: Props) {
           </View>
         </TouchableOpacity>
       </XStack>
-
-      <SheetMenu
-        open={orderBySheetOpen}
-        setOpen={setOrderBySheetOpen}
-        autoClose
-        data={orderBySheetMenu.map((item) => ({
-          ...item,
-          onPress: () => setOrderBy(item.value)
-        }))}
-      />
     </XStack>
   )
 }

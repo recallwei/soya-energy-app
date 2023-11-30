@@ -42,10 +42,7 @@ export default function Statistics() {
   ]
 
   return (
-    <View
-      paddingHorizontal="$4"
-      paddingVertical="$2"
-    >
+    <View paddingHorizontal="$4">
       <Card>
         <ScrollView
           horizontal

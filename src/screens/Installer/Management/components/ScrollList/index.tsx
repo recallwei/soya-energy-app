@@ -180,11 +180,12 @@ export default function ScrollList(props: Props) {
       }
     >
       <YStack
-        padding="$4"
+        paddingHorizontal="$4"
+        paddingBottom="$4"
         space="$3"
       >
         <FlatList
-          contentContainerStyle={{ gap: 20 }}
+          contentContainerStyle={{ gap: 8 }}
           data={props.listData}
           scrollEnabled={false}
           keyExtractor={({ id }) => id}

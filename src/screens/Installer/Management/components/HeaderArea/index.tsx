@@ -58,7 +58,7 @@ export default function HeaderArea(props: Props) {
       paddingTop="$4"
       paddingHorizontal="$4"
       paddingBottom="$2"
-      space="$3"
+      space="$2"
     >
       <XStack
         space="$4"
@@ -126,8 +126,10 @@ export default function HeaderArea(props: Props) {
           </View>
         </TouchableOpacity>
         <SheetMenu
-          open={createSheetOpen}
-          setOpen={setCreateSheetOpen}
+          sheet={{
+            open: createSheetOpen,
+            setOpen: setCreateSheetOpen
+          }}
           data={createSheetMenuData}
           autoClose
         />

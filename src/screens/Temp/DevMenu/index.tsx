@@ -54,7 +54,7 @@ export default function Screen() {
   return (
     <YStack
       padding="$4"
-      space="$3"
+      space="$2"
     >
       <MenuItemCard
         title={t('Demo.Title')}

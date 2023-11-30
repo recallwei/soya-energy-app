@@ -3,29 +3,30 @@ import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { Separator, SizableText, YStack } from 'tamagui'
 
+import type { SheetProps } from '../Sheet'
 import Sheet from '../Sheet'
 
-interface Props {
-  open?: boolean
-  setOpen?: (open: boolean) => void
+export interface SheetMenuProps {
   data?: SheetMenuListItem[]
-  scrollable?: boolean
+  sheet?: SheetProps
+  footer?: React.ReactNode
   autoClose?: boolean
 }
 
 export interface SheetMenuListItem<T = any> {
-  text: string | (() => string)
+  text?: string | (() => string)
   value?: T
   onPress?: (value: SheetMenuListItem<T>) => void | Promise<void>
   color?: string
 }
 
-const SheetMenu = memo((props: Props) => {
+const SheetMenu = memo((props: SheetMenuProps) => {
+  const { sheet = {} } = props
   const { t } = useTranslation()
 
   const handleCancel = () => {
-    if (props.setOpen) {
-      props.setOpen(false)
+    if (sheet.setOpen) {
+      sheet.setOpen(false)
     }
   }
 
@@ -40,12 +41,12 @@ const SheetMenu = memo((props: Props) => {
 
   return (
     <Sheet
-      open={props.open}
-      setOpen={props.setOpen}
-      scrollable={props.scrollable}
+      open={sheet.open}
+      setOpen={sheet.setOpen}
+      scrollable={sheet.scrollable}
     >
       <YStack
-        gap="$3"
+        gap="$2"
         padding="$4"
         alignItems="center"
         flex={1}
@@ -62,6 +63,7 @@ const SheetMenu = memo((props: Props) => {
             </Fragment>
           ))}
         <SizableText onPress={handleCancel}>{t('Cancel')}</SizableText>
+        {props.footer && props.footer}
       </YStack>
     </Sheet>
   )

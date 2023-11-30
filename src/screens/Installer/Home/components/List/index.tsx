@@ -112,7 +112,7 @@ export default function List() {
 
   return (
     <FlatList
-      contentContainerStyle={{ gap: 12 }}
+      contentContainerStyle={{ gap: 6 }}
       numColumns={2}
       scrollEnabled={false}
       data={mockData}

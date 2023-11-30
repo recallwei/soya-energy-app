@@ -39,7 +39,7 @@ export default function UserMyScreen() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <YStack
           padding="$4"
-          space="$3"
+          space="$2"
         >
           <XStack
             justifyContent="space-between"

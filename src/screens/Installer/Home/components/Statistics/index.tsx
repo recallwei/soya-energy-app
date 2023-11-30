@@ -7,7 +7,7 @@ export default function Statistics() {
   const { t } = useTranslation('Installer.Home')
 
   return (
-    <YStack space="$3">
+    <YStack space="$2">
       <XStack justifyContent="space-between">
         <Card width="49%">
           <YStack>

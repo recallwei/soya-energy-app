@@ -140,8 +140,10 @@ export default function Screen() {
         </YStack>
       </ScrollView>
       <SheetMenu
-        open={open}
-        setOpen={setOpen}
+        sheet={{
+          open,
+          setOpen
+        }}
         data={langList}
       />
     </>
