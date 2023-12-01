@@ -1,23 +1,23 @@
 import { useNavigation } from '@react-navigation/native'
 import { BadgeInfo, Code, FolderLock, Settings } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ScrollView, View, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { globalEnvConfig } from '@/env'
-import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore } from '@/store'
 
 import { UserAvatar } from './components'
 
 export default function Screen() {
-  const { paddingTop } = useSafeAreaPadding()
   const { t } = useTranslation('Common.My')
+  const insets = useSafeAreaInsets()
   const { navigate } = useNavigation()
   const authStore = useAuthStore()
 
   return (
-    <View paddingTop={authStore.isInstaller() && paddingTop}>
+    <View paddingTop={authStore.isInstaller() && insets.top}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         height="100%"

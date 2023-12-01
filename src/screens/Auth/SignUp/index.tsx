@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next'
 import { KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native'
 import type { Image } from 'react-native-image-crop-picker'
 import ImagePicker from 'react-native-image-crop-picker'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import {
   Button,
   Image as TImage,
@@ -28,7 +29,6 @@ import * as yup from 'yup'
 import { Checkbox } from '@/components'
 import { globalStyles } from '@/constants'
 import { UserRole } from '@/enums'
-import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore } from '@/store'
 import type { RouteProp } from '@/types'
 import { DeviceUtils, ToastUtils } from '@/utils'
@@ -53,7 +53,7 @@ const schema = yup
 export default function Screen() {
   const { t } = useTranslation(['Auth', 'Global'])
   const route = useRoute<RouteProp<'Auth.SignUp'>>()
-  const { paddingBottom } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
   const authStore = useAuthStore()
 
   const { control, handleSubmit } = useForm<FormData>({
@@ -142,7 +142,7 @@ export default function Screen() {
     <KeyboardAvoidingView
       behavior={Platform.select({ ios: 'padding', android: undefined })}
       keyboardVerticalOffset={120}
-      style={{ paddingBottom }}
+      style={{ paddingBottom: insets.bottom }}
     >
       <ScrollView showsVerticalScrollIndicator={false}>
         <YStack

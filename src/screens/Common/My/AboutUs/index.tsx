@@ -1,13 +1,13 @@
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Image, SizableText, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { globalEnvConfig } from '@/env'
-import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
 import { CodePushUtils, DeviceUtils } from '@/utils'
 
 export default function Screen() {
-  const { insets } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
   const themeStore = useThemeStore()
   const authStore = useAuthStore()
 
@@ -17,7 +17,7 @@ export default function Screen() {
     <YStack
       padding="$4"
       space="$2"
-      paddingBottom={insets.paddingBottom}
+      paddingBottom={insets.bottom}
       height="100%"
     >
       <Image
@@ -60,7 +60,7 @@ export default function Screen() {
         position="absolute"
         alignSelf="center"
         textAlign="center"
-        bottom={insets.paddingBottom}
+        bottom={insets.bottom}
         size="$3"
       >
         Copyright All rights reserved Soya Energy，Ltd.

@@ -1,17 +1,17 @@
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Button, Paragraph, SizableText, YStack } from 'tamagui'
 
 import { Checkbox } from '@/components'
-import { useSafeAreaPadding } from '@/hooks'
 
 export default function Screen() {
-  const { insets } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
   return (
     <YStack
       padding="$4"
       space="$2"
       height="100%"
       justifyContent="space-between"
-      paddingBottom={insets.paddingBottom}
+      paddingBottom={insets.bottom}
     >
       <YStack space="$1">
         <Paragraph marginBottom="$2">注销后，账户将被永久删除，不可恢复。</Paragraph>

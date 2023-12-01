@@ -1,13 +1,13 @@
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Image, Progress, Spinner, YStack } from 'tamagui'
 
-import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
 import { DeviceUtils } from '@/utils'
 
 export default function Screen() {
   const themeStore = useThemeStore()
   const authStore = useAuthStore()
-  const { insets } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
 
   return (
     <YStack
@@ -19,7 +19,10 @@ export default function Screen() {
       bottom={0}
       left={0}
       right={0}
-      {...insets}
+      paddingBottom={insets.bottom}
+      paddingTop={insets.top}
+      paddingRight={insets.right}
+      paddingLeft={insets.left}
       marginBottom="28%"
     >
       <Image

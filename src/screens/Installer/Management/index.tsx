@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { Drawer } from 'react-native-drawer-layout'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { View } from 'tamagui'
 import { useImmer } from 'use-immer'
 
 import { PlantAPI } from '@/api/plant'
-import { useRefresh, useSafeAreaPadding } from '@/hooks'
+import { useRefresh } from '@/hooks'
 import { useThemeStore } from '@/store'
 import { DeviceUtils } from '@/utils'
 
@@ -15,7 +16,7 @@ import { ManagementTab } from './enums'
 import type { FormData } from './interfaces'
 
 export default function Screen() {
-  const { insetsWithoutBottom, paddingTop } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
   const { data: { records: listData = [] } = {}, refetch } = useQuery({
     queryKey: [PlantAPI.LIST_QUERY_KEY],
     queryFn: () => PlantAPI.listMock(),
@@ -42,12 +43,14 @@ export default function Screen() {
         backgroundColor: themeStore.getBgColor(),
         right: 0,
         width: DeviceUtils.SCREEN_WIDTH * 0.8,
-        paddingTop
+        paddingTop: insets.top
       }}
     >
       <View
         height="100%"
-        {...insetsWithoutBottom}
+        paddingTop={insets.top}
+        paddingLeft={insets.left}
+        paddingRight={insets.right}
       >
         <HeaderArea
           currentTab={currentTab}

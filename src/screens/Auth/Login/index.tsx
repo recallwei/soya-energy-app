@@ -9,6 +9,7 @@ import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack } from 'tamagui'
 import * as yup from 'yup'
 
@@ -16,7 +17,6 @@ import { AuthAPI } from '@/api'
 import { Checkbox } from '@/components'
 import type { UserRole } from '@/enums'
 import { globalEnvConfig } from '@/env'
-import { useSafeAreaPadding } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
@@ -34,7 +34,7 @@ const schema = yup
   .required()
 
 export default function Screen() {
-  const { insets } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
   const { t } = useTranslation('Auth')
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
@@ -267,7 +267,7 @@ export default function Screen() {
           position="absolute"
           left={0}
           right={0}
-          bottom={insets.paddingBottom}
+          bottom={insets.bottom}
         >
           <Label textAlign="center">
             {`${globalEnvConfig.APP_ENVIRONMENT} - ${authStore.packageMetadata.appVersion}.${authStore.packageMetadata.label}`}

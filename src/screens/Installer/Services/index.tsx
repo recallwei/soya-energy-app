@@ -1,21 +1,26 @@
 import { Laptop, Settings, ShieldCheck, Siren, Users2 } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { RefreshControl } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ScrollView, View, XStack, YStack } from 'tamagui'
 
 import { HeadingTitle } from '@/components'
-import { useRefresh, useSafeAreaPadding } from '@/hooks'
+import { useRefresh } from '@/hooks'
 
 import { ServiceItem } from './components'
 
 export default function DemoScreen() {
-  const { insetsWithoutBottom } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
   const { t } = useTranslation('Installer.Services')
 
   const { refreshing, onRefresh } = useRefresh()
 
   return (
-    <View {...insetsWithoutBottom}>
+    <View
+      paddingTop={insets.top}
+      paddingLeft={insets.left}
+      paddingRight={insets.right}
+    >
       <ScrollView
         minHeight="100%"
         showsVerticalScrollIndicator={false}

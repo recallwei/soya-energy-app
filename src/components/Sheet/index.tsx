@@ -1,7 +1,6 @@
 import { memo, type PropsWithChildren } from 'react'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Sheet as TSheet } from 'tamagui'
-
-import { useSafeAreaPadding } from '@/hooks'
 
 export interface SheetProps extends PropsWithChildren {
   open?: boolean
@@ -11,7 +10,7 @@ export interface SheetProps extends PropsWithChildren {
 
 const Sheet = memo((props: SheetProps) => {
   const { open, setOpen, children, scrollable = false } = props
-  const { paddingBottom } = useSafeAreaPadding()
+  const insets = useSafeAreaInsets()
 
   return (
     <TSheet
@@ -29,7 +28,7 @@ const Sheet = memo((props: SheetProps) => {
         exitStyle={{ opacity: 0 }}
       />
       <TSheet.Handle />
-      <TSheet.Frame paddingBottom={paddingBottom}>
+      <TSheet.Frame paddingBottom={insets.bottom}>
         <TSheet.ScrollView
           maxHeight={400}
           scrollEnabled={scrollable}
