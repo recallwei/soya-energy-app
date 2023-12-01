@@ -29,6 +29,7 @@ export { default as CommonMySettingsScreen } from './Common/My/Settings'
 export { default as CommonMySettingsCancelAccountScreen } from './Common/My/Settings/CancelAccount'
 export { default as CommonMySettingsSystemUnitsScreen } from './Common/My/Settings/SystemUnits'
 export { default as CommonMyPersonalInfoScreen } from './Common/PersonalInfo'
+export { default as CommonMyPersonalInfoCountryPickerScreen } from './Common/PersonalInfo/CountryPicker'
 export { default as CommonMyPersonalInfoEditScreen } from './Common/PersonalInfo/Edit'
 
 // ------ Installer screens ------

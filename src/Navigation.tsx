@@ -22,6 +22,7 @@ import {
   CommonMessageListScreen,
   CommonMessageScreen,
   CommonMyAboutUsScreen,
+  CommonMyPersonalInfoCountryPickerScreen,
   CommonMyPersonalInfoEditScreen,
   CommonMyPersonalInfoScreen,
   CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen,
@@ -393,6 +394,11 @@ export default function Navigation() {
                   name="Common.My.Personal_Info.Edit"
                   component={CommonMyPersonalInfoEditScreen}
                   options={{ title: t('Common.My.Personal.Info.Edit') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Personal_Info.Country_Picker"
+                  component={CommonMyPersonalInfoCountryPickerScreen}
+                  options={{ title: t('Common.My.Personal.Info.Country.Picker') }}
                 />
                 <Stack.Screen
                   name="Common.My.Settings.System_Units"

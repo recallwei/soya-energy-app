@@ -2,12 +2,14 @@ import { CachedImage } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
 import { ChevronRight } from '@tamagui/lucide-icons'
 import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { SizableText, XStack } from 'tamagui'
 
 import { useAuthStore } from '@/store'
 
 const UserAvatar = memo(() => {
+  const { t } = useTranslation()
   const { navigate } = useNavigation()
   const authStore = useAuthStore()
 
@@ -42,6 +44,18 @@ const UserAvatar = memo(() => {
             marginLeft="$2"
           >
             {authStore.userInfo.username}
+          </SizableText>
+        </XStack>
+
+        <XStack
+          alignItems="center"
+          space="$2"
+        >
+          <SizableText
+            fontWeight="$bold"
+            size="$5"
+          >
+            {t('Edit')}
           </SizableText>
           <ChevronRight />
         </XStack>

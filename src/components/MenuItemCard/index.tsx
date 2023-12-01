@@ -1,5 +1,6 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
 import { memo, useState } from 'react'
+import type { SizableTextProps } from 'tamagui'
 import { Card, Separator, SizableText, Switch, View, XStack, YStack } from 'tamagui'
 
 import { globalStyles } from '@/constants'
@@ -7,6 +8,7 @@ import { globalStyles } from '@/constants'
 interface Props {
   title?: string
   rightTitle?: string
+  rightTitleProps?: SizableTextProps
   description?: string
   icon?: any
   onPress?: () => void
@@ -106,10 +108,18 @@ export const MenuItemCard = memo((props: Props) => {
                   justifyContent="space-between"
                   alignItems="center"
                   width="100%"
-                  paddingRight="$2.5"
+                  paddingRight="$2"
+                  space="$2"
                 >
                   {props.title && <SizableText fontWeight="$medium">{props.title}</SizableText>}
-                  {props.rightTitle && <SizableText>{props.rightTitle}</SizableText>}
+                  {props.rightTitle && (
+                    <SizableText
+                      numberOfLines={1}
+                      {...props.rightTitleProps}
+                    >
+                      {props.rightTitle}
+                    </SizableText>
+                  )}
                 </XStack>
                 {props.description && (
                   <SizableText

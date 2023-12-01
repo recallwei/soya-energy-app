@@ -38,6 +38,7 @@ export type RootStackParamList = InstallerTabParamList &
 
     ['Common.My.Personal_Info']: undefined
     ['Common.My.Personal_Info.Edit']: undefined
+    ['Common.My.Personal_Info.Country_Picker']: undefined
 
     ['Common.My.Privacy_Management']: undefined
     ['Common.My.Privacy_Management.Agreement_And_Policy']: undefined
