@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { Appearance, AppState, Platform } from 'react-native'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
+import { enableLatestRenderer } from 'react-native-maps'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
@@ -25,7 +26,10 @@ import Navigation from './Navigation'
 import { useAuthStore, useLangStore, useThemeStore } from './store'
 import { AuthUtils, LangUtils, LoggerUtils, ThemeUtils } from './utils'
 
+// immer
 enableMapSet()
+// react-native-maps
+enableLatestRenderer()
 
 // Init toast and alert
 setup({

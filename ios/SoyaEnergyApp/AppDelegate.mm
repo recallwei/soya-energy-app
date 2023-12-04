@@ -15,10 +15,16 @@
 // Code Push
 #import <CodePush/CodePush.h>
 
+// Google Maps
+#import <GoogleMaps/GoogleMaps.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  // Google Maps
+  [GMSServices provideAPIKey:@"AIzaSyBJqfSkhPuO2_NNyHYU8ugpMcytnvYxtq0"];
+
   self.moduleName = @"SoyaEnergyApp";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
@@ -33,7 +39,7 @@
 
   // Image Cache limits
   RCTSetImageCacheLimits(4 * 1024 * 1024, 200 * 1024 * 1024);
-
+  
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 

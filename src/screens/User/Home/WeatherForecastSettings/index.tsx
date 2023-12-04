@@ -85,7 +85,12 @@ export default function Screen() {
         <MenuItemCard
           title="电站位置"
           description={getLocation(locationInfo.latitude, locationInfo.longitude)}
-          onPress={() => navigate('User.Home.Select_Location')}
+          onPress={() =>
+            navigate('User.Home.Select_Location', {
+              latitude: locationInfo.latitude ?? 0,
+              longitude: locationInfo.longitude ?? 0
+            })
+          }
         />
         <MenuItemCard
           title="获取位置"

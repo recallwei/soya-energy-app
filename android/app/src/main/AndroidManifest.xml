@@ -21,6 +21,10 @@
       <meta-data
         android:name="com.google.mlkit.vision.DEPENDENCIES"
         android:value="barcode" />
+      <!-- NOTE: Required by react-native-maps -->
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyBJqfSkhPuO2_NNyHYU8ugpMcytnvYxtq0"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

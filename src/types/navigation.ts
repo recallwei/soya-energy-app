@@ -55,7 +55,7 @@ export type RootStackParamList = InstallerTabParamList &
 
     // User
     ['User.Home.Weather_Forecast_Settings']: undefined
-    ['User.Home.Select_Location']: undefined
+    ['User.Home.Select_Location']: { longitude: number; latitude: number }
     ['User.Plant.Management']: undefined
     ['User.Devices']: undefined
     ['User.Devices.Invertor_Detail']: { id: string } | undefined

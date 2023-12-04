@@ -44,7 +44,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
   <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>$(PRODUCT_NAME) needs access to your Location.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
