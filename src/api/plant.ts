@@ -1,7 +1,7 @@
 import { globalEnvConfig } from '@/env'
-import type { PageResponse, Plant } from '@/types'
+import type { Page, Plant, R } from '@/types'
 
-import Request from './axios'
+import httpRequest from './axios'
 
 export class PlantAPI {
   private static PLANT_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/plant`
@@ -9,11 +9,11 @@ export class PlantAPI {
   static LIST_QUERY_KEY = 'PLANT_LIST'
 
   static list() {
-    return Request.get<PageResponse<Plant>>(`${this.PLANT_API_PREFIX}/list`)
+    return httpRequest.get<R<Page<Plant>>>(`${this.PLANT_API_PREFIX}/list`)
   }
 
   static listMock() {
-    return new Promise<PageResponse<Plant>>((resolve) => {
+    return new Promise<R<Page<Plant>>>((resolve) => {
       setTimeout(() => {
         resolve({
           data: {

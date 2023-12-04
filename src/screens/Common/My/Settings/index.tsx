@@ -78,7 +78,8 @@ export default function Screen() {
 
   const logout = () => {
     authStore.logout()
-    AuthUtils.removeToken()
+    AuthUtils.removeAccessToken()
+    AuthUtils.removeRefreshToken()
   }
 
   return (

@@ -1,6 +1,7 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { Image, Progress, Spinner, YStack } from 'tamagui'
+import { Image, YStack } from 'tamagui'
 
+import { LoadingProgress } from '@/components'
 import { useAuthStore, useThemeStore } from '@/store'
 import { DeviceUtils } from '@/utils'
 
@@ -36,20 +37,10 @@ export default function Screen() {
         height={110}
         resizeMode="contain"
       />
-      <Spinner
-        color={themeStore.getTextColor()}
-        size="large"
-      />
-      <Progress
-        size="$2"
+      <LoadingProgress
         value={authStore.downloadProgress}
-        width={DeviceUtils.SCREEN_WIDTH * 0.8}
-        alignSelf="center"
-        marginTop="$4"
-        opacity={authStore.downloadProgress > 0 ? 1 : 0}
-      >
-        <Progress.Indicator animation="bouncy" />
-      </Progress>
+        progressOpacity={authStore.downloadProgress > 0 ? 1 : 0}
+      />
     </YStack>
   )
 }

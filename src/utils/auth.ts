@@ -5,11 +5,13 @@ import { UserRole } from '@/enums'
 export class AuthUtils {
   private static readonly ACCESS_TOKEN_KEY = '@ACCESS_TOKEN'
 
+  private static readonly REFRESH_TOKEN_KEY = '@REFRESH_TOKEN'
+
   private static readonly ACCOUNT_REMEMBER_PASSWORD_KEY = '@ACCOUNT_REMEMBER_PASSWORD'
 
   private static readonly ROLE_KEY = '@ROLE'
 
-  static async getToken() {
+  static async getAccessToken() {
     try {
       const token = await AsyncStorage.getItem(this.ACCESS_TOKEN_KEY)
       return token
@@ -18,20 +20,37 @@ export class AuthUtils {
     }
   }
 
-  static setToken(token: string) {
+  static setAccessToken(token: string) {
     return AsyncStorage.setItem(this.ACCESS_TOKEN_KEY, token)
   }
 
-  static removeToken() {
+  static removeAccessToken() {
     return AsyncStorage.removeItem(this.ACCESS_TOKEN_KEY)
   }
 
+  static async getRefreshToken() {
+    try {
+      const token = await AsyncStorage.getItem(this.REFRESH_TOKEN_KEY)
+      return token
+    } catch {
+      return ''
+    }
+  }
+
+  static setRefreshToken(token: string) {
+    return AsyncStorage.setItem(this.REFRESH_TOKEN_KEY, token)
+  }
+
+  static removeRefreshToken() {
+    return AsyncStorage.removeItem(this.REFRESH_TOKEN_KEY)
+  }
+
   static async isLogin() {
-    return !!(await this.getToken())
+    return !!(await this.getAccessToken())
   }
 
   static async getAuthorization() {
-    return `Bearer ${await this.getToken()}`
+    return `Bearer ${await this.getAccessToken()}`
   }
 
   static getAccountRememberPassword() {

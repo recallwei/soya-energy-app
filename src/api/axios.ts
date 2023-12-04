@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import type {
   AxiosError,
   AxiosInstance,
@@ -8,14 +7,22 @@ import type {
 } from 'axios'
 import axios from 'axios'
 
-import { errorMessageMap, ResponseStatusCode } from '@/constants'
+import { errorMessageMap, StatusCode } from '@/constants'
 import { globalEnvConfig } from '@/env'
-import i18n from '@/i18n'
-import { AuthUtils, ToastUtils } from '@/utils'
+import type { R, RefreshToken } from '@/types'
+import { AuthUtils, LangUtils, ToastUtils } from '@/utils'
 
-const t = i18n.getFixedT(null, 'Global')
+interface PendingTask {
+  config?: AxiosRequestConfig
+  resolve: (value: unknown) => void
+}
+
 class Request {
   instance: AxiosInstance
+
+  isRefreshing = false
+
+  pendingQueue: PendingTask[] = []
 
   config: AxiosRequestConfig = {
     baseURL: '/',
@@ -26,44 +33,108 @@ class Request {
     }
   }
 
+  REFRESH_API_URL = `${globalEnvConfig.BASE_API_URL}/auth/refresh-token`
+
   public constructor() {
     this.instance = axios.create(this.config)
 
     this.instance.interceptors.request.use(
       async (req: InternalAxiosRequestConfig) => {
         const { url } = req
-
         if (url?.startsWith(globalEnvConfig.BASE_API_URL)) {
-          req.headers['Accept-Language'] = 'zh-CN'
           req.headers['Tenant-Id'] = '000000'
           /* cspell:disable-next-line */
           req.headers.Authorization = 'Basic cmFpcGlvdDpyYWlwaW90X3NlY3JldA=='
         }
-
         if (await AuthUtils.isLogin()) {
           req.headers['Raipiot-Auth'] = await AuthUtils.getAuthorization()
         }
-
-        console.log(`请求路径：${req.url}`)
-        console.log(`请求参数：${JSON.stringify(req.params) ?? ''}`)
-        console.log(`请求数据：${JSON.stringify(req.data) ?? ''}`)
-
+        req.headers['Accept-Language'] = await LangUtils.getDefaultLang()
+        // console.log(`请求路径：${req.url}`)
+        // console.log(`请求参数：${JSON.stringify(req.params) ?? ''}`)
+        // console.log(`请求数据：${JSON.stringify(req.data) ?? ''}`)
         return req
       },
       (err: AxiosError) => Promise.reject(err)
     )
 
     this.instance.interceptors.response.use(
-      (res: AxiosResponse) => {
-        console.log(`响应状态：${res.status}`)
-        console.log(`响应数据：${JSON.stringify(res.data)}`)
-        return res.data as AxiosResponse
-      },
-      (err: AxiosError) => {
-        const { response } = err
+      (res: AxiosResponse) =>
+        // console.log(`响应状态：${res.status}`)
+        // console.log(`响应数据：${JSON.stringify(res.data)}`)
+        res.data,
+      async (err: AxiosError<R>) => {
+        const { response, config } = err
         const { data, status } = response ?? {}
-        if (response) {
-          Request.handleCode(status!)
+        const { msg } = data ?? {}
+        // 当前接口是否是刷新令牌接口
+        const isRefreshTokenAPI = config?.url?.includes(this.REFRESH_API_URL)
+        /**
+         * 处理刷新令牌接口的认证失败
+         * @description
+         * - 刷新标识置为 false
+         * - 清除 token
+         * - 清空请求队列
+         */
+        if (isRefreshTokenAPI) {
+          this.isRefreshing = false
+          this.pendingQueue = []
+          return Promise.reject(data)
+        }
+        // 如果正在刷新令牌，将当前失败的请求加入待请求队列
+        if (this.isRefreshing) {
+          return new Promise((resolve) => {
+            this.pendingQueue.push({ config, resolve })
+          })
+        }
+        const errorMessage = msg ?? errorMessageMap.get(status as number) ?? 'Unknown Error!'
+        const currentRefreshToken = await AuthUtils.getRefreshToken()
+        switch (status) {
+          case StatusCode.UNAUTHORIZED:
+            // 存在刷新令牌，认证令牌过期时，需要通过刷新令牌获取新的认证令牌
+            if (currentRefreshToken) {
+              this.isRefreshing = true
+              try {
+                const { refresh_token: refreshToken, access_token: accessToken } =
+                  (await this.refresh(currentRefreshToken)).data ?? {}
+                AuthUtils.setAccessToken(accessToken)
+                AuthUtils.setRefreshToken(refreshToken)
+                this.isRefreshing = false
+                if (config) {
+                  // 重新发起上次失败的请求
+                  const res = await this.request<R>({
+                    ...config,
+                    headers: {
+                      ...config.headers,
+                      Authorization: await AuthUtils.getAuthorization()
+                    }
+                  })
+                  // 刷新了认证令牌后，将待请求队列的请求重新发起
+                  if (this.pendingQueue.length > 0) {
+                    this.pendingQueue.forEach((task) => task.resolve(this.request(task.config!)))
+                    this.pendingQueue = []
+                  }
+                  return res
+                }
+              } catch {
+                // 处理刷新令牌认证失败的情况
+              }
+            }
+            // 处理认证失败
+            await AuthUtils.removeAccessToken()
+            await AuthUtils.removeRefreshToken()
+            ToastUtils.error({ message: errorMessage })
+            break
+          case StatusCode.FORBIDDEN:
+            ToastUtils.error({ message: errorMessage })
+            break
+          case StatusCode.INTERNAL_SERVER_ERROR:
+          case StatusCode.BAD_GATEWAY:
+          case StatusCode.GATEWAY_TIMEOUT:
+            ToastUtils.error({ message: errorMessage })
+            break
+          default:
+            break
         }
         return Promise.reject(data)
       }
@@ -71,47 +142,17 @@ class Request {
   }
 
   /**
-   * 处理响应状态码
-   * @param code 响应状态码
-   * @description 根据响应状态码进行相应的处理
-   * - 401 未授权，清除 token 并跳转到登录页
-   * - 403 禁止访问，提示用户无权限访问
-   * - 404 未找到，跳转到 404 页面
-   * - 500 服务器错误，跳转到 500 页面
-   * - 其他状态码，提示错误信息
+   * 刷新令牌
    */
-  static async handleCode(code: number): Promise<void> {
-    const errorMessage = errorMessageMap.get(code) ?? 'Unknown Error!'
-    switch (code) {
-      case ResponseStatusCode.UNAUTHORIZED:
-        await AuthUtils.removeToken()
-        console.error(errorMessage)
-        ToastUtils.error({ title: t('Status.Code.401'), message: errorMessage })
-        break
-      case ResponseStatusCode.FORBIDDEN:
-        console.error(errorMessage)
-        ToastUtils.error({ title: t('Status.Code.403'), message: errorMessage })
-        break
-      case ResponseStatusCode.INTERNAL_SERVER_ERROR:
-      case ResponseStatusCode.BAD_GATEWAY:
-      case ResponseStatusCode.GATEWAY_TIMEOUT:
-        console.error(errorMessage)
-        ToastUtils.error({ title: t('Status.Code.500'), message: errorMessage })
-        break
-      case ResponseStatusCode.BAD_REQUEST:
-      case ResponseStatusCode.NOT_FOUND:
-      case ResponseStatusCode.METHOD_NOT_ALLOWED:
-      case ResponseStatusCode.CONFLICT:
-      case ResponseStatusCode.TOO_MANY_REQUESTS:
-      default:
-    }
+  refresh(refreshToken: string) {
+    return this.post<R<RefreshToken>>(this.REFRESH_API_URL, {}, { params: { refreshToken } })
   }
 
   /**
    * 通用请求
    * @param config 请求配置
    */
-  request(config: AxiosRequestConfig) {
+  request<T>(config: AxiosRequestConfig): Promise<T> {
     return this.instance.request(config)
   }
 

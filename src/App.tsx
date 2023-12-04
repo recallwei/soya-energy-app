@@ -125,7 +125,4 @@ function App() {
     </QueryClientProvider>
   )
 }
-
-const AppWithCodePush = App
-
-export default AppWithCodePush
+export default App

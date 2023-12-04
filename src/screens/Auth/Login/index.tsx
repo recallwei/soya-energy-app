@@ -62,7 +62,12 @@ export default function Screen() {
   const { mutate } = useMutation({
     mutationFn: (data: LoginInputModel) => AuthAPI.login(data, true),
     onSuccess: async (data) => {
-      await AuthUtils.setToken((data as { access_token: string }).access_token)
+      const { access_token: accessToken, refresh_token: refreshToken } = data as {
+        access_token: string
+        refresh_token: string
+      }
+      await AuthUtils.setAccessToken(accessToken)
+      await AuthUtils.setRefreshToken(refreshToken)
       if (rememberPassword) {
         await AuthUtils.setAccountRememberPassword(JSON.stringify(getValues()))
       } else {
@@ -74,9 +79,7 @@ export default function Screen() {
       }
       authStore.login()
     },
-    onError: () => {
-      resetField('password')
-    }
+    onError: () => resetField('password')
   })
 
   useFocusEffect(

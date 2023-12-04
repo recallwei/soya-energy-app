@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { View } from 'tamagui'
 import { useImmer } from 'use-immer'
 
-import { PlantAPI } from '@/api/plant'
+import { PlantAPI } from '@/api'
 import { useRefresh } from '@/hooks'
 import { useThemeStore } from '@/store'
 import { DeviceUtils } from '@/utils'
@@ -17,12 +17,12 @@ import type { FormData } from './interfaces'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
-  const { data: { records: listData = [] } = {}, refetch } = useQuery({
+  const plantListQuery = useQuery({
     queryKey: [PlantAPI.LIST_QUERY_KEY],
     queryFn: () => PlantAPI.listMock(),
-    select: (data) => data.data
+    select: (data) => data.data.records ?? []
   })
-  const refresh = useRefresh(async () => refetch())
+  const refresh = useRefresh(async () => plantListQuery.refetch())
   const themeStore = useThemeStore()
 
   const [currentTab, setCurrentTab] = useState<ManagementTab>(ManagementTab.Plant)
@@ -61,7 +61,7 @@ export default function Screen() {
         <AdvancedFilter setDrawerOpen={setDrawerOpen} />
         <ScrollList
           {...refresh}
-          listData={listData}
+          listData={plantListQuery.data ?? []}
           currentTab={currentTab}
         />
       </View>

@@ -143,7 +143,8 @@ export default function Navigation() {
           statusBarStyle: themeStore.isDark() ? 'light' : 'dark', // iOS only
           statusBarColor: themeStore.getBgColor(), // Android only
           statusBarAnimation: 'slide',
-          animationTypeForReplace: 'pop'
+          animationTypeForReplace: 'pop',
+          headerTitleAlign: 'center'
         }}
       >
         {authStore.isLoading ? (
