@@ -1,6 +1,6 @@
 import { useRoute } from '@react-navigation/native'
 import { useEffect } from 'react'
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
+import MapView, { Marker } from 'react-native-maps'
 import { useImmer } from 'use-immer'
 
 import type { RouteProp } from '@/types'
@@ -28,7 +28,8 @@ export default function Screen() {
 
   return (
     <MapView
-      provider={PROVIDER_GOOGLE}
+      // Google Maps low fps on iOS
+      // provider={PROVIDER_GOOGLE}
       style={{ flex: 1 }}
       region={{
         latitude: locationInfo.latitude,
@@ -50,6 +51,7 @@ export default function Screen() {
             draft.longitude = longitude
           })
         }
+        tracksViewChanges={false}
         title="当前位置"
         description="xxxxxxxx"
       />

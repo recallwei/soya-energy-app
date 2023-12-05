@@ -9,7 +9,7 @@ import axios from 'axios'
 
 import { errorMessageMap, StatusCode } from '@/constants'
 import { globalEnvConfig } from '@/env'
-import type { R, RefreshToken } from '@/types'
+import type { R, Token } from '@/types'
 import { AuthUtils, LangUtils, ToastUtils } from '@/utils'
 
 interface PendingTask {
@@ -145,7 +145,7 @@ class Request {
    * 刷新令牌
    */
   refresh(refreshToken: string) {
-    return this.post<R<RefreshToken>>(this.REFRESH_API_URL, {}, { params: { refreshToken } })
+    return this.post<R<Token>>(this.REFRESH_API_URL, {}, { params: { refreshToken } })
   }
 
   /**

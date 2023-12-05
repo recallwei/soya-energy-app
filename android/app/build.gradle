@@ -161,8 +161,8 @@ dependencies {
   debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
     exclude group: 'com.squareup.okhttp3', module: 'okhttp'
   }
-
-  debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}")
+  // flipper 不再支持 fresco https://stackoverflow.com/questions/76222261/could-not-find-com-facebook-flipperflipper-fresco-plugin0-190-0
+  debugImplementation("com.facebook.flipper:flipper-fresco-plugin:0.182.0")
   if (hermesEnabled.toBoolean()) {
     implementation("com.facebook.react:hermes-android")
   } else {

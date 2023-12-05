@@ -1,5 +1,5 @@
 import { globalEnvConfig } from '@/env'
-import type { LoginInputModel } from '@/types'
+import type { LoginInputModel, R, Token } from '@/types'
 
 import httpRequest from './axios'
 
@@ -10,17 +10,19 @@ export class AuthAPI {
    * 登录
    * @description skipAuth 模拟登录
    */
-  static login(data: LoginInputModel, skipAuth?: boolean) {
+  static login(data: LoginInputModel, skipAuth?: boolean): Promise<R<Token>> {
     if (skipAuth) {
       return new Promise((resolve) => {
-        resolve({ access_token: '123456', refresh_token: '123456' })
+        resolve({
+          msg: '登录成功',
+          data: {
+            access_token: '123456',
+            refresh_token: '123456'
+          }
+        })
       })
     }
-    return httpRequest.post<{
-      access_token: string
-      error_code?: string
-      error_description?: string
-    }>(`${this.AUTH_API_PREFIX}/login`, data)
+    return httpRequest.post<R<Token>>(`${this.AUTH_API_PREFIX}/login`, data)
   }
 
   /**

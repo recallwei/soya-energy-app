@@ -427,9 +427,9 @@ PODS:
   - React-jsinspector (0.72.7)
   - React-logger (0.72.7):
     - glog
-  - react-native-blob-util (0.19.4):
+  - react-native-blob-util (0.19.6):
     - React-Core
-  - react-native-flipper (0.163.0):
+  - react-native-flipper (0.212.0):
     - React-Core
   - react-native-geolocation (3.1.0):
     - React-Core
@@ -586,7 +586,7 @@ PODS:
     - React-Core
     - React-hermes
     - Sentry/HybridSDK (= 8.15.2)
-  - RNSVG (14.0.0):
+  - RNSVG (14.1.0):
     - React-Core
   - Sentry/HybridSDK (8.15.2):
     - SentryPrivate (= 8.15.2)
@@ -907,8 +907,8 @@ SPEC CHECKSUMS:
   React-jsiexecutor: c49502e5d02112247ee4526bc3ccfc891ae3eb9b
   React-jsinspector: 8baadae51f01d867c3921213a25ab78ab4fbcd91
   React-logger: 8edc785c47c8686c7962199a307015e2ce9a0e4f
-  react-native-blob-util: 30a6c9fd067aadf9177e61a998f2c7efb670598d
-  react-native-flipper: 2d552a8178d839ef378220101fb7f0cd5b2a8003
+  react-native-blob-util: d8fa1a7f726867907a8e43163fdd8b441d4489ea
+  react-native-flipper: 9c1957af24b76493ba74f46d000a5c1d485e7731
   react-native-geolocation: ef66fb798d96284c6043f0b16c15d9d1d4955db4
   react-native-google-maps: 356b9d01da0920be13e4c4dc83673b30e8a22c16
   react-native-maps: f699e0753c22c4d5c3a44d03895b193a4dbca6c2
@@ -940,7 +940,7 @@ SPEC CHECKSUMS:
   RNReanimated: fdbaa9c964bbab7fac50c90862b6cc5f041679b9
   RNScreens: 3c2d122f5e08c192e254c510b212306da97d2581
   RNSentry: ee1a9a80996414205d84ce9180c31bd855fd4641
-  RNSVG: 255767813dac22db1ec2062c8b7e7b856d4e5ae6
+  RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
   Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
   SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17

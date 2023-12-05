@@ -60,12 +60,9 @@ export default function Screen() {
   const [rememberPassword, setRememberPassword] = useState(false)
 
   const { mutate } = useMutation({
-    mutationFn: (data: LoginInputModel) => AuthAPI.login(data, true),
-    onSuccess: async (data) => {
-      const { access_token: accessToken, refresh_token: refreshToken } = data as {
-        access_token: string
-        refresh_token: string
-      }
+    mutationFn: (data: LoginInputModel) => AuthAPI.login(data),
+    onSuccess: async ({ data, msg }) => {
+      const { access_token: accessToken, refresh_token: refreshToken } = data
       await AuthUtils.setAccessToken(accessToken)
       await AuthUtils.setRefreshToken(refreshToken)
       if (rememberPassword) {
@@ -77,6 +74,7 @@ export default function Screen() {
       if (role) {
         authStore.setUserRole(role as UserRole)
       }
+      ToastUtils.success({ message: msg })
       authStore.login()
     },
     onError: () => resetField('password')

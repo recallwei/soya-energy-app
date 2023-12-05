@@ -24,7 +24,7 @@ import type { UserRole } from './enums'
 import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useAuthStore, useLangStore, useThemeStore } from './store'
-import { AuthUtils, LangUtils, LoggerUtils, ThemeUtils } from './utils'
+import { AuthUtils, LangUtils, ThemeUtils } from './utils'
 
 // immer
 enableMapSet()
@@ -77,8 +77,8 @@ function App() {
   useAsyncEffect(async () => {
     langStore.setLang(await LangUtils.getDefaultLang())
     useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
-    LoggerUtils.printEnv()
-    await LoggerUtils.printStorage()
+    // LoggerUtils.printEnv()
+    // await LoggerUtils.printStorage()
 
     if (await AuthUtils.isLogin()) {
       authStore.login()
@@ -110,6 +110,14 @@ function App() {
      * @see https://tanstack.com/query/latest/docs/react/react-native#refetch-on-app-focus
      */
     const subscription = AppState.addEventListener('change', onAppStateChange)
+
+    // 开发模式启用 react-query-native-devtools
+    if (__DEV__) {
+      import('react-query-native-devtools').then(({ addPlugin }) => {
+        addPlugin({ queryClient })
+      })
+    }
+
     return () => {
       subscription.remove()
     }

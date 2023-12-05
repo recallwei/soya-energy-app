@@ -24,7 +24,7 @@
       <!-- NOTE: Required by react-native-maps -->
       <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyBJqfSkhPuO2_NNyHYU8ugpMcytnvYxtq0"/>
+        android:value="@string/google_maps_api_key"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
