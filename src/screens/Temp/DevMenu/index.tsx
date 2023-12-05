@@ -28,9 +28,7 @@ export default function Screen() {
     authStore.setUserRole(targetRole)
     AuthUtils.setRole(targetRole)
 
-    ToastUtils.loading({
-      message: t('Change.Role.Loading')
-    })
+    ToastUtils.loading({ message: t('Change.Role.Loading') })
 
     setTimeout(() => {
       if (targetRole === UserRole.INSTALLER) {

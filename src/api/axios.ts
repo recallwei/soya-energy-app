@@ -137,9 +137,8 @@ class Request {
           case StatusCode.INTERNAL_SERVER_ERROR:
           case StatusCode.BAD_GATEWAY:
           case StatusCode.GATEWAY_TIMEOUT:
-            ToastUtils.error({ message: errorMessage })
-            break
           default:
+            ToastUtils.error({ message: errorMessage })
             break
         }
         return Promise.reject(data)

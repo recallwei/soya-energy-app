@@ -3,7 +3,6 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { Eye, EyeOff, Lock, User2 } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
 import CryptoJS from 'crypto-js'
-import _ from 'lodash'
 import { useCallback, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
@@ -32,7 +31,7 @@ export default function Screen() {
 
   const {
     control,
-    formState: { errors, isLoading },
+    formState: { errors },
     handleSubmit,
     resetField,
     getValues,
@@ -49,7 +48,7 @@ export default function Screen() {
   const [showPassword, setShowPassword] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: (data: LoginInputModel) => AuthAPI.login(data),
     onSuccess: async ({ data }) => {
       const { access_token: accessToken, refresh_token: refreshToken } = data
@@ -101,15 +100,9 @@ export default function Screen() {
     })
 
   const handleSubmitError: SubmitErrorHandler<LoginForm> = (errs) => {
-    const usernameErrorMsg = _.get(errs, 'username.message')
-    const passwordErrorMsg = _.get(errs, 'password.message')
-
-    if (usernameErrorMsg) {
-      ToastUtils.error({ message: usernameErrorMsg })
-    }
-
-    if (passwordErrorMsg) {
-      ToastUtils.error({ message: passwordErrorMsg })
+    const message = Object.values(errs).map((item) => item.message)[0]
+    if (message) {
+      ToastUtils.error({ message })
     }
   }
 
@@ -159,7 +152,7 @@ export default function Screen() {
                 value={value}
                 onChangeText={onChange}
                 onBlur={onBlur}
-                disabled={isLoading}
+                disabled={isPending}
                 clearButtonMode="never"
                 borderColor={errors.username ? 'red' : undefined}
               />
@@ -198,7 +191,7 @@ export default function Screen() {
                 onChangeText={onChange}
                 onBlur={onBlur}
                 secureTextEntry={!showPassword}
-                disabled={isLoading}
+                disabled={isPending}
                 clearButtonMode="never"
                 borderColor={errors.password ? 'red' : undefined}
               />
@@ -228,7 +221,7 @@ export default function Screen() {
         <Checkbox
           width="100%"
           label={t('Remember.Password')}
-          disabled={isLoading}
+          disabled={isPending}
           checked={rememberPassword}
           onCheckedChange={(checked: boolean) => {
             setRememberPassword(checked)
@@ -237,8 +230,8 @@ export default function Screen() {
         <Button
           width="100%"
           onPress={handleSubmit(handleLogin, handleSubmitError)}
-          disabled={isLoading}
-          icon={isLoading ? <Spinner /> : undefined}
+          disabled={isPending}
+          icon={isPending ? <Spinner /> : undefined}
         >
           {t('Login')}
         </Button>

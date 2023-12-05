@@ -2,7 +2,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useRoute } from '@react-navigation/native'
 import { Eye, EyeOff } from '@tamagui/lucide-icons'
 import { useMutation } from '@tanstack/react-query'
-import _ from 'lodash'
 import { useEffect, useState } from 'react'
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import { Controller, useForm } from 'react-hook-form'
@@ -91,15 +90,9 @@ export default function Screen() {
   const handleSignup: SubmitHandler<SignUpForm> = (data) => mutate(data)
 
   const handleSubmitError: SubmitErrorHandler<SignUpForm> = (errs) => {
-    const usernameErrorMsg = _.get(errs, 'username.message')
-    const passwordErrorMsg = _.get(errs, 'password.message')
-
-    if (usernameErrorMsg) {
-      ToastUtils.error({ message: usernameErrorMsg })
-    }
-
-    if (passwordErrorMsg) {
-      ToastUtils.error({ message: passwordErrorMsg })
+    const message = Object.values(errs).map((item) => item.message)[0]
+    if (message) {
+      ToastUtils.error({ title: message })
     }
   }
 

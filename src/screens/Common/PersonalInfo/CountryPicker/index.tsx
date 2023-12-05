@@ -41,17 +41,12 @@ export default function Screen() {
         viewOffset: 0,
         viewPosition: 0
       })
-      ToastUtils.success({
-        message: JSON.stringify(index)
-      })
+      ToastUtils.success({ message: JSON.stringify(index) })
     }, 100)
   }
 
   const handleSelectItem = (item: any) => {
-    console.log(item)
-    ToastUtils.success({
-      message: JSON.stringify(item)
-    })
+    ToastUtils.success({ message: JSON.stringify(item) })
   }
 
   return (

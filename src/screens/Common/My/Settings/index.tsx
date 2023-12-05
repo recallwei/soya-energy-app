@@ -61,10 +61,7 @@ export default function Screen() {
   const handleClearCache = async () => {
     await CacheUtils.clearAll()
     setCacheMB('0B')
-    ToastUtils.success({
-      title: t('Clear.Cache.Success.Title'),
-      message: t('Clear.Cache.Success.Message')
-    })
+    ToastUtils.success({ message: t('Clear.Cache.Success.Message') })
   }
 
   const handleOpenLangSheet = () => {

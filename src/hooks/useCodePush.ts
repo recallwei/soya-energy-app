@@ -5,11 +5,8 @@ import { AppState } from 'react-native'
 import CodePush from 'react-native-code-push'
 
 import { globalEnvConfig } from '@/env'
-import i18n from '@/i18n'
 import { useAuthStore } from '@/store'
 import { CodePushUtils, ToastUtils } from '@/utils'
-
-const t = i18n.getFixedT(null, 'Global')
 
 export function useCodePush() {
   const authStore = useAuthStore()
@@ -22,20 +19,17 @@ export function useCodePush() {
               case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
                 authStore.loading()
                 ToastUtils.loading({
-                  title: t('Confirm.Dialog.Default.Title'),
                   message: CodePushUtils.syncStatusMap.get(status)?.()
                 })
                 break
               case CodePush.SyncStatus.INSTALLING_UPDATE:
               case CodePush.SyncStatus.UPDATE_INSTALLED:
                 ToastUtils.success({
-                  title: t('Confirm.Dialog.Default.Title'),
                   message: CodePushUtils.syncStatusMap.get(status)?.()
                 })
                 break
               case CodePush.SyncStatus.UP_TO_DATE:
                 ToastUtils.success({
-                  title: t('Confirm.Dialog.Default.Title'),
                   message: CodePushUtils.syncStatusMap.get(status)?.()
                 })
                 CodePush.getUpdateMetadata().then((data) => {

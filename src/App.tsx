@@ -34,6 +34,7 @@ enableLatestRenderer()
 // Init toast and alert
 setup({
   toast: {
+    title: Platform.select({ ios: '', android: undefined }),
     duration: 1.5,
     position: 'top',
     shouldDismissByDrag: false,
@@ -43,10 +44,10 @@ setup({
   },
   alert: {
     duration: 1.5,
-    shouldDismissByTap: false,
-    icon: {
-      uri: require('../assets/images/soya-app-icon.png')
-    }
+    shouldDismissByTap: false
+    // icon: {
+    //   uri: require('../assets/images/soya-app-icon.png')
+    // }
   }
 })
 
