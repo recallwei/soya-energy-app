@@ -8,6 +8,7 @@ import { useImmer } from 'use-immer'
 import { PlantAPI } from '@/api'
 import { useRefresh } from '@/hooks'
 import { useThemeStore } from '@/store'
+import type { Pagination } from '@/types/page'
 import { DeviceUtils } from '@/utils'
 
 import { AdvancedFilter, DrawerContent, HeaderArea, ScrollList, Statistics } from './components'
@@ -17,17 +18,50 @@ import type { FormData } from './interfaces'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
-  const plantListQuery = useQuery({
-    queryKey: [PlantAPI.LIST_QUERY_KEY],
-    queryFn: () => PlantAPI.listMock(),
-    select: (data) => data.data.records ?? []
-  })
-  const refresh = useRefresh(async () => plantListQuery.refetch())
   const themeStore = useThemeStore()
 
   const [currentTab, setCurrentTab] = useState<ManagementTab>(ManagementTab.Plant)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
+  const [pagination, setPagination] = useImmer<Pagination>({
+    size: 10,
+    current: 1,
+    total: 0,
+    keywords: ''
+  })
+
+  const listQuery = useQuery({
+    queryKey: [PlantAPI.LIST_QUERY_KEY, pagination.size, pagination.current, currentTab],
+    queryFn: () => {
+      if (currentTab === ManagementTab.Plant) {
+        return PlantAPI.list({
+          size: pagination.size,
+          current: pagination.current,
+          keywords: pagination.keywords
+        })
+      }
+      return PlantAPI.list({})
+    },
+    select: ({ data }) => {
+      const { records, current, total } = data
+      return {
+        records,
+        current,
+        total
+      }
+    }
+  })
+  const refresh = useRefresh(async () => {
+    clearPagination()
+    listQuery.refetch()
+  })
+
+  function clearPagination() {
+    setPagination((draft) => {
+      draft.current = 1
+      draft.total = 0
+    })
+  }
 
   return (
     <Drawer
@@ -61,7 +95,7 @@ export default function Screen() {
         <AdvancedFilter setDrawerOpen={setDrawerOpen} />
         <ScrollList
           {...refresh}
-          listData={plantListQuery.data ?? []}
+          listData={listQuery.data?.records ?? []}
           currentTab={currentTab}
         />
       </View>

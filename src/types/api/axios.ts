@@ -11,3 +11,9 @@ export interface Page<T = any> {
   size?: number
   total?: number
 }
+
+export interface BasePageModel {
+  current?: number
+  size?: number
+  keywords?: string
+}

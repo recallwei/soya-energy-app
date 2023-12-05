@@ -1,54 +1,73 @@
+import type { BasePageModel } from './axios'
+
 export interface Plant {
   /**
-   * 主键 ID
+   * 详细地址
    */
-  id: string
+  address?: string
   /**
-   * 电站容量
+   * 安装商名称-额外
    */
-  siteCapacity?: string
+  clientName?: string
   /**
-   * 站点 Code
+   * 创建时间
    */
-  siteCode?: string
+  createTime?: Date
   /**
-   * 并网类型
+   * 主键id
    */
-  siteGridType?: string
+  id?: string
   /**
-   * 站点名称
+   * 离线时间-额外
    */
-  siteName?: string
+  offlineTime?: string
   /**
-   * 连接类型
+   * 上线时间-额外
    */
-  siteNetType?: string
+  onlineTime?: string
   /**
-   * 站点类型
+   * 电站名称
    */
-  siteType?: string
+  plantName?: string
   /**
-   * 封面地址
+   * 电站编码
    */
-  siteUrl?: string
+  plantNo?: string
   /**
-   * 业务状态
+   * 电站UID
+   */
+  plantUid?: string
+  /**
+   * 电站功率-额外
+   */
+  power?: number
+  /**
+   * 电站状态[1:正常 2:告警 3:离线 4:未监控 5:部分离线]
    */
   status?: string
   /**
-   * 站点地址
+   * 电站装机容量
    */
-  sitePosition?: string
+  systemPower?: string
   /**
-   * 用户
+   * 当日发电量-额外
+   */
+  todayPower?: number
+  /**
+   * 累计发电量-额外
+   */
+  totalPower?: number
+  /**
+   * 电站类型[0:并网 1:储能 3:交流耦合]
+   */
+  type?: string
+  /**
+   * 业主名称-额外
    */
   userName?: string
-  /**
-   * 当前功率
-   */
-  currentPower?: string
-  /**
-   * 今日发电
-   */
-  productionToday?: string
+  [property: string]: any
+}
+
+export interface PlantPageModel extends BasePageModel {
+  status?: string
 }
