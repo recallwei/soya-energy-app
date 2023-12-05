@@ -9,6 +9,7 @@ import axios from 'axios'
 
 import { errorMessageMap, StatusCode } from '@/constants'
 import { globalEnvConfig } from '@/env'
+import i18n from '@/i18n'
 import type { R, Token } from '@/types'
 import { AuthUtils, LangUtils, ToastUtils } from '@/utils'
 
@@ -16,6 +17,8 @@ interface PendingTask {
   config?: AxiosRequestConfig
   resolve: (value: unknown) => void
 }
+
+const t = i18n.getFixedT(null, 'Global')
 
 class Request {
   instance: AxiosInstance
@@ -87,7 +90,7 @@ class Request {
             this.pendingQueue.push({ config, resolve })
           })
         }
-        const errorMessage = msg ?? errorMessageMap.get(status as number) ?? 'Unknown Error!'
+        const errorMessage = msg ?? errorMessageMap.get(status as number) ?? t('Unknown.Error')
         const currentRefreshToken = await AuthUtils.getRefreshToken()
         switch (status) {
           case StatusCode.UNAUTHORIZED:
@@ -123,11 +126,14 @@ class Request {
             // 处理认证失败
             await AuthUtils.removeAccessToken()
             await AuthUtils.removeRefreshToken()
-            ToastUtils.error({ message: errorMessage })
+            ToastUtils.error({ message: t('Unauthorized') })
             break
           case StatusCode.FORBIDDEN:
-            ToastUtils.error({ message: errorMessage })
+            ToastUtils.error({ message: t('Forbidden') })
             break
+          case StatusCode.BAD_REQUEST:
+          case StatusCode.NOT_FOUND:
+          case StatusCode.CONFLICT:
           case StatusCode.INTERNAL_SERVER_ERROR:
           case StatusCode.BAD_GATEWAY:
           case StatusCode.GATEWAY_TIMEOUT:

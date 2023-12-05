@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack } from 'tamagui'
-import * as yup from 'yup'
 
 import { AuthAPI } from '@/api'
 import { Checkbox } from '@/components'
@@ -21,21 +20,12 @@ import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
 
-interface FormData {
-  username: string
-  password: string
-}
-
-const schema = yup
-  .object({
-    username: yup.string().min(6).max(20).required(),
-    password: yup.string().min(6).max(20).required()
-  })
-  .required()
+import type { LoginForm } from './private'
+import { loginSchema } from './private'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
-  const { t } = useTranslation('Auth')
+  const { t } = useTranslation(['Auth', 'Global', 'Validation'])
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
   const navigation = useNavigation()
@@ -48,8 +38,8 @@ export default function Screen() {
     getValues,
     setValue,
     reset
-  } = useForm<FormData>({
-    resolver: yupResolver(schema),
+  } = useForm<LoginForm>({
+    resolver: yupResolver(loginSchema),
     defaultValues: {
       username: '',
       password: ''
@@ -61,7 +51,7 @@ export default function Screen() {
 
   const { mutate } = useMutation({
     mutationFn: (data: LoginInputModel) => AuthAPI.login(data),
-    onSuccess: async ({ data, msg }) => {
+    onSuccess: async ({ data }) => {
       const { access_token: accessToken, refresh_token: refreshToken } = data
       await AuthUtils.setAccessToken(accessToken)
       await AuthUtils.setRefreshToken(refreshToken)
@@ -74,10 +64,12 @@ export default function Screen() {
       if (role) {
         authStore.setUserRole(role as UserRole)
       }
-      ToastUtils.success({ message: msg })
+      ToastUtils.success({ message: t('Global:Login.Success') })
       authStore.login()
     },
-    onError: () => resetField('password')
+    onError: () => {
+      resetField('password')
+    }
   })
 
   useFocusEffect(
@@ -102,13 +94,13 @@ export default function Screen() {
     }, [])
   )
 
-  const handleLogin: SubmitHandler<FormData> = (data) =>
+  const handleLogin: SubmitHandler<LoginForm> = (data) =>
     mutate({
       username: data.username,
       password: CryptoJS.MD5(data.password).toString()
     })
 
-  const handleSubmitError: SubmitErrorHandler<FormData> = (errs) => {
+  const handleSubmitError: SubmitErrorHandler<LoginForm> = (errs) => {
     const usernameErrorMsg = _.get(errs, 'username.message')
     const passwordErrorMsg = _.get(errs, 'password.message')
 
@@ -162,7 +154,7 @@ export default function Screen() {
                 width="100%"
                 maxLength={20}
                 paddingLeft="$7"
-                placeholder={t('Account.Placeholder')}
+                placeholder={t('Validation:Account.Not.Null')}
                 autoCapitalize="none"
                 value={value}
                 onChangeText={onChange}
@@ -200,7 +192,7 @@ export default function Screen() {
                 width="100%"
                 maxLength={20}
                 paddingHorizontal="$7"
-                placeholder={t('Password.Placeholder')}
+                placeholder={t('Validation:New.Password.Not.Null')}
                 autoCapitalize="none"
                 value={value}
                 onChangeText={onChange}

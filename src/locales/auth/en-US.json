@@ -1,32 +1,14 @@
 {
-  "Account": {
-    "Placeholder": "Please enter the account",
-    "Text": "Account"
-  },
-  "Confirm.Password": {
-    "Placeholder": "Please enter the confirm password",
-    "Text": "Confirm password"
-  },
-  "Email": {
-    "Placeholder": "Please enter the email",
-    "Text": "Email"
-  },
+  "Account": "Account",
+  "Confirm.Password": "Confirm password",
+  "Email": "Email",
   "Forgot.Password": "Forgot password?",
   "Login": "Login",
-  "New.Password": {
-    "Placeholder": "Please enter the new password",
-    "Text": "New password"
-  },
-  "Password": {
-    "Placeholder": "Please enter the password",
-    "Text": "Password"
-  },
+  "New.Password": "New password",
+  "Password": "Password",
   "Remember.Password": "Remember password",
   "Signup": "Sign up",
-  "Verification.Code": {
-    "Placeholder": "Please enter the verification code",
-    "Text": "Verification code"
-  },
+  "Verification.Code": "Verification code",
   "I.Am.An.Owner": {
     "Text": "I am an owner",
     "Description": "Real-time Monitoring and Analysis of Power Generation, Power Storage and Power Consumption"
@@ -45,26 +27,11 @@
   "Agree.Owner.Privacy.Policy": "Agree《Owner Privacy Policy》",
   "Agree.Recieve.Email.Notification": "Agree to recieive email notifications《New Products, Events, Information》Information on new product release, events, or news",
   "Agree.Enterprise.Policy": "Agree《Enterprise and other third-party privacy policies》",
-  "Company.Name": {
-    "Text": "Company Name",
-    "Placeholder": "Please enter the company name"
-  },
-  "Zip.Postal.Code": {
-    "Text": "Zip/Postal Code",
-    "Placeholder": "Please enter the zip/postal code"
-  },
-  "Customer.Support.Email": {
-    "Text": "Customer Support Email",
-    "Placeholder": "Please enter the customer support email"
-  },
-  "Customer.Support.Phone": {
-    "Text": "Customer Support Phone",
-    "Placeholder": "Please enter the customer support phone"
-  },
-  "Website.URL": {
-    "Text": "Website URL(optional)",
-    "Placeholder": "Please enter the website url"
-  },
+  "Company.Name": "Company Name",
+  "Zip.Postal.Code": "Zip/Postal Code",
+  "Customer.Support.Email": "Customer Support Email",
+  "Customer.Support.Phone": "Customer Support Phone",
+  "Website.URL": "Website URL(optional)",
   "Company.Logo": {
     "Text": "Company Logo(optional)",
     "Description": "Must be a JPEG, JPG or PNG file no larger than 4MB.For best results, we recommend a square image with a transparent background at least 400px width by 400px height.",

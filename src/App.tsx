@@ -36,11 +36,17 @@ setup({
   toast: {
     duration: 1.5,
     position: 'top',
-    shouldDismissByDrag: false
+    shouldDismissByDrag: false,
+    icon: {
+      uri: require('../assets/images/soya-app-icon.png')
+    }
   },
   alert: {
     duration: 1.5,
-    shouldDismissByTap: false
+    shouldDismissByTap: false,
+    icon: {
+      uri: require('../assets/images/soya-app-icon.png')
+    }
   }
 })
 

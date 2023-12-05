@@ -41,5 +41,13 @@
   "Code.Push.Upload.Dialog.Optional.install.Button.Label": "安装",
   "Code.Push.Upload.Dialog.Optional.Update.Message": "有新版本可用更新，是否安装？",
   "Go.To.Set": "前往设置",
-  "Edit": "编辑"
+  "Edit": "编辑",
+  "Login.Success": "登录成功",
+  "Create.Success": "创建成功",
+  "Operate.Success": "操作成功",
+  "Delete.Success": "删除成功",
+  "Unauthorized": "认证失败",
+  "Unknown.Error": "未知错误",
+  "Internal.Server.Error": "服务器错误",
+  "Forbidden": "权限不足"
 }

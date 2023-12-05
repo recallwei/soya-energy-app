@@ -1,0 +1,47 @@
+{
+  "Account": {
+    "Not.Null": "Please enter the account",
+    "Min.Length": "Account must be no less than 6 characters",
+    "Max.Length": "Account must not be longer than 20 characters"
+  },
+  "Password": {
+    "Not.Null": "Please enter the password",
+    "Min.Length": "Password must be no less than 6 characters",
+    "Max.Length": "Password must not be longer than 20 characters"
+  },
+  "Confirm.Password": {
+    "Not.Null": "Please enter the confirm passwrd",
+    "Min.Length": "Confirm password must be no less than 6 characters",
+    "Max.Length": "Confirm password must not be longer than 20 characters",
+    "Not.Match": "Confrim password not match"
+  },
+  "New.Password": {
+    "Not.Null": "Please enter the new passwrd",
+    "Min.Length": "New password must be no less than 6 characters",
+    "Max.Length": "New password must not be longer than 20 characters"
+  },
+  "Email": {
+    "Not.Null": "Please enter the email"
+  },
+  "Verification.Code": {
+    "Not.Null": "Please enter the verificaiton code"
+  },
+  "Company": {
+    "Not.Null": "Please enter the company name"
+  },
+  "Zip.Postal.Code": {
+    "Not.Null": "Please enter the zip/postal code"
+  },
+  "Customer.Support.Email": {
+    "Not.Null": "Please enter the customer support email"
+  },
+  "Customer.Support.Phone": {
+    "Not.Null": "Please enter the customer support phone"
+  },
+  "Website.URL": {
+    "Not.Null": "Please enter the website url"
+  },
+  "Company.Logo": {
+    "Invalid": "Company logo does not meet the requirements"
+  }
+}

@@ -41,5 +41,13 @@
   "Code.Push.Upload.Dialog.Optional.install.Button.Label": "Install",
   "Code.Push.Upload.Dialog.Optional.Update.Message": "An update is available. Would you like to install it?",
   "Go.To.Set": "Go to set",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "Login.Success": "Login success",
+  "Create.Success": "Create success",
+  "Operate.Success": "Operate success",
+  "Delete.Success": "Delete success",
+  "Unauthorized": "Unauthorized",
+  "Unknown.Error": "Unknown error",
+  "Internal.Server.Error": "Internal server error",
+  "Forbidden": "Forbidden"
 }

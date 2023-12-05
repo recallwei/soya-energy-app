@@ -24,7 +24,6 @@ import {
   XStack,
   YStack
 } from 'tamagui'
-import * as yup from 'yup'
 
 import { Checkbox } from '@/components'
 import { globalStyles } from '@/constants'
@@ -33,31 +32,16 @@ import { useAuthStore } from '@/store'
 import type { RouteProp } from '@/types'
 import { DeviceUtils, ToastUtils } from '@/utils'
 
-interface FormData {
-  username: string
-  password: string
-  confirmPassword: string
-}
-
-const schema = yup
-  .object({
-    username: yup.string().min(6).max(20).required(),
-    password: yup.string().min(6).max(20).required(),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref('password')])
-      .required()
-  })
-  .required()
+import { type SignUpForm, signupSchema } from './private'
 
 export default function Screen() {
-  const { t } = useTranslation(['Auth', 'Global'])
+  const { t } = useTranslation(['Auth', 'Global', 'Validation'])
   const route = useRoute<RouteProp<'Auth.SignUp'>>()
   const insets = useSafeAreaInsets()
   const authStore = useAuthStore()
 
-  const { control, handleSubmit } = useForm<FormData>({
-    resolver: yupResolver(schema),
+  const { control, handleSubmit } = useForm<SignUpForm>({
+    resolver: yupResolver(signupSchema),
     defaultValues: {
       username: '',
       password: '',
@@ -77,7 +61,7 @@ export default function Screen() {
   })
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (data: FormData) =>
+    mutationFn: (data: SignUpForm) =>
       new Promise((resolve) => {
         setTimeout(() => {
           resolve(data)
@@ -104,9 +88,9 @@ export default function Screen() {
   const handleChangeEmailAgreement = (value: boolean) =>
     setFormData((val) => ({ ...val, emailAgreement: value }))
 
-  const handleSignup: SubmitHandler<FormData> = (data) => mutate(data)
+  const handleSignup: SubmitHandler<SignUpForm> = (data) => mutate(data)
 
-  const handleSubmitError: SubmitErrorHandler<FormData> = (errs) => {
+  const handleSubmitError: SubmitErrorHandler<SignUpForm> = (errs) => {
     const usernameErrorMsg = _.get(errs, 'username.message')
     const passwordErrorMsg = _.get(errs, 'password.message')
 
@@ -189,7 +173,7 @@ export default function Screen() {
           </YStack>
 
           <YStack>
-            <SizableText>{t('Email.Text')}</SizableText>
+            <SizableText>{t('Email')}</SizableText>
             <Input
               autoCapitalize="none"
               clearButtonMode="while-editing"
@@ -197,7 +181,7 @@ export default function Screen() {
           </YStack>
 
           <YStack>
-            <SizableText>{t('Password.Text')}</SizableText>
+            <SizableText>{t('Validation:Password.Not.Null')}</SizableText>
             <Controller
               name="password"
               control={control}
@@ -237,7 +221,7 @@ export default function Screen() {
           </YStack>
 
           <YStack marginBottom="$3">
-            <SizableText>{t('Confirm.Password.Text')}</SizableText>
+            <SizableText>{t('Validation:Confirm.Password.Not.Null')}</SizableText>
             <Controller
               name="confirmPassword"
               control={control}
@@ -286,7 +270,7 @@ export default function Screen() {
               </SizableText>
 
               <YStack>
-                <SizableText>{t('Company.Name.Text')}</SizableText>
+                <SizableText>{t('Company.Name')}</SizableText>
                 <Input
                   autoCapitalize="none"
                   clearButtonMode="while-editing"
@@ -294,7 +278,7 @@ export default function Screen() {
               </YStack>
 
               <YStack>
-                <Label>{t('Zip.Postal.Code.Text')}</Label>
+                <Label>{t('Zip.Postal.Code')}</Label>
                 <Input
                   autoCapitalize="none"
                   clearButtonMode="while-editing"
@@ -302,7 +286,7 @@ export default function Screen() {
               </YStack>
 
               <YStack>
-                <Label>{t('Customer.Support.Email.Text')}</Label>
+                <Label>{t('Customer.Support.Email')}</Label>
                 <Input
                   autoCapitalize="none"
                   clearButtonMode="while-editing"
@@ -310,7 +294,7 @@ export default function Screen() {
               </YStack>
 
               <YStack>
-                <Label>{t('Customer.Support.Phone.Text')}</Label>
+                <Label>{t('Customer.Support.Phone')}</Label>
                 <Input
                   autoCapitalize="none"
                   clearButtonMode="while-editing"
@@ -318,7 +302,7 @@ export default function Screen() {
               </YStack>
 
               <YStack>
-                <Label>{t('Website.URL.Text')}</Label>
+                <Label>{t('Website.URL')}</Label>
                 <Input
                   autoCapitalize="none"
                   clearButtonMode="while-editing"

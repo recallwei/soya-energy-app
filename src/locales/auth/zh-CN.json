@@ -1,32 +1,14 @@
 {
-  "Account": {
-    "Placeholder": "请输入账户",
-    "Text": "账户"
-  },
-  "Confirm.Password": {
-    "Placeholder": "请输入确认密码",
-    "Text": "确认密码"
-  },
-  "Email": {
-    "Placeholder": "请输入邮箱",
-    "Text": "邮箱"
-  },
+  "Account": "账户",
+  "Confirm.Password": "确认密码",
+  "Email": "邮箱",
   "Forgot.Password": "忘记密码？",
   "Login": "登录",
-  "New.Password": {
-    "Placeholder": "请输入新密码",
-    "Text": "新密码"
-  },
-  "Password": {
-    "Placeholder": "请输入密码",
-    "Text": "密码"
-  },
+  "New.Password": "新密码",
+  "Password": "密码",
   "Remember.Password": "记住密码",
   "Signup": "注册",
-  "Verification.Code": {
-    "Placeholder": "请输入验证码",
-    "Text": "验证码"
-  },
+  "Verification.Code": "验证码",
   "I.Am.An.Owner": {
     "Text": "我是业主",
     "Description": "发电、储电、用电，实时监控和分析"
@@ -45,26 +27,11 @@
   "Agree.Owner.Privacy.Policy": "同意《业主隐私协议》",
   "Agree.Recieve.Email.Notification": "同意接收邮件通知《新的产品、活动、信息》",
   "Agree.Enterprise.Policy": "同意《企业和第三方隐私协议》",
-  "Company.Name": {
-    "Text": "公司名称",
-    "Placeholder": "请输入公司名称"
-  },
-  "Zip.Postal.Code": {
-    "Text": "邮政编码",
-    "Placeholder": "请输入邮政编码"
-  },
-  "Customer.Support.Email": {
-    "Text": "客户支持邮箱",
-    "Placeholder": "请输入客户支持邮箱"
-  },
-  "Customer.Support.Phone": {
-    "Text": "客户支持电话",
-    "Placeholder": "请输入客户支持电话"
-  },
-  "Website.URL": {
-    "Text": "网站地址（可选）",
-    "Placeholder": "请输入网址地址"
-  },
+  "Company.Name": "公司名称",
+  "Zip.Postal.Code": "邮政编码",
+  "Customer.Support.Email": "客户支持邮箱",
+  "Customer.Support.Phone": "客户支持电话",
+  "Website.URL": "网站地址（可选）",
   "Company.Logo": {
     "Text": "公司 Logo（可选）",
     "Description": "不超过 4MB 的 JPG、JPEG、PNG. 为了更好地展示, 我们推荐使用透明背景方形图片，400 x 400 像素。",

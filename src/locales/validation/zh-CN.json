@@ -1,0 +1,47 @@
+{
+  "Account": {
+    "Not.Null": "请输入账号",
+    "Min.Length": "账号不得小于 6 个字符",
+    "Max.Length": "账号不得大于 20 个字符"
+  },
+  "Password": {
+    "Not.Null": "请输入密码",
+    "Min.Length": "密码不得小于 6 个字符",
+    "Max.Length": "密码不得大于 20 个字符"
+  },
+  "Confirm.Password": {
+    "Not.Null": "请输入确认密码",
+    "Min.Length": "确认密码不得小于 6 个字符",
+    "Max.Length": "确认密码不得大于 20 个字符",
+    "Not.Match": "确认密码不匹配"
+  },
+  "New.Password": {
+    "Not.Null": "请输入新密码",
+    "Min.Length": "新密码不得小于 6 个字符",
+    "Max.Length": "新密码不得大于 20 个字符"
+  },
+  "Email": {
+    "Not.Null": "请输入邮箱地址"
+  },
+  "Verification.Code": {
+    "Not.Null": "请输入验证码"
+  },
+  "Company": {
+    "Not.Null": "请输入公司名称"
+  },
+  "Zip.Postal.Code": {
+    "Not.Null": "请输入邮政编码"
+  },
+  "Customer.Support.Email": {
+    "Not.Null": "请输入客户支持邮箱"
+  },
+  "Customer.Support.Phone": {
+    "Not.Null": "请输入客户支持电话"
+  },
+  "Website.URL": {
+    "Not.Null": "请输入网址地址"
+  },
+  "Company.Logo": {
+    "Invalid": "公司 Logo 不符合要求"
+  }
+}
