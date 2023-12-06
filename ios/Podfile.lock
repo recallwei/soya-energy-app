@@ -439,7 +439,7 @@ PODS:
     - React-Core
   - react-native-maps (1.8.0):
     - React-Core
-  - react-native-netinfo (11.1.1):
+  - react-native-netinfo (11.2.0):
     - React-Core
   - react-native-pdf (6.7.3):
     - React-Core
@@ -581,16 +581,16 @@ PODS:
   - RNScreens (3.27.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
-  - RNSentry (5.14.1):
+  - RNSentry (5.15.0):
     - hermes-engine
     - React-Core
     - React-hermes
-    - Sentry/HybridSDK (= 8.15.2)
+    - Sentry/HybridSDK (= 8.17.1)
   - RNSVG (14.1.0):
     - React-Core
-  - Sentry/HybridSDK (8.15.2):
-    - SentryPrivate (= 8.15.2)
-  - SentryPrivate (8.15.2)
+  - Sentry/HybridSDK (8.17.1):
+    - SentryPrivate (= 8.17.1)
+  - SentryPrivate (8.17.1)
   - SocketRocket (0.6.1)
   - SPAlert (4.2.0)
   - SSZipArchive (2.2.3)
@@ -912,7 +912,7 @@ SPEC CHECKSUMS:
   react-native-geolocation: ef66fb798d96284c6043f0b16c15d9d1d4955db4
   react-native-google-maps: 356b9d01da0920be13e4c4dc83673b30e8a22c16
   react-native-maps: f699e0753c22c4d5c3a44d03895b193a4dbca6c2
-  react-native-netinfo: b0ae7d0f76302eaf249de7b2b7add297e155b1d0
+  react-native-netinfo: 25c87e28495d955b30aeca9c22594691668c907a
   react-native-pdf: b4ca3d37a9a86d9165287741c8b2ef4d8940c00e
   react-native-safe-area-context: 2cd91d532de12acdb0a9cbc8d43ac72a8e4c897c
   react-native-webview: 88293a0f23eca8465c0433c023ec632930e644d0
@@ -939,10 +939,10 @@ SPEC CHECKSUMS:
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNReanimated: fdbaa9c964bbab7fac50c90862b6cc5f041679b9
   RNScreens: 3c2d122f5e08c192e254c510b212306da97d2581
-  RNSentry: ee1a9a80996414205d84ce9180c31bd855fd4641
+  RNSentry: b5c61e8e1c5bfe791210b17c7fa9d6ed309a333f
   RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
-  Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
-  SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
+  Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
+  SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   SPAlert: 735da1f16a887e294719217572ce1f936d8c8782
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
