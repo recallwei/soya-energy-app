@@ -10,6 +10,7 @@ import axios from 'axios'
 import { errorMessageMap, StatusCode } from '@/constants'
 import { globalEnvConfig } from '@/env'
 import i18n from '@/i18n'
+import { useAuthStore } from '@/store'
 import type { R, Token } from '@/types'
 import { AuthUtils, LangUtils, ToastUtils } from '@/utils'
 
@@ -45,7 +46,7 @@ class Request {
       async (req: InternalAxiosRequestConfig) => {
         const { url } = req
         if (url?.startsWith(globalEnvConfig.BASE_API_URL)) {
-          req.headers['Tenant-Id'] = '000000'
+          // req.headers['Tenant-Id'] = '000000'
           /* cspell:disable-next-line */
           req.headers.Authorization = 'Basic cmFpcGlvdDpyYWlwaW90X3NlY3JldA=='
         }
@@ -67,6 +68,7 @@ class Request {
         // console.log(`响应数据：${JSON.stringify(res.data)}`)
         res.data,
       async (err: AxiosError<R>) => {
+        // console.log(JSON.stringify(err))
         const { response, config } = err
         const { data, status } = response ?? {}
         const { msg } = data ?? {}
@@ -100,8 +102,8 @@ class Request {
               try {
                 const { refresh_token: refreshToken, access_token: accessToken } =
                   (await this.refresh(currentRefreshToken)).data ?? {}
-                AuthUtils.setAccessToken(accessToken)
-                AuthUtils.setRefreshToken(refreshToken)
+                await AuthUtils.setAccessToken(accessToken)
+                await AuthUtils.setRefreshToken(refreshToken)
                 this.isRefreshing = false
                 if (config) {
                   // 重新发起上次失败的请求
@@ -126,6 +128,7 @@ class Request {
             // 处理认证失败
             await AuthUtils.removeAccessToken()
             await AuthUtils.removeRefreshToken()
+            useAuthStore.getState().logout()
             ToastUtils.error({ message: t('Unauthorized') })
             break
           case StatusCode.FORBIDDEN:

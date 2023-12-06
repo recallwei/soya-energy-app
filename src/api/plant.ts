@@ -8,15 +8,13 @@ export class PlantAPI {
 
   static LIST_QUERY_KEY = 'PLANT_LIST'
 
-  static list(data: PlantPageModel) {
-    return httpRequest.get<R<Page<Plant>>>(
-      `${this.PLANT_API_PREFIX}/list-plant-by-page`,
-      {},
-      { data }
-    )
+  static list(params: PlantPageModel) {
+    return httpRequest.get<R<Page<Plant>>>(`${this.PLANT_API_PREFIX}/list-plant-by-page`, {
+      ...params
+    })
   }
 
   static detail(id: string) {
-    return httpRequest.get<R<Plant>>(`${this.PLANT_API_PREFIX}/detail-plant`, {}, { data: { id } })
+    return httpRequest.get<R<Plant>>(`${this.PLANT_API_PREFIX}/query-plant-info`, { id })
   }
 }

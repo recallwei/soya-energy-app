@@ -13,8 +13,7 @@ import { ManagementTab } from '../../enums'
 interface Props {
   currentTab: ManagementTab
   setCurrentTab: (tab: ManagementTab) => void
-  startRefresh: () => void
-  endRefresh: () => void
+  setKeywords: (keywords: string) => void
 }
 
 const tFunc = i18n.getFixedT(null, 'Installer.Management')
@@ -43,13 +42,6 @@ export default function HeaderArea(props: Props) {
   const [createSheetOpen, setCreateSheetOpen] = useState(false)
 
   const handleOpen = () => setCreateSheetOpen(!createSheetOpen)
-
-  const handleSearch = () => {
-    props.startRefresh()
-    setTimeout(() => {
-      props.endRefresh()
-    }, 1000)
-  }
 
   const handleClickScan = () => {}
 
@@ -90,11 +82,10 @@ export default function HeaderArea(props: Props) {
             clearButtonMode="never"
             value={searchText}
             onChangeText={setSearchText}
+            onSubmitEditing={() => props.setKeywords(searchText)}
             placeholder={t('SearchText.Placeholder')}
-            onSubmitEditing={handleSearch}
           />
           <TouchableOpacity
-            onPress={handleSearch}
             style={{
               position: 'absolute',
               top: 0,

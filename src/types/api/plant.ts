@@ -16,7 +16,7 @@ export interface Plant {
   /**
    * 主键id
    */
-  id?: string
+  id: string
   /**
    * 离线时间-额外
    */

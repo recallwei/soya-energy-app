@@ -4,8 +4,8 @@ export interface LoginInputModel extends Record<string, unknown> {
 }
 
 export interface UserInfo {
-  avatar: string
-  avatarUrl: string
+  username?: string
+  avatarUrl?: string
 }
 
 export interface Token {

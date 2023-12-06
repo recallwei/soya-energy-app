@@ -1,6 +1,4 @@
-export interface Pagination {
-  size: number
-  current: number
-  total: number
-  keywords?: string
+export interface InfinitePage<T> {
+  page: T[]
+  pageParam: number
 }

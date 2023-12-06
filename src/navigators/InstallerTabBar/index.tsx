@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Compass, GanttChartSquare, Home, LayoutGrid, UserCircle2 } from '@tamagui/lucide-icons'
+import { useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { View } from 'tamagui'
 
+import { PlantAPI } from '@/api'
 import {
   InstallerGuideScreen,
   InstallerHomeScreen,
@@ -17,7 +19,7 @@ const Tab = createBottomTabNavigator<InstallerTabParamList>()
 
 export default function InstallerTabBar() {
   const { t } = useTranslation('Screen')
-
+  const queryClient = useQueryClient()
   const tabStore = useTabsStore()
   const themeStore = useThemeStore()
 
@@ -75,7 +77,12 @@ export default function InstallerTabBar() {
           )
         }}
         listeners={{
-          focus: () => tabStore.changeInstallerTab('Installer.Management')
+          focus: () => {
+            tabStore.changeInstallerTab('Installer.Management')
+            queryClient.invalidateQueries({
+              queryKey: [PlantAPI.LIST_QUERY_KEY]
+            })
+          }
         }}
       />
       <Tab.Screen

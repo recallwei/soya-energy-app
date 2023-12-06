@@ -41,5 +41,6 @@
   "Unauthorized": "Unauthorized",
   "Unknown.Error": "Unknown error",
   "Internal.Server.Error": "Internal server error",
-  "Forbidden": "Forbidden"
+  "Forbidden": "Forbidden",
+  "No.More.Data": "No more data"
 }

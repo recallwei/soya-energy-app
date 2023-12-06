@@ -6,14 +6,14 @@ export interface R<T = any> {
 
 export interface Page<T = any> {
   records: T[]
-  current?: number
+  current: number
   pages?: number
-  size?: number
-  total?: number
+  size: number
+  total: number
 }
 
 export interface BasePageModel {
-  current?: number
-  size?: number
+  current: number
+  size: number
   keywords?: string
 }

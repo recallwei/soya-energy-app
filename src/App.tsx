@@ -69,7 +69,7 @@ function App() {
       new QueryClient({
         defaultOptions: {
           queries: {
-            retry: 1
+            retry: false
           },
           mutations: {
             retry: false

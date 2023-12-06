@@ -41,5 +41,6 @@
   "Unauthorized": "认证失败",
   "Unknown.Error": "未知错误",
   "Internal.Server.Error": "服务器错误",
-  "Forbidden": "权限不足"
+  "Forbidden": "权限不足",
+  "No.More.Data": "没有更多数据了"
 }

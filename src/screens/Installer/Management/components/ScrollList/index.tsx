@@ -4,22 +4,22 @@ import { Circle, Component, MapPin } from '@tamagui/lucide-icons'
 import { useAsyncEffect } from 'ahooks'
 import React, { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { RefreshControl } from 'react-native'
+import { ActivityIndicator, RefreshControl } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
-import { ScrollView, SizableText, XStack, YStack } from 'tamagui'
+import { SizableText, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
+import { useRefresh } from '@/hooks'
 import type { Plant } from '@/types'
 import { CacheUtils } from '@/utils'
 
 import { ManagementTab } from '../../enums'
+import { useInfinitePlants } from '../../hooks'
 import { tabStatusI18nMap } from '../../maps'
+import type { SearchParams } from '../../types'
 import { getColor } from '../../utils'
 
-interface Props {
-  refreshing: boolean
-  onRefresh: () => void
-  listData: Plant[]
+interface Props extends SearchParams {
   currentTab: ManagementTab
 }
 
@@ -150,8 +150,11 @@ const CardContent = memo(({ data, currentTab }: { data: Plant; currentTab: Manag
   }
 })
 
-export default function ScrollList(props: Props) {
+const ScrollList = memo((props: Props) => {
+  const { t } = useTranslation('Global')
   const { navigate } = useNavigation()
+  const plantInfiniteQuery = useInfinitePlants({ keywords: props.keywords })
+  const refresh = useRefresh(async () => plantInfiniteQuery.refetch())
 
   const handleClickCard = (id: string) => {
     switch (props.currentTab) {
@@ -168,37 +171,57 @@ export default function ScrollList(props: Props) {
         break
     }
   }
+
+  useEffect(() => {
+    plantInfiniteQuery.refetch()
+  }, [props.currentTab])
+
   return (
-    <ScrollView
-      width="100%"
+    <FlatList
+      contentContainerStyle={{
+        gap: 8,
+        paddingHorizontal: 18,
+        paddingBottom: 18
+      }}
+      data={plantInfiniteQuery.data?.plants ?? []}
+      keyExtractor={({ id }) => id}
+      renderItem={({ item }) => (
+        <Card onPress={() => handleClickCard(item.id)}>
+          <CardContent
+            data={item}
+            currentTab={props.currentTab}
+          />
+        </Card>
+      )}
       showsVerticalScrollIndicator={false}
+      progressViewOffset={plantInfiniteQuery.isFetchingNextPage ? 36 : 0}
+      refreshing
       refreshControl={
         <RefreshControl
-          refreshing={props.refreshing}
-          onRefresh={props.onRefresh}
+          refreshing={!plantInfiniteQuery.isFetched || plantInfiniteQuery.isRefetching}
+          onRefresh={refresh.onRefresh}
         />
       }
-    >
-      <YStack
-        paddingHorizontal="$4"
-        paddingBottom="$4"
-        space="$3"
-      >
-        <FlatList
-          contentContainerStyle={{ gap: 8 }}
-          data={props.listData}
-          scrollEnabled={false}
-          keyExtractor={({ id }) => id}
-          renderItem={({ item }) => (
-            <Card onPress={() => handleClickCard(item.id)}>
-              <CardContent
-                data={item}
-                currentTab={props.currentTab}
-              />
-            </Card>
+      onEndReached={() => plantInfiniteQuery.fetchNextPage()}
+      ListFooterComponent={
+        <>
+          {plantInfiniteQuery.isLoading ? null : (
+            <>
+              {plantInfiniteQuery.isFetchingNextPage ? (
+                <ActivityIndicator size="large" />
+              ) : (
+                <SizableText
+                  textAlign="center"
+                  marginTop="$2"
+                >
+                  {t('No.More.Data')}
+                </SizableText>
+              )}
+            </>
           )}
-        />
-      </YStack>
-    </ScrollView>
+        </>
+      }
+    />
   )
-}
+})
+export default ScrollList
