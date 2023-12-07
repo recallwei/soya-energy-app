@@ -248,18 +248,16 @@ export default function Screen() {
         </XStack>
       </YStack>
 
-      {authStore.packageMetadata && (
-        <YStack
-          position="absolute"
-          left={0}
-          right={0}
-          bottom={insets.bottom}
-        >
-          <Label textAlign="center">
-            {`${globalEnvConfig.APP_ENVIRONMENT} - ${authStore.packageMetadata.appVersion}.${authStore.packageMetadata.label}`}
-          </Label>
-        </YStack>
-      )}
+      <YStack
+        position="absolute"
+        left={0}
+        right={0}
+        bottom={insets.bottom}
+      >
+        <Label textAlign="center">
+          {`${globalEnvConfig.APP_ENVIRONMENT} - ${globalEnvConfig.APP_VERSION}`}
+        </Label>
+      </YStack>
     </>
   )
 }

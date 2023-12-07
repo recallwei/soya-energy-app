@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
 /**
@@ -72,6 +73,7 @@ apply from: new File(["node", "--print", "require.resolve('@sentry/react-native/
 android {
   ndkVersion rootProject.ext.ndkVersion
 
+  buildToolsVersion rootProject.ext.buildToolsVersion
   compileSdkVersion rootProject.ext.compileSdkVersion
 
   namespace "com.SoyaEnergyApp"
@@ -80,7 +82,7 @@ android {
     minSdkVersion rootProject.ext.minSdkVersion
     targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
-    versionName "1.0"
+    versionName "1.0.0"
     vectorDrawables.useSupportLibrary = true // NOTE: Required by react-native-image-crop-picker
   }
   signingConfigs {
@@ -121,7 +123,7 @@ android {
       resValue "string", "CodePushDeploymentKey", '"N3Pwz8vakGYcbNhsdksLbDkXXD_TfiVmbA-05"'
       debuggable false
       defaultConfig.versionCode 1
-      defaultConfig.versionName "1.0"
+      defaultConfig.versionName "1.0.0"
       applicationIdSuffix ".staging"
     }
     release {
@@ -156,13 +158,9 @@ android {
 dependencies {
   // The version of react-native is set by the React Native Gradle Plugin
   implementation("com.facebook.react:react-android")
+  implementation("com.facebook.react:flipper-integration")
+  implementation 'androidx.core:core-ktx:+'
 
-  debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
-  debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
-    exclude group: 'com.squareup.okhttp3', module: 'okhttp'
-  }
-  // flipper 不再支持 fresco https://stackoverflow.com/questions/76222261/could-not-find-com-facebook-flipperflipper-fresco-plugin0-190-0
-  debugImplementation("com.facebook.flipper:flipper-fresco-plugin:0.182.0")
   if (hermesEnabled.toBoolean()) {
     implementation("com.facebook.react:hermes-android")
   } else {

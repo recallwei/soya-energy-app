@@ -169,5 +169,4 @@ export const MenuItemCard = memo((props: Props) => {
     </Card>
   )
 })
-
 export default MenuItemCard

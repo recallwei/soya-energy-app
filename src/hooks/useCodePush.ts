@@ -32,18 +32,15 @@ export function useCodePush() {
                 ToastUtils.success({
                   message: CodePushUtils.syncStatusMap.get(status)?.()
                 })
-                CodePush.getUpdateMetadata().then((data) => {
-                  if (data) {
-                    authStore.setPackageMetadata(data)
-                    Sentry.init({
-                      dsn: globalEnvConfig.SENTRY_DSN,
-                      release: data?.appVersion,
-                      dist: data?.label,
-                      environment: globalEnvConfig.APP_ENVIRONMENT,
-                      tracesSampleRate: 1.0
-                    })
-                  }
-                })
+                CodePush.getUpdateMetadata().then((data) =>
+                  Sentry.init({
+                    dsn: globalEnvConfig.SENTRY_DSN,
+                    release: data?.appVersion,
+                    dist: data?.label,
+                    environment: globalEnvConfig.APP_ENVIRONMENT,
+                    tracesSampleRate: 1.0
+                  })
+                )
                 authStore.loaded()
                 break
               case CodePush.SyncStatus.UNKNOWN_ERROR:
@@ -56,7 +53,6 @@ export function useCodePush() {
         ).catch(() => {
           CodePush.getUpdateMetadata().then((data) => {
             if (data) {
-              authStore.setPackageMetadata(data)
               Sentry.init({
                 dsn: globalEnvConfig.SENTRY_DSN,
                 release: data?.appVersion,

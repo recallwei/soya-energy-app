@@ -16,7 +16,6 @@ import { Appearance, AppState, Platform } from 'react-native'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { enableLatestRenderer } from 'react-native-maps'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced'
 import { TamaguiProvider } from 'tamagui'
 
 import config from '../tamagui.config'
@@ -118,13 +117,6 @@ function App() {
      */
     const subscription = AppState.addEventListener('change', onAppStateChange)
 
-    // 开发模式启用 react-query-native-devtools
-    if (__DEV__) {
-      import('react-query-native-devtools').then(({ addPlugin }) => {
-        addPlugin({ queryClient })
-      })
-    }
-
     return () => {
       subscription.remove()
     }
@@ -140,7 +132,6 @@ function App() {
       >
         <GestureHandlerProvider />
       </TamaguiProvider>
-      <FlipperAsyncStorage />
     </QueryClientProvider>
   )
 }

@@ -1,9 +1,4 @@
-import { useFlipper } from '@react-navigation/devtools'
-import {
-  DefaultTheme,
-  NavigationContainer,
-  useNavigationContainerRef
-} from '@react-navigation/native'
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { BellRing, MoreHorizontal, PlusCircle, Settings } from '@tamagui/lucide-icons'
 import { useState } from 'react'
@@ -64,9 +59,6 @@ export default function Navigation() {
   const themeStore = useThemeStore()
   const plantStore = usePlantStore()
 
-  const navigationRef = useNavigationContainerRef()
-  useFlipper(navigationRef)
-
   const [homePlantSheetOpen, setHomePlantSheetOpen] = useState(false)
   const [homeSheetOpen, setHomeSheetOpen] = useState(false)
 
@@ -114,10 +106,7 @@ export default function Navigation() {
   }
 
   return (
-    <NavigationContainer
-      ref={navigationRef}
-      theme={DefaultTheme}
-    >
+    <NavigationContainer theme={DefaultTheme}>
       <Stack.Navigator
         screenOptions={{
           headerTintColor: themeStore.getTextColor(),

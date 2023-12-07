@@ -1,4 +1,3 @@
-import type { LocalPackage } from 'react-native-code-push'
 import { create } from 'zustand'
 
 import { UserRole } from '@/enums'
@@ -9,7 +8,6 @@ interface State {
   isLoading: boolean
   userRole: UserRole
   downloadProgress: number
-  packageMetadata: LocalPackage | null
   userInfo: UserInfo
 }
 
@@ -22,7 +20,6 @@ interface Actions {
   isUser: () => boolean
   setUserRole: (userRole: UserRole) => void
   setDownloadProgress: (downloadProgress: number) => void
-  setPackageMetadata: (localPackage: LocalPackage | null) => void
 }
 
 const initialState: State = {
@@ -30,7 +27,6 @@ const initialState: State = {
   isLoading: true,
   userRole: UserRole.INSTALLER,
   downloadProgress: 0,
-  packageMetadata: null,
   userInfo: {
     username: 'Bruce',
     avatarUrl: 'https://avatars.githubusercontent.com/u/62941121?v=4'
@@ -46,6 +42,5 @@ export const useAuthStore = create<State & Actions>()((set, get) => ({
   isInstaller: () => get().userRole === UserRole.INSTALLER,
   isUser: () => get().userRole === UserRole.USER,
   setUserRole: (userRole: UserRole) => set(() => ({ userRole })),
-  setDownloadProgress: (downloadProgress: number) => set(() => ({ downloadProgress })),
-  setPackageMetadata: (packageMetadata: LocalPackage | null) => set(() => ({ packageMetadata }))
+  setDownloadProgress: (downloadProgress: number) => set(() => ({ downloadProgress }))
 }))

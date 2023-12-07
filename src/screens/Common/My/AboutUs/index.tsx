@@ -3,13 +3,12 @@ import { Image, SizableText, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
 import { globalEnvConfig } from '@/env'
-import { useAuthStore, useThemeStore } from '@/store'
+import { useThemeStore } from '@/store'
 import { CodePushUtils, DeviceUtils } from '@/utils'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
   const themeStore = useThemeStore()
-  const authStore = useAuthStore()
 
   const handleUpgrade = () => CodePushUtils.syncCode()
 
@@ -33,26 +32,20 @@ export default function Screen() {
         alignSelf="center"
       />
 
-      {authStore.packageMetadata && (
-        <SizableText
-          textAlign="center"
-          size="$7"
-          fontWeight="$semiBold"
-        >
-          {`${globalEnvConfig.APP_ENVIRONMENT} - ${authStore.packageMetadata.appVersion}.${authStore.packageMetadata.label}`}
-        </SizableText>
-      )}
+      <SizableText
+        textAlign="center"
+        size="$3"
+        fontWeight="$semiBold"
+        marginBottom="$3"
+      >
+        {`${globalEnvConfig.APP_ENVIRONMENT} - ${globalEnvConfig.APP_VERSION}`}
+      </SizableText>
 
       <MenuItemCard title="Platform Usage Agreement" />
       <MenuItemCard title="Enterprise and other third-party privacy agreement" />
       <MenuItemCard title="Summary of Privacy Agreement" />
       <MenuItemCard
         title="Version update"
-        description={
-          authStore.packageMetadata
-            ? `${authStore.packageMetadata.appVersion}.${authStore.packageMetadata.label}`
-            : ''
-        }
         onPress={handleUpgrade}
       />
 

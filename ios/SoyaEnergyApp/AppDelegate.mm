@@ -39,11 +39,15 @@
 
   // Image Cache limits
   RCTSetImageCacheLimits(4 * 1024 * 1024, 200 * 1024 * 1024);
-  
+
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
+{
+  return [self getBundleURL];
+}
+- (NSURL *)getBundleURL
 {
 #if DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
