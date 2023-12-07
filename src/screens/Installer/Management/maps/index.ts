@@ -1,6 +1,6 @@
 import i18n from '@/i18n'
 
-import { TabStatus } from './enums'
+import { TabStatus } from '../enums'
 
 const t = i18n.getFixedT(null, 'Installer.Management')
 

@@ -1,17 +1,26 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
 import { ChevronRight } from '@tamagui/lucide-icons'
+import { useAsyncEffect } from 'ahooks'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { SizableText, XStack } from 'tamagui'
 
+import { SYSTEM_RESOURCE } from '@/constants'
 import { useAuthStore } from '@/store'
+import { CacheUtils } from '@/utils'
 
 const UserAvatar = memo(() => {
   const { t } = useTranslation()
   const { navigate } = useNavigation()
   const authStore = useAuthStore()
+
+  useAsyncEffect(async () => {
+    await CacheUtils.fetchBlob(
+      authStore.userInfo.avatarUrl ?? SYSTEM_RESOURCE.USER_DEFAULT_IMAGE_URL
+    )
+  }, [])
 
   return (
     <TouchableOpacity onPress={() => navigate('Common.My.Personal_Info')}>
@@ -27,7 +36,7 @@ const UserAvatar = memo(() => {
           space="$3"
         >
           <CachedImage
-            source={authStore.userInfo.avatarUrl}
+            source={authStore.userInfo.avatarUrl ?? SYSTEM_RESOURCE.USER_DEFAULT_IMAGE_URL}
             style={{
               width: 80,
               height: 80,

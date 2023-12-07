@@ -54,19 +54,28 @@ class Request {
           req.headers['Raipiot-Auth'] = await AuthUtils.getAuthorization()
         }
         req.headers['Accept-Language'] = await LangUtils.getDefaultLang()
-        // console.log(`请求路径：${req.url}`)
-        // console.log(`请求参数：${JSON.stringify(req.params) ?? ''}`)
-        // console.log(`请求数据：${JSON.stringify(req.data) ?? ''}`)
+        console.log(`请求路径：${req.url}`)
+        console.log(`请求参数：${JSON.stringify(req.params) ?? ''}`)
+        console.log(`请求数据：${JSON.stringify(req.data) ?? ''}`)
         return req
       },
       (err: AxiosError) => Promise.reject(err)
     )
 
     this.instance.interceptors.response.use(
-      (res: AxiosResponse) =>
+      (res: AxiosResponse) => {
         // console.log(`响应状态：${res.status}`)
-        // console.log(`响应数据：${JSON.stringify(res.data)}`)
-        res.data,
+        const { data } = res.data
+        const { records, current, total } = data
+        if (Array.isArray(records)) {
+          console.log('分页数据：')
+          console.log(`当前页：${current}, 总页数：${total}`)
+          records.map((item) => console.log(JSON.stringify(item)))
+        } else {
+          console.log(`响应数据：${JSON.stringify(res.data.data)}`)
+        }
+        return res.data
+      },
       async (err: AxiosError<R>) => {
         // console.log(JSON.stringify(err))
         const { response, config } = err

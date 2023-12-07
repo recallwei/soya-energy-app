@@ -1,4 +1,4 @@
-import { Filter, Heart } from '@tamagui/lucide-icons'
+import { ChevronUpCircle, Filter } from '@tamagui/lucide-icons'
 import { useToggle } from 'ahooks'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -11,6 +11,7 @@ import { Orderby } from '../../enums'
 
 interface Props {
   setDrawerOpen: (open: boolean) => void
+  scrollToTop: () => void
 }
 
 export default function AdvancedFilter(props: Props) {
@@ -45,7 +46,7 @@ export default function AdvancedFilter(props: Props) {
   ]
 
   const [orderBySheetOpen, { set: setOrderBySheetOpen }] = useToggle(false)
-  const [starStatus, { toggle: toggleStarStatus }] = useToggle(false)
+  // const [starStatus, { toggle: toggleStarStatus }] = useToggle(false)
 
   const getCurrentOrderByText = () => orderBySheetMenu.find((item) => item.value === orderBy)!.text
 
@@ -68,13 +69,19 @@ export default function AdvancedFilter(props: Props) {
       />
 
       <XStack space="$2.5">
-        <TouchableOpacity onPress={toggleStarStatus}>
+        {/* <TouchableOpacity onPress={toggleStarStatus}>
           <View theme="alt1">
             <Heart
               size="$1"
               fill={starStatus ? 'red' : 'transparent'}
               color={starStatus ? 'red' : undefined}
             />
+          </View>
+        </TouchableOpacity> */}
+
+        <TouchableOpacity onPress={() => props.scrollToTop()}>
+          <View theme="alt1">
+            <ChevronUpCircle size="$1" />
           </View>
         </TouchableOpacity>
 

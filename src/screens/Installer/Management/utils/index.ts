@@ -1,4 +1,4 @@
-import { TabStatus } from './enums'
+import { TabStatus } from '../enums'
 
 export const getColor = (value?: string) => {
   switch (value as TabStatus) {

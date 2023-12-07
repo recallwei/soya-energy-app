@@ -43,7 +43,7 @@ export default function Statistics() {
 
   return (
     <View paddingHorizontal="$4">
-      <Card>
+      <Card disablePressScale>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}

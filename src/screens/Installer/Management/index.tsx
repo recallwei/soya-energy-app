@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import type { FlatList } from 'react-native'
 import { Drawer } from 'react-native-drawer-layout'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { View } from 'tamagui'
@@ -24,10 +25,15 @@ export default function Screen() {
     keywords: ''
   })
 
+  const listRef = useRef<FlatList>(null)
+
   const setKeywords = (keywords: string) =>
     setSearchParams((draft) => {
       draft.keywords = keywords
     })
+
+  // 滚动至列表顶部
+  const scrollToTop = () => listRef.current?.scrollToOffset({ animated: true, offset: 0 })
 
   return (
     <Drawer
@@ -58,8 +64,12 @@ export default function Screen() {
           setKeywords={setKeywords}
         />
         <Statistics />
-        <AdvancedFilter setDrawerOpen={setDrawerOpen} />
+        <AdvancedFilter
+          setDrawerOpen={setDrawerOpen}
+          scrollToTop={scrollToTop}
+        />
         <ScrollList
+          listRef={listRef}
           currentTab={currentTab}
           {...searchParams}
         />

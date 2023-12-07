@@ -32,13 +32,27 @@
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
+    <key>NSExceptionDomains</key>
+    <dict>
+    <key>amazonaws.com</key>
+    <dict>
+      <key>NSIncludesSubdomains</key>
+      <true/>
+      <!--Include to allow HTTP requests-->
+      <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+      <true/>
+      <!--Include to specify minimum TLS version-->
+      <key>NSTemporaryExceptionMinimumTLSVersion</key>
+      <string>TLSv1.1</string>
+    </dict>
+  </dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Camera.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>$(PRODUCT_NAME) needs access to your Location.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

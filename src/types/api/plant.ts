@@ -65,7 +65,10 @@ export interface Plant {
    * 业主名称-额外
    */
   userName?: string
-  [property: string]: any
+  /**
+   * 图片
+   */
+  projectPic?: string
 }
 
 export interface PlantPageModel extends BasePageModel {

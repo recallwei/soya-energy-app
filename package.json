@@ -2,7 +2,7 @@
   "name": "soya-energy-app",
   "author": "Bruce Song <wenwei.song@raipiot.com>",
   "scripts": {
-    "start": "react-native start --reset-cache",
+    "start": "react-native start --reset-cache --experimental-debugger",
     "clean": "react-native clean",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
@@ -20,6 +20,7 @@
     "cp:list": "appcenter codepush deployment list -a soya-energy/soya-energy-ios && appcenter codepush deployment list -a soya-energy/soya-energy-android",
     "cp:clean": "appcenter codepush deployment clear -a soya-energy/soya-energy-ios Staging && appcenter codepush deployment clear -a soya-energy/soya-energy-android Staging",
     "doctor": "react-native doctor",
+    "devtool": "npx react-devtools",
     "pod:install": "npx pod-install",
     "assets:install": "npx react-native-asset",
     "cspell:check": "cspell \"**\"",

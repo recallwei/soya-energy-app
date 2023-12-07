@@ -1,18 +1,18 @@
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
 
-import { PlantAPI } from '@/api'
-import type { InfinitePage, Plant } from '@/types'
+import { InverterAPI } from '@/api'
+import type { InfinitePage, Inverter } from '@/types'
 
 import type { SearchParams } from '../types'
 
 const DEFAULT_PAGE_SIZE = 10
 
-const getPaginatedPlants = async ({
+const getPaginatedInverters = async ({
   pageParam = 0,
   keywords = ''
-}): Promise<InfinitePage<Plant>> => {
+}): Promise<InfinitePage<Inverter>> => {
   const { records, current } = (
-    await PlantAPI.list({
+    await InverterAPI.list({
       size: DEFAULT_PAGE_SIZE,
       current: pageParam,
       keywords
@@ -24,28 +24,28 @@ const getPaginatedPlants = async ({
   return { page: records, pageParam: current }
 }
 
-export const useInfinitePlants = (searchParams: SearchParams) => {
+export const useInfiniteInverters = (searchParams: SearchParams) => {
   const queryClient = useQueryClient()
-  const plantInfiniteQuery = useInfiniteQuery({
-    queryKey: [PlantAPI.LIST_QUERY_KEY, searchParams],
+  const inverterInfiniteQuery = useInfiniteQuery({
+    queryKey: [InverterAPI.LIST_QUERY_KEY, searchParams],
     queryFn: ({ pageParam, queryKey }) => {
       const { keywords } = queryKey[1] as SearchParams
-      return getPaginatedPlants({
+      return getPaginatedInverters({
         pageParam,
         keywords
       })
     },
     initialPageParam: 1,
     select: (data) => {
-      let plants: Plant[] = []
+      let inverters: Inverter[] = []
       if (data.pages) {
-        data.pages.forEach((page) => plants.push(...page.page))
-        plants = plants.flat()
+        data.pages.forEach((page) => inverters.push(...page.page))
+        inverters = inverters.flat()
       }
       return {
         pages: data.pages,
         pageParams: data.pageParams,
-        plants,
+        inverters,
         loadedAll: data.pages[data.pages.length - 1].page.length < DEFAULT_PAGE_SIZE
       }
     },
@@ -54,15 +54,15 @@ export const useInfinitePlants = (searchParams: SearchParams) => {
       lastPage && lastPage.page.length < DEFAULT_PAGE_SIZE ? undefined : lastPage.pageParam + 1
   })
 
-  const refetchPlants = () => {
-    queryClient.removeQueries({ queryKey: [PlantAPI.LIST_QUERY_KEY] })
-    plantInfiniteQuery.refetch()
+  const refetchInverters = () => {
+    queryClient.removeQueries({ queryKey: [InverterAPI.LIST_QUERY_KEY] })
+    inverterInfiniteQuery.refetch()
   }
 
   return {
-    plantInfiniteQuery,
-    plants: plantInfiniteQuery.data?.plants ?? [],
-    plantLoadedAll: plantInfiniteQuery.data?.loadedAll,
-    refetchPlants
+    inverterInfiniteQuery,
+    inverters: inverterInfiniteQuery.data?.inverters ?? [],
+    inverterLoadedAll: inverterInfiniteQuery.data?.loadedAll,
+    refetchInverters
   }
 }

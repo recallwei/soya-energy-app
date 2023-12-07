@@ -1,200 +1,86 @@
-import { CachedImage } from '@georstat/react-native-image-cache'
-import { useNavigation } from '@react-navigation/native'
-import { Circle, Component, MapPin } from '@tamagui/lucide-icons'
-import { useAsyncEffect } from 'ahooks'
-import React, { memo, useEffect, useState } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
+import type { RefObject } from 'react'
+import React, { memo, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ActivityIndicator, RefreshControl } from 'react-native'
-import { FlatList } from 'react-native-gesture-handler'
-import { SizableText, XStack, YStack } from 'tamagui'
+import { ActivityIndicator, FlatList, RefreshControl } from 'react-native'
+import { SizableText } from 'tamagui'
 
-import { Card } from '@/components'
+import { InverterAPI, PlantAPI } from '@/api'
 import { useRefresh } from '@/hooks'
-import type { Plant } from '@/types'
-import { CacheUtils } from '@/utils'
 
 import { ManagementTab } from '../../enums'
-import { useInfinitePlants } from '../../hooks'
-import { tabStatusI18nMap } from '../../maps'
+import { useInfiniteInverters, useInfinitePlants } from '../../hooks'
 import type { SearchParams } from '../../types'
-import { getColor } from '../../utils'
+import PlantItem from './PlantItem'
 
 interface Props extends SearchParams {
   currentTab: ManagementTab
+  listRef: RefObject<FlatList<any>>
 }
-
-const StatusBadge = memo((props: Plant) => {
-  const [statusText, setStatusText] = useState('')
-  const { i18n } = useTranslation()
-
-  useEffect(() => {
-    if (props.status) {
-      setStatusText(tabStatusI18nMap.get(props.status)?.() ?? '')
-    }
-  }, [props.status, i18n.language])
-
-  if (!props.status) {
-    return null
-  }
-
-  const color = getColor(props.status)
-
-  return (
-    <XStack
-      alignItems="center"
-      space="$2"
-    >
-      {color && (
-        <Circle
-          size={16}
-          fill={color}
-          color={color}
-        />
-      )}
-      <SizableText size="$4">{statusText}</SizableText>
-    </XStack>
-  )
-})
-
-const CardContent = memo(({ data, currentTab }: { data: Plant; currentTab: ManagementTab }) => {
-  const { t } = useTranslation('Installer.Management')
-  useAsyncEffect(async () => {
-    if (data.siteUrl) {
-      await CacheUtils.fetchBlob(data.siteUrl)
-    }
-  }, [data.siteUrl])
-
-  switch (currentTab) {
-    case ManagementTab.Plant:
-      return (
-        <YStack space="$1">
-          <XStack alignItems="center">
-            <StatusBadge {...data} />
-          </XStack>
-          <XStack
-            alignItems="center"
-            space="$2"
-          >
-            <Component size={16} />
-            <SizableText fontWeight="$bold">{data.siteName}</SizableText>
-          </XStack>
-          <XStack
-            alignItems="center"
-            space="$3"
-          >
-            {data.siteUrl && (
-              <CachedImage
-                source={data.siteUrl}
-                style={{
-                  width: 100,
-                  height: 60,
-                  shadowRadius: 4,
-                  shadowOpacity: 0.05,
-                  borderRadius: 8
-                }}
-              />
-            )}
-            <YStack>
-              <XStack space="$4">
-                <SizableText size="$3">{t('Current.Power')}</SizableText>
-                <XStack space="$2">
-                  <SizableText
-                    size="$3"
-                    fontWeight="$bold"
-                  >
-                    {data.currentPower ?? '-'}
-                  </SizableText>
-                  <SizableText size="$3">W</SizableText>
-                </XStack>
-              </XStack>
-              <XStack space="$4">
-                <SizableText size="$3">{t('Production.Today')}</SizableText>
-                <XStack space="$2">
-                  <SizableText
-                    size="$3"
-                    fontWeight="$bold"
-                  >
-                    {data.productionToday ?? '-'}
-                  </SizableText>
-                  <SizableText size="$3">kWh</SizableText>
-                </XStack>
-              </XStack>
-              <XStack space="$4">
-                <SizableText size="$3">{t('Capacity')}</SizableText>
-                <XStack space="$2">
-                  <SizableText
-                    size="$3"
-                    fontWeight="$bold"
-                  >
-                    {data.siteCapacity ?? '-'}
-                  </SizableText>
-                  <SizableText size="$3">kWp</SizableText>
-                </XStack>
-              </XStack>
-            </YStack>
-          </XStack>
-
-          <XStack
-            alignItems="center"
-            space="$2"
-          >
-            <MapPin size={16} />
-            <SizableText>{data.sitePosition ?? '-'}</SizableText>
-          </XStack>
-        </YStack>
-      )
-    case ManagementTab.Inverter:
-      return <YStack />
-    default:
-      return null
-  }
-})
 
 const ScrollList = memo((props: Props) => {
   const { t } = useTranslation('Global')
-  const { navigate } = useNavigation()
-  const plantInfiniteQuery = useInfinitePlants({ keywords: props.keywords })
-  const refresh = useRefresh(async () => plantInfiniteQuery.refetch())
+  const queryClient = useQueryClient()
+  // 切换 tab
+  useEffect(() => {
+    queryClient.cancelQueries({
+      queryKey: [PlantAPI.LIST_QUERY_KEY]
+    })
+    queryClient.cancelQueries({
+      queryKey: [InverterAPI.LIST_QUERY_KEY]
+    })
+  }, [props.currentTab])
 
-  const handleClickCard = (id: string) => {
+  const { plantInfiniteQuery, plants, plantLoadedAll, refetchPlants } = useInfinitePlants({
+    keywords: props.keywords
+  })
+  const { inverters, inverterLoadedAll, refetchInverters } = useInfiniteInverters({
+    keywords: props.keywords
+  })
+  // 下拉刷新
+  const refresh = useRefresh(async () => {
     switch (props.currentTab) {
       case ManagementTab.Plant:
-        navigate('User.Tabs', { screen: 'User.Home', params: { id } })
+        refetchPlants()
         break
       case ManagementTab.Inverter:
-        navigate('User.Devices.Invertor_Detail', { id })
-        break
-      case ManagementTab.Battery:
-        navigate('User.Devices.Battery_Detail', { id })
+        refetchInverters()
         break
       default:
         break
     }
-  }
+  })
 
-  useEffect(() => {
-    plantInfiniteQuery.refetch()
-  }, [props.currentTab])
+  const getCurrentTabData = () => {
+    switch (props.currentTab) {
+      case ManagementTab.Plant:
+        return plants
+      case ManagementTab.Inverter:
+        return inverters
+      default:
+        return []
+    }
+  }
 
   return (
     <FlatList
+      ref={props.listRef}
       contentContainerStyle={{
         gap: 8,
         paddingHorizontal: 18,
         paddingBottom: 18
       }}
-      data={plantInfiniteQuery.data?.plants ?? []}
+      data={getCurrentTabData()}
       keyExtractor={({ id }) => id}
-      renderItem={({ item }) => (
-        <Card onPress={() => handleClickCard(item.id)}>
-          <CardContent
-            data={item}
-            currentTab={props.currentTab}
-          />
-        </Card>
-      )}
+      renderItem={({ item }) => {
+        switch (props.currentTab) {
+          case ManagementTab.Plant:
+            return <PlantItem {...item} />
+          default:
+            return null
+        }
+      }}
       showsVerticalScrollIndicator={false}
-      progressViewOffset={plantInfiniteQuery.isFetchingNextPage ? 36 : 0}
       refreshing
       refreshControl={
         <RefreshControl
@@ -203,21 +89,17 @@ const ScrollList = memo((props: Props) => {
         />
       }
       onEndReached={() => plantInfiniteQuery.fetchNextPage()}
+      progressViewOffset={30}
       ListFooterComponent={
         <>
-          {plantInfiniteQuery.isLoading ? null : (
-            <>
-              {plantInfiniteQuery.isFetchingNextPage ? (
-                <ActivityIndicator size="large" />
-              ) : (
-                <SizableText
-                  textAlign="center"
-                  marginTop="$2"
-                >
-                  {t('No.More.Data')}
-                </SizableText>
-              )}
-            </>
+          {plantInfiniteQuery.isFetchingNextPage && <ActivityIndicator style={{ marginTop: 10 }} />}
+          {(plantLoadedAll || inverterLoadedAll) && (
+            <SizableText
+              textAlign="center"
+              marginTop="$2"
+            >
+              {t('No.More.Data')}
+            </SizableText>
           )}
         </>
       }
