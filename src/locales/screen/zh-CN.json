@@ -24,7 +24,11 @@
     "Create": {
       "Scan.SN": "创建电站",
       "Form": "创建电站"
-    }
+    },
+    "Edit": "编辑电站"
+  },
+  "Common.Inverter": {
+    "Detail": "逆变器详情"
   },
   "Installer.Tabs": {
     "Guide": "指引",

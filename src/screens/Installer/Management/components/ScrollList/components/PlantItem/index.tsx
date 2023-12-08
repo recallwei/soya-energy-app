@@ -1,19 +1,26 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
-import { Component, MapPin } from '@tamagui/lucide-icons'
+import { Component, MapPin, MoreHorizontal } from '@tamagui/lucide-icons'
 import { useAsyncEffect } from 'ahooks'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { TouchableOpacity } from 'react-native'
 import { SizableText, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 import { SYSTEM_RESOURCE } from '@/constants'
+import type { ManagementTab } from '@/screens/Installer/Management/enums'
 import type { Plant } from '@/types'
 import { CacheUtils } from '@/utils'
 
 import StatusBadge from '../StatusBadge'
 
-const PlantItem = memo((props: Plant) => {
+interface Props extends Plant {
+  handleOpenPlantSheet: (id: string) => void
+  currentTab: ManagementTab
+}
+
+const PlantItem = memo((props: Props) => {
   const { t } = useTranslation('Installer.Management')
   const { navigate } = useNavigation()
 
@@ -25,9 +32,21 @@ const PlantItem = memo((props: Plant) => {
 
   return (
     <Card onPress={navToDetail}>
+      <XStack
+        position="absolute"
+        right="$4"
+        top="$4"
+      >
+        <TouchableOpacity onPress={() => props.handleOpenPlantSheet(props.id)}>
+          <MoreHorizontal size={20} />
+        </TouchableOpacity>
+      </XStack>
       <YStack space="$1">
         <XStack alignItems="center">
-          <StatusBadge {...props} />
+          <StatusBadge
+            status={props.status}
+            type={props.currentTab}
+          />
         </XStack>
         <XStack
           alignItems="center"

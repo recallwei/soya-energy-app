@@ -21,3 +21,8 @@ export type FormData = {
   city: string
 } & SingleSelectOption &
   MultiSelectOption
+
+export interface TabStatusValue {
+  text: () => string
+  color?: string
+}

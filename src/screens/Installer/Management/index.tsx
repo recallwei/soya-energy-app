@@ -11,8 +11,7 @@ import { DeviceUtils } from '@/utils'
 import { AdvancedFilter, DrawerContent, HeaderArea, ScrollList, Statistics } from './components'
 import { initialAdvanceFilter } from './constants'
 import { ManagementTab } from './enums'
-import type { FormData } from './interfaces'
-import type { SearchParams } from './types'
+import type { FormData, SearchParams } from './types'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
@@ -63,7 +62,7 @@ export default function Screen() {
           setCurrentTab={setCurrentTab}
           setKeywords={setKeywords}
         />
-        <Statistics />
+        <Statistics currentTab={currentTab} />
         <AdvancedFilter
           setDrawerOpen={setDrawerOpen}
           scrollToTop={scrollToTop}

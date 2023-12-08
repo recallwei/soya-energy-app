@@ -24,7 +24,11 @@
     "Create": {
       "Scan.SN": "Create Plant",
       "Form": "Create Plant"
-    }
+    },
+    "Edit": "Edit Plant"
+  },
+  "Common.Inverter": {
+    "Detail": "Inverter Detail"
   },
   "Installer.Tabs": {
     "Guide": "Guide",

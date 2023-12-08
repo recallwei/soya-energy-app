@@ -4,12 +4,28 @@ export enum ManagementTab {
   'Battery' = 'Battery'
 }
 
-export enum TabStatus {
+export enum PlantTabStatus {
   'All' = '0',
   'Normal' = '1',
   'Alarm' = '2',
   'Offline' = '3',
   'NotMonitored' = '4'
+}
+
+export enum InverterTabStatus {
+  'All' = '0',
+  'Normal' = '1',
+  'Alarm' = '2',
+  'Offline' = '3',
+  'NotMonitored' = '4'
+}
+
+export enum BatteryTabStatus {
+  'All' = '0',
+  'Charging' = '1',
+  'DisCharging' = '2',
+  'Standby' = '3',
+  'Offline' = '4'
 }
 
 export enum Orderby {

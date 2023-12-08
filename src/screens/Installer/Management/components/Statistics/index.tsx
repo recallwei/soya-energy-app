@@ -1,45 +1,22 @@
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { memo, useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { Circle, ScrollView, SizableText, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 import { globalStyles } from '@/constants'
 
-import { TabStatus } from '../../enums'
-import { getColor } from '../../utils'
+import type { ManagementTab } from '../../enums'
+import { PlantTabStatus } from '../../enums'
+import { getStatusMeta } from '../../utils'
 
-export default function Statistics() {
-  const { t } = useTranslation('Installer.Management')
+interface Props {
+  currentTab: ManagementTab
+}
 
-  const [activeStatus, setActiveStatus] = useState<TabStatus>(TabStatus.All)
+const Statistics = memo((props: Props) => {
+  const [activeStatus, setActiveStatus] = useState<PlantTabStatus>(PlantTabStatus.All)
 
-  const handleClickTab = (tab: (typeof tabList)[0]) => {
-    setActiveStatus(tab.value)
-  }
-
-  const tabList = [
-    {
-      text: t('Status.All'),
-      value: TabStatus.All
-    },
-    {
-      text: t('Status.Normal'),
-      value: TabStatus.Normal
-    },
-    {
-      text: t('Status.Alarm'),
-      value: TabStatus.Alarm
-    },
-    {
-      text: t('Status.Offline'),
-      value: TabStatus.Offline
-    },
-    {
-      text: t('Status.Not.Monitored'),
-      value: TabStatus.NotMonitored
-    }
-  ]
+  const handleClickTab = (tabStatus: PlantTabStatus) => setActiveStatus(tabStatus)
 
   return (
     <View paddingHorizontal="$4">
@@ -53,22 +30,24 @@ export default function Statistics() {
             justifyContent="space-between"
             minWidth="100%"
           >
-            {tabList.map((tabItem) => (
-              <TouchableOpacity onPress={() => handleClickTab(tabItem)}>
-                <YStack key={tabItem.value}>
+            {Object.values(PlantTabStatus).map((tabStatus) => (
+              <TouchableOpacity onPress={() => handleClickTab(tabStatus)}>
+                <YStack key={tabStatus}>
                   <XStack
                     alignItems="center"
                     space="$1.5"
                   >
-                    {getColor(tabItem.value) && (
+                    {getStatusMeta(tabStatus, props.currentTab).color && (
                       <Circle
                         position="absolute"
                         left={-10}
                         size="$0.75"
-                        backgroundColor={getColor(tabItem.value)}
+                        backgroundColor={getStatusMeta(tabStatus, props.currentTab).color}
                       />
                     )}
-                    <SizableText fontSize="$3">{tabItem.text}</SizableText>
+                    <SizableText fontSize="$3">
+                      {getStatusMeta(tabStatus, props.currentTab)?.text()}
+                    </SizableText>
                   </XStack>
                   <SizableText
                     fontSize="$4"
@@ -76,7 +55,7 @@ export default function Statistics() {
                   >
                     {Math.floor(Math.random() * 100)}
                   </SizableText>
-                  {activeStatus === tabItem.value && (
+                  {activeStatus === tabStatus && (
                     <View
                       backgroundColor={globalStyles.primaryColor}
                       width="$1"
@@ -93,4 +72,5 @@ export default function Statistics() {
       </Card>
     </View>
   )
-}
+})
+export default Statistics

@@ -33,8 +33,11 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.Message.Detail']: { id: string; type: string }
 
     ['Common.Plant.Detail']: { id: string }
+    ['Common.Plant.Edit']: { id: string }
     ['Common.Plant.Create.Scan_SN']: undefined
     ['Common.Plant.Create.Form']: { code: string }
+
+    ['Common.Inverter.Detail']: { id: string }
 
     ['Common.My.Personal_Info']: undefined
     ['Common.My.Personal_Info.Edit']: undefined

@@ -5,13 +5,14 @@
   "Create.Plant.For.Me": "自建户用电站",
   "Create.Plant.For.Owner": "代建户用电站",
   "SearchText.Placeholder": "电站名称/逆变器 SN/ID",
-  "Status": {
-    "All": "全部",
-    "Normal": "正常",
-    "Alarm": "告警",
-    "Offline": "离线",
-    "Not.Monitored": "未监控"
-  },
+  "Status.All": "全部",
+  "Status.Normal": "正常",
+  "Status.Alarm": "告警",
+  "Status.Offline": "离线",
+  "Status.Not.Monitored": "未监控",
+  "Status.Charging": "充电中",
+  "Status.Discharging": "放电中",
+  "Status.Standby": "待机",
   "Latest.Installation.Date": "安装时间最新",
   "Earlier.Installation.Date": "安装时间最早",
   "Daily.Production": {
@@ -64,5 +65,10 @@
   "To": "至",
   "Current.Power": "当前功率：",
   "Production.Today": "今日发电：",
-  "Capacity": "装机容量："
+  "Capacity": "装机容量：",
+  "Plant.Menu.Edit": "编辑信息",
+  "Plant.Menu.EV.Charger": "充电桩",
+  "Plant.Menu.Mobile.Storage": "移动储能",
+  "Plant.Menu.Map": "电站地图",
+  "Plant.Menu.Delete": "删除电站"
 }

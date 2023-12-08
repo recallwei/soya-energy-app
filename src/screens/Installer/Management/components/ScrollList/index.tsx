@@ -1,17 +1,16 @@
-import { useQueryClient } from '@tanstack/react-query'
 import type { RefObject } from 'react'
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ActivityIndicator, FlatList, RefreshControl } from 'react-native'
 import { SizableText } from 'tamagui'
 
-import { InverterAPI, PlantAPI } from '@/api'
+import { SheetMenu } from '@/components'
 import { useRefresh } from '@/hooks'
 
 import { ManagementTab } from '../../enums'
-import { useInfiniteInverters, useInfinitePlants } from '../../hooks'
 import type { SearchParams } from '../../types'
-import PlantItem from './PlantItem'
+import { InverterItem, PlantItem } from './components'
+import { useInfiniteManagementDevices, usePlantSheet } from './hooks'
 
 interface Props extends SearchParams {
   currentTab: ManagementTab
@@ -20,90 +19,78 @@ interface Props extends SearchParams {
 
 const ScrollList = memo((props: Props) => {
   const { t } = useTranslation('Global')
-  const queryClient = useQueryClient()
-  // 切换 tab
-  useEffect(() => {
-    queryClient.cancelQueries({
-      queryKey: [PlantAPI.LIST_QUERY_KEY]
-    })
-    queryClient.cancelQueries({
-      queryKey: [InverterAPI.LIST_QUERY_KEY]
-    })
-  }, [props.currentTab])
 
-  const { plantInfiniteQuery, plants, plantLoadedAll, refetchPlants } = useInfinitePlants({
-    keywords: props.keywords
-  })
-  const { inverters, inverterLoadedAll, refetchInverters } = useInfiniteInverters({
-    keywords: props.keywords
-  })
+  const { devicesInfiniteQuery, devices, loadedAll, refetch, isRefreshing } =
+    useInfiniteManagementDevices(props.currentTab, { keywords: props.keywords })
+
   // 下拉刷新
-  const refresh = useRefresh(async () => {
-    switch (props.currentTab) {
-      case ManagementTab.Plant:
-        refetchPlants()
-        break
-      case ManagementTab.Inverter:
-        refetchInverters()
-        break
-      default:
-        break
-    }
-  })
+  const refresh = useRefresh(async () => refetch())
 
-  const getCurrentTabData = () => {
-    switch (props.currentTab) {
-      case ManagementTab.Plant:
-        return plants
-      case ManagementTab.Inverter:
-        return inverters
-      default:
-        return []
-    }
-  }
+  const { plantSheetMenuData, plantSheetOpen, setPlantSheetOpen, handleOpenPlantSheet } =
+    usePlantSheet()
 
   return (
-    <FlatList
-      ref={props.listRef}
-      contentContainerStyle={{
-        gap: 8,
-        paddingHorizontal: 18,
-        paddingBottom: 18
-      }}
-      data={getCurrentTabData()}
-      keyExtractor={({ id }) => id}
-      renderItem={({ item }) => {
-        switch (props.currentTab) {
-          case ManagementTab.Plant:
-            return <PlantItem {...item} />
-          default:
-            return null
+    <>
+      <FlatList
+        ref={props.listRef}
+        contentContainerStyle={{
+          gap: 8,
+          paddingHorizontal: 18,
+          paddingBottom: 18
+        }}
+        data={devices}
+        keyExtractor={({ id }) => id}
+        renderItem={({ item }) => {
+          switch (props.currentTab) {
+            case ManagementTab.Plant:
+              return (
+                <PlantItem
+                  {...item}
+                  handleOpenPlantSheet={handleOpenPlantSheet}
+                />
+              )
+            case ManagementTab.Inverter:
+              return <InverterItem {...item} />
+            case ManagementTab.Battery:
+            default:
+              return null
+          }
+        }}
+        showsVerticalScrollIndicator={false}
+        refreshing
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={refresh.onRefresh}
+          />
         }
-      }}
-      showsVerticalScrollIndicator={false}
-      refreshing
-      refreshControl={
-        <RefreshControl
-          refreshing={!plantInfiniteQuery.isFetched || plantInfiniteQuery.isRefetching}
-          onRefresh={refresh.onRefresh}
-        />
-      }
-      onEndReached={() => plantInfiniteQuery.fetchNextPage()}
-      progressViewOffset={30}
-      ListFooterComponent={
-        <>
-          {plantInfiniteQuery.isFetchingNextPage && <ActivityIndicator style={{ marginTop: 10 }} />}
-          {(plantLoadedAll || inverterLoadedAll) && (
-            <SizableText
-              textAlign="center"
-              marginTop="$2"
-            >
-              {t('No.More.Data')}
-            </SizableText>
-          )}
-        </>
-      }
-    />
+        onEndReached={() => devicesInfiniteQuery.fetchNextPage()}
+        progressViewOffset={30}
+        ListFooterComponent={
+          <>
+            {devicesInfiniteQuery.isFetchingNextPage && (
+              <ActivityIndicator style={{ marginTop: 10 }} />
+            )}
+            {loadedAll && (
+              <SizableText
+                textAlign="center"
+                marginTop="$2"
+              >
+                {t('No.More.Data')}
+              </SizableText>
+            )}
+          </>
+        }
+      />
+      <SheetMenu
+        data={plantSheetMenuData}
+        sheet={{
+          open: plantSheetOpen,
+          setOpen: setPlantSheetOpen
+        }}
+        autoClose
+      />
+    </>
   )
 })
 export default ScrollList

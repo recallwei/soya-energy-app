@@ -5,13 +5,14 @@
   "Create.Plant.For.Me": "Create plant for me",
   "Create.Plant.For.Owner": "Create plant for owner",
   "SearchText.Placeholder": "Plant name/Inverter SN/ID",
-  "Status": {
-    "All": "All",
-    "Normal": "Normal",
-    "Alarm": "Alarm",
-    "Offline": "Offline",
-    "Not.Monitored": "Not monitored"
-  },
+  "Status.All": "All",
+  "Status.Normal": "Normal",
+  "Status.Alarm": "Alarm",
+  "Status.Offline": "Offline",
+  "Status.Not.Monitored": "Not monitored",
+  "Status.Charging": "Charging",
+  "Status.Discharging": "Discharging",
+  "Status.Standby": "Standby",
   "Latest.Installation.Date": "Latest installation date",
   "Earlier.Installation.Date": "Earlier installation date",
   "Daily.Production": {
@@ -64,5 +65,10 @@
   "To": "to",
   "Current.Power": "Current Power:",
   "Production.Today": "Production Today:",
-  "Capacity": "Capacity:"
+  "Capacity": "Capacity:",
+  "Plant.Menu.Edit": "Edit",
+  "Plant.Menu.EV.Charger": "EV Charger",
+  "Plant.Menu.Mobile.Storage": "Mobile Storage",
+  "Plant.Menu.Map": "Map",
+  "Plant.Menu.Delete": "Delete"
 }

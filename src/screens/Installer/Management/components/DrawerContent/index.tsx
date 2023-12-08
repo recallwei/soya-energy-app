@@ -9,7 +9,7 @@ import { BooleanEnum } from '@/enums'
 
 import { initialAdvanceFilter } from '../../constants'
 import { DisplayRange, FundingMethod, GridType, Others, PlantType, UseType } from '../../enums'
-import type { FormData, MultiSelectOption, SingleSelectOption } from '../../interfaces'
+import type { FormData, MultiSelectOption, SingleSelectOption } from '../../types'
 
 interface Props {
   advancedFilter: FormData

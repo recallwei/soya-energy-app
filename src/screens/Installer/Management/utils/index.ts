@@ -1,17 +1,20 @@
-import { TabStatus } from '../enums'
+import { ManagementTab } from '../enums'
+import { batteryTabStatusMap, inverterTabStatusMap, plantTabStatusMap } from '../maps'
+import type { TabStatusValue } from '../types'
 
-export const getColor = (value?: string) => {
-  switch (value as TabStatus) {
-    case TabStatus.Normal:
-      return 'green'
-    case TabStatus.Alarm:
-      return 'red'
-    case TabStatus.Offline:
-      return 'gray'
-    case TabStatus.NotMonitored:
-      return 'yellow'
-    case TabStatus.All:
+const fallback = {
+  text: () => ''
+}
+
+export const getStatusMeta = (value: string, currentTab: ManagementTab): TabStatusValue => {
+  switch (currentTab) {
+    case ManagementTab.Plant:
+      return plantTabStatusMap.get(value) ?? fallback
+    case ManagementTab.Inverter:
+      return inverterTabStatusMap.get(value) ?? fallback
+    case ManagementTab.Battery:
+      return batteryTabStatusMap.get(value) ?? fallback
     default:
-      return undefined
+      return fallback
   }
 }

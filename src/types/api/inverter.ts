@@ -24,7 +24,7 @@ export interface Inverter {
   /**
    * 主键
    */
-  id?: number
+  id?: string
   /**
    * 电站名称
    */
@@ -40,7 +40,7 @@ export interface Inverter {
   /**
    * 逆变器状态:(1:正常 2:告警 3:离线 4:未监控)
    */
-  status?: number
+  status?: string
   /**
    * 当日发电-额外
    */
@@ -57,6 +57,10 @@ export interface Inverter {
    * 质保日期-额外
    */
   warrantyDate?: number
+  /**
+   * 图片
+   */
+  projectPic?: string
 }
 
 export interface InverterPageModel extends BasePageModel {

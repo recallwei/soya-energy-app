@@ -15,6 +15,10 @@ export { default as CommonMessageListScreen } from './Common/Message/List'
 export { default as CommonPlantCreateFormScreen } from './Common/Plant/Create/Form'
 export { default as CommonPlantCreateScanSNScreen } from './Common/Plant/Create/ScanSN'
 export { default as CommonPlantDetailScreen } from './Common/Plant/Detail'
+export { default as CommonPlantEditScreen } from './Common/Plant/Edit'
+
+// Inverter
+export { default as CommonInverterDetailScreen } from './Common/Inverter/Detail'
 
 // My
 export { default as CommonMyScreen } from './Common/My'

@@ -1,4 +1,5 @@
 export * from './auth'
 export * from './axios'
+export * from './battery'
 export * from './inverter'
 export * from './plant'

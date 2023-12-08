@@ -13,6 +13,7 @@ import {
   AuthSignUpScreen,
   AuthSignUpSelectRoleScreen,
   AuthSplashScreen,
+  CommonInverterDetailScreen,
   CommonMessageDetailScreen,
   CommonMessageListScreen,
   CommonMessageScreen,
@@ -32,6 +33,7 @@ import {
   CommonPlantCreateFormScreen,
   CommonPlantCreateScanSNScreen,
   CommonPlantDetailScreen,
+  CommonPlantEditScreen,
   DemoScreen,
   DevMenuScreen,
   ImageCacheTestScreen,
@@ -201,7 +203,7 @@ export default function Navigation() {
                         case 'User.Home':
                           return (
                             <DropDownMenu
-                              text={plantStore.currentPlant.siteName}
+                              text={plantStore.currentPlant.plantName}
                               sheetMenu={{
                                 sheet: {
                                   open: homePlantSheetOpen,
@@ -241,7 +243,7 @@ export default function Navigation() {
                                   </XStack>
                                 ),
                                 data: plantStore.plantList.map<SheetMenuListItem>((item) => ({
-                                  text: item.siteName,
+                                  text: item.plantName,
                                   value: item.id,
                                   onPress: () => plantStore.setCurrentPlant(item)
                                 }))
@@ -332,6 +334,16 @@ export default function Navigation() {
                   name="Common.Plant.Create.Form"
                   component={CommonPlantCreateFormScreen}
                   options={{ title: t('Common.Plant.Create.Form') }}
+                />
+                <Stack.Screen
+                  name="Common.Plant.Edit"
+                  component={CommonPlantEditScreen}
+                  options={{ title: t('Common.Plant.Edit') }}
+                />
+                <Stack.Screen
+                  name="Common.Inverter.Detail"
+                  component={CommonInverterDetailScreen}
+                  options={{ title: t('Common.Inverter.Detail') }}
                 />
                 <Stack.Screen
                   name="Common.My.Privacy_Management"
