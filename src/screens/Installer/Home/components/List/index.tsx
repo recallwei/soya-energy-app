@@ -1,10 +1,12 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
+import { useNavigation } from '@react-navigation/native'
 import { useAsyncEffect } from 'ahooks'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
 import { Circle, SizableText, styled, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
+import { ManagementTab } from '@/screens/Installer/Management/enums'
 import { useThemeStore } from '@/store'
 import { CacheUtils } from '@/utils'
 
@@ -36,8 +38,8 @@ const mockData: Item[] = [
   },
   {
     id: '2',
-    name: '阳台电站',
-    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
+    name: '逆变器',
+    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/invertor.png',
     total: 4,
     normal: 3,
     offline: 1,
@@ -47,41 +49,8 @@ const mockData: Item[] = [
   },
   {
     id: '3',
-    name: '逆变器',
-    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/invertor.png',
-    total: 4,
-    normal: 3,
-    offline: 1,
-    normalRunningRate: 75,
-    alarm: 0,
-    notMonitored: 0
-  },
-  {
-    id: '4',
     name: '电池',
     url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/battery.png',
-    total: 4,
-    normal: 3,
-    offline: 1,
-    normalRunningRate: 75,
-    alarm: 0,
-    notMonitored: 0
-  },
-  {
-    id: '5',
-    name: '阳台电站',
-    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
-    total: 4,
-    normal: 3,
-    offline: 1,
-    normalRunningRate: 75,
-    alarm: 0,
-    notMonitored: 0
-  },
-  {
-    id: '6',
-    name: '逆变器',
-    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/invertor.png',
     total: 4,
     normal: 3,
     offline: 1,
@@ -94,6 +63,7 @@ const mockData: Item[] = [
 export default function List() {
   const { t } = useTranslation('Installer.Home')
   const themeStore = useThemeStore()
+  const { navigate } = useNavigation()
 
   useAsyncEffect(async () => {
     await CacheUtils.fetchBlob(mockData.map((item) => item.url))
@@ -110,15 +80,37 @@ export default function List() {
     borderRadius: '$1'
   })
 
+  const handleClickCard = (id: string) => {
+    switch (id) {
+      case '1':
+        navigate('Installer.Management', {
+          currentTab: ManagementTab.Plant
+        })
+        break
+      case '2':
+        navigate('Installer.Management', {
+          currentTab: ManagementTab.Inverter
+        })
+        break
+      case '3':
+        navigate('Installer.Management', {
+          currentTab: ManagementTab.Battery
+        })
+        break
+      default:
+        break
+    }
+  }
+
   return (
     <FlatList
       contentContainerStyle={{ gap: 6 }}
-      numColumns={2}
+      numColumns={1}
       scrollEnabled={false}
       data={mockData}
       keyExtractor={({ id }: Item) => id}
       renderItem={({ item }) => (
-        <Card>
+        <Card onPress={() => handleClickCard(item.id)}>
           <YStack
             space="$2"
             width="100%"

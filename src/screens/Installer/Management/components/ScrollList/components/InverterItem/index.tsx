@@ -40,7 +40,12 @@ const InverterItem = memo((props: Props) => {
               currentTab={props.currentTab}
             />
           </View>
-          <SizableText fontWeight="$bold">{props.deviceSN}</SizableText>
+          <SizableText
+            fontWeight="$bold"
+            size="$5"
+          >
+            {props.deviceSN}
+          </SizableText>
         </XStack>
         <XStack
           alignItems="center"

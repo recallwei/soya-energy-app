@@ -1,3 +1,4 @@
+import { useRoute } from '@react-navigation/native'
 import { useEffect, useRef, useState } from 'react'
 import type { FlatList } from 'react-native'
 import { Drawer } from 'react-native-drawer-layout'
@@ -6,6 +7,7 @@ import { View } from 'tamagui'
 import { useImmer } from 'use-immer'
 
 import { useThemeStore } from '@/store'
+import type { RouteProp } from '@/types'
 import { DeviceUtils } from '@/utils'
 
 import { AdvancedFilter, DrawerContent, HeaderArea, ScrollList, Statistics } from './components'
@@ -18,8 +20,14 @@ const DEFAULT_TAB_STATUS = '0'
 export default function Screen() {
   const insets = useSafeAreaInsets()
   const themeStore = useThemeStore()
+  const route = useRoute<RouteProp<'Installer.Management'>>()
 
   const [currentTab, setCurrentTab] = useState<ManagementTab>(ManagementTab.Plant)
+
+  useEffect(() => {
+    setCurrentTab(route.params?.currentTab ?? ManagementTab.Plant)
+  }, [route.params])
+
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
   const [searchParams, setSearchParams] = useImmer<SearchParams>({

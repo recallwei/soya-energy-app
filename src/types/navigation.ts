@@ -3,6 +3,7 @@ import type { CompositeScreenProps, NavigatorScreenParams } from '@react-navigat
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 import type { UserRole } from '@/enums'
+import type { ManagementTab } from '@/screens/Installer/Management/enums'
 
 /**
  * NOTE: Why not use interface?
@@ -90,7 +91,7 @@ export type Navigation<T extends keyof RootStackParamList> = ScreenProps<T>['nav
 // 安装商 Tab
 export type InstallerTabParamList = {
   ['Installer.Home']: undefined
-  ['Installer.Management']: undefined
+  ['Installer.Management']: { currentTab?: ManagementTab }
   ['Installer.Services']: undefined
   ['Installer.Guide']: undefined
   ['Installer.My']: undefined
