@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { FlatList } from 'react-native'
 import { Drawer } from 'react-native-drawer-layout'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -13,6 +13,8 @@ import { initialAdvanceFilter } from './constants'
 import { ManagementTab } from './enums'
 import type { FormData, SearchParams } from './types'
 
+const DEFAULT_TAB_STATUS = '0'
+
 export default function Screen() {
   const insets = useSafeAreaInsets()
   const themeStore = useThemeStore()
@@ -21,8 +23,15 @@ export default function Screen() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
   const [searchParams, setSearchParams] = useImmer<SearchParams>({
-    keywords: ''
+    keywords: '',
+    status: DEFAULT_TAB_STATUS
   })
+
+  useEffect(() => {
+    setSearchParams((draft) => {
+      draft.status = DEFAULT_TAB_STATUS
+    })
+  }, [currentTab, setSearchParams])
 
   const listRef = useRef<FlatList>(null)
 
@@ -30,6 +39,12 @@ export default function Screen() {
     setSearchParams((draft) => {
       draft.keywords = keywords
     })
+
+  const setStatus = (status: string) => {
+    setSearchParams((draft) => {
+      draft.status = status
+    })
+  }
 
   // 滚动至列表顶部
   const scrollToTop = () => listRef.current?.scrollToOffset({ animated: true, offset: 0 })
@@ -62,7 +77,11 @@ export default function Screen() {
           setCurrentTab={setCurrentTab}
           setKeywords={setKeywords}
         />
-        <Statistics currentTab={currentTab} />
+        <Statistics
+          currentTab={currentTab}
+          status={searchParams.status}
+          setStatus={setStatus}
+        />
         <AdvancedFilter
           setDrawerOpen={setDrawerOpen}
           scrollToTop={scrollToTop}

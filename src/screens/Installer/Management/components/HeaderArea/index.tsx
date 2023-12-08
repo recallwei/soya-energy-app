@@ -1,14 +1,12 @@
 import { PlusCircle, ScanLine, Search } from '@tamagui/lucide-icons'
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { Input, Text, View, XStack, YStack } from 'tamagui'
 
-import type { SheetMenuListItem } from '@/components'
 import { SheetMenu } from '@/components'
-import i18n from '@/i18n'
 
-import { ManagementTab } from '../../enums'
+import type { ManagementTab } from '../../enums'
+import { tabList } from './constants'
+import { useCreateMenuSheet, useSearchText } from './hooks'
 
 interface Props {
   currentTab: ManagementTab
@@ -16,33 +14,10 @@ interface Props {
   setKeywords: (keywords: string) => void
 }
 
-const tFunc = i18n.getFixedT(null, 'Installer.Management')
-
-const tabList = [
-  { text: () => tFunc('Plant'), value: ManagementTab.Plant },
-  { text: () => tFunc('Inverter'), value: ManagementTab.Inverter },
-  { text: () => tFunc('Battery'), value: ManagementTab.Battery }
-]
-
 export default function HeaderArea(props: Props) {
-  const { t } = useTranslation('Installer.Management')
-
-  const createSheetMenuData: SheetMenuListItem[] = [
-    {
-      text: t('Create.Plant.For.Me'),
-      onPress: () => {}
-    },
-    {
-      text: t('Create.Plant.For.Owner'),
-      onPress: () => {}
-    }
-  ]
-
-  const [searchText, setSearchText] = useState('')
-  const [createSheetOpen, setCreateSheetOpen] = useState(false)
-
-  const handleOpen = () => setCreateSheetOpen(!createSheetOpen)
-
+  const { searchText, setSearchText, getInputPlaceholder } = useSearchText()
+  const { createSheetOpen, setCreateSheetOpen, createSheetMenuData, handleOpenCreateSheet } =
+    useCreateMenuSheet()
   const handleClickScan = () => {}
 
   return (
@@ -83,7 +58,7 @@ export default function HeaderArea(props: Props) {
             value={searchText}
             onChangeText={setSearchText}
             onSubmitEditing={() => props.setKeywords(searchText)}
-            placeholder={t('SearchText.Placeholder')}
+            placeholder={getInputPlaceholder(props.currentTab)}
           />
           <TouchableOpacity
             style={{
@@ -111,7 +86,7 @@ export default function HeaderArea(props: Props) {
             </View>
           </TouchableOpacity>
         </XStack>
-        <TouchableOpacity onPress={handleOpen}>
+        <TouchableOpacity onPress={handleOpenCreateSheet}>
           <View theme="alt2">
             <PlusCircle size="$1.5" />
           </View>

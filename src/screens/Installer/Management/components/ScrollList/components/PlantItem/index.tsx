@@ -45,7 +45,7 @@ const PlantItem = memo((props: Props) => {
         <XStack alignItems="center">
           <StatusBadge
             status={props.status}
-            type={props.currentTab}
+            currentTab={props.currentTab}
           />
         </XStack>
         <XStack

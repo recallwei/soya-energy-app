@@ -4,7 +4,9 @@
   "Battery": "Battery",
   "Create.Plant.For.Me": "Create plant for me",
   "Create.Plant.For.Owner": "Create plant for owner",
-  "SearchText.Placeholder": "Plant name/Inverter SN/ID",
+  "Plant.SearchText.Placeholder": "Plant name/Inverter SN/ID",
+  "Inverter.SearchText.Placeholder": "Inverter SN",
+  "Battery.SearchText.Placeholder": "Battery SN",
   "Status.All": "All",
   "Status.Normal": "Normal",
   "Status.Alarm": "Alarm",
@@ -70,5 +72,8 @@
   "Plant.Menu.EV.Charger": "EV Charger",
   "Plant.Menu.Mobile.Storage": "Mobile Storage",
   "Plant.Menu.Map": "Map",
-  "Plant.Menu.Delete": "Delete"
+  "Plant.Menu.Delete": "Delete",
+  "Todays.Energy": "Today's Energy:",
+  "Total.Energy": "Total Energy:",
+  "Warranty.Date": "Warranty Date:"
 }

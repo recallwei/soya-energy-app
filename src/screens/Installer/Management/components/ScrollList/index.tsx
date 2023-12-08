@@ -19,13 +19,12 @@ interface Props extends SearchParams {
 
 const ScrollList = memo((props: Props) => {
   const { t } = useTranslation('Global')
-
   const { devicesInfiniteQuery, devices, loadedAll, refetch, isRefreshing } =
-    useInfiniteManagementDevices(props.currentTab, { keywords: props.keywords })
-
-  // 下拉刷新
+    useInfiniteManagementDevices(props.currentTab, {
+      keywords: props.keywords,
+      status: props.status
+    })
   const refresh = useRefresh(async () => refetch())
-
   const { plantSheetMenuData, plantSheetOpen, setPlantSheetOpen, handleOpenPlantSheet } =
     usePlantSheet()
 
@@ -46,11 +45,17 @@ const ScrollList = memo((props: Props) => {
               return (
                 <PlantItem
                   {...item}
+                  currentTab={props.currentTab}
                   handleOpenPlantSheet={handleOpenPlantSheet}
                 />
               )
             case ManagementTab.Inverter:
-              return <InverterItem {...item} />
+              return (
+                <InverterItem
+                  {...item}
+                  currentTab={props.currentTab}
+                />
+              )
             case ManagementTab.Battery:
             default:
               return null
@@ -68,7 +73,7 @@ const ScrollList = memo((props: Props) => {
         progressViewOffset={30}
         ListFooterComponent={
           <>
-            {devicesInfiniteQuery.isFetchingNextPage && (
+            {devicesInfiniteQuery.isFetchingNextPage && !isRefreshing && (
               <ActivityIndicator style={{ marginTop: 10 }} />
             )}
             {loadedAll && (

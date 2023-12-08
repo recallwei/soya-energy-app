@@ -3,7 +3,7 @@ import { batteryTabStatusMap, inverterTabStatusMap, plantTabStatusMap } from '..
 import type { TabStatusValue } from '../types'
 
 const fallback = {
-  text: () => ''
+  text: ''
 }
 
 export const getStatusMeta = (value: string, currentTab: ManagementTab): TabStatusValue => {

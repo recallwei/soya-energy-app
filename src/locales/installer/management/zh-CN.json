@@ -4,7 +4,9 @@
   "Battery": "电池",
   "Create.Plant.For.Me": "自建户用电站",
   "Create.Plant.For.Owner": "代建户用电站",
-  "SearchText.Placeholder": "电站名称/逆变器 SN/ID",
+  "Plant.SearchText.Placeholder": "电站名称/逆变器 SN/ID",
+  "Inverter.SearchText.Placeholder": "逆变器 SN",
+  "Battery.SearchText.Placeholder": "电池 SN",
   "Status.All": "全部",
   "Status.Normal": "正常",
   "Status.Alarm": "告警",
@@ -70,5 +72,8 @@
   "Plant.Menu.EV.Charger": "充电桩",
   "Plant.Menu.Mobile.Storage": "移动储能",
   "Plant.Menu.Map": "电站地图",
-  "Plant.Menu.Delete": "删除电站"
+  "Plant.Menu.Delete": "删除电站",
+  "Todays.Energy": "今日发电：",
+  "Total.Energy": "累计发电：",
+  "Warranty.Date": "质保日期："
 }

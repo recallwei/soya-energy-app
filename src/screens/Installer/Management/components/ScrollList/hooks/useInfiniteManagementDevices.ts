@@ -15,12 +15,19 @@ import type {
 } from '@/types'
 
 import { MANAGEMENT_DEVICE_LIST_QUERY_KEY } from '../../../constants'
-import { ManagementTab } from '../../../enums'
+import { ManagementTab, PlantTabStatus } from '../../../enums'
 import type { SearchParams } from '../../../types'
 
 const DEFAULT_PAGE_SIZE = 10
 
 type ManagementDevice = Plant | Inverter | Battery
+
+interface Params {
+  currentTab: ManagementTab
+  pageParam: number
+  keywords: string
+  status: string
+}
 
 const apiMap = new Map<
   ManagementTab,
@@ -31,16 +38,14 @@ const apiMap = new Map<
   [ManagementTab.Battery, (params) => BatteryAPI.list(params)]
 ])
 
-const getPaginatedPlants = async ({
-  pageParam = 0,
-  keywords = '',
-  currentTab = ManagementTab.Plant
-}): Promise<InfinitePage<ManagementDevice>> => {
+const getPaginatedPlants = async (params: Params): Promise<InfinitePage<ManagementDevice>> => {
+  const { currentTab, pageParam, keywords, status } = params
   const { records, current } = (
     await apiMap.get(currentTab)!({
       size: DEFAULT_PAGE_SIZE,
       current: pageParam,
-      keywords
+      keywords,
+      status: !status || status === PlantTabStatus.All ? undefined : status
     })
   ).data
   if (!records || !pageParam) {
@@ -57,14 +62,12 @@ export const useInfiniteManagementDevices = (
   const devicesInfiniteQuery = useInfiniteQuery({
     // eslint-disable-next-line @tanstack/query/exhaustive-deps
     queryKey: [MANAGEMENT_DEVICE_LIST_QUERY_KEY, searchParams],
-    queryFn: ({ pageParam, queryKey }) => {
-      const { keywords } = queryKey[1] as SearchParams
-      return getPaginatedPlants({
+    queryFn: ({ pageParam, queryKey }) =>
+      getPaginatedPlants({
         pageParam,
-        keywords,
-        currentTab
-      })
-    },
+        currentTab,
+        ...(queryKey[1] as SearchParams)
+      }),
     initialPageParam: 1,
     select: (data) => {
       let managementDevices: ManagementDevice[] = []

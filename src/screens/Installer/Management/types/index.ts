@@ -1,5 +1,8 @@
+import type { TFunction } from 'i18next'
+
 export interface SearchParams {
   keywords: string
+  status: string
 }
 
 export interface SingleSelectOption {
@@ -23,6 +26,6 @@ export type FormData = {
   MultiSelectOption
 
 export interface TabStatusValue {
-  text: () => string
+  text: TFunction | string
   color?: string
 }

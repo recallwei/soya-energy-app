@@ -7,11 +7,12 @@ dayjs.extend(localizedFormat)
 
 export class TimeUtils {
   static formatTime(
-    time: Date | string,
-    formatter: CommonTimeFormatter | LocalTimeFormatter = 'L'
+    time?: Date | string | number,
+    formatter: CommonTimeFormatter | LocalTimeFormatter = 'L',
+    placeholder = ''
   ) {
     if (!time) {
-      return ''
+      return placeholder
     }
     return dayjs(time).format(formatter)
   }

@@ -1,16 +1,15 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
-import { Component } from '@tamagui/lucide-icons'
 import { useAsyncEffect } from 'ahooks'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SizableText, XStack, YStack } from 'tamagui'
+import { SizableText, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 import { SYSTEM_RESOURCE } from '@/constants'
 import type { ManagementTab } from '@/screens/Installer/Management/enums'
 import type { Inverter } from '@/types'
-import { CacheUtils } from '@/utils'
+import { CacheUtils, TimeUtils } from '@/utils'
 
 import StatusBadge from '../StatusBadge'
 
@@ -32,17 +31,16 @@ const InverterItem = memo((props: Props) => {
     <Card onPress={navToDetail}>
       <YStack space="$1">
         <XStack alignItems="center">
-          <StatusBadge
-            status={props.status}
-            type={props.currentTab}
-          />
-        </XStack>
-        <XStack
-          alignItems="center"
-          space="$2"
-        >
-          <Component size={16} />
-          <SizableText fontWeight="$bold">{props.plantName}</SizableText>
+          <View
+            width={120}
+            marginRight="$3"
+          >
+            <StatusBadge
+              status={props.status}
+              currentTab={props.currentTab}
+            />
+          </View>
+          <SizableText fontWeight="$bold">{props.deviceSN}</SizableText>
         </XStack>
         <XStack
           alignItems="center"
@@ -51,7 +49,7 @@ const InverterItem = memo((props: Props) => {
           <CachedImage
             source={props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}
             style={{
-              width: 100,
+              width: 120,
               height: 60,
               shadowRadius: 4,
               shadowOpacity: 0.05,
@@ -72,7 +70,7 @@ const InverterItem = memo((props: Props) => {
               </XStack>
             </XStack>
             <XStack space="$4">
-              <SizableText size="$3">{t('Production.Today')}</SizableText>
+              <SizableText size="$3">{t('Todays.Energy')}</SizableText>
               <XStack space="$2">
                 <SizableText
                   size="$3"
@@ -84,27 +82,26 @@ const InverterItem = memo((props: Props) => {
               </XStack>
             </XStack>
             <XStack space="$4">
-              <SizableText size="$3">{t('Capacity')}</SizableText>
+              <SizableText size="$3">{t('Total.Energy')}</SizableText>
               <XStack space="$2">
                 <SizableText
                   size="$3"
                   fontWeight="$bold"
                 >
-                  {props.todayPower ?? '-'}
+                  {props.totalPower ?? '-'}
                 </SizableText>
-                <SizableText size="$3">kWp</SizableText>
+                <SizableText size="$3">MWh</SizableText>
               </XStack>
             </XStack>
             <XStack space="$4">
-              <SizableText size="$3">{t('Capacity')}</SizableText>
+              <SizableText size="$3">{t('Warranty.Date')}</SizableText>
               <XStack space="$2">
                 <SizableText
                   size="$3"
                   fontWeight="$bold"
                 >
-                  {props.todayPower ?? '-'}
+                  {TimeUtils.formatTime(props.warrantyDate, 'YYYY-MM-DD', '-')}
                 </SizableText>
-                <SizableText size="$3">kWp</SizableText>
               </XStack>
             </XStack>
           </YStack>
