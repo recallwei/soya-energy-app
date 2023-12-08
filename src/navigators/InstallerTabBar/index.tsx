@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Compass, GanttChartSquare, Home, LayoutGrid, UserCircle2 } from '@tamagui/lucide-icons'
 import { useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
+import { Platform } from 'react-native'
 import { View } from 'tamagui'
 
 import { PlantAPI } from '@/api'
@@ -36,7 +37,10 @@ export default function InstallerTabBar() {
         },
         tabBarStyle: {
           borderTopColor: themeStore.isDark() ? '#666666' : '#999999',
-          backgroundColor: themeStore.getBgColor()
+          backgroundColor: themeStore.getBgColor(),
+          paddingBottom: Platform.select({
+            android: 6
+          })
         },
         tabBarActiveTintColor: themeStore.getTextColor(),
         tabBarInactiveTintColor: '#999999'

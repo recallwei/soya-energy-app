@@ -66,8 +66,10 @@ const PlantItem = memo((props: Props) => {
               height: 60,
               shadowRadius: 4,
               shadowOpacity: 0.05,
-              borderRadius: 8
+              borderRadius: 4,
+              overflow: 'hidden'
             }}
+            resizeMode="cover"
           />
           <YStack>
             <XStack space="$4">

@@ -1,5 +1,5 @@
 import { globalEnvConfig } from '@/env'
-import type { Page, Plant, PlantPageModel, R } from '@/types'
+import type { Battery, Page, Plant, PlantPageModel, R } from '@/types'
 
 import httpRequest from './axios'
 
@@ -9,7 +9,7 @@ export class BatteryAPI {
   static LIST_QUERY_KEY = 'INVERTER_LIST'
 
   static list(params: PlantPageModel) {
-    return httpRequest.get<R<Page<Plant>>>(`${this.BATTERY_API_PREFIX}/list-battery`, {
+    return httpRequest.get<R<Page<Battery>>>(`${this.BATTERY_API_PREFIX}/list-battery`, {
       ...params
     })
   }

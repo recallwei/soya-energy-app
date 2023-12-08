@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home, PieChart, ServerCrash, UserCircle2 } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
+import { Platform } from 'react-native'
 import { View } from 'tamagui'
 
 import { CommonMyScreen, UserAnalysisScreen, UserDevicesScreen, UserHomeScreen } from '@/screens'
@@ -29,7 +30,10 @@ export default function UserTabBar() {
         },
         tabBarStyle: {
           borderTopColor: themeStore.isDark() ? '#666666' : '#999999',
-          backgroundColor: themeStore.getBgColor()
+          backgroundColor: themeStore.getBgColor(),
+          paddingBottom: Platform.select({
+            android: 6
+          })
         },
         tabBarActiveTintColor: themeStore.getTextColor(),
         tabBarInactiveTintColor: '#999999'

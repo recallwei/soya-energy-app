@@ -62,7 +62,6 @@ const ScrollList = memo((props: Props) => {
           }
         }}
         showsVerticalScrollIndicator={false}
-        refreshing
         refreshControl={
           <RefreshControl
             refreshing={isRefreshing}
