@@ -1,12 +1,13 @@
 export const initialAdvanceFilter = {
   displayRange: null,
   plantType: new Set<string>(),
-  useType: new Set<string>(),
-  gridType: new Set<string>(),
-  fundingMethod: new Set<string>(),
   loadMonitoring: null,
-  plantCapacityMin: '',
-  plantCapacityMax: '',
+  systemPowerMin: '',
+  systemPowerMax: '',
   city: '',
-  others: new Set<string>()
+  others: new Set<string>(),
+  inverterType: new Set<string>(),
+  ratePowerMin: '',
+  ratePowerMax: '',
+  batteryType: new Set<string>()
 }

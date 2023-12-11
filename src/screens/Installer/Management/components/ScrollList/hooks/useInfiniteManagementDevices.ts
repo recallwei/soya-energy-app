@@ -22,11 +22,9 @@ const DEFAULT_PAGE_SIZE = 10
 
 type ManagementDevice = Plant | Inverter | Battery
 
-interface Params {
+interface Params extends SearchParams {
   currentTab: ManagementTab
   pageParam: number
-  keywords: string
-  status: string
 }
 
 const apiMap = new Map<
@@ -39,13 +37,46 @@ const apiMap = new Map<
 ])
 
 const getPaginatedPlants = async (params: Params): Promise<InfinitePage<ManagementDevice>> => {
-  const { currentTab, pageParam, keywords, status } = params
+  const {
+    currentTab,
+    pageParam,
+    keywords,
+    status,
+    order,
+    displayRange,
+    loadingMonitoring,
+    plantType,
+    others,
+    inverterType,
+    batteryType,
+    systemPowerMax,
+    systemPowerMin,
+    ratePowerMax,
+    ratePowerMin
+  } = params
   const { records, current } = (
     await apiMap.get(currentTab)!({
       size: DEFAULT_PAGE_SIZE,
       current: pageParam,
       keywords,
-      status: !status || status === PlantTabStatus.All ? undefined : status
+      status: !status || status === PlantTabStatus.All ? undefined : status,
+      order,
+      ...(currentTab === ManagementTab.Plant && {
+        displayRange,
+        loadingMonitoring,
+        plantType,
+        others,
+        systemPowerMax,
+        systemPowerMin
+      }),
+      ...(currentTab === ManagementTab.Inverter && {
+        inverterType,
+        ratePowerMax,
+        ratePowerMin
+      }),
+      ...(currentTab === ManagementTab.Battery && {
+        batteryType
+      })
     })
   ).data
   if (!records || !pageParam) {
@@ -103,7 +134,7 @@ export const useInfiniteManagementDevices = (
     devicesInfiniteQuery,
     devices: devicesInfiniteQuery.data?.devices ?? [],
     loadedAll: devicesInfiniteQuery.data?.loadedAll,
-    isRefreshing: !devicesInfiniteQuery.isFetched || devicesInfiniteQuery.isRefetching,
+    isRefreshing: !devicesInfiniteQuery.isFetched || devicesInfiniteQuery.isFetching,
     refetch
   }
 }

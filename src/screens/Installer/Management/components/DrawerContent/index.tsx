@@ -8,13 +8,22 @@ import { globalStyles } from '@/constants'
 import { BooleanEnum } from '@/enums'
 
 import { initialAdvanceFilter } from '../../constants'
-import { DisplayRange, FundingMethod, GridType, Others, PlantType, UseType } from '../../enums'
+import {
+  BatteryType,
+  DisplayRange,
+  InverterType,
+  ManagementTab,
+  Others,
+  PlantType
+} from '../../enums'
 import type { FormData, MultiSelectOption, SingleSelectOption } from '../../types'
 
 interface Props {
   advancedFilter: FormData
   setAdvancedFilter: Updater<FormData>
   setDrawerOpen: (open: boolean) => void
+  currentTab: ManagementTab
+  setSearchParams: Updater<FormData>
 }
 
 export default function DrawerContent(props: Props) {
@@ -42,6 +51,30 @@ export default function DrawerContent(props: Props) {
   }
 
   const handleSubmit = () => {
+    props.setSearchParams((draft) => {
+      const {
+        displayRange,
+        loadMonitoring,
+        plantType,
+        systemPowerMax,
+        systemPowerMin,
+        others,
+        inverterType,
+        ratePowerMax,
+        ratePowerMin,
+        batteryType
+      } = props.advancedFilter
+      draft.displayRange = displayRange ?? ''
+      draft.loadMonitoring = loadMonitoring ?? ''
+      draft.plantType = Array.from(plantType).join(',') ?? ''
+      draft.systemPowerMax = systemPowerMax ?? ''
+      draft.systemPowerMin = systemPowerMin ?? ''
+      draft.others = Array.from(others).join(',') ?? ''
+      draft.inverterType = Array.from(inverterType).join(',') ?? ''
+      draft.ratePowerMax = ratePowerMax ?? ''
+      draft.ratePowerMin = ratePowerMin ?? ''
+      draft.batteryType = Array.from(batteryType).join(',') ?? ''
+    })
     props.setDrawerOpen(false)
   }
 
@@ -97,251 +130,212 @@ export default function DrawerContent(props: Props) {
     <View height="100%">
       <ScrollView showsVerticalScrollIndicator={false}>
         <YStack
-          space="$3"
+          gap="$3"
           padding="$3"
         >
-          <HeadingTitle title={t('Display.Range.Text')} />
-          <YStack space="$2">
-            <XStack space="$2">
-              <Button {...getSingleSelectProps({ value: DisplayRange.All, key: 'displayRange' })}>
-                {t('Display.Range.All')}
-              </Button>
-              <Button {...getSingleSelectProps({ value: DisplayRange.My, key: 'displayRange' })}>
-                {t('Display.Range.My')}
-              </Button>
-            </XStack>
-            <XStack space="$2">
-              <Button
-                {...getSingleSelectProps({ value: DisplayRange.Customer, key: 'displayRange' })}
-              >
-                {t('Display.Range.Customer')}
-              </Button>
-              <Button
-                {...getSingleSelectProps({ value: DisplayRange.Visitors, key: 'displayRange' })}
-              >
-                {t('Display.Range.Visitor')}
-              </Button>
-            </XStack>
-            <XStack space="$2">
-              <Button
-                {...getSingleSelectProps({
-                  value: DisplayRange.Others,
-                  key: 'displayRange',
-                  single: true
-                })}
-              >
-                {t('Display.Range.Others')}
-              </Button>
-            </XStack>
-          </YStack>
+          {props.currentTab === ManagementTab.Plant && (
+            <>
+              <HeadingTitle title={t('Display.Range.Text')} />
+              <YStack space="$2">
+                <XStack space="$2">
+                  <Button
+                    {...getSingleSelectProps({ value: DisplayRange.My, key: 'displayRange' })}
+                  >
+                    {t('Display.Range.My')}
+                  </Button>
+                  <Button
+                    {...getSingleSelectProps({ value: DisplayRange.Customer, key: 'displayRange' })}
+                  >
+                    {t('Display.Range.Customer')}
+                  </Button>
+                </XStack>
+              </YStack>
 
-          <HeadingTitle title={t('PlantType.Text')} />
-          <YStack space="$2">
-            <XStack space="$2">
-              <Button {...getMultiSelectProps({ value: PlantType.On_Grid, key: 'plantType' })}>
-                {t('PlantType.On.Grid')}
-              </Button>
-              <Button
-                {...getMultiSelectProps({ value: PlantType.Energy_Storage, key: 'plantType' })}
+              <HeadingTitle title={t('PlantType.Text')} />
+              <YStack space="$2">
+                <XStack space="$2">
+                  <Button {...getMultiSelectProps({ value: PlantType.On_Grid, key: 'plantType' })}>
+                    {t('PlantType.On.Grid')}
+                  </Button>
+                  <Button
+                    {...getMultiSelectProps({ value: PlantType.Energy_Storage, key: 'plantType' })}
+                  >
+                    {t('PlantType.Energy.Storage')}
+                  </Button>
+                </XStack>
+                <XStack space="$2">
+                  <Button
+                    {...getMultiSelectProps({
+                      value: PlantType.AC_Coupling,
+                      key: 'plantType',
+                      single: true
+                    })}
+                  >
+                    {t('PlantType.AC.Coupling')}
+                  </Button>
+                </XStack>
+              </YStack>
+
+              <HeadingTitle title={t('Load.Monitoring')} />
+              <XStack space="$2">
+                <Button
+                  {...getSingleSelectProps({
+                    value: BooleanEnum.Y,
+                    key: 'loadMonitoring'
+                  })}
+                >
+                  {t('Global:Y')}
+                </Button>
+                <Button
+                  {...getSingleSelectProps({
+                    value: BooleanEnum.N,
+                    key: 'loadMonitoring'
+                  })}
+                >
+                  {t('Global:N')}
+                </Button>
+              </XStack>
+
+              <HeadingTitle title={t('Plant.Capacity')} />
+              <XStack
+                alignItems="center"
+                space="$2"
               >
-                {t('PlantType.Energy.Storage')}
-              </Button>
-            </XStack>
-            <XStack space="$2">
-              <Button
-                {...getMultiSelectProps({
-                  value: PlantType.AC_Coupling,
-                  key: 'plantType',
-                  single: true
-                })}
+                <Input
+                  size="$3"
+                  flex={1}
+                  placeholder={t('Global:Min')}
+                  value={props.advancedFilter.systemPowerMax}
+                  onChangeText={(text) =>
+                    props.setAdvancedFilter((draft) => {
+                      draft.systemPowerMax = text
+                    })
+                  }
+                />
+                <SizableText>{t('To')}</SizableText>
+                <Input
+                  size="$3"
+                  flex={1}
+                  placeholder={t('Global:Max')}
+                  value={props.advancedFilter.systemPowerMin}
+                  onChangeText={(text) =>
+                    props.setAdvancedFilter((draft) => {
+                      draft.systemPowerMin = text
+                    })
+                  }
+                />
+              </XStack>
+
+              <HeadingTitle title={t('City')} />
+              <Input
+                size="$3"
+                value={props.advancedFilter.city}
+                onChangeText={(text) =>
+                  props.setAdvancedFilter((draft) => {
+                    draft.city = text
+                  })
+                }
+              />
+
+              <HeadingTitle title={t('Others.Text')} />
+              <XStack space="$2">
+                <Button
+                  {...getMultiSelectProps({
+                    value: Others.Partially_Offline,
+                    key: 'others',
+                    single: true
+                  })}
+                >
+                  {t('Others.Partially.Offline')}
+                </Button>
+              </XStack>
+            </>
+          )}
+          {props.currentTab === ManagementTab.Inverter && (
+            <>
+              <HeadingTitle title={t('InverterType.Text')} />
+              <YStack space="$2">
+                <XStack space="$2">
+                  <Button
+                    {...getMultiSelectProps({ value: InverterType.On_Grid, key: 'inverterType' })}
+                  >
+                    {t('InverterType.On.Grid')}
+                  </Button>
+                  <Button
+                    {...getMultiSelectProps({
+                      value: InverterType.Energy_Storage,
+                      key: 'inverterType'
+                    })}
+                  >
+                    {t('InverterType.Energy.Storage')}
+                  </Button>
+                </XStack>
+                <XStack space="$2">
+                  <Button
+                    {...getMultiSelectProps({
+                      value: InverterType.AC_Coupling,
+                      key: 'inverterType',
+                      single: true
+                    })}
+                  >
+                    {t('InverterType.AC.Coupling')}
+                  </Button>
+                </XStack>
+              </YStack>
+
+              <HeadingTitle title={t('Rated.Power')} />
+              <XStack
+                alignItems="center"
+                space="$2"
               >
-                {t('PlantType.AC.Coupling')}
-              </Button>
-            </XStack>
-          </YStack>
-
-          <HeadingTitle title={t('Use.Type.Text')} />
-          <XStack space="$2">
-            <Button
-              {...getMultiSelectProps({
-                value: UseType.Home_Use,
-                key: 'useType'
-              })}
-            >
-              {t('Use.Type.Home.Use')}
-            </Button>
-            <Button
-              {...getMultiSelectProps({
-                value: UseType.Industrial_And_Commercial_Roof,
-                key: 'useType'
-              })}
-            >
-              {t('Use.Type.Industrial.And.Commercial.Roof')}
-            </Button>
-          </XStack>
-          <XStack space="$2">
-            <Button
-              {...getMultiSelectProps({
-                value: UseType.Ground_Mounted_Plant,
-                key: 'useType'
-              })}
-            >
-              {t('Use.Type.Ground.Mounted.Plant')}
-            </Button>
-            <Button
-              {...getMultiSelectProps({
-                value: UseType.Poverty_Alleviation_Power_Plant,
-                key: 'useType'
-              })}
-            >
-              {t('Use.Type.Poverty.Alleviation.Power.Plant')}
-            </Button>
-          </XStack>
-
-          <HeadingTitle title={t('Grid.Type.Text')} />
-          <YStack space="$2">
-            <XStack space="$2">
-              <Button
-                {...getMultiSelectProps({
-                  value: GridType.Export_All_To_Grid,
-                  key: 'gridType'
-                })}
-              >
-                {t('Grid.Type.Export.All.To.Grid')}
-              </Button>
-              <Button
-                {...getMultiSelectProps({
-                  value: GridType.Self_Consumption,
-                  key: 'gridType'
-                })}
-              >
-                {t('Grid.Type.Self.Consumption.And.Export.Surplus.Energy.To.Grid')}
-              </Button>
-            </XStack>
-            <XStack space="$2">
-              <Button
-                {...getMultiSelectProps({
-                  value: GridType.Self_Consumption,
-                  key: 'gridType',
-                  single: true
-                })}
-              >
-                {t('Grid.Type.Off.Grid.Mode')}
-              </Button>
-            </XStack>
-          </YStack>
-
-          <HeadingTitle title={t('Funding.Method.Text')} />
-          <XStack space="$2">
-            <Button
-              {...getMultiSelectProps({
-                value: FundingMethod.Owner_Full_Payment,
-                key: 'fundingMethod'
-              })}
-            >
-              {t('Funding.Method.Owner.Full.Payment')}
-            </Button>
-            <Button
-              {...getMultiSelectProps({
-                value: FundingMethod.Owners_Loan,
-                key: 'fundingMethod'
-              })}
-            >
-              {t('Funding.Method.Owners.Loan')}
-            </Button>
-          </XStack>
-          <XStack space="$2">
-            <Button
-              {...getMultiSelectProps({
-                value: FundingMethod.Self_Invested_Power_Plant,
-                key: 'fundingMethod'
-              })}
-            >
-              {t('Funding.Method.Self.Invested.Power.Plant')}
-            </Button>
-            <Button
-              {...getMultiSelectProps({
-                value: FundingMethod.Joint_Venture_With_Owner,
-                key: 'fundingMethod'
-              })}
-            >
-              {t('Funding.Method.Joint.Venture.With.Owner')}
-            </Button>
-          </XStack>
-
-          <HeadingTitle title={t('Load.Monitoring')} />
-          <XStack space="$2">
-            <Button
-              {...getSingleSelectProps({
-                value: BooleanEnum.Y,
-                key: 'loadMonitoring'
-              })}
-            >
-              {t('Global:Y')}
-            </Button>
-            <Button
-              {...getSingleSelectProps({
-                value: BooleanEnum.N,
-                key: 'loadMonitoring'
-              })}
-            >
-              {t('Global:N')}
-            </Button>
-          </XStack>
-
-          <HeadingTitle title={t('Plant.Capacity')} />
-          <XStack
-            alignItems="center"
-            space="$2"
-          >
-            <Input
-              size="$3"
-              flex={1}
-              placeholder={t('Global:Min')}
-              value={props.advancedFilter.plantCapacityMin}
-              onChangeText={(text) =>
-                props.setAdvancedFilter((draft) => {
-                  draft.plantCapacityMin = text
-                })
-              }
-            />
-            <SizableText>{t('To')}</SizableText>
-            <Input
-              size="$3"
-              flex={1}
-              placeholder={t('Global:Max')}
-              value={props.advancedFilter.plantCapacityMax}
-              onChangeText={(text) =>
-                props.setAdvancedFilter((draft) => {
-                  draft.plantCapacityMax = text
-                })
-              }
-            />
-          </XStack>
-
-          <HeadingTitle title={t('City')} />
-          <Input
-            size="$3"
-            value={props.advancedFilter.city}
-            onChangeText={(text) =>
-              props.setAdvancedFilter((draft) => {
-                draft.city = text
-              })
-            }
-          />
-
-          <HeadingTitle title={t('Others.Text')} />
-          <XStack space="$2">
-            <Button
-              {...getMultiSelectProps({
-                value: Others.Partially_Offline,
-                key: 'others',
-                single: true
-              })}
-            >
-              {t('Others.Partially.Offline')}
-            </Button>
-          </XStack>
+                <Input
+                  size="$3"
+                  flex={1}
+                  placeholder={t('Global:Min')}
+                  value={props.advancedFilter.ratePowerMin}
+                  onChangeText={(text) =>
+                    props.setAdvancedFilter((draft) => {
+                      draft.ratePowerMin = text
+                    })
+                  }
+                />
+                <SizableText>{t('To')}</SizableText>
+                <Input
+                  size="$3"
+                  flex={1}
+                  placeholder={t('Global:Max')}
+                  value={props.advancedFilter.ratePowerMax}
+                  onChangeText={(text) =>
+                    props.setAdvancedFilter((draft) => {
+                      draft.ratePowerMax = text
+                    })
+                  }
+                />
+              </XStack>
+            </>
+          )}
+          {props.currentTab === ManagementTab.Battery && (
+            <>
+              <HeadingTitle title={t('BatteryType.Text')} />
+              <YStack space="$2">
+                <XStack space="$2">
+                  <Button
+                    {...getMultiSelectProps({ value: BatteryType.BuiltIn, key: 'batteryType' })}
+                  >
+                    {t('BatteryType.BuiltIn')}
+                  </Button>
+                  <Button
+                    {...getMultiSelectProps({
+                      value: BatteryType.Expand,
+                      key: 'batteryType'
+                    })}
+                  >
+                    {t('BatteryType.Expand')}
+                  </Button>
+                </XStack>
+              </YStack>
+            </>
+          )}
         </YStack>
       </ScrollView>
       <XStack>

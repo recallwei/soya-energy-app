@@ -18,11 +18,11 @@ interface Props extends SearchParams {
 }
 
 const ScrollList = memo((props: Props) => {
+  const { currentTab, listRef, ...rest } = props
   const { t } = useTranslation('Global')
   const { devicesInfiniteQuery, devices, loadedAll, refetch, isRefreshing } =
-    useInfiniteManagementDevices(props.currentTab, {
-      keywords: props.keywords,
-      status: props.status
+    useInfiniteManagementDevices(currentTab, {
+      ...rest
     })
   const refresh = useRefresh(async () => refetch())
   const { plantSheetMenuData, plantSheetOpen, setPlantSheetOpen, handleOpenPlantSheet } =
@@ -31,7 +31,7 @@ const ScrollList = memo((props: Props) => {
   return (
     <>
       <FlatList
-        ref={props.listRef}
+        ref={listRef}
         contentContainerStyle={{
           gap: 8,
           paddingHorizontal: 18,
@@ -40,12 +40,12 @@ const ScrollList = memo((props: Props) => {
         data={devices}
         keyExtractor={({ id }) => id}
         renderItem={({ item }) => {
-          switch (props.currentTab) {
+          switch (currentTab) {
             case ManagementTab.Plant:
               return (
                 <PlantItem
                   {...item}
-                  currentTab={props.currentTab}
+                  currentTab={currentTab}
                   handleOpenPlantSheet={handleOpenPlantSheet}
                 />
               )
@@ -53,7 +53,7 @@ const ScrollList = memo((props: Props) => {
               return (
                 <InverterItem
                   {...item}
-                  currentTab={props.currentTab}
+                  currentTab={currentTab}
                 />
               )
             case ManagementTab.Battery:
@@ -72,7 +72,7 @@ const ScrollList = memo((props: Props) => {
         progressViewOffset={30}
         ListFooterComponent={
           <>
-            {devicesInfiniteQuery.isFetchingNextPage && !isRefreshing && (
+            {devicesInfiniteQuery.isFetchingNextPage && (
               <ActivityIndicator style={{ marginTop: 10 }} />
             )}
             {loadedAll && (

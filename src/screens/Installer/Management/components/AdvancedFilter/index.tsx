@@ -1,54 +1,116 @@
-import { ChevronUpCircle, Filter } from '@tamagui/lucide-icons'
+import { ChevronUpCircle, Filter, Heart } from '@tamagui/lucide-icons'
 import { useToggle } from 'ahooks'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { View, XStack } from 'tamagui'
 
 import { DropDownMenu } from '@/components'
 
-import { Orderby } from '../../enums'
+import { BatteryOrderby, InverterOrderby, ManagementTab, PlantOrderby } from '../../enums'
 
 interface Props {
+  currentTab: ManagementTab
+  setOrder: (order: string) => void
   setDrawerOpen: (open: boolean) => void
   scrollToTop: () => void
 }
 
 export default function AdvancedFilter(props: Props) {
-  const [orderBy, setOrderBy] = useState(Orderby.Latest_Installation_Date)
+  const [orderBy, setOrderBy] = useState<PlantOrderby | InverterOrderby | BatteryOrderby>(
+    PlantOrderby.Latest_Installation_Date
+  )
   const { t } = useTranslation('Installer.Management')
 
-  const orderBySheetMenu = [
-    {
-      text: t('Latest.Installation.Date'),
-      value: Orderby.Latest_Installation_Date
-    },
-    {
-      text: t('Earlier.Installation.Date'),
-      value: Orderby.Earlier_Installation_Date
-    },
-    {
-      text: t('Daily.Production.High.To.Low'),
-      value: Orderby.Daily_Production_High_to_Low
-    },
-    {
-      text: t('Daily.Production.Low.To.High'),
-      value: Orderby.Daily_Production_Low_to_High
-    },
-    {
-      text: t('Maximum.Installed.Capacity'),
-      value: Orderby.Maximum_Installed_Capacity
-    },
-    {
-      text: t('Minimum.Installed.Capacity'),
-      value: Orderby.Minimum_Installed_Capacity
+  useEffect(() => {
+    switch (props.currentTab) {
+      case ManagementTab.Plant:
+        setOrderBy(PlantOrderby.Latest_Installation_Date)
+        break
+      case ManagementTab.Battery:
+        setOrderBy(InverterOrderby.Latest_Installation_Date)
+        break
+      case ManagementTab.Inverter:
+        setOrderBy(BatteryOrderby.Latest_Installation_Date)
+        break
+      default:
+        break
     }
-  ]
+  }, [props.currentTab])
+
+  useEffect(() => {
+    props.setOrder(orderBy)
+  }, [orderBy])
+
+  const getOrderBySheetMenu = () => {
+    switch (props.currentTab) {
+      case ManagementTab.Plant:
+        return [
+          {
+            text: t('Latest.Installation.Date'),
+            value: PlantOrderby.Latest_Installation_Date
+          },
+          {
+            text: t('Earlier.Installation.Date'),
+            value: PlantOrderby.Earlier_Installation_Date
+          },
+          {
+            text: t('Daily.Production.High.To.Low'),
+            value: PlantOrderby.Daily_Production_High_to_Low
+          },
+          {
+            text: t('Daily.Production.Low.To.High'),
+            value: PlantOrderby.Daily_Production_Low_to_High
+          },
+          {
+            text: t('Maximum.Installed.Capacity'),
+            value: PlantOrderby.Maximum_Installed_Capacity
+          },
+          {
+            text: t('Minimum.Installed.Capacity'),
+            value: PlantOrderby.Minimum_Installed_Capacity
+          }
+        ]
+      case ManagementTab.Battery:
+        return [
+          {
+            text: t('Latest.Installation.Date'),
+            value: InverterOrderby.Latest_Installation_Date
+          },
+          {
+            text: t('Created.Earlier.Than'),
+            value: InverterOrderby.Created_Earlier_Than
+          },
+          {
+            text: t('Maximum.Real.Time.Power'),
+            value: InverterOrderby.Maximum_Real_Time_Power
+          },
+          {
+            text: t('Minimum.Real.Time.Power'),
+            value: InverterOrderby.Minimum_Real_Time_Power
+          }
+        ]
+      case ManagementTab.Inverter:
+        return [
+          {
+            text: t('Latest.Installation.Date'),
+            value: BatteryOrderby.Latest_Installation_Date
+          },
+          {
+            text: t('Created.Earlier.Than'),
+            value: BatteryOrderby.Created_Earlier_Than
+          }
+        ]
+      default:
+        return []
+    }
+  }
 
   const [orderBySheetOpen, { set: setOrderBySheetOpen }] = useToggle(false)
-  // const [starStatus, { toggle: toggleStarStatus }] = useToggle(false)
+  const [starStatus, { toggle: toggleStarStatus }] = useToggle(false)
 
-  const getCurrentOrderByText = () => orderBySheetMenu.find((item) => item.value === orderBy)!.text
+  const getCurrentOrderByText = () =>
+    getOrderBySheetMenu().find((item) => item.value === orderBy)?.text
 
   return (
     <XStack
@@ -61,23 +123,27 @@ export default function AdvancedFilter(props: Props) {
         text={getCurrentOrderByText()}
         sheetMenu={{
           sheet: { open: orderBySheetOpen, setOpen: setOrderBySheetOpen },
-          data: orderBySheetMenu.map((item) => ({
+          data: getOrderBySheetMenu().map((item) => ({
             ...item,
-            onPress: () => setOrderBy(item.value)
+            onPress: () => {
+              setOrderBy(item.value)
+            }
           }))
         }}
       />
 
       <XStack space="$2.5">
-        {/* <TouchableOpacity onPress={toggleStarStatus}>
-          <View theme="alt1">
-            <Heart
-              size="$1"
-              fill={starStatus ? 'red' : 'transparent'}
-              color={starStatus ? 'red' : undefined}
-            />
-          </View>
-        </TouchableOpacity> */}
+        {false && (
+          <TouchableOpacity onPress={toggleStarStatus}>
+            <View theme="alt1">
+              <Heart
+                size="$1"
+                fill={starStatus ? 'red' : 'transparent'}
+                color={starStatus ? 'red' : undefined}
+              />
+            </View>
+          </TouchableOpacity>
+        )}
 
         <TouchableOpacity onPress={() => props.scrollToTop()}>
           <View theme="alt1">

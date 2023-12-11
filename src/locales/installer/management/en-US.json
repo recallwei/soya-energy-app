@@ -23,39 +23,19 @@
   },
   "Maximum.Installed.Capacity": "Maximum installed capacity",
   "Minimum.Installed.Capacity": "Minimum installed capacity",
+  "Maximum.Real.Time.Power": "Maximum real-time power",
+  "Minimum.Real.Time.Power": "Minimum real-time power",
+  "Created.Earlier.Than": "Created earlier than",
   "Display.Range": {
     "Text": "Display Range",
-    "All": "All",
     "My": "My",
-    "Customer": "Customer",
-    "Visitor": "Visitor",
-    "Others": "Others"
+    "Customer": "Customer"
   },
   "PlantType": {
     "Text": "Plant Type",
     "On.Grid": "On Grid",
     "Energy.Storage": "Energy Storage",
     "AC.Coupling": "AC Coupling"
-  },
-  "Use.Type": {
-    "Text": "Use Type",
-    "Home.Use": "Home Use",
-    "Industrial.And.Commercial.Roof": "Industrial and Commercial Roof",
-    "Ground.Mounted.Plant": "Ground-Mounted Plant",
-    "Poverty.Alleviation.Power.Plant": "Poverty Alleviation Power Plant"
-  },
-  "Grid.Type": {
-    "Text": "Grid Type",
-    "Export.All.To.Grid": "Export All to Grid",
-    "Self.Consumption.And.Export.Surplus.Energy.To.Grid": "Self-Consumption and Export Surplus Energy to Grid",
-    "Off.Grid.Mode": "Off-Grid Mode"
-  },
-  "Funding.Method": {
-    "Text": "Funding Method",
-    "Owner.Full.Payment": "Owner Full Payment",
-    "Owners.Loan": "Owner's Loan",
-    "Self.Invested.Power.Plant": "Self-Invested Power Plant",
-    "Joint.Venture.With.Owner": "Joint Venture with Owner"
   },
   "Load.Monitoring": "Load Monitoring",
   "Plant.Capacity": "Plant Capacity(kWp)",
@@ -75,5 +55,17 @@
   "Plant.Menu.Delete": "Delete",
   "Todays.Energy": "Today's Energy:",
   "Total.Energy": "Total Energy:",
-  "Warranty.Date": "Warranty Date:"
+  "Warranty.Date": "Warranty Date:",
+  "InverterType": {
+    "Text": "Inverter Type",
+    "On.Grid": "On Grid",
+    "Energy.Storage": "Energy Storage",
+    "AC.Coupling": "AC Coupling"
+  },
+  "Rated.Power": "Rated Power(kW)",
+  "BatteryType": {
+    "Text": "Battery Type",
+    "BuiltIn": "Built-in",
+    "Expand": "Expand"
+  }
 }

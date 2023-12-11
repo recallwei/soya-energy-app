@@ -12,8 +12,8 @@ import { DeviceUtils } from '@/utils'
 
 import { AdvancedFilter, DrawerContent, HeaderArea, ScrollList, Statistics } from './components'
 import { initialAdvanceFilter } from './constants'
-import { ManagementTab } from './enums'
-import type { FormData, SearchParams } from './types'
+import { ManagementTab, PlantOrderby } from './enums'
+import type { FormData } from './types'
 
 const DEFAULT_TAB_STATUS = '0'
 
@@ -30,9 +30,20 @@ export default function Screen() {
 
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
-  const [searchParams, setSearchParams] = useImmer<SearchParams>({
+  const [searchParams, setSearchParams] = useImmer<Record<string, string>>({
     keywords: '',
-    status: DEFAULT_TAB_STATUS
+    status: DEFAULT_TAB_STATUS,
+    order: PlantOrderby.Latest_Installation_Date,
+    displayRange: '',
+    loadingMonitoring: '',
+    plantType: '',
+    systemPowerMin: '',
+    systemPowerMax: '',
+    others: '',
+    inverterType: '',
+    ratePowerMax: '',
+    ratePowerMin: '',
+    batteryType: ''
   })
 
   useEffect(() => {
@@ -54,6 +65,12 @@ export default function Screen() {
     })
   }
 
+  const setOrder = (order: string) => {
+    setSearchParams((draft) => {
+      draft.order = order
+    })
+  }
+
   // 滚动至列表顶部
   const scrollToTop = () => listRef.current?.scrollToOffset({ animated: true, offset: 0 })
 
@@ -63,7 +80,9 @@ export default function Screen() {
       onOpen={() => setDrawerOpen(true)}
       onClose={() => setDrawerOpen(false)}
       renderDrawerContent={() => (
-        <DrawerContent {...{ advancedFilter, setAdvancedFilter, setDrawerOpen }} />
+        <DrawerContent
+          {...{ advancedFilter, setAdvancedFilter, setDrawerOpen, currentTab, setSearchParams }}
+        />
       )}
       drawerPosition="right"
       drawerType="front"
@@ -91,6 +110,8 @@ export default function Screen() {
           setStatus={setStatus}
         />
         <AdvancedFilter
+          currentTab={currentTab}
+          setOrder={setOrder}
           setDrawerOpen={setDrawerOpen}
           scrollToTop={scrollToTop}
         />

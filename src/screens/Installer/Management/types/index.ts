@@ -3,6 +3,17 @@ import type { TFunction } from 'i18next'
 export interface SearchParams {
   keywords: string
   status: string
+  order: string
+  displayRange: string
+  loadingMonitoring: string
+  plantType: string
+  others: string
+  systemPowerMax: string
+  systemPowerMin: string
+  inverterType: string
+  ratePowerMin: string
+  ratePowerMax: string
+  batteryType: string
 }
 
 export interface SingleSelectOption {
@@ -12,16 +23,17 @@ export interface SingleSelectOption {
 
 export interface MultiSelectOption {
   plantType: Set<string>
-  useType: Set<string>
-  gridType: Set<string>
-  fundingMethod: Set<string>
   others: Set<string>
+  inverterType: Set<string>
+  batteryType: Set<string>
 }
 
 export type FormData = {
-  plantCapacityMin: string
-  plantCapacityMax: string
+  systemPowerMin: string
+  systemPowerMax: string
   city: string
+  ratePowerMin: string
+  ratePowerMax: string
 } & SingleSelectOption &
   MultiSelectOption
 

@@ -73,4 +73,11 @@ export interface Plant {
 
 export interface PlantPageModel extends BasePageModel {
   status?: string
+  order?: string
+  displayRange?: string
+  loadingMonitoring?: string
+  plantType?: string
+  others?: string
+  systemPowerMax?: string
+  systemPowerMin?: string
 }

@@ -42,7 +42,7 @@ const InverterItem = memo((props: Props) => {
           </View>
           <SizableText
             fontWeight="$bold"
-            size="$5"
+            size="$3"
           >
             {props.deviceSN}
           </SizableText>
@@ -103,10 +103,7 @@ const InverterItem = memo((props: Props) => {
             <XStack space="$4">
               <SizableText size="$3">{t('Warranty.Date')}</SizableText>
               <XStack space="$2">
-                <SizableText
-                  size="$3"
-                  fontWeight="$bold"
-                >
+                <SizableText size="$3">
                   {TimeUtils.formatTime(props.warrantyDate, 'YYYY-MM-DD', '-')}
                 </SizableText>
               </XStack>

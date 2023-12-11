@@ -65,4 +65,8 @@ export interface Inverter {
 
 export interface InverterPageModel extends BasePageModel {
   status?: string
+  order?: string
+  inverterType?: string
+  ratePowerMin?: string
+  ratePowerMax?: string
 }

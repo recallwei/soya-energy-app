@@ -38,9 +38,7 @@ export default function InstallerTabBar() {
         tabBarStyle: {
           borderTopColor: themeStore.isDark() ? '#666666' : '#999999',
           backgroundColor: themeStore.getBgColor(),
-          paddingBottom: Platform.select({
-            android: 6
-          })
+          ...(Platform.OS === 'android' && { paddingBottom: 6 })
         },
         tabBarActiveTintColor: themeStore.getTextColor(),
         tabBarInactiveTintColor: '#999999'
