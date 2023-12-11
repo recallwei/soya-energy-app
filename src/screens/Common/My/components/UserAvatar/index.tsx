@@ -15,9 +15,7 @@ const UserAvatar = memo(() => {
   const authStore = useAuthStore()
 
   useAsyncEffect(async () => {
-    await CacheUtils.fetchBlob(
-      authStore.userInfo.avatarUrl ?? SYSTEM_RESOURCE.USER_DEFAULT_IMAGE_URL
-    )
+    await CacheUtils.fetchBlob(authStore.user.avatar ?? SYSTEM_RESOURCE.USER_DEFAULT_IMAGE_URL)
   }, [])
 
   return (
@@ -34,7 +32,7 @@ const UserAvatar = memo(() => {
           space="$3"
         >
           <CachedImage
-            source={authStore.userInfo.avatarUrl ?? SYSTEM_RESOURCE.USER_DEFAULT_IMAGE_URL}
+            source={authStore.user.avatar ?? SYSTEM_RESOURCE.USER_DEFAULT_IMAGE_URL}
             style={{
               width: 80,
               height: 80,
@@ -50,7 +48,7 @@ const UserAvatar = memo(() => {
             size="$7"
             marginLeft="$2"
           >
-            {authStore.userInfo.username}
+            {authStore.user.realName}
           </SizableText>
           <ChevronRight />
         </XStack>

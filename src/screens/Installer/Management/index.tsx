@@ -13,7 +13,7 @@ import { DeviceUtils } from '@/utils'
 import { AdvancedFilter, DrawerContent, HeaderArea, ScrollList, Statistics } from './components'
 import { initialAdvanceFilter } from './constants'
 import { ManagementTab, PlantOrderby } from './enums'
-import type { FormData } from './types'
+import type { FormData, SearchParams } from './types'
 
 const DEFAULT_TAB_STATUS = '0'
 
@@ -30,7 +30,7 @@ export default function Screen() {
 
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
-  const [searchParams, setSearchParams] = useImmer<Record<string, string>>({
+  const [searchParams, setSearchParams] = useImmer<SearchParams>({
     keywords: '',
     status: DEFAULT_TAB_STATUS,
     order: PlantOrderby.Latest_Installation_Date,
@@ -49,6 +49,7 @@ export default function Screen() {
   useEffect(() => {
     setSearchParams((draft) => {
       draft.status = DEFAULT_TAB_STATUS
+      draft.keywords = ''
     })
   }, [currentTab, setSearchParams])
 

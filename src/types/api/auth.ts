@@ -3,11 +3,6 @@ export interface LoginInputModel extends Record<string, unknown> {
   password: string
 }
 
-export interface UserInfo {
-  username?: string
-  avatarUrl?: string
-}
-
 export interface Token {
   access_token: string
   refresh_token: string

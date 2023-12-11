@@ -15,6 +15,11 @@
     "Max.Length": "Confirm password must not be longer than 20 characters",
     "Not.Match": "Confrim password not match"
   },
+  "Old.Password": {
+    "Not.Null": "Please enter the old password",
+    "Min.Length": "Password must be no less than 6 characters",
+    "Max.Length": "Password must not be longer than 20 characters"
+  },
   "New.Password": {
     "Not.Null": "Please enter the new passwrd",
     "Min.Length": "New password must be no less than 6 characters",

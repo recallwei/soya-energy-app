@@ -4,7 +4,7 @@
   "Battery": "电池",
   "Create.Plant.For.Me": "自建户用电站",
   "Create.Plant.For.Owner": "代建户用电站",
-  "Plant.SearchText.Placeholder": "电站名称/逆变器 SN/ID",
+  "Plant.SearchText.Placeholder": "电站名称 / 逆变器 SN / ID",
   "Inverter.SearchText.Placeholder": "逆变器 SN",
   "Battery.SearchText.Placeholder": "电池 SN",
   "Status.All": "全部",

@@ -41,7 +41,9 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.Inverter.Detail']: { id: string }
 
     ['Common.My.Personal_Info']: undefined
-    ['Common.My.Personal_Info.Edit']: undefined
+    ['Common.My.Personal_Info.Change_Username']: undefined
+    ['Common.My.Personal_Info.Change_Password']: undefined
+    ['Common.My.Personal_Info.Change_Email']: undefined
     ['Common.My.Personal_Info.Country_Picker']: undefined
 
     ['Common.My.Privacy_Management']: undefined
@@ -70,7 +72,6 @@ export type RootStackParamList = InstallerTabParamList &
     ['Temp.Demo']: undefined
     ['Temp.WebView_Demo']: undefined
     ['Temp.Image_Cache_Test']: undefined
-    ['Temp.Image_Picker']: undefined
   }
 
 export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

@@ -38,9 +38,16 @@
   "Create.Success": "Create success",
   "Operate.Success": "Operate success",
   "Delete.Success": "Delete success",
+  "Logout.Success": "Logout success",
   "Unauthorized": "Unauthorized",
   "Unknown.Error": "Unknown error",
   "Internal.Server.Error": "Internal server error",
   "Forbidden": "Forbidden",
-  "No.More.Data": "No more data"
+  "No.More.Data": "No more data",
+  "No.Permissions": "No permissions",
+  "Take.Photo": "Take photo",
+  "Choose.Photo": "Choose photo",
+  "Crop.Picture": "Crop picture",
+  "Uploading": "Uploading...",
+  "Upload.Success": "Upload success"
 }

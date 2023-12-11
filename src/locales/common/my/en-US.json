@@ -14,5 +14,6 @@
   "Settings": {
     "Description": "Change your settings",
     "Title": "Settings"
-  }
+  },
+  "Can.Not.Change.Username": "Not support change username now"
 }

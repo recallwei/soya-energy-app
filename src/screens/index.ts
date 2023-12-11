@@ -33,8 +33,10 @@ export { default as CommonMySettingsScreen } from './Common/My/Settings'
 export { default as CommonMySettingsCancelAccountScreen } from './Common/My/Settings/CancelAccount'
 export { default as CommonMySettingsSystemUnitsScreen } from './Common/My/Settings/SystemUnits'
 export { default as CommonMyPersonalInfoScreen } from './Common/PersonalInfo'
+export { default as CommonMyPersonalInfoChangeEmailScreen } from './Common/PersonalInfo/ChangeEmail'
+export { default as CommonMyPersonalInfoChangePasswordScreen } from './Common/PersonalInfo/ChangePassword'
+export { default as CommonMyPersonalInfoChangeUsernameScreen } from './Common/PersonalInfo/ChangeUsername'
 export { default as CommonMyPersonalInfoCountryPickerScreen } from './Common/PersonalInfo/CountryPicker'
-export { default as CommonMyPersonalInfoEditScreen } from './Common/PersonalInfo/Edit'
 
 // ------ Installer screens ------
 export { default as InstallerMyScreen } from './Common/My'
@@ -64,5 +66,4 @@ export { default as UserDevicesInvertorDetailScreen } from './User/Devices/Inver
 export { default as DemoScreen } from './Temp/Demo'
 export { default as DevMenuScreen } from './Temp/DevMenu'
 export { default as ImageCacheTestScreen } from './Temp/ImageCacheTest'
-export { default as ImagePicker } from './Temp/ImagePicker'
 export { default as WebViewDemoScreen } from './Temp/WebView'

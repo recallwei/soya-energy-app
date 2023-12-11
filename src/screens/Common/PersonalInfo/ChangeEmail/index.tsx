@@ -7,7 +7,7 @@ export default function ForgotPasswordScreen() {
 
   const { navigate } = useNavigation()
 
-  const handleSubmit = () => navigate('Auth.Login')
+  const handleSubmit = () => navigate('Common.My.Personal_Info')
 
   return (
     <YStack
@@ -17,20 +17,11 @@ export default function ForgotPasswordScreen() {
       height="100%"
     >
       <YStack>
-        <SizableText>{t('Email')}</SizableText>
+        <SizableText>{t('New.Password')}</SizableText>
         <Input
           autoCapitalize="none"
           clearButtonMode="while-editing"
-          placeholder={t('Validation:Email.Not.Null')}
-        />
-      </YStack>
-
-      <YStack>
-        <SizableText>{t('Verification.Code')}</SizableText>
-        <Input
-          autoCapitalize="none"
-          clearButtonMode="while-editing"
-          placeholder={t('Validation:Verification.Code.Not.Null')}
+          placeholder={t('Validation:New.Password.Not.Null')}
         />
       </YStack>
 

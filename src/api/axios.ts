@@ -135,8 +135,6 @@ class Request {
               }
             }
             // 处理认证失败
-            await AuthUtils.removeAccessToken()
-            await AuthUtils.removeRefreshToken()
             useAuthStore.getState().logout()
             ToastUtils.error({ message: t('Unauthorized') })
             break

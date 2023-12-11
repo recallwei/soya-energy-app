@@ -16,14 +16,14 @@ import {
   Others,
   PlantType
 } from '../../enums'
-import type { FormData, MultiSelectOption, SingleSelectOption } from '../../types'
+import type { FormData, MultiSelectOption, SearchParams, SingleSelectOption } from '../../types'
 
 interface Props {
   advancedFilter: FormData
   setAdvancedFilter: Updater<FormData>
   setDrawerOpen: (open: boolean) => void
   currentTab: ManagementTab
-  setSearchParams: Updater<FormData>
+  setSearchParams: Updater<SearchParams>
 }
 
 export default function DrawerContent(props: Props) {
@@ -65,7 +65,7 @@ export default function DrawerContent(props: Props) {
         batteryType
       } = props.advancedFilter
       draft.displayRange = displayRange ?? ''
-      draft.loadMonitoring = loadMonitoring ?? ''
+      draft.loadingMonitoring = loadMonitoring ?? ''
       draft.plantType = Array.from(plantType).join(',') ?? ''
       draft.systemPowerMax = systemPowerMax ?? ''
       draft.systemPowerMin = systemPowerMin ?? ''

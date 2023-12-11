@@ -15,6 +15,11 @@
     "Max.Length": "确认密码不得大于 20 个字符",
     "Not.Match": "确认密码不匹配"
   },
+  "Old.Password": {
+    "Not.Null": "请输入旧密码",
+    "Min.Length": "旧密码不得小于 6 个字符",
+    "Max.Length": "旧密码不得大于 20 个字符"
+  },
   "New.Password": {
     "Not.Null": "请输入新密码",
     "Min.Length": "新密码不得小于 6 个字符",

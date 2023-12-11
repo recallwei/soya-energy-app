@@ -13,9 +13,9 @@ import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack
 
 import { AuthAPI } from '@/api'
 import { Checkbox } from '@/components'
-import type { UserRole } from '@/enums'
 import { globalEnvConfig } from '@/env'
-import { useAuthStore, useThemeStore } from '@/store'
+import { useUserInfoQuery } from '@/hooks'
+import { useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
 
@@ -25,9 +25,10 @@ import { loginSchema } from './private'
 export default function Screen() {
   const insets = useSafeAreaInsets()
   const { t } = useTranslation(['Auth', 'Global', 'Validation'])
-  const authStore = useAuthStore()
   const themeStore = useThemeStore()
   const navigation = useNavigation()
+
+  const { refetchUserInfo } = useUserInfoQuery()
 
   const {
     control,
@@ -59,16 +60,10 @@ export default function Screen() {
       } else {
         await AuthUtils.removeAccountRememberPassword()
       }
-      const role = await AuthUtils.getRole()
-      if (role) {
-        authStore.setUserRole(role as UserRole)
-      }
+      await refetchUserInfo()
       ToastUtils.success({ message: t('Global:Login.Success') })
-      authStore.login()
     },
-    onError: () => {
-      resetField('password')
-    }
+    onError: () => resetField('password')
   })
 
   useFocusEffect(

@@ -1,7 +1,7 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { BellRing, MoreHorizontal, PlusCircle, Settings } from '@tamagui/lucide-icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { SizableText, XStack } from 'tamagui'
@@ -18,8 +18,10 @@ import {
   CommonMessageListScreen,
   CommonMessageScreen,
   CommonMyAboutUsScreen,
+  CommonMyPersonalInfoChangeEmailScreen,
+  CommonMyPersonalInfoChangePasswordScreen,
+  CommonMyPersonalInfoChangeUsernameScreen,
   CommonMyPersonalInfoCountryPickerScreen,
-  CommonMyPersonalInfoEditScreen,
   CommonMyPersonalInfoScreen,
   CommonMyPrivacyManagementAgreementAndPolicyPrivacyPolicyScreen,
   CommonMyPrivacyManagementAgreementAndPolicyScreen,
@@ -37,7 +39,6 @@ import {
   DemoScreen,
   DevMenuScreen,
   ImageCacheTestScreen,
-  ImagePicker,
   UserDevicesBatteryDetailScreen,
   UserDevicesInvertorDetailScreen,
   UserHomeSelectLocationScreen,
@@ -50,6 +51,7 @@ import type { InstallerTabParamList, RootStackParamList, UserTabParamList } from
 
 import type { SheetMenuListItem } from './components'
 import { DropDownMenu, SheetMenu } from './components'
+import { useIsForeground, useUserInfoQuery } from './hooks'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -63,6 +65,16 @@ export default function Navigation() {
 
   const [homePlantSheetOpen, setHomePlantSheetOpen] = useState(false)
   const [homeSheetOpen, setHomeSheetOpen] = useState(false)
+
+  const { refetchUserInfo } = useUserInfoQuery()
+
+  const isForeground = useIsForeground()
+
+  useEffect(() => {
+    if (isForeground && authStore.isLogin) {
+      refetchUserInfo()
+    }
+  }, [isForeground])
 
   const getHomeSheetMenuData = (navigation: any): SheetMenuListItem[] => [
     { text: '天气', onPress: () => navigation.navigate('User.Home.Weather_Forecast_Settings') },
@@ -393,9 +405,19 @@ export default function Navigation() {
                   options={{ title: t('Common.My.Personal.Info') }}
                 />
                 <Stack.Screen
-                  name="Common.My.Personal_Info.Edit"
-                  component={CommonMyPersonalInfoEditScreen}
-                  options={{ title: t('Common.My.Personal.Info.Edit') }}
+                  name="Common.My.Personal_Info.Change_Username"
+                  component={CommonMyPersonalInfoChangeUsernameScreen}
+                  options={{ title: t('Common.My.Personal.Info.Change.Username') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Personal_Info.Change_Password"
+                  component={CommonMyPersonalInfoChangePasswordScreen}
+                  options={{ title: t('Common.My.Personal.Info.Change.Password') }}
+                />
+                <Stack.Screen
+                  name="Common.My.Personal_Info.Change_Email"
+                  component={CommonMyPersonalInfoChangeEmailScreen}
+                  options={{ title: t('Common.My.Personal.Info.Change.Email') }}
                 />
                 <Stack.Screen
                   name="Common.My.Personal_Info.Country_Picker"
@@ -457,11 +479,6 @@ export default function Navigation() {
                   name="Temp.Image_Cache_Test"
                   component={ImageCacheTestScreen}
                   options={{ title: t('Temp.Image.Cache.Test') }}
-                />
-                <Stack.Screen
-                  name="Temp.Image_Picker"
-                  component={ImagePicker}
-                  options={{ title: t('Temp.Image.Picker') }}
                 />
               </>
             )}

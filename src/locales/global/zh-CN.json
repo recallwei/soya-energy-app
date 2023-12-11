@@ -38,9 +38,15 @@
   "Create.Success": "创建成功",
   "Operate.Success": "操作成功",
   "Delete.Success": "删除成功",
+  "Logout.Success": "登出成功",
   "Unauthorized": "认证失败",
   "Unknown.Error": "未知错误",
   "Internal.Server.Error": "服务器错误",
   "Forbidden": "权限不足",
-  "No.More.Data": "没有更多数据了"
+  "No.More.Data": "没有更多数据了",
+  "No.Permissions": "没有权限",
+  "Take.Photo": "拍照",
+  "Choose.Photo": "从相册选择",
+  "Uploading": "正在上传...",
+  "Upload.Success": "上传成功"
 }

@@ -9,10 +9,10 @@ import type { SheetMenuListItem } from '@/components'
 import { AlertDialog, MenuItemCard, SheetMenu } from '@/components'
 import { globalStyles } from '@/constants'
 import { useAuthStore, useLangStore, useThemeStore } from '@/store'
-import { AuthUtils, CacheUtils, ThemeUtils, ToastUtils } from '@/utils'
+import { CacheUtils, ThemeUtils, ToastUtils } from '@/utils'
 
 export default function Screen() {
-  const { t } = useTranslation('Common.My.Settings')
+  const { t } = useTranslation(['Common.My.Settings', 'Global'])
   const authStore = useAuthStore()
   const themeStore = useThemeStore()
   const langStore = useLangStore()
@@ -75,8 +75,7 @@ export default function Screen() {
 
   const logout = () => {
     authStore.logout()
-    AuthUtils.removeAccessToken()
-    AuthUtils.removeRefreshToken()
+    ToastUtils.success({ message: t('Global:Logout.Success') })
   }
 
   return (

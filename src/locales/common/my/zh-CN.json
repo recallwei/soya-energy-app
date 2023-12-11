@@ -14,5 +14,6 @@
   "Settings": {
     "Description": "查看您的设置",
     "Title": "设置"
-  }
+  },
+  "Can.Not.Change.Username": "暂时不支持修改用户名"
 }

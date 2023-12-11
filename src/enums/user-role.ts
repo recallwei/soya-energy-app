@@ -1,4 +1,4 @@
 export enum UserRole {
-  INSTALLER = 'INSTALLER',
-  USER = 'USER'
+  INSTALLER = 'Soya-Installer',
+  USER = 'Soya-Owner'
 }
