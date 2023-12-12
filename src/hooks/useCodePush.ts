@@ -67,6 +67,9 @@ export function useCodePush() {
       }
     }
 
+    if (globalEnvConfig.APP_ENVIRONMENT === 'DEV') {
+      authStore.loaded()
+    }
     syncCode(AppState.currentState)
     const appListener = AppState.addEventListener('change', syncCode)
     return () => appListener.remove()

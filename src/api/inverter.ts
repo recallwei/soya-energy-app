@@ -8,6 +8,8 @@ export class InverterAPI {
 
   static LIST_QUERY_KEY = 'INVERTER_LIST'
 
+  static DETAIL_QUERY_KEY = 'INVERTER_DETAIL'
+
   static list(params: InverterPageModel) {
     return httpRequest.get<R<Page<Inverter>>>(`${this.INVERTER_API_PREFIX}/list-inverter-by-page`, {
       ...params

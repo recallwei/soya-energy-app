@@ -15,12 +15,12 @@ class GlobalEnvConfig {
     switch (config.type) {
       case 'PROD':
         this.APP_ENVIRONMENT = 'PROD'
-        this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-installer'
+        this.BASE_API_URL = 'https://soyaenergy.com/api/raipiot-installer'
         this.APP_VERSION = '1.0.0'
         break
       case 'STAGING':
         this.APP_ENVIRONMENT = 'STAGING'
-        this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-installer'
+        this.BASE_API_URL = 'https://soya-uat.soyaenergy.com/api/raipiot-installer'
         this.APP_VERSION = '1.0.0'
         break
       case 'DEV':

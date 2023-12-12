@@ -3,6 +3,7 @@ import * as yup from 'yup'
 import i18n from '@/i18n'
 
 const t = i18n.getFixedT(null, 'Validation')
+
 export const signupSchema = yup
   .object({
     username: yup
