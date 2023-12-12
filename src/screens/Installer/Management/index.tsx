@@ -11,11 +11,9 @@ import type { RouteProp } from '@/types'
 import { DeviceUtils } from '@/utils'
 
 import { AdvancedFilter, DrawerContent, HeaderArea, ScrollList, Statistics } from './components'
-import { initialAdvanceFilter } from './constants'
-import { ManagementTab, PlantOrderby } from './enums'
+import { initialAdvanceFilter, initialSearchParams } from './constants'
+import { ManagementTab } from './enums'
 import type { FormData, SearchParams } from './types'
-
-const DEFAULT_TAB_STATUS = '0'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
@@ -29,28 +27,18 @@ export default function Screen() {
   }, [route.params])
 
   const [drawerOpen, setDrawerOpen] = useState(false)
-  const [advancedFilter, setAdvancedFilter] = useImmer<FormData>(initialAdvanceFilter)
-  const [searchParams, setSearchParams] = useImmer<SearchParams>({
-    keywords: '',
-    status: DEFAULT_TAB_STATUS,
-    order: PlantOrderby.Latest_Installation_Date,
-    displayRange: '',
-    loadingMonitoring: '',
-    plantType: '',
-    systemPowerMin: '',
-    systemPowerMax: '',
-    others: '',
-    inverterType: '',
-    ratePowerMax: '',
-    ratePowerMin: '',
-    batteryType: ''
-  })
+  const [advancedFilter, setAdvancedFilter] = useImmer<FormData>({ ...initialAdvanceFilter })
+  const [searchParams, setSearchParams] = useImmer<SearchParams>({ ...initialSearchParams })
 
   useEffect(() => {
     setSearchParams((draft) => {
-      draft.status = DEFAULT_TAB_STATUS
-      draft.keywords = ''
+      ;(Object.keys(initialSearchParams) as (keyof SearchParams)[]).forEach(
+        (key: keyof SearchParams) => {
+          draft[key] = initialSearchParams[key]
+        }
+      )
     })
+    setAdvancedFilter(initialAdvanceFilter)
   }, [currentTab, setSearchParams])
 
   const listRef = useRef<FlatList>(null)

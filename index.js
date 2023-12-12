@@ -1,11 +1,39 @@
-import 'react-native-gesture-handler'
-
+import { setup } from '@baronha/ting'
 import { CacheManager } from '@georstat/react-native-image-cache'
-import { AppRegistry } from 'react-native'
+import { enableMapSet } from 'immer'
+import { AppRegistry, Platform } from 'react-native'
 import { Dirs } from 'react-native-file-access'
+import { enableLatestRenderer } from 'react-native-maps'
 
 import { name as appName } from './app.json'
 import App from './src/App'
+
+const soyaAppIcon = require('./assets/images/soya-app-icon.png')
+
+// immer
+enableMapSet()
+// react-native-maps
+enableLatestRenderer()
+
+// Init toast and alert
+setup({
+  toast: {
+    title: Platform.select({ ios: '', android: undefined }),
+    duration: 1.5,
+    position: 'top',
+    shouldDismissByDrag: false,
+    icon: {
+      uri: soyaAppIcon
+    }
+  },
+  alert: {
+    duration: 1.5,
+    shouldDismissByTap: false
+    // icon: {
+    //   uri: soyaAppIcon
+    // }
+  }
+})
 
 AppRegistry.registerComponent(appName, () => App)
 

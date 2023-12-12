@@ -1,6 +1,7 @@
 export * from './useCodePush'
 export * from './useFocusNotifyOnChangeProps'
 export * from './useIsForeground'
+export * from './useNavigationData'
 export * from './useRefresh'
 export * from './useRefreshOnFocus'
 export * from './useUserInfoQuery'

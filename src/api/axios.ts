@@ -7,9 +7,10 @@ import type {
 } from 'axios'
 import axios from 'axios'
 
-import { errorMessageMap, StatusCode } from '@/constants'
+import { StatusCode } from '@/enums'
 import { globalEnvConfig } from '@/env'
 import i18n from '@/i18n'
+import { errorMessageMap } from '@/maps'
 import { useAuthStore } from '@/store'
 import type { R, Token } from '@/types'
 import { AuthUtils, LangUtils, ToastUtils } from '@/utils'

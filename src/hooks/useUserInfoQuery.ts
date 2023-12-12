@@ -30,17 +30,17 @@ export const useUserInfoQuery = () => {
       if (roles?.includes(UserRole.INSTALLER)) {
         authStore.setUserRole(UserRole.INSTALLER)
         authStore.login()
-      } else if (roles?.includes(UserRole.USER)) {
+        return true
+      }
+      if (roles?.includes(UserRole.USER)) {
         authStore.setUserRole(UserRole.USER)
         authStore.login()
-      } else {
-        authStore.logout()
-        ToastUtils.error({ message: t('Unauthorized') })
+        return true
       }
-    } else {
-      authStore.logout()
-      ToastUtils.error({ message: t('Unauthorized') })
     }
+    authStore.logout()
+    ToastUtils.error({ message: t('Unauthorized') })
+    return false
   }
 
   return {

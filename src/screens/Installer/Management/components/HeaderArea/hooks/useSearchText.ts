@@ -20,5 +20,7 @@ export const useSearchText = () => {
     }
   }
 
-  return { searchText, setSearchText, getInputPlaceholder }
+  const clearSearchText = () => setSearchText('')
+
+  return { searchText, setSearchText, getInputPlaceholder, clearSearchText }
 }

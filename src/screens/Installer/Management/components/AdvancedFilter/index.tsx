@@ -6,6 +6,7 @@ import { TouchableOpacity } from 'react-native'
 import { View, XStack } from 'tamagui'
 
 import { DropDownMenu } from '@/components'
+import { globalStyles } from '@/constants'
 
 import { BatteryOrderby, InverterOrderby, ManagementTab, PlantOrderby } from '../../enums'
 
@@ -125,6 +126,7 @@ export default function AdvancedFilter(props: Props) {
           sheet: { open: orderBySheetOpen, setOpen: setOrderBySheetOpen },
           data: getOrderBySheetMenu().map((item) => ({
             ...item,
+            color: item.value === orderBy ? globalStyles.primaryColor : undefined,
             onPress: () => {
               setOrderBy(item.value)
             }

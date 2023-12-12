@@ -1,4 +1,5 @@
 import { PlusCircle, ScanLine, Search } from '@tamagui/lucide-icons'
+import { useEffect } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { Input, Text, View, XStack, YStack } from 'tamagui'
 
@@ -15,10 +16,14 @@ interface Props {
 }
 
 export default function HeaderArea(props: Props) {
-  const { searchText, setSearchText, getInputPlaceholder } = useSearchText()
+  const { searchText, setSearchText, getInputPlaceholder, clearSearchText } = useSearchText()
   const { createSheetOpen, setCreateSheetOpen, createSheetMenuData, handleOpenCreateSheet } =
     useCreateMenuSheet()
   const handleClickScan = () => {}
+
+  useEffect(() => {
+    clearSearchText()
+  }, [props.currentTab])
 
   return (
     <YStack

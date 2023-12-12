@@ -31,7 +31,8 @@ import { useAuthStore } from '@/store'
 import type { RouteProp } from '@/types'
 import { DeviceUtils, ToastUtils } from '@/utils'
 
-import { type SignUpForm, signupSchema } from './private'
+import { signupSchema } from './constants'
+import type { SignUpForm } from './types'
 
 export default function Screen() {
   const { t } = useTranslation(['Auth', 'Global', 'Validation'])

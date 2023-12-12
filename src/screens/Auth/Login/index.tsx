@@ -19,8 +19,8 @@ import { useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
 
-import type { LoginForm } from './private'
-import { loginSchema } from './private'
+import { loginSchema } from './constants'
+import type { LoginForm } from './types'
 
 export default function Screen() {
   const insets = useSafeAreaInsets()
@@ -60,8 +60,9 @@ export default function Screen() {
       } else {
         await AuthUtils.removeAccountRememberPassword()
       }
-      await refetchUserInfo()
-      ToastUtils.success({ message: t('Global:Login.Success') })
+      if (await refetchUserInfo()) {
+        ToastUtils.success({ message: t('Global:Login.Success') })
+      }
     },
     onError: () => resetField('password')
   })

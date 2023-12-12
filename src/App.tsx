@@ -1,6 +1,5 @@
 import './i18n'
 
-import { setup } from '@baronha/ting'
 import NetInfo from '@react-native-community/netinfo'
 import {
   focusManager,
@@ -9,12 +8,10 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query'
 import { useAsyncEffect } from 'ahooks'
-import { enableMapSet } from 'immer'
 import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { Appearance, AppState, Platform } from 'react-native'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
-import { enableLatestRenderer } from 'react-native-maps'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { TamaguiProvider } from 'tamagui'
 
@@ -24,31 +21,6 @@ import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useAuthStore, useLangStore, useThemeStore } from './store'
 import { AuthUtils, LangUtils, ThemeUtils } from './utils'
-
-// immer
-enableMapSet()
-// react-native-maps
-enableLatestRenderer()
-
-// Init toast and alert
-setup({
-  toast: {
-    title: Platform.select({ ios: '', android: undefined }),
-    duration: 1.5,
-    position: 'top',
-    shouldDismissByDrag: false,
-    icon: {
-      uri: require('../assets/images/soya-app-icon.png')
-    }
-  },
-  alert: {
-    duration: 1.5,
-    shouldDismissByTap: false
-    // icon: {
-    //   uri: require('../assets/images/soya-app-icon.png')
-    // }
-  }
-})
 
 function onAppStateChange(status: AppStateStatus) {
   if (Platform.OS !== 'web') {
@@ -67,12 +39,8 @@ function App() {
     () =>
       new QueryClient({
         defaultOptions: {
-          queries: {
-            retry: false
-          },
-          mutations: {
-            retry: false
-          }
+          queries: { retry: false },
+          mutations: { retry: false }
         }
       })
   )
@@ -83,8 +51,6 @@ function App() {
   useAsyncEffect(async () => {
     langStore.setLang(await LangUtils.getDefaultLang())
     useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
-    // LoggerUtils.printEnv()
-    // await LoggerUtils.printStorage()
 
     if (await AuthUtils.isLogin()) {
       authStore.login()
@@ -106,9 +72,7 @@ function App() {
      * @see https://tanstack.com/query/latest/docs/react/react-native#online-status-management
      */
     onlineManager.setEventListener((setOnline) =>
-      NetInfo.addEventListener((state) => {
-        setOnline(!!state.isConnected)
-      })
+      NetInfo.addEventListener((state) => setOnline(!!state.isConnected))
     )
 
     /**

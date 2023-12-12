@@ -28,6 +28,7 @@ interface Props {
 
 export default function DrawerContent(props: Props) {
   const { t } = useTranslation(['Installer.Management', 'Global'])
+
   const onChangeSingleSelect = ({ value, key }: { value: string; key: keyof SingleSelectOption }) =>
     props.setAdvancedFilter((draft) => {
       if (draft[key] === value) {
