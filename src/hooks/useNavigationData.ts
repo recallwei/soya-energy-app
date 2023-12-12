@@ -4,15 +4,18 @@ import type { SheetMenuListItem } from '@/components'
 import type { InstallerTabParamList, UserTabParamList } from '@/types'
 
 export const useNavigationData = () => {
-  const { t } = useTranslation('Screen')
+  const { t } = useTranslation(['Screen', 'Global'])
 
-  const getHomeSheetMenuData = (navigation: any): SheetMenuListItem[] => [
-    { text: '天气', onPress: () => navigation.navigate('User.Home.Weather_Forecast_Settings') },
-    { text: '管理', onPress: () => navigation.navigate('Common.Plant.Detail') },
-    { text: '电站月报', onPress: () => navigation.navigate('Common.Plant.Detail') },
-    { text: '电站视图', onPress: () => navigation.navigate('Common.Plant.Detail') },
-    { text: '电站地图', onPress: () => navigation.navigate('Common.Plant.Detail') },
-    { text: '分享', onPress: () => navigation.navigate('Common.Plant.Detail') }
+  const getHomeSheetMenuData = ({ navigate }: { navigate: any }): SheetMenuListItem[] => [
+    { text: t('Global:Weather'), onPress: () => navigate('User.Home.Weather_Forecast_Settings') },
+    { text: t('Global:Management'), onPress: () => navigate('Common.Plant.Detail') },
+    {
+      text: t('Common.Plant.Monthly.Report'),
+      onPress: () => navigate('Common.Plant.Detail')
+    },
+    { text: t('Common.Plant.View'), onPress: () => navigate('Common.Plant.Detail') },
+    { text: t('Common.Plant.Map'), onPress: () => navigate('Common.Plant.Detail') },
+    { text: t('Global:Share'), onPress: () => navigate('Common.Plant.Detail') }
   ]
 
   function getInstallerTabTitleI18nText(tabName: keyof InstallerTabParamList): string {

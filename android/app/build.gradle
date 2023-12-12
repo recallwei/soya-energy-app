@@ -123,7 +123,7 @@ android {
       resValue "string", "CodePushDeploymentKey", '"N3Pwz8vakGYcbNhsdksLbDkXXD_TfiVmbA-05"'
       debuggable false
       defaultConfig.versionCode 1
-      defaultConfig.versionName "2.0.0"
+      defaultConfig.versionName "1.0.0"
       applicationIdSuffix ".staging"
     }
     release {

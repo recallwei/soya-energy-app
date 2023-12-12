@@ -173,6 +173,9 @@ export default function Navigation() {
                     headerTitle: () => {
                       switch (tabStore.userCurrentTab) {
                         case 'User.Home':
+                          if (authStore.isInstaller()) {
+                            return <SizableText>{plantStore.currentPlant.plantName}</SizableText>
+                          }
                           return (
                             <DropDownMenu
                               text={plantStore.currentPlant.plantName}
@@ -195,7 +198,7 @@ export default function Navigation() {
                                         space="$2"
                                       >
                                         <PlusCircle size="$1" />
-                                        <SizableText>添加</SizableText>
+                                        <SizableText>{t('Global:Add')}</SizableText>
                                       </XStack>
                                     </TouchableOpacity>
                                     <TouchableOpacity
@@ -208,7 +211,7 @@ export default function Navigation() {
                                         alignItems="center"
                                         space="$2"
                                       >
-                                        <SizableText>管理</SizableText>
+                                        <SizableText>{t('Global:Management')}</SizableText>
                                         <Settings size="$1" />
                                       </XStack>
                                     </TouchableOpacity>

@@ -49,5 +49,8 @@
   "Choose.Photo": "Choose photo",
   "Crop.Picture": "Crop picture",
   "Uploading": "Uploading...",
-  "Upload.Success": "Upload success"
+  "Upload.Success": "Upload success",
+  "Share": "Share",
+  "Management": "Management",
+  "Weather": "Weather"
 }

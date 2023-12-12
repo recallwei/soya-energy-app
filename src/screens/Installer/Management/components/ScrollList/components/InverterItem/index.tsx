@@ -32,7 +32,7 @@ const InverterItem = memo((props: Props) => {
       <YStack space="$1">
         <XStack alignItems="center">
           <View
-            width={120}
+            width={60}
             marginRight="$3"
           >
             <StatusBadge
@@ -54,7 +54,7 @@ const InverterItem = memo((props: Props) => {
           <CachedImage
             source={props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}
             style={{
-              width: 120,
+              width: 60,
               height: 60,
               shadowRadius: 4,
               shadowOpacity: 0.05,

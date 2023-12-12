@@ -27,7 +27,10 @@
       "Scan.SN": "创建电站",
       "Form": "创建电站"
     },
-    "Edit": "编辑电站"
+    "Edit": "编辑电站",
+    "View": "电站视图",
+    "Map": "电站地图",
+    "Monthly.Report": "电站月报"
   },
   "Common.Inverter": {
     "Detail": "逆变器详情"

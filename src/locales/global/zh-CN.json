@@ -48,5 +48,8 @@
   "Take.Photo": "拍照",
   "Choose.Photo": "从相册选择",
   "Uploading": "正在上传...",
-  "Upload.Success": "上传成功"
+  "Upload.Success": "上传成功",
+  "Share": "分享",
+  "Management": "管理",
+  "Weather": "天气"
 }

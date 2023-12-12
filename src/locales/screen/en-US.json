@@ -27,7 +27,10 @@
       "Scan.SN": "Create Plant",
       "Form": "Create Plant"
     },
-    "Edit": "Edit Plant"
+    "Edit": "Edit Plant",
+    "View": "Plant View",
+    "Map": "Plant Map",
+    "Monthly.Report": "Plant Monthly Report"
   },
   "Common.Inverter": {
     "Detail": "Inverter Detail"

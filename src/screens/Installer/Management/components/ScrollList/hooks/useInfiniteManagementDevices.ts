@@ -72,7 +72,8 @@ const getPaginatedPlants = async (params: Params): Promise<InfinitePage<Manageme
       ...(currentTab === ManagementTab.Inverter && {
         inverterType,
         ratePowerMax,
-        ratePowerMin
+        ratePowerMin,
+        deviceSN: keywords
       }),
       ...(currentTab === ManagementTab.Battery && {
         batteryType

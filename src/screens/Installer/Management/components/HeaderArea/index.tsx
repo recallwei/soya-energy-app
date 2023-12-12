@@ -62,7 +62,7 @@ export default function HeaderArea(props: Props) {
             clearButtonMode="never"
             value={searchText}
             onChangeText={setSearchText}
-            onSubmitEditing={() => props.setKeywords(searchText)}
+            onSubmitEditing={(e) => props.setKeywords(e.nativeEvent.text)}
             placeholder={getInputPlaceholder(props.currentTab)}
           />
           <TouchableOpacity

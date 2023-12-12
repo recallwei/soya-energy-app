@@ -15,16 +15,16 @@ interface Actions {
 const initialState: State = {
   currentPlant: {
     id: '123',
-    siteName: '阿姆斯特丹 - 电站'
+    plantName: '阿姆斯特丹 - 电站'
   },
   plantList: [
     {
       id: '123',
-      siteName: '阿姆斯特丹 - 电站'
+      plantName: '阿姆斯特丹 - 电站'
     },
     {
       id: '1234',
-      siteName: '法兰克福 - 电站'
+      plantName: '法兰克福 - 电站'
     }
   ]
 }
