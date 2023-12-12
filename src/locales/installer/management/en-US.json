@@ -16,7 +16,7 @@
   "Status.Discharging": "Discharging",
   "Status.Standby": "Standby",
   "Latest.Installation.Date": "Latest installation date",
-  "Earlier.Installation.Date": "Earlier installation date",
+  "Earliest.Installation.Date": "Earliest installation date",
   "Daily.Production": {
     "High.To.Low": "Daily production: high to low",
     "Low.To.High": "Daily production: low to high"

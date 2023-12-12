@@ -62,7 +62,7 @@ const PlantItem = memo((props: Props) => {
           <CachedImage
             source={props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}
             style={{
-              width: 100,
+              width: 60,
               height: 60,
               shadowRadius: 4,
               shadowOpacity: 0.05,
@@ -72,7 +72,7 @@ const PlantItem = memo((props: Props) => {
             resizeMode="cover"
           />
           <YStack>
-            <XStack space="$4">
+            <XStack space="$3">
               <SizableText size="$3">{t('Current.Power')}</SizableText>
               <XStack space="$2">
                 <SizableText
@@ -84,7 +84,7 @@ const PlantItem = memo((props: Props) => {
                 <SizableText size="$3">W</SizableText>
               </XStack>
             </XStack>
-            <XStack space="$4">
+            <XStack space="$3">
               <SizableText size="$3">{t('Production.Today')}</SizableText>
               <XStack space="$2">
                 <SizableText
@@ -96,7 +96,7 @@ const PlantItem = memo((props: Props) => {
                 <SizableText size="$3">kWh</SizableText>
               </XStack>
             </XStack>
-            <XStack space="$4">
+            <XStack space="$3">
               <SizableText size="$3">{t('Capacity')}</SizableText>
               <XStack space="$2">
                 <SizableText

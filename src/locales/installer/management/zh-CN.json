@@ -16,7 +16,7 @@
   "Status.Discharging": "放电中",
   "Status.Standby": "待机",
   "Latest.Installation.Date": "安装时间最新",
-  "Earlier.Installation.Date": "安装时间最早",
+  "Earliest.Installation.Date": "安装时间最早",
   "Daily.Production": {
     "High.To.Low": "日发电量最高",
     "Low.To.High": "日发电量最低"

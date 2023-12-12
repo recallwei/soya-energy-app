@@ -52,7 +52,7 @@ export default function AdvancedFilter(props: Props) {
             value: PlantOrderby.Latest_Installation_Date
           },
           {
-            text: t('Earlier.Installation.Date'),
+            text: t('Earliest.Installation.Date'),
             value: PlantOrderby.Earlier_Installation_Date
           },
           {
@@ -72,7 +72,7 @@ export default function AdvancedFilter(props: Props) {
             value: PlantOrderby.Minimum_Installed_Capacity
           }
         ]
-      case ManagementTab.Battery:
+      case ManagementTab.Inverter:
         return [
           {
             text: t('Latest.Installation.Date'),
@@ -91,7 +91,7 @@ export default function AdvancedFilter(props: Props) {
             value: InverterOrderby.Minimum_Real_Time_Power
           }
         ]
-      case ManagementTab.Inverter:
+      case ManagementTab.Battery:
         return [
           {
             text: t('Latest.Installation.Date'),

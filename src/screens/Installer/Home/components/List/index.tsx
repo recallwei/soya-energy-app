@@ -6,6 +6,7 @@ import { FlatList } from 'react-native'
 import { Circle, SizableText, styled, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
+import { SYSTEM_RESOURCE } from '@/constants'
 import { ManagementTab } from '@/screens/Installer/Management/enums'
 import { useThemeStore } from '@/store'
 import { CacheUtils } from '@/utils'
@@ -28,7 +29,7 @@ const mockData: Item[] = [
   {
     id: '1',
     name: '户用电站',
-    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/house.png',
+    url: SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL,
     total: 4,
     normal: 3,
     offline: 1,
@@ -39,7 +40,7 @@ const mockData: Item[] = [
   {
     id: '2',
     name: '逆变器',
-    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/invertor.png',
+    url: SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL,
     total: 4,
     normal: 3,
     offline: 1,
@@ -50,7 +51,7 @@ const mockData: Item[] = [
   {
     id: '3',
     name: '电池',
-    url: 'https://soya-inner-test.s3.eu-central-2.amazonaws.com/img/battery.png',
+    url: SYSTEM_RESOURCE.BATTERY_DEFAULT_IMAGE_URL,
     total: 4,
     normal: 3,
     offline: 1,
@@ -83,19 +84,13 @@ export default function List() {
   const handleClickCard = (id: string) => {
     switch (id) {
       case '1':
-        navigate('Installer.Management', {
-          currentTab: ManagementTab.Plant
-        })
+        navigate('Installer.Management', { currentTab: ManagementTab.Plant })
         break
       case '2':
-        navigate('Installer.Management', {
-          currentTab: ManagementTab.Inverter
-        })
+        navigate('Installer.Management', { currentTab: ManagementTab.Inverter })
         break
       case '3':
-        navigate('Installer.Management', {
-          currentTab: ManagementTab.Battery
-        })
+        navigate('Installer.Management', { currentTab: ManagementTab.Battery })
         break
       default:
         break
@@ -139,7 +134,6 @@ export default function List() {
                     shadowRadius: 4,
                     shadowOpacity: 0.05,
                     borderRadius: 4
-                    // backgroundColor: themeStore.theme === 'light' ? 'white' : '$gray6'
                   }}
                 />
               </YStack>
