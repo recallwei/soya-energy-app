@@ -1,16 +1,16 @@
 import { useNavigation } from '@react-navigation/native'
 import { Activity, CheckCircle2, CloudSun } from '@tamagui/lucide-icons'
-import { Button, Label, XStack, YStack } from 'tamagui'
+import { Button, SizableText, XStack, YStack } from 'tamagui'
 
 import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 
 export default function HeaderArea() {
-  const navigation = useNavigation()
+  const { navigate } = useNavigation()
 
   const themeStore = useThemeStore()
 
-  const navToLiveStatus = () => navigation.navigate('LiveStatus')
+  const navToLiveStatus = () => navigate('User.Home.Live_Status')
   return (
     <YStack space="$2">
       <XStack
@@ -26,7 +26,7 @@ export default function HeaderArea() {
             columnGap="$1.5"
           >
             <CheckCircle2 color="green" />
-            <Label>Normal</Label>
+            <SizableText>Normal</SizableText>
           </XStack>
 
           <XStack
@@ -34,7 +34,7 @@ export default function HeaderArea() {
             columnGap="$1.5"
           >
             <SVG.ElectricalTower color={themeStore.isDark() ? '#ffffff' : '#333333'} />
-            <Label>On grid</Label>
+            <SizableText>On grid</SizableText>
           </XStack>
         </XStack>
 
@@ -43,7 +43,7 @@ export default function HeaderArea() {
           columnGap="$1.5"
         >
           <CloudSun color={themeStore.isDark() ? '#ffffff' : '#333333'} />
-          <Label>26°C</Label>
+          <SizableText>26°C</SizableText>
         </XStack>
       </XStack>
 
@@ -51,7 +51,7 @@ export default function HeaderArea() {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Label>2023-09-20 updated 12min ago</Label>
+        <SizableText>2023-09-20 updated 12min ago</SizableText>
         <Button
           size="$2"
           backgroundColor={themeStore.isDark() ? '#dddddd20' : '#dfdfdf80'}

@@ -1,4 +1,4 @@
-import { Label, View, YStack } from 'tamagui'
+import { SizableText, View, YStack } from 'tamagui'
 
 interface Props {
   textPosition?: 'bottom' | 'right'
@@ -18,7 +18,7 @@ export default function OutputCardStatisticItem({
         rowGap="$2"
       >
         {icon}
-        <Label>{text}</Label>
+        <SizableText>{text}</SizableText>
       </YStack>
     )
   }
@@ -30,7 +30,7 @@ export default function OutputCardStatisticItem({
       position="relative"
     >
       {icon}
-      <Label
+      <SizableText
         position="absolute"
         right={-80}
         justifyContent="center"
@@ -38,7 +38,7 @@ export default function OutputCardStatisticItem({
         alignSelf="center"
       >
         {text}
-      </Label>
+      </SizableText>
     </View>
   )
 }

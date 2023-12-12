@@ -1,4 +1,4 @@
-import { Label, YStack } from 'tamagui'
+import { SizableText, YStack } from 'tamagui'
 
 interface Props {
   size?: 'default' | 'large'
@@ -31,9 +31,9 @@ export default function InputCardStatisticItem({
         rowGap="$1"
       >
         {icon}
-        <Label>{iconText}</Label>
+        <SizableText>{iconText}</SizableText>
       </YStack>
-      <Label>{bottomText}</Label>
+      <SizableText>{bottomText}</SizableText>
     </YStack>
   )
 }

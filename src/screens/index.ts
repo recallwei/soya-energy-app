@@ -52,6 +52,7 @@ export { default as UserDevicesScreen } from './User/Devices'
 export { default as UserHomeScreen } from './User/Home'
 
 // Home
+export { default as UserHomeLiveStatusScreen } from './User/Home/LiveStatus'
 export { default as UserHomeSelectLocationScreen } from './User/Home/SelectLocation'
 export { default as UserHomeWeatherForecastSettingsScreen } from './User/Home/WeatherForecastSettings'
 

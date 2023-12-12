@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Cog } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
 import { Pressable, TouchableOpacity } from 'react-native'
-import { Label, Separator, XStack, YStack } from 'tamagui'
+import { Separator, SizableText, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 import { useThemeStore } from '@/store'
@@ -81,10 +81,10 @@ export default function BatteryCard() {
           </Pressable>
 
           <YStack rowGap="$2">
-            <Label>Charge</Label>
+            <SizableText>Charge</SizableText>
             <XStack columnGap="$2">
-              <Label>88%</Label>
-              <Label>(7hr 50min)</Label>
+              <SizableText>88%</SizableText>
+              <SizableText>(7hr 50min)</SizableText>
             </XStack>
           </YStack>
         </XStack>
@@ -101,10 +101,10 @@ export default function BatteryCard() {
                 alignItems="center"
                 columnGap="$1.5"
               >
-                <Label>Profile</Label>
+                <SizableText>Profile</SizableText>
                 <Cog size="$1" />
               </XStack>
-              <Label>self-consumption</Label>
+              <SizableText>self-consumption</SizableText>
             </YStack>
           </XStack>
         </TouchableOpacity>

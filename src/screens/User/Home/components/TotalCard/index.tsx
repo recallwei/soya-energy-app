@@ -1,4 +1,4 @@
-import { Label, Separator, XStack } from 'tamagui'
+import { Separator, SizableText, XStack } from 'tamagui'
 
 import { Card } from '@/components'
 import { SVG } from '@/svg'
@@ -15,8 +15,8 @@ export default function TotalCard() {
           columnGap="$2"
         >
           <SVG.Lightning color="#f7d94b" />
-          <Label>38.40</Label>
-          <Label>kWh</Label>
+          <SizableText>38.40</SizableText>
+          <SizableText>kWh</SizableText>
         </XStack>
 
         <Separator
@@ -30,8 +30,8 @@ export default function TotalCard() {
           columnGap="$2"
         >
           <SVG.Leaf color="green" />
-          <Label>25.60</Label>
-          <Label>kg CO₂</Label>
+          <SizableText>25.60</SizableText>
+          <SizableText>kg CO₂</SizableText>
         </XStack>
       </XStack>
     </Card>

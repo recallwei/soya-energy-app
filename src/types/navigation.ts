@@ -60,6 +60,7 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.My.Settings.System_Units']: undefined
 
     // User
+    ['User.Home.Live_Status']: undefined
     ['User.Home.Weather_Forecast_Settings']: undefined
     ['User.Home.Select_Location']: { longitude: number; latitude: number }
     ['User.Plant.Management']: undefined

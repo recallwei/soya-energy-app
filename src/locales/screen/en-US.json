@@ -53,6 +53,7 @@
       "My": "My"
     },
     "Home": {
+      "Live.Status": "Live Status",
       "Weather.Forecast.Settings": "Weather Forecast Settings",
       "Select.Location": "Select Location"
     },

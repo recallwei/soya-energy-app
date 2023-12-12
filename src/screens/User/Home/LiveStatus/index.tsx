@@ -8,7 +8,7 @@ import { SVG } from '@/svg'
 
 import { CircleItem, LineSVG } from './components'
 
-export default function LiveStatusScreen() {
+export default function Screen() {
   const { refreshing, onRefresh } = useRefresh()
 
   const loadControlData = [

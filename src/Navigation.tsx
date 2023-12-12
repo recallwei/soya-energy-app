@@ -41,6 +41,7 @@ import {
   ImageCacheTestScreen,
   UserDevicesBatteryDetailScreen,
   UserDevicesInvertorDetailScreen,
+  UserHomeLiveStatusScreen,
   UserHomeSelectLocationScreen,
   UserHomeWeatherForecastSettingsScreen,
   UserPlantManagementScreen,
@@ -402,6 +403,11 @@ export default function Navigation() {
                   name="User.Home.Select_Location"
                   component={UserHomeSelectLocationScreen}
                   options={{ title: t('User.Home.Select.Location') }}
+                />
+                <Stack.Screen
+                  name="User.Home.Live_Status"
+                  component={UserHomeLiveStatusScreen}
+                  options={{ title: t('User.Home.Live.Status') }}
                 />
                 <Stack.Screen
                   name="User.Plant.Management"

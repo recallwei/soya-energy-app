@@ -10243,10 +10243,10 @@ react-native-gesture-handler@^2.14.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
-react-native-gifted-charts@^1.3.25:
-  version "1.3.25"
-  resolved "https://registry.yarnpkg.com/react-native-gifted-charts/-/react-native-gifted-charts-1.3.25.tgz#9a3fbfc18b24b62a0490a8ff236c60ebafa8658e"
-  integrity sha512-Qsr4W4MzBH79sX7P0JqC9/2y9HeFKW4tg3Rh/bAmMfCOY828C6zOgTAnDFoyd8PTrxInf7NcIZl6g6T+vrJ78A==
+react-native-gifted-charts@^1.3.26:
+  version "1.3.26"
+  resolved "https://registry.yarnpkg.com/react-native-gifted-charts/-/react-native-gifted-charts-1.3.26.tgz#007867bdfa642cef5609ba2dd19a33a8d83cee8f"
+  integrity sha512-fH1p1dd1cdRPEUl2OdYt80pCiYJzcbgWfMP0ABb4C6OftCbWwO3ovGV9dFXCYEVIISKKonkVfwIFbKuyrGggvg==
 
 react-native-image-crop-picker@^0.40.2:
   version "0.40.2"

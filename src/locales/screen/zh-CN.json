@@ -53,6 +53,7 @@
       "My": "我的"
     },
     "Home": {
+      "Live.Status": "实时状态",
       "Weather.Forecast.Settings": "天气预报设置",
       "Select.Location": "选择位置"
     },
