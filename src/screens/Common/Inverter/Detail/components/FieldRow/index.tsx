@@ -2,10 +2,10 @@ import { memo } from 'react'
 import { SizableText, XStack } from 'tamagui'
 
 interface Props {
-  leftText: string
-  rightText: string
-  customRight: React.ReactNode
-  stripe: boolean
+  leftText?: string
+  rightText?: string
+  customRight?: React.ReactNode
+  stripe?: boolean
 }
 const FieldRow = memo((props: Props) => (
   <XStack
@@ -20,7 +20,11 @@ const FieldRow = memo((props: Props) => (
     })}
   >
     <SizableText>{props.leftText}</SizableText>
-    <SizableText fontWeight="$bold">{props.rightText ?? '--'}</SizableText>
+    {props.customRight ? (
+      props.customRight
+    ) : (
+      <SizableText fontWeight="$bold">{props.rightText ?? '--'}</SizableText>
+    )}
   </XStack>
 ))
 export default FieldRow

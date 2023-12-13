@@ -59,6 +59,11 @@ export default function Screen() {
         await AuthUtils.removeAccountRememberPassword()
       }
       authStore.login()
+      if (authStore.isInstaller()) {
+        navigate('Installer.Tabs', { screen: 'Installer.Home' })
+      } else {
+        navigate('User.Tabs', { screen: 'User.Home' })
+      }
       ToastUtils.success({ message: t('Global:Login.Success') })
     },
     onError: () => resetField('password')

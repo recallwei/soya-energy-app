@@ -10,6 +10,7 @@ import StatusBadge from '@/screens/Installer/Management/components/ScrollList/co
 import { ManagementTab } from '@/screens/Installer/Management/enums'
 import type { RouteProp } from '@/types'
 
+import { FieldRow } from './components'
 import { useInverterDetailQuery } from './hooks'
 
 export default function Screen() {
@@ -46,6 +47,15 @@ export default function Screen() {
                 status={detail.status}
               />
             </XStack>
+            <FieldRow
+              leftText={t('Global:Real.Time.Status')}
+              customRight={
+                <StatusBadge
+                  currentTab={ManagementTab.Inverter}
+                  status={detail.status}
+                />
+              }
+            />
             <XStack
               alignItems="center"
               justifyContent="space-between"
