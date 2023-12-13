@@ -1,8 +1,9 @@
 import { RefreshControl } from 'react-native'
 import { ScrollView, View, YStack } from 'tamagui'
 
-import { NoData } from '@/components'
 import { useRefresh } from '@/hooks'
+
+import { HeaderArea, MenuList, Statistics } from './components'
 
 export default function Screen() {
   const { refreshing, onRefresh } = useRefresh()
@@ -19,10 +20,11 @@ export default function Screen() {
       >
         <YStack
           padding="$4"
-          space="$3"
-          marginBottom="$10"
+          gap="$3"
         >
-          <NoData />
+          <HeaderArea />
+          <Statistics />
+          <MenuList />
         </YStack>
       </ScrollView>
     </View>

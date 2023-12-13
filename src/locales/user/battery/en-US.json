@@ -1,0 +1,16 @@
+{
+  "On.Standby": "On Standby",
+  "Battery.Power": "Battery Power",
+  "Design.Capacity": "Design Capacity",
+  "Battery.Voltage": "Battery Voltage",
+  "Battery.Current": "Battery Current",
+  "Battery.Temperature": "Battery Temperature",
+  "SOH": "SOH",
+  "Good": "Good",
+  "Working.Modes": "Working Modes",
+  "Self.Consumption.Mode": "Self Consumption Mode",
+  "Battery.Curve": "Battery Curve",
+  "Battery.Info": "Battery Info",
+  "Quantity": "Quantity:",
+  "Update.On": "Update On:"
+}

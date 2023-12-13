@@ -1,10 +1,11 @@
 import type { RefObject } from 'react'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ActivityIndicator, FlatList, RefreshControl } from 'react-native'
-import { SizableText } from 'tamagui'
+import { FlatList, RefreshControl } from 'react-native'
+import { SizableText, Spinner } from 'tamagui'
 
 import { SheetMenu } from '@/components'
+import { globalStyles } from '@/constants'
 import { useRefresh } from '@/hooks'
 
 import { ManagementTab } from '../../enums'
@@ -73,7 +74,10 @@ const ScrollList = memo((props: Props) => {
         ListFooterComponent={
           <>
             {devicesInfiniteQuery.isFetchingNextPage && (
-              <ActivityIndicator style={{ marginTop: 10 }} />
+              <Spinner
+                style={{ marginTop: 10 }}
+                color={globalStyles.primaryColor}
+              />
             )}
             {loadedAll && (
               <SizableText

@@ -4,7 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { Platform } from 'react-native'
 import { View } from 'tamagui'
 
-import { CommonMyScreen, UserAnalysisScreen, UserDevicesScreen, UserHomeScreen } from '@/screens'
+import {
+  CommonMyScreen,
+  UserAnalysisScreen,
+  UserBatteryScreen,
+  UserDevicesScreen,
+  UserHomeScreen
+} from '@/screens'
 import { useAuthStore, useTabsStore, useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 import type { UserTabParamList } from '@/types'
@@ -77,7 +83,7 @@ export default function UserTabBar() {
       />
       <Tab.Screen
         name="User.Battery"
-        component={UserDevicesScreen}
+        component={UserBatteryScreen}
         options={{
           headerTitle: t('User.Tabs.Battery'),
           tabBarLabel: t('User.Tabs.Battery'),
@@ -91,7 +97,7 @@ export default function UserTabBar() {
           )
         }}
         listeners={{
-          focus: () => tabStore.changeUserTab('User.Devices')
+          focus: () => tabStore.changeUserTab('User.Battery')
         }}
       />
       <Tab.Screen
