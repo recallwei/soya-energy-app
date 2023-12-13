@@ -1006,7 +1006,7 @@ PODS:
     - React-Core
   - react-native-maps (1.8.3):
     - React-Core
-  - react-native-netinfo (11.2.0):
+  - react-native-netinfo (11.2.1):
     - React-Core
   - react-native-pdf (6.7.3):
     - React-Core
@@ -1225,7 +1225,7 @@ PODS:
     - React-Core
     - SPAlert (= 4.2.0)
   - TOCropViewController (2.6.1)
-  - VisionCamera (3.6.13):
+  - VisionCamera (3.6.16):
     - React
     - React-callinvoker
     - React-Core
@@ -1516,7 +1516,7 @@ SPEC CHECKSUMS:
   CodePush: 255d7607f428dcbec39085f81a206b170e01d012
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: 39ba45baf4e398618f8b3a4bb6ba8fcdb7fc2133
-  FBReactNativeSpec: 20cfca68498e27879514790359289d1df2b52c56
+  FBReactNativeSpec: b338e31bb93ba6c4336ad1f402ba2203036a7463
   Flipper: c7a0093234c4bdd456e363f2f19b2e4b27652d44
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
   Flipper-DoubleConversion: 2dc99b02f658daf147069aad9dbd29d8feb06d30
@@ -1558,7 +1558,7 @@ SPEC CHECKSUMS:
   react-native-geolocation: ef66fb798d96284c6043f0b16c15d9d1d4955db4
   react-native-google-maps: e63e064f77df4af32655d05fbcd2f1ad1078db4a
   react-native-maps: a5f431a3eaaef69f2e6f8d39901fb3f2e9de931e
-  react-native-netinfo: 25c87e28495d955b30aeca9c22594691668c907a
+  react-native-netinfo: 8a7fd3f7130ef4ad2fb4276d5c9f8d3f28d2df3d
   react-native-pdf: b4ca3d37a9a86d9165287741c8b2ef4d8940c00e
   react-native-safe-area-context: d1c8161a1e9560f7066e8926a7d825eb57c5dab5
   react-native-webview: 88293a0f23eca8465c0433c023ec632930e644d0
@@ -1577,7 +1577,7 @@ SPEC CHECKSUMS:
   React-RCTText: 671518da40bd548943ec12ee6a60f733a751e2e9
   React-RCTVibration: 60bc4d01d7d8ab7cff14852a195a7fa93b38e1f3
   React-rendererdebug: 6aaab394c9fefe395ef61809580a9bf63b98fd3e
-  React-rncore: 6680f0ebb941e256af7dc92c6a512356e77bfea7
+  React-rncore: 93c65b56bd7fe62ee53d4a64bf81965833251a89
   React-runtimeexecutor: 2ca6f02d3fd6eea5b9575eb30720cf12c5d89906
   React-runtimescheduler: 77543c74df984ce56c09d49d427149c53784aaf6
   React-utils: 42708ea436853045ef1eaff29996813d9fbbe209
@@ -1586,7 +1586,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNGestureHandler: 61bfdfc05db9b79dd61f894dcd29d3dcc6db3c02
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
-  RNReanimated: 57f436e7aa3d277fbfed05e003230b43428157c0
+  RNReanimated: 70a468d2451674361cc45b603627ada24aa4fe32
   RNScreens: b582cb834dc4133307562e930e8fa914b8c04ef2
   RNSentry: a6202c19ca31b69969dface2ea0db093e36c97a3
   RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
@@ -1597,7 +1597,7 @@ SPEC CHECKSUMS:
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Ting: 8f31e1ea5195095e69645fb574b8038511a19d35
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  VisionCamera: 68e892a9d36105b59395cd3e9518c7828fa9d3e0
+  VisionCamera: b236f548d6507923857dade542c7e0a148ed3492
   Yoga: 20d6a900dcc8d61d5e3b799bbf627cc34474a8c4
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 

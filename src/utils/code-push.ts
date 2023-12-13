@@ -1,7 +1,6 @@
 import type { DownloadProgressCallback, SyncStatusChangedCallback } from 'react-native-code-push'
 import CodePush from 'react-native-code-push'
 
-import { globalEnvConfig } from '@/env'
 import i18n from '@/i18n'
 
 const t = i18n.getFixedT(null, 'Global')
@@ -39,16 +38,14 @@ export class CodePushUtils {
     syncStatusChangedCb?: SyncStatusChangedCallback,
     downloadProgressCb?: DownloadProgressCallback
   ) {
-    if (globalEnvConfig.APP_ENVIRONMENT !== 'DEV') {
-      await CodePush.sync(
-        {
-          updateDialog: this.getUpdateDialogOptions(),
-          mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
-          installMode: CodePush.InstallMode.IMMEDIATE
-        },
-        syncStatusChangedCb,
-        downloadProgressCb
-      )
-    }
+    await CodePush.sync(
+      {
+        updateDialog: this.getUpdateDialogOptions(),
+        mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
+        installMode: CodePush.InstallMode.IMMEDIATE
+      },
+      syncStatusChangedCb,
+      downloadProgressCb
+    )
   }
 }

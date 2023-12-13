@@ -16,11 +16,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { TamaguiProvider } from 'tamagui'
 
 import config from '../tamagui.config'
-import type { UserRole } from './enums'
-import { useCodePush } from './hooks'
 import Navigation from './Navigation'
-import { useAuthStore, useLangStore, useThemeStore } from './store'
-import { AuthUtils, LangUtils, ThemeUtils } from './utils'
+import { useLangStore, useThemeStore } from './store'
+import { LangUtils, ThemeUtils } from './utils'
 
 function onAppStateChange(status: AppStateStatus) {
   if (Platform.OS !== 'web') {
@@ -46,22 +44,10 @@ function App() {
   )
   const { theme } = useThemeStore()
   const langStore = useLangStore()
-  const authStore = useAuthStore()
 
   useAsyncEffect(async () => {
     langStore.setLang(await LangUtils.getDefaultLang())
     useThemeStore.setState({ theme: ((await ThemeUtils.getTheme()) ?? 'light') as any })
-
-    if (await AuthUtils.isLogin()) {
-      authStore.login()
-    } else {
-      authStore.logout()
-    }
-
-    const role = await AuthUtils.getRole()
-    if (role) {
-      authStore.setUserRole(role as UserRole)
-    }
   }, [])
 
   useEffect(() => {
@@ -85,8 +71,6 @@ function App() {
       subscription.remove()
     }
   }, [])
-
-  useCodePush()
 
   return (
     <QueryClientProvider client={queryClient}>

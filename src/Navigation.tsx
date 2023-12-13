@@ -1,7 +1,7 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { BellRing, MoreHorizontal, PlusCircle, Settings } from '@tamagui/lucide-icons'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import { SizableText, XStack } from 'tamagui'
@@ -52,7 +52,7 @@ import type { RootStackParamList } from '@/types'
 
 import type { SheetMenuListItem } from './components'
 import { DropDownMenu, SheetMenu } from './components'
-import { useIsForeground, useNavigationData, useUserInfoQuery } from './hooks'
+import { useAuthGuard, useNavigationData } from './hooks'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -62,19 +62,10 @@ export default function Navigation() {
   const tabStore = useTabsStore()
   const themeStore = useThemeStore()
   const plantStore = usePlantStore()
+  useAuthGuard()
 
   const [homePlantSheetOpen, setHomePlantSheetOpen] = useState(false)
   const [homeSheetOpen, setHomeSheetOpen] = useState(false)
-
-  const { refetchUserInfo } = useUserInfoQuery()
-
-  const isForeground = useIsForeground()
-
-  useEffect(() => {
-    if (isForeground && authStore.isLogin) {
-      refetchUserInfo()
-    }
-  }, [isForeground])
 
   const { getHomeSheetMenuData, getInstallerTabTitleI18nText, getUserTabTitleI18nText } =
     useNavigationData()

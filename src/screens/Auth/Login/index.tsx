@@ -14,8 +14,7 @@ import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack
 import { AuthAPI } from '@/api'
 import { Checkbox } from '@/components'
 import { globalEnvConfig } from '@/env'
-import { useUserInfoQuery } from '@/hooks'
-import { useThemeStore } from '@/store'
+import { useAuthStore, useThemeStore } from '@/store'
 import type { LoginInputModel } from '@/types'
 import { AuthUtils, DeviceUtils, ToastUtils } from '@/utils'
 
@@ -26,9 +25,8 @@ export default function Screen() {
   const insets = useSafeAreaInsets()
   const { t } = useTranslation(['Auth', 'Global', 'Validation'])
   const themeStore = useThemeStore()
-  const navigation = useNavigation()
-
-  const { refetchUserInfo } = useUserInfoQuery()
+  const authStore = useAuthStore()
+  const { navigate } = useNavigation()
 
   const {
     control,
@@ -60,9 +58,8 @@ export default function Screen() {
       } else {
         await AuthUtils.removeAccountRememberPassword()
       }
-      if (await refetchUserInfo()) {
-        ToastUtils.success({ message: t('Global:Login.Success') })
-      }
+      authStore.login()
+      ToastUtils.success({ message: t('Global:Login.Success') })
     },
     onError: () => resetField('password')
   })
@@ -235,10 +232,10 @@ export default function Screen() {
           justifyContent="space-between"
           width="100%"
         >
-          <TouchableOpacity onPress={() => navigation.navigate('Auth.Forgot_Password')}>
+          <TouchableOpacity onPress={() => navigate('Auth.Forgot_Password')}>
             <SizableText>{t('Forgot.Password')}</SizableText>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Auth.SignUp.SelectRole')}>
+          <TouchableOpacity onPress={() => navigate('Auth.SignUp.SelectRole')}>
             <SizableText>{t('Signup')}</SizableText>
           </TouchableOpacity>
         </XStack>
