@@ -16,6 +16,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { TamaguiProvider } from 'tamagui'
 
 import config from '../tamagui.config'
+import { useCodePush } from './hooks'
 import Navigation from './Navigation'
 import { useLangStore, useThemeStore } from './store'
 import { LangUtils, ThemeUtils } from './utils'
@@ -71,6 +72,8 @@ function App() {
       subscription.remove()
     }
   }, [])
+
+  useCodePush()
 
   return (
     <QueryClientProvider client={queryClient}>

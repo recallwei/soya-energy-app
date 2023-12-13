@@ -52,23 +52,25 @@ import type { RootStackParamList } from '@/types'
 
 import type { SheetMenuListItem } from './components'
 import { DropDownMenu, SheetMenu } from './components'
-import { useAuthGuard, useNavigationData } from './hooks'
+import { useAuthGuard, useNavigationData, useUserInfoQuery } from './hooks'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function Navigation() {
   const { t } = useTranslation(['Screen', 'Global'])
   const authStore = useAuthStore()
+
   const tabStore = useTabsStore()
   const themeStore = useThemeStore()
   const plantStore = usePlantStore()
-  useAuthGuard()
+  const { fetchUserInfo } = useUserInfoQuery()
 
-  const [homePlantSheetOpen, setHomePlantSheetOpen] = useState(false)
-  const [homeSheetOpen, setHomeSheetOpen] = useState(false)
+  useAuthGuard(fetchUserInfo)
 
   const { getHomeSheetMenuData, getInstallerTabTitleI18nText, getUserTabTitleI18nText } =
     useNavigationData()
+  const [homePlantSheetOpen, setHomePlantSheetOpen] = useState(false)
+  const [homeSheetOpen, setHomeSheetOpen] = useState(false)
 
   return (
     <NavigationContainer theme={DefaultTheme}>
@@ -97,7 +99,7 @@ export default function Navigation() {
           statusBarStyle: themeStore.isDark() ? 'light' : 'dark', // iOS only
           statusBarColor: themeStore.getBgColor(), // Android only
           statusBarAnimation: 'slide',
-          animationTypeForReplace: 'pop',
+          animationTypeForReplace: 'push',
           headerTitleAlign: 'center'
         }}
       >

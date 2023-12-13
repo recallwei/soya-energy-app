@@ -47,7 +47,6 @@ export const useAuthStore = create<State & Actions>()(
     setDownloadProgress: (downloadProgress: number) => set(() => ({ downloadProgress }))
   }))
 )
-
 useAuthStore.subscribe(
   (state) => state.isLogin,
   async (isLogin) => {

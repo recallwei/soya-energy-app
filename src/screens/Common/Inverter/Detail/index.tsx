@@ -3,7 +3,7 @@ import { ChevronRight, Circle } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { RefreshControl, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { ScrollView, Separator, SizableText, XStack, YStack } from 'tamagui'
+import { ScrollView, Separator, SizableText, Stack, XStack, YStack } from 'tamagui'
 
 import { useRefresh } from '@/hooks'
 import StatusBadge from '@/screens/Installer/Management/components/ScrollList/components/StatusBadge'
@@ -36,17 +36,6 @@ export default function Screen() {
           space="$3"
         >
           <YStack>
-            <XStack
-              alignItems="center"
-              justifyContent="space-between"
-              padding="$2"
-            >
-              <SizableText>{t('Global:Real.Time.Status')}</SizableText>
-              <StatusBadge
-                currentTab={ManagementTab.Inverter}
-                status={detail.status}
-              />
-            </XStack>
             <FieldRow
               leftText={t('Global:Real.Time.Status')}
               customRight={
@@ -56,33 +45,25 @@ export default function Screen() {
                 />
               }
             />
-            <XStack
-              alignItems="center"
-              justifyContent="space-between"
-              backgroundColor="$gray2"
-              padding="$2"
-              borderRadius="$2"
-            >
-              <SizableText>{t('Current.Power')}</SizableText>
-              <SizableText fontWeight="$bold">{detail.power ?? '--'}W</SizableText>
-            </XStack>
+            <FieldRow
+              leftText={t('Current.Power')}
+              rightText={`${detail.power ?? '--'}W`}
+              stripe
+            />
           </YStack>
 
           <TouchableOpacity onPress={() => {}}>
-            <XStack
-              alignItems="center"
-              justifyContent="space-between"
-              padding="$2"
-            >
-              <SizableText>{t('Alarm.Message')}</SizableText>
-              <ChevronRight />
-            </XStack>
+            <FieldRow
+              leftText={t('Alarm.Message')}
+              customRight={<ChevronRight />}
+            />
           </TouchableOpacity>
 
           <XStack
             padding="$2"
             justifyContent="space-between"
           >
+            <Stack />
             <YStack
               alignItems="center"
               space="$2"
@@ -140,6 +121,8 @@ export default function Screen() {
               </XStack>
               <SizableText>0</SizableText>
             </YStack>
+
+            <Stack />
           </XStack>
 
           {detail && (

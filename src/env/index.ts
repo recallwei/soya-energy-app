@@ -5,6 +5,8 @@ class GlobalEnvConfig {
 
   readonly APP_VERSION: string
 
+  readonly AMAZON_S3_BUCKET_URL: string
+
   /**
    * Sentry DSN
    */
@@ -17,22 +19,25 @@ class GlobalEnvConfig {
         this.APP_ENVIRONMENT = 'PROD'
         this.BASE_API_URL = 'https://soyaenergy.com/api/raipiot-installer'
         this.APP_VERSION = '3.0.0'
+        this.AMAZON_S3_BUCKET_URL = 'https://soya-inner-uat.s3.eu-central-2.amazonaws.com/img'
         break
       case 'STAGING':
         this.APP_ENVIRONMENT = 'STAGING'
         this.BASE_API_URL = 'https://soya-uat.soyaenergy.com/api/raipiot-installer'
         this.APP_VERSION = '3.0.0'
+        this.AMAZON_S3_BUCKET_URL = 'https://soya-inner-uat.s3.eu-central-2.amazonaws.com/img'
         break
       case 'DEV':
       default:
         this.APP_ENVIRONMENT = 'DEV'
         this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-installer'
         this.APP_VERSION = '3.0.0'
+        this.AMAZON_S3_BUCKET_URL = 'https://soya-inner-uat.s3.eu-central-2.amazonaws.com/img'
         break
     }
   }
 }
 
 export const globalEnvConfig = new GlobalEnvConfig({
-  type: 'DEV'
+  type: 'STAGING'
 })

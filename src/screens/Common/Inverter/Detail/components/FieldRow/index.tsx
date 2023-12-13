@@ -12,8 +12,6 @@ const FieldRow = memo((props: Props) => (
     alignItems="center"
     justifyContent="space-between"
     padding="$2"
-    backgroundColor="$gray2"
-    borderRadius="$2"
     {...(props.stripe && {
       backgroundColor: '$gray2',
       borderRadius: '$2'
