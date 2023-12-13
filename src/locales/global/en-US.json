@@ -53,5 +53,7 @@
   "Share": "Share",
   "Management": "Management",
   "Weather": "Weather",
-  "Real.Time.Status": "Real-time Status"
+  "Real.Time.Status": "Real-time Status",
+  "Copy": "Copy",
+  "Copy.Success": "Copy success"
 }

@@ -1,6 +1,7 @@
 export { default as AlertDialog } from './AlertDialog'
 export { default as Card } from './Card'
 export { default as Checkbox } from './Checkbox'
+export { default as CopyButton } from './CopyButton'
 export { default as DropDownMenu } from './DropDownMenu'
 export { default as HeadingTitle } from './HeadingTitle'
 export { default as InstallerProvider } from './InstallerProvider'

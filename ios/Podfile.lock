@@ -1186,6 +1186,8 @@ PODS:
     - ZIPFoundation (= 0.9.11)
   - RNCAsyncStorage (1.21.0):
     - React-Core
+  - RNCClipboard (1.13.0):
+    - React-Core
   - RNGestureHandler (2.14.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1320,6 +1322,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeFileAccess (from `../node_modules/react-native-file-access`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -1484,6 +1487,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-file-access"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-clipboard/clipboard"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNImageCropPicker:
@@ -1516,7 +1521,7 @@ SPEC CHECKSUMS:
   CodePush: 255d7607f428dcbec39085f81a206b170e01d012
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: 39ba45baf4e398618f8b3a4bb6ba8fcdb7fc2133
-  FBReactNativeSpec: b338e31bb93ba6c4336ad1f402ba2203036a7463
+  FBReactNativeSpec: 20cfca68498e27879514790359289d1df2b52c56
   Flipper: c7a0093234c4bdd456e363f2f19b2e4b27652d44
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
   Flipper-DoubleConversion: 2dc99b02f658daf147069aad9dbd29d8feb06d30
@@ -1577,16 +1582,17 @@ SPEC CHECKSUMS:
   React-RCTText: 671518da40bd548943ec12ee6a60f733a751e2e9
   React-RCTVibration: 60bc4d01d7d8ab7cff14852a195a7fa93b38e1f3
   React-rendererdebug: 6aaab394c9fefe395ef61809580a9bf63b98fd3e
-  React-rncore: 93c65b56bd7fe62ee53d4a64bf81965833251a89
+  React-rncore: 6680f0ebb941e256af7dc92c6a512356e77bfea7
   React-runtimeexecutor: 2ca6f02d3fd6eea5b9575eb30720cf12c5d89906
   React-runtimescheduler: 77543c74df984ce56c09d49d427149c53784aaf6
   React-utils: 42708ea436853045ef1eaff29996813d9fbbe209
   ReactCommon: 851280fb976399ca1aabc74cc2c3612069ea70a2
   ReactNativeFileAccess: 4530e3be4d5069454c6c6389096d8cb78c897f2c
   RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
+  RNCClipboard: 204b94473a99932e314b730a81363e0bf795a60d
   RNGestureHandler: 61bfdfc05db9b79dd61f894dcd29d3dcc6db3c02
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
-  RNReanimated: 70a468d2451674361cc45b603627ada24aa4fe32
+  RNReanimated: 57f436e7aa3d277fbfed05e003230b43428157c0
   RNScreens: b582cb834dc4133307562e930e8fa914b8c04ef2
   RNSentry: a6202c19ca31b69969dface2ea0db093e36c97a3
   RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a

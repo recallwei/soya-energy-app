@@ -1,16 +1,17 @@
-import { useRoute } from '@react-navigation/native'
-import { ChevronRight, Circle } from '@tamagui/lucide-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { ChevronRight } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { RefreshControl, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { ScrollView, Separator, SizableText, Stack, XStack, YStack } from 'tamagui'
+import { ScrollView, SizableText, XStack, YStack } from 'tamagui'
 
+import { CopyButton } from '@/components'
 import { useRefresh } from '@/hooks'
 import StatusBadge from '@/screens/Installer/Management/components/ScrollList/components/StatusBadge'
 import { ManagementTab } from '@/screens/Installer/Management/enums'
 import type { RouteProp } from '@/types'
 
-import { FieldRow } from './components'
+import { AlarmArea, FieldRow } from './components'
 import { useInverterDetailQuery } from './hooks'
 
 export default function Screen() {
@@ -18,6 +19,7 @@ export default function Screen() {
   const route = useRoute<RouteProp<'Common.Inverter.Detail'>>()
   const { detail, isLoading, refetch } = useInverterDetailQuery({ id: route.params.id })
   const { refreshing, onRefresh } = useRefresh(refetch)
+  const { navigate } = useNavigation()
 
   return (
     <View>
@@ -59,90 +61,120 @@ export default function Screen() {
             />
           </TouchableOpacity>
 
-          <XStack
-            padding="$2"
-            justifyContent="space-between"
-          >
-            <Stack />
-            <YStack
-              alignItems="center"
-              space="$2"
-            >
-              <XStack
-                alignItems="center"
-                space="$0.5"
-              >
-                <Circle
-                  size={16}
-                  fill="#ff4d4f"
-                  color="#ff4d4f"
-                />
-                <SizableText size="$3">{t('Urgent.Alarms')}</SizableText>
-              </XStack>
-              <SizableText>0</SizableText>
-            </YStack>
-
-            <Separator vertical />
-
-            <YStack
-              alignItems="center"
-              space="$2"
-            >
-              <XStack
-                alignItems="center"
-                space="$0.5"
-              >
-                <Circle
-                  size={16}
-                  fill="#ef4518"
-                  color="#ef4518"
-                />
-                <SizableText size="$3">{t('Important.Alarms')}</SizableText>
-              </XStack>
-              <SizableText>0</SizableText>
-            </YStack>
-
-            <Separator vertical />
-
-            <YStack
-              alignItems="center"
-              space="$2"
-            >
-              <XStack
-                alignItems="center"
-                space="$0.5"
-              >
-                <Circle
-                  size={16}
-                  fill="#ff6600"
-                  color="#ff6600"
-                />
-                <SizableText size="$3">{t('General.Alarms')}</SizableText>
-              </XStack>
-              <SizableText>0</SizableText>
-            </YStack>
-
-            <Stack />
-          </XStack>
+          <AlarmArea />
 
           {detail && (
             <YStack>
-              <XStack
-                alignItems="center"
-                justifyContent="space-between"
-                padding="$2"
+              <FieldRow
+                leftText={t('Model')}
+                rightText={detail.deviceModel || '--'}
+              />
+
+              <FieldRow
+                leftText={t('Rated.Power')}
+                rightText={detail.ratedPower ?? '--'}
+                stripe
+              />
+
+              <TouchableOpacity onPress={() => {}}>
+                <FieldRow
+                  leftText={t('Alias')}
+                  customRight={
+                    <XStack
+                      space="$1"
+                      alignItems="center"
+                    >
+                      <SizableText
+                        fontSize="$4"
+                        fontWeight="$bold"
+                      >
+                        {detail.deviceAlias || '--'}
+                      </SizableText>
+                      <ChevronRight size="$1" />
+                    </XStack>
+                  }
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() =>
+                  navigate('User.Tabs', {
+                    screen: 'User.Home'
+                  })
+                }
               >
-                <SizableText>{t('Model')}</SizableText>
-                <SizableText fontWeight="$bold">{detail.deviceModel ?? '--'}</SizableText>
-              </XStack>
-              <XStack
-                alignItems="center"
-                backgroundColor="$gray2"
-                borderRadius="$2"
-              >
-                <SizableText>{t('Rated.Power')}</SizableText>
-                <SizableText fontWeight="$bold">{detail.ratedPower ?? '--'}</SizableText>
-              </XStack>
+                <FieldRow
+                  leftText={t('Plant')}
+                  stripe
+                  customRight={
+                    <XStack
+                      space="$1"
+                      alignItems="center"
+                    >
+                      <SizableText
+                        fontSize="$4"
+                        fontWeight="$bold"
+                      >
+                        {detail.plantName || '--'}
+                      </SizableText>
+                      <ChevronRight size="$1" />
+                    </XStack>
+                  }
+                />
+              </TouchableOpacity>
+
+              <FieldRow
+                leftText={t('Inverter.SN')}
+                customRight={
+                  <YStack space="$2">
+                    <SizableText
+                      fontSize="$4"
+                      fontWeight="$bold"
+                    >
+                      {detail.plantName || '--'}
+                    </SizableText>
+                    <CopyButton copyText={detail.plantName} />
+                  </YStack>
+                }
+              />
+
+              <FieldRow
+                leftText={t('Module.SN')}
+                stripe
+                customRight={
+                  <YStack space="$2">
+                    <SizableText
+                      fontSize="$4"
+                      fontWeight="$bold"
+                    >
+                      {detail.plantName || '--'}
+                    </SizableText>
+                    <CopyButton copyText={detail.plantName} />
+                  </YStack>
+                }
+              />
+
+              <FieldRow
+                leftText={t('Module.Firmware.Version.No')}
+                rightText={detail.plantName || '--'}
+              />
+
+              <FieldRow
+                leftText={t('Display.Board.Version')}
+                rightText={detail.plantName || '--'}
+                stripe
+              />
+
+              <FieldRow
+                leftText={t('Control.Board.Version')}
+                rightText={detail.plantName || '--'}
+              />
+
+              <FieldRow
+                leftText={t('Device.Owner')}
+                rightText={detail.plantName || '--'}
+                stripe
+              />
             </YStack>
           )}
         </YStack>
