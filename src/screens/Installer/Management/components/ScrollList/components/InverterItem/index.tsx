@@ -71,7 +71,7 @@ const InverterItem = memo((props: Props) => {
                   size="$3"
                   fontWeight="$bold"
                 >
-                  {props.power ?? '-'}
+                  {props.power ?? '--'}
                 </SizableText>
                 <SizableText size="$3">W</SizableText>
               </XStack>
@@ -83,7 +83,7 @@ const InverterItem = memo((props: Props) => {
                   size="$3"
                   fontWeight="$bold"
                 >
-                  {props.todayPower ?? '-'}
+                  {props.todayPower ?? '--'}
                 </SizableText>
                 <SizableText size="$3">kWh</SizableText>
               </XStack>
@@ -95,7 +95,7 @@ const InverterItem = memo((props: Props) => {
                   size="$3"
                   fontWeight="$bold"
                 >
-                  {props.totalPower ?? '-'}
+                  {props.totalPower ?? '--'}
                 </SizableText>
                 <SizableText size="$3">MWh</SizableText>
               </XStack>
@@ -104,7 +104,7 @@ const InverterItem = memo((props: Props) => {
               <SizableText size="$3">{t('Warranty.Date')}</SizableText>
               <XStack space="$2">
                 <SizableText size="$3">
-                  {TimeUtils.formatTime(props.warrantyDate, 'YYYY-MM-DD', '-')}
+                  {TimeUtils.formatTime(props.warrantyDate, 'YYYY-MM-DD', '--')}
                 </SizableText>
               </XStack>
             </XStack>

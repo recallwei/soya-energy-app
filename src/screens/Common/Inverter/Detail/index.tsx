@@ -5,13 +5,13 @@ import { RefreshControl, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { ScrollView, SizableText, XStack, YStack } from 'tamagui'
 
-import { CopyButton } from '@/components'
+import { CopyButton, FieldRow } from '@/components'
 import { useRefresh } from '@/hooks'
 import StatusBadge from '@/screens/Installer/Management/components/ScrollList/components/StatusBadge'
 import { ManagementTab } from '@/screens/Installer/Management/enums'
 import type { RouteProp } from '@/types'
 
-import { AlarmArea, FieldRow } from './components'
+import { AlarmArea } from './components'
 import { useInverterDetailQuery } from './hooks'
 
 export default function Screen() {

@@ -67,5 +67,12 @@
     "Text": "Battery Type",
     "BuiltIn": "Built-in",
     "Expand": "Expand"
-  }
+  },
+  "Model": "Model",
+  "BMS.Software.Version": "BMS Software Version",
+  "BAT.Software.Version": "BAT Software Version",
+  "Warranty.Effective.Date": "Warranty Effective Date",
+  "Expiration.Time": "Expiration time",
+  "Expand": "(Expand)",
+  "BuiltIn": "(Built-in)"
 }

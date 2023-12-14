@@ -35,6 +35,9 @@
   "Common.Inverter": {
     "Detail": "逆变器详情"
   },
+  "Common.Battery": {
+    "Detail": "电池详情"
+  },
   "Installer.Tabs": {
     "Guide": "指引",
     "Home": "主页",
@@ -62,10 +65,6 @@
     },
     "Plant": {
       "Management": "管理"
-    },
-    "Devices": {
-      "Inverter.Detail": "逆变器详情",
-      "Battery.Detail": "电池详情"
     }
   }
 }

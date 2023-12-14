@@ -35,6 +35,9 @@
   "Common.Inverter": {
     "Detail": "Inverter Detail"
   },
+  "Common.Battery": {
+    "Detail": "Battery Detail"
+  },
   "Installer.Tabs": {
     "Guide": "Guide",
     "Home": "Home",
@@ -62,10 +65,6 @@
     },
     "Plant": {
       "Management": "Management"
-    },
-    "Devices": {
-      "Inverter.Detail": "Inverter Detail",
-      "Battery.Detail": "Battery Detail"
     }
   }
 }

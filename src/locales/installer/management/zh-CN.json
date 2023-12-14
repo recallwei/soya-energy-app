@@ -67,5 +67,12 @@
     "Text": "电池类型",
     "BuiltIn": "内置",
     "Expand": "扩展"
-  }
+  },
+  "Model": "型号",
+  "BMS.Software.Version": "BMS 软件版本",
+  "BAT.Software.Version": "BAT 软件版本",
+  "Warranty.Effective.Date": "质保开始",
+  "Expiration.Time": "质保结束",
+  "Expand": "（扩展）",
+  "BuiltIn": "（内置）"
 }

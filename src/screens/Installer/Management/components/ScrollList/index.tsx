@@ -10,7 +10,7 @@ import { useRefresh } from '@/hooks'
 
 import { ManagementTab } from '../../enums'
 import type { SearchParams } from '../../types'
-import { InverterItem, PlantItem } from './components'
+import { BatteryItem, InverterItem, PlantItem } from './components'
 import { useInfiniteManagementDevices, usePlantSheet } from './hooks'
 
 interface Props extends SearchParams {
@@ -58,6 +58,12 @@ const ScrollList = memo((props: Props) => {
                 />
               )
             case ManagementTab.Battery:
+              return (
+                <BatteryItem
+                  {...item}
+                  currentTab={currentTab}
+                />
+              )
             default:
               return null
           }

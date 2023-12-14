@@ -46,7 +46,7 @@ export default function Screen() {
                     <GripVertical />
                     <YStack>
                       <SizableText>{item.id}</SizableText>
-                      <SizableText>{item.siteName}</SizableText>
+                      <SizableText>{item.plantName}</SizableText>
                     </YStack>
                   </XStack>
                   <View>

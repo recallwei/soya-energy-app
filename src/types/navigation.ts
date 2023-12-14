@@ -39,6 +39,7 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.Plant.Create.Form']: { code: string }
 
     ['Common.Inverter.Detail']: { id: string }
+    ['Common.Battery.Detail']: { id: string }
 
     ['Common.My.Personal_Info']: undefined
     ['Common.My.Personal_Info.Change_Username']: undefined
@@ -65,8 +66,6 @@ export type RootStackParamList = InstallerTabParamList &
     ['User.Home.Select_Location']: { longitude: number; latitude: number }
     ['User.Plant.Management']: undefined
     ['User.Devices']: undefined
-    ['User.Devices.Invertor_Detail']: { id: string } | undefined
-    ['User.Devices.Battery_Detail']: { id: string } | undefined
 
     // Temp
     ['Temp.Dev_Menu']: undefined

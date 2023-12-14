@@ -1,5 +1,7 @@
 import auth_en_us from './auth/en-US.json'
 import auth_zh_cn from './auth/zh-CN.json'
+import common_battery_en_us from './common/battery/en-US.json'
+import common_battery_zh_cn from './common/battery/zh-CN.json'
 import common_inverter_en_us from './common/inverter/en-US.json'
 import common_inverter_zh_cn from './common/inverter/zh-CN.json'
 import common_my_en_us from './common/my/en-US.json'
@@ -39,6 +41,7 @@ export const EN_US = {
   'Common.My.Settings': common_my_settings_en_us,
   'Common.My.Privacy_Management': common_my_privacy_management_en_us,
   'Common.Inverter': common_inverter_en_us,
+  'Common.Battery': common_battery_en_us,
   'User.Home': user_home_en_us,
   'User.Battery': user_battery_en_us,
   Temp: temp_en_us
@@ -56,6 +59,7 @@ export const ZH_CN = {
   'Common.My.Settings': common_my_settings_zh_cn,
   'Common.My.Privacy_Management': common_my_privacy_management_zh_cn,
   'Common.Inverter': common_inverter_zh_cn,
+  'Common.Battery': common_battery_zh_cn,
   'User.Home': user_home_zh_cn,
   'User.Battery': user_battery_zh_cn,
   Temp: temp_zh_cn

@@ -13,6 +13,7 @@ import {
   AuthSignUpScreen,
   AuthSignUpSelectRoleScreen,
   AuthSplashScreen,
+  CommonBatteryDetailScreen,
   CommonInverterDetailScreen,
   CommonMessageDetailScreen,
   CommonMessageListScreen,
@@ -39,8 +40,6 @@ import {
   DemoScreen,
   DevMenuScreen,
   ImageCacheTestScreen,
-  UserDevicesBatteryDetailScreen,
-  UserDevicesInvertorDetailScreen,
   UserHomeLiveStatusScreen,
   UserHomeSelectLocationScreen,
   UserHomeWeatherForecastSettingsScreen,
@@ -314,6 +313,11 @@ export default function Navigation() {
                   options={{ title: t('Common.Inverter.Detail') }}
                 />
                 <Stack.Screen
+                  name="Common.Battery.Detail"
+                  component={CommonBatteryDetailScreen}
+                  options={{ title: t('Common.Battery.Detail') }}
+                />
+                <Stack.Screen
                   name="Common.My.Privacy_Management"
                   component={CommonMyPrivacyManagementScreen}
                   options={{ title: t('Common.My.Privacy.Management') }}
@@ -409,16 +413,6 @@ export default function Navigation() {
                   name="User.Plant.Management"
                   component={UserPlantManagementScreen}
                   options={{ title: t('User.Plant.Management') }}
-                />
-                <Stack.Screen
-                  name="User.Devices.Invertor_Detail"
-                  component={UserDevicesInvertorDetailScreen}
-                  options={{ title: t('User.Devices.Inverter.Detail') }}
-                />
-                <Stack.Screen
-                  name="User.Devices.Battery_Detail"
-                  component={UserDevicesBatteryDetailScreen}
-                  options={{ title: t('User.Devices.Battery.Detail') }}
                 />
                 {/* Temp */}
                 <Stack.Screen
