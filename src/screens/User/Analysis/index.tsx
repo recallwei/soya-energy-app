@@ -1,10 +1,20 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { RefreshControl } from 'react-native'
-import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/RenderStackBars'
-import { Label, ScrollView, Slider, Switch, Text, ToggleGroup, View, XStack, YStack } from 'tamagui'
+import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/types'
+import {
+  Paragraph,
+  ScrollView,
+  SizableText,
+  Slider,
+  Switch,
+  ToggleGroup,
+  View,
+  XStack,
+  YStack
+} from 'tamagui'
 
-import { Card } from '@/components'
+import { Card, HeadingTitle } from '@/components'
 import { useRefresh } from '@/hooks'
 
 import { PieChartArea, StackChartArea } from './components'
@@ -131,7 +141,7 @@ export default function Screen() {
             alignSelf="center"
             orientation="horizontal"
             type="single"
-            size="$4"
+            size="$3"
             disableDeactivation
             value={currentTimeTab}
             onValueChange={(value: TimeTab) => {
@@ -142,36 +152,36 @@ export default function Screen() {
               value="day"
               width="auto"
             >
-              <Text fontFamily="$body">Day</Text>
+              <SizableText>Day</SizableText>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="month"
               width="auto"
             >
-              <Text fontFamily="$body">Month</Text>
+              <SizableText>Month</SizableText>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="year"
               width="auto"
             >
-              <Text fontFamily="$body">Year</Text>
+              <SizableText>Year</SizableText>
             </ToggleGroup.Item>
             <ToggleGroup.Item
               value="lifetime"
               width="auto"
             >
-              <Text fontFamily="$body">Life Time</Text>
+              <SizableText>Life Time</SizableText>
             </ToggleGroup.Item>
           </ToggleGroup>
 
-          <Label>Produced</Label>
+          <HeadingTitle title="Produced" />
 
           <PieChartArea
             data={producedData}
             unit="kWh"
           />
 
-          <Label>Consumed</Label>
+          <HeadingTitle title="Consumed" />
 
           <PieChartArea
             data={consumedData}
@@ -193,6 +203,7 @@ export default function Screen() {
               justifyContent="center"
               alignItems="center"
               space="$2"
+              flex={1}
             >
               <Switch
                 size="$3"
@@ -205,13 +216,14 @@ export default function Screen() {
                   backgroundColor="#0078d7"
                 />
               </Switch>
-              <Label>Produced</Label>
+              <SizableText size="$3">Produced</SizableText>
             </YStack>
 
             <YStack
               justifyContent="center"
               alignItems="center"
               space="$2"
+              flex={1}
             >
               <Switch
                 size="$3"
@@ -224,13 +236,14 @@ export default function Screen() {
                   backgroundColor="#f59a23"
                 />
               </Switch>
-              <Label>Consumed</Label>
+              <SizableText size="$3">Consumed</SizableText>
             </YStack>
 
             <YStack
               justifyContent="center"
               alignItems="center"
               space="$2"
+              flex={1}
             >
               <Switch
                 size="$3"
@@ -240,14 +253,14 @@ export default function Screen() {
               >
                 <Switch.Thumb animation="quick" />
               </Switch>
-              <Label>Imported/</Label>
-              <Label>Exported</Label>
+              <Paragraph size="$3">Imported/Exported</Paragraph>
             </YStack>
 
             <YStack
               justifyContent="center"
               alignItems="center"
               space="$2"
+              flex={1}
             >
               <Switch
                 size="$3"
@@ -257,18 +270,17 @@ export default function Screen() {
               >
                 <Switch.Thumb animation="quick" />
               </Switch>
-              <Label>Charged/</Label>
-              <Label>Discharged</Label>
+              <Paragraph size="$3">Charged/Discharged</Paragraph>
             </YStack>
           </XStack>
 
-          <Label>Performance</Label>
+          <HeadingTitle title="Performance" />
 
           <Card>
-            <YStack gap="$4">
+            <YStack space="$4">
               <XStack>
-                <Label>Energy Independence: </Label>
-                <Label color="green">89%</Label>
+                <SizableText>Energy Independence: </SizableText>
+                <SizableText color="green">89%</SizableText>
               </XStack>
               <Slider
                 defaultValue={[80]}
@@ -289,14 +301,19 @@ export default function Screen() {
                   borderWidth={6}
                 />
               </Slider>
-              <Label marginTop="$2">Measures your independence from the utility grid</Label>
+              <SizableText
+                marginTop="$2"
+                size="$3"
+              >
+                Measures your independence from the utility grid
+              </SizableText>
             </YStack>
           </Card>
 
           <Card>
-            <YStack gap="$4">
+            <YStack space="$2">
               <XStack>
-                <Label fontWeight="500">Currency Equivalent</Label>
+                <SizableText fontWeight="500">Currency Equivalent</SizableText>
               </XStack>
 
               <XStack
@@ -309,31 +326,31 @@ export default function Screen() {
                   alignItems="center"
                   gap="$1"
                 >
-                  <Label
+                  <SizableText
                     color="#0078d7"
                     fontWeight="600"
                   >
                     10.0 kWh
-                  </Label>
-                  <Label>Net Exported</Label>
+                  </SizableText>
+                  <SizableText size="$3">Net Exported</SizableText>
                 </YStack>
-                <Label>=</Label>
+                <SizableText size="$3">=</SizableText>
                 <YStack
                   justifyContent="center"
                   alignItems="center"
                   gap="$1"
                 >
-                  <Label color="#333333">$ 9.0</Label>
-                  <Label>Equivalent</Label>
+                  <SizableText color="#333333">$ 9.0</SizableText>
+                  <SizableText size="$3">Equivalent</SizableText>
                 </YStack>
               </XStack>
             </YStack>
           </Card>
 
           <Card>
-            <YStack gap="$4">
+            <YStack space="$2">
               <XStack>
-                <Label>Environmental Impact</Label>
+                <SizableText>Environmental Impact</SizableText>
               </XStack>
 
               <XStack
@@ -346,8 +363,8 @@ export default function Screen() {
                   gap="$1"
                   width="50%"
                 >
-                  <Label color="#0078d7">35.9 kWh</Label>
-                  <Label>Equivalent</Label>
+                  <SizableText color="#0078d7">35.9 kWh</SizableText>
+                  <SizableText size="$3">Equivalent</SizableText>
                 </YStack>
                 <YStack
                   justifyContent="center"
@@ -355,17 +372,17 @@ export default function Screen() {
                   gap="$1"
                   width="50%"
                 >
-                  <Label>CO₂ Reduction</Label>
-                  <Label color="#333333">26.0 KG</Label>
+                  <SizableText color="#333333">26.0 KG</SizableText>
+                  <SizableText size="$3">CO₂ Reduction</SizableText>
                 </YStack>
               </XStack>
             </YStack>
           </Card>
 
           <Card>
-            <YStack gap="$4">
+            <YStack space="$2">
               <XStack>
-                <Label>Net Exported</Label>
+                <SizableText>Net Exported</SizableText>
               </XStack>
 
               <XStack
@@ -379,13 +396,13 @@ export default function Screen() {
                   gap="$1"
                   width="50%"
                 >
-                  <Label
+                  <SizableText
                     color="#0078d7"
                     fontWeight="600"
                   >
                     10.0 kWh
-                  </Label>
-                  <Label>Net Exported</Label>
+                  </SizableText>
+                  <SizableText size="$3">Net Exported</SizableText>
                 </YStack>
               </XStack>
             </YStack>

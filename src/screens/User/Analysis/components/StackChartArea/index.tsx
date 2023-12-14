@@ -1,5 +1,5 @@
 import { BarChart } from 'react-native-gifted-charts'
-import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/RenderStackBars'
+import type { stackItemType } from 'react-native-gifted-charts/src/BarChart/types'
 
 interface Props {
   data?: stackItemType[]
