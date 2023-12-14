@@ -85,7 +85,7 @@ export default function Screen() {
                       alignItems="center"
                     >
                       <SizableText
-                        fontSize="$4"
+                        size="$3"
                         fontWeight="$bold"
                       >
                         {detail.deviceAlias || '--'}
@@ -112,7 +112,7 @@ export default function Screen() {
                       alignItems="center"
                     >
                       <SizableText
-                        fontSize="$4"
+                        fontSize="$3"
                         fontWeight="$bold"
                       >
                         {detail.plantName || '--'}
@@ -128,7 +128,7 @@ export default function Screen() {
                 customRight={
                   <YStack space="$2">
                     <SizableText
-                      fontSize="$4"
+                      fontSize="$3"
                       fontWeight="$bold"
                     >
                       {detail.plantName || '--'}
@@ -144,7 +144,7 @@ export default function Screen() {
                 customRight={
                   <YStack space="$2">
                     <SizableText
-                      fontSize="$4"
+                      fontSize="$3"
                       fontWeight="$bold"
                     >
                       {detail.plantName || '--'}

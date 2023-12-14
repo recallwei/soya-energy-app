@@ -31,9 +31,19 @@ export default function InputCardStatisticItem({
         rowGap="$1"
       >
         {icon}
-        <SizableText>{iconText}</SizableText>
+        <SizableText
+          size="$4"
+          fontWeight="$bold"
+        >
+          {iconText}
+        </SizableText>
       </YStack>
-      <SizableText>{bottomText}</SizableText>
+      <SizableText
+        size="$4"
+        fontWeight="$semiBold"
+      >
+        {bottomText}
+      </SizableText>
     </YStack>
   )
 }

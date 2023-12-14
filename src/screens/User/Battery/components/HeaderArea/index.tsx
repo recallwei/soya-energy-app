@@ -7,12 +7,12 @@ import ProgressRing from './ProgressRing'
 const HeaderArea = memo(() => {
   const { t } = useTranslation('User.Battery')
 
-  const [percentage, setPercentage] = useState(0)
+  const [percentage, setPercentage] = useState(90)
 
   useEffect(() => {
     const i = setInterval(() => {
       setPercentage(Math.random() * 100)
-    }, 2000)
+    }, 10000)
     return () => {
       clearInterval(i)
     }
@@ -24,8 +24,8 @@ const HeaderArea = memo(() => {
 
       <SizableText>{t('On.Standby')}</SizableText>
       <SizableText
-        fontSize="$9"
-        lineHeight="$9"
+        fontSize="$8"
+        lineHeight="$8"
         fontWeight="$bold"
       >
         0.7kWh

@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useAsyncEffect } from 'ahooks'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
-import { Circle, SizableText, styled, View, XStack, YStack } from 'tamagui'
+import { Circle, SizableText, Stack, styled, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 import { SYSTEM_RESOURCE } from '@/constants'
@@ -30,34 +30,34 @@ const mockData: Item[] = [
     id: '1',
     name: '户用电站',
     url: SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL,
-    total: 4,
-    normal: 3,
-    offline: 1,
+    total: 300,
+    normal: 24,
+    offline: 13,
     normalRunningRate: 75,
-    alarm: 0,
-    notMonitored: 0
+    alarm: 24,
+    notMonitored: 3
   },
   {
     id: '2',
     name: '逆变器',
     url: SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL,
-    total: 4,
-    normal: 3,
-    offline: 1,
-    normalRunningRate: 75,
-    alarm: 0,
-    notMonitored: 0
+    total: 400,
+    normal: 245,
+    offline: 56,
+    normalRunningRate: 33,
+    alarm: 1,
+    notMonitored: 24
   },
   {
     id: '3',
     name: '电池',
     url: SYSTEM_RESOURCE.BATTERY_DEFAULT_IMAGE_URL,
-    total: 4,
-    normal: 3,
-    offline: 1,
-    normalRunningRate: 75,
-    alarm: 0,
-    notMonitored: 0
+    total: 500,
+    normal: 123,
+    offline: 14,
+    normalRunningRate: 99,
+    alarm: 24,
+    notMonitored: 3
   }
 ]
 
@@ -119,6 +119,7 @@ export default function List() {
                 alignItems="center"
                 width="20%"
               >
+                <Stack />
                 <SizableText
                   marginTop="$2.5"
                   fontWeight="$semiBold"
@@ -126,16 +127,21 @@ export default function List() {
                 >
                   {item.name}
                 </SizableText>
+
                 <CachedImage
                   source={item.url}
                   style={{
-                    width: '70%',
-                    height: 120,
+                    width: 60,
+                    height: 60,
+                    overflow: 'hidden',
                     shadowRadius: 4,
                     shadowOpacity: 0.05,
-                    borderRadius: 4
+                    borderRadius: 8,
+                    marginBottom: 10
                   }}
+                  resizeMode="cover"
                 />
+                <Stack />
               </YStack>
 
               <YStack
@@ -165,7 +171,7 @@ export default function List() {
                       fontSize="$6"
                       fontWeight="$bold"
                     >
-                      {item.total}%
+                      {item.normalRunningRate}%
                     </SizableText>
                     <SizableText
                       lineHeight={16}
@@ -184,7 +190,7 @@ export default function List() {
                       fontSize="$6"
                       fontWeight="$bold"
                     >
-                      {item.total}
+                      {item.normal}
                     </SizableText>
                     <SizableText
                       lineHeight={16}
@@ -206,7 +212,7 @@ export default function List() {
                       fontSize="$6"
                       fontWeight="$bold"
                     >
-                      {item.total}
+                      {item.alarm}
                     </SizableText>
                     <SizableText
                       lineHeight={16}
@@ -233,7 +239,7 @@ export default function List() {
                       fontSize="$6"
                       fontWeight="$bold"
                     >
-                      {item.total}
+                      {item.offline}
                     </SizableText>
                     <SizableText
                       lineHeight={16}
@@ -255,7 +261,7 @@ export default function List() {
                       fontSize="$6"
                       fontWeight="$bold"
                     >
-                      {item.total}
+                      {item.notMonitored}
                     </SizableText>
                     <SizableText
                       lineHeight={16}
@@ -275,7 +281,14 @@ export default function List() {
                 </XStack>
               </YStack>
             </XStack>
-            <ProgressBar />
+            <ProgressBar
+              {...{
+                normal: Math.floor(Math.random() * 100) * 10,
+                alarm: Math.floor(Math.random() * 100),
+                notMonitored: Math.floor(Math.random() * 100),
+                offline: Math.floor(Math.random() * 100)
+              }}
+            />
           </YStack>
         </Card>
       )}

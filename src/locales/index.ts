@@ -22,6 +22,8 @@ import temp_en_us from './temp/en-US.json'
 import temp_zh_cn from './temp/zh-CN.json'
 import user_battery_en_us from './user/battery/en-US.json'
 import user_battery_zh_cn from './user/battery/zh-CN.json'
+import user_home_en_us from './user/home/en-US.json'
+import user_home_zh_cn from './user/home/zh-CN.json'
 import validation_en_us from './validation/en-US.json'
 import validation_zh_cn from './validation/zh-CN.json'
 
@@ -37,6 +39,7 @@ export const EN_US = {
   'Common.My.Settings': common_my_settings_en_us,
   'Common.My.Privacy_Management': common_my_privacy_management_en_us,
   'Common.Inverter': common_inverter_en_us,
+  'User.Home': user_home_en_us,
   'User.Battery': user_battery_en_us,
   Temp: temp_en_us
 } as const
@@ -53,6 +56,7 @@ export const ZH_CN = {
   'Common.My.Settings': common_my_settings_zh_cn,
   'Common.My.Privacy_Management': common_my_privacy_management_zh_cn,
   'Common.Inverter': common_inverter_zh_cn,
+  'User.Home': user_home_zh_cn,
   'User.Battery': user_battery_zh_cn,
   Temp: temp_zh_cn
 } as const

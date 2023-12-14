@@ -41,7 +41,7 @@ const InverterItem = memo((props: Props) => {
             />
           </View>
           <SizableText
-            size="$3"
+            size="$4"
             fontWeight="$bold"
           >
             {props.deviceSN}

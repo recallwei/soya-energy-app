@@ -27,10 +27,9 @@ const MenuList = memo(() => {
       <SizableText
         textAlign="center"
         fontSize="$3"
-      >{`${t('Update.On')} ${TimeUtils.formatTime(
-        Date.now(),
-        'YYYY-MM-DD hh:mm:ss'
-      )}`}</SizableText>
+      >
+        {`${t('Update.On')} ${TimeUtils.formatTime(Date.now(), 'YYYY-MM-DD hh:mm:ss')}`}
+      </SizableText>
     </>
   )
 })

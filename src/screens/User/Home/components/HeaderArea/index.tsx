@@ -1,11 +1,14 @@
 import { useNavigation } from '@react-navigation/native'
 import { Activity, CheckCircle2, CloudSun } from '@tamagui/lucide-icons'
+import { useTranslation } from 'react-i18next'
 import { Button, SizableText, XStack, YStack } from 'tamagui'
 
 import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
+import { TimeUtils } from '@/utils'
 
 export default function HeaderArea() {
+  const { t } = useTranslation('User.Home')
   const { navigate } = useNavigation()
 
   const themeStore = useThemeStore()
@@ -25,16 +28,22 @@ export default function HeaderArea() {
             alignItems="center"
             columnGap="$1.5"
           >
-            <CheckCircle2 color="green" />
-            <SizableText>Normal</SizableText>
+            <CheckCircle2
+              color="green"
+              size="$1"
+            />
+            <SizableText size="$3">Normal</SizableText>
           </XStack>
 
           <XStack
             alignItems="center"
             columnGap="$1.5"
           >
-            <SVG.ElectricalTower color={themeStore.isDark() ? '#ffffff' : '#333333'} />
-            <SizableText>On grid</SizableText>
+            <SVG.ElectricalTower
+              width={20}
+              color={themeStore.isDark() ? '#ffffff' : '#333333'}
+            />
+            <SizableText size="$3">On grid</SizableText>
           </XStack>
         </XStack>
 
@@ -42,8 +51,11 @@ export default function HeaderArea() {
           alignItems="center"
           columnGap="$1.5"
         >
-          <CloudSun color={themeStore.isDark() ? '#ffffff' : '#333333'} />
-          <SizableText>26°C</SizableText>
+          <CloudSun
+            color={themeStore.isDark() ? '#ffffff' : '#333333'}
+            size="$1"
+          />
+          <SizableText size="$3">26°C</SizableText>
         </XStack>
       </XStack>
 
@@ -51,7 +63,11 @@ export default function HeaderArea() {
         alignItems="center"
         justifyContent="space-between"
       >
-        <SizableText>2023-09-20 updated 12min ago</SizableText>
+        <SizableText size="$3">
+          {`${TimeUtils.formatTime(Date.now(), 'YYYY-MM-DD')} ${t('Time.Updated.Min.Ago', {
+            num: '13'
+          })}`}
+        </SizableText>
         <Button
           size="$2"
           backgroundColor={themeStore.isDark() ? '#dddddd20' : '#dfdfdf80'}
@@ -59,7 +75,7 @@ export default function HeaderArea() {
           icon={<Activity />}
           onPress={navToLiveStatus}
         >
-          Live Status
+          {t('Live.Status')}
         </Button>
       </XStack>
     </YStack>

@@ -111,9 +111,17 @@ export const MenuItemCard = memo((props: Props) => {
                   paddingRight="$2"
                   space="$2"
                 >
-                  {props.title && <SizableText fontWeight="$medium">{props.title}</SizableText>}
+                  {props.title && (
+                    <SizableText
+                      size="$5"
+                      fontWeight="$medium"
+                    >
+                      {props.title}
+                    </SizableText>
+                  )}
                   {props.rightTitle && (
                     <SizableText
+                      size="$5"
                       numberOfLines={1}
                       {...props.rightTitleProps}
                     >
@@ -123,7 +131,7 @@ export const MenuItemCard = memo((props: Props) => {
                 </XStack>
                 {props.description && (
                   <SizableText
-                    fontSize="$2"
+                    size="$3"
                     numberOfLines={props.descriptionLines}
                     ellipsizeMode={props.descriptionLines ? 'tail' : undefined}
                   >

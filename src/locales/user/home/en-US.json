@@ -1,0 +1,13 @@
+{
+  "Normal": "Normal",
+  "On.Grid": "On.Grid",
+  "Time.Updated.Min.Ago": "Updated {{num}} min ago",
+  "Live.Status": "Live Status",
+  "Grid": "Grid",
+  "Solar": "Solar",
+  "Battery": "Battery",
+  "Consumed": "Consumed",
+  "Charge": "Charge",
+  "Profile": "Profile",
+  "Self.Consumption": "Self Consumption"
+}

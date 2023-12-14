@@ -1,0 +1,13 @@
+{
+  "Normal": "正常",
+  "On.Grid": "在网",
+  "Time.Updated.Min.Ago": "更新于 {{num}} 分钟前",
+  "Live.Status": "实时状态",
+  "Grid": "电网",
+  "Solar": "太阳能",
+  "Battery": "电池",
+  "Consumed": "消耗",
+  "Charge": "充电",
+  "Profile": "配置",
+  "Self.Consumption": "自用模式"
+}

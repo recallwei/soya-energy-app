@@ -65,8 +65,8 @@ const ProgressRing = memo((props: Props) => {
           fill={globalStyles.successColor}
         />
         <XStack alignItems="center">
-          <SizableText size="$12">{percentage.toFixed(0)}</SizableText>
-          <SizableText>%</SizableText>
+          <SizableText size="$11">{percentage.toFixed(0)}</SizableText>
+          <SizableText size="$6">%</SizableText>
         </XStack>
       </YStack>
     </View>

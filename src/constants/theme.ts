@@ -3,5 +3,6 @@ export const globalStyles = {
   primaryColor: '#25c2a0',
   successColor: '#52c41a',
   warningColor: '#faad14',
-  errorColor: '#ff4d4f'
+  errorColor: '#ff4d4f',
+  muteColor: '#999999'
 }

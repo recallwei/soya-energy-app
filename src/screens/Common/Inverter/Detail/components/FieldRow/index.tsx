@@ -21,10 +21,10 @@ const FieldRow = memo((props: Props) => {
       })}
       {...rest}
     >
-      <SizableText fontSize="$4">{leftText}</SizableText>
+      <SizableText size="$3">{leftText}</SizableText>
       {customRight || (
         <SizableText
-          fontSize="$4"
+          size="$3"
           fontWeight="$bold"
         >
           {rightText ?? '--'}

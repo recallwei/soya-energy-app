@@ -17,9 +17,14 @@ const CardItem = memo((props: Props) => {
         justifyContent="center"
         space="$2"
       >
-        <SizableText fontSize="$4">{title}</SizableText>
         <SizableText
-          fontSize="$8"
+          fontSize="$3"
+          textAlign="center"
+        >
+          {title}
+        </SizableText>
+        <SizableText
+          fontSize="$7"
           fontWeight="$bold"
         >
           {value}

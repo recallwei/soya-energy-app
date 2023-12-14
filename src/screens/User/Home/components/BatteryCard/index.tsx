@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { Cog } from '@tamagui/lucide-icons'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Pressable, TouchableOpacity } from 'react-native'
 import { Separator, SizableText, XStack, YStack } from 'tamagui'
 
@@ -9,6 +10,7 @@ import { useThemeStore } from '@/store'
 import { SVG } from '@/svg'
 
 export default function BatteryCard() {
+  const { t } = useTranslation('User.Home')
   const { navigate } = useNavigation()
   const themeStore = useThemeStore()
   const [batteryLevel, setBatteryLevel] = useState(0)
@@ -21,48 +23,23 @@ export default function BatteryCard() {
   }, [])
 
   const getBatteryIconByLevel = () => {
+    const svgProps = {
+      color: themeStore.isDark() ? '#ffffff' : '#333333',
+      width: 40,
+      height: 40
+    }
     switch (batteryLevel) {
       case 4:
-        return (
-          <SVG.BatteryVerticalFull
-            color={themeStore.isDark() ? '#ffffff' : '#333333'}
-            width={44}
-            height={44}
-          />
-        )
+        return <SVG.BatteryVerticalFull {...svgProps} />
       case 3:
-        return (
-          <SVG.BatteryVerticalHigh
-            color={themeStore.isDark() ? '#ffffff' : '#333333'}
-            width={44}
-            height={44}
-          />
-        )
+        return <SVG.BatteryVerticalHigh {...svgProps} />
       case 2:
-        return (
-          <SVG.BatteryVerticalMedium
-            color={themeStore.isDark() ? '#ffffff' : '#333333'}
-            width={44}
-            height={44}
-          />
-        )
+        return <SVG.BatteryVerticalMedium {...svgProps} />
       case 1:
-        return (
-          <SVG.BatteryVerticalLow
-            color={themeStore.isDark() ? '#ffffff' : '#333333'}
-            width={44}
-            height={44}
-          />
-        )
+        return <SVG.BatteryVerticalLow {...svgProps} />
       case 0:
       default:
-        return (
-          <SVG.BatteryVerticalEmpty
-            color={themeStore.isDark() ? '#ffffff' : '#333333'}
-            width={44}
-            height={44}
-          />
-        )
+        return <SVG.BatteryVerticalEmpty {...svgProps} />
     }
   }
 
@@ -80,11 +57,11 @@ export default function BatteryCard() {
             {getBatteryIconByLevel()}
           </Pressable>
 
-          <YStack rowGap="$2">
-            <SizableText>Charge</SizableText>
+          <YStack rowGap="$1">
+            <SizableText size="$3">{t('Charge')}</SizableText>
             <XStack columnGap="$2">
-              <SizableText>88%</SizableText>
-              <SizableText>(7hr 50min)</SizableText>
+              <SizableText size="$3">88%</SizableText>
+              <SizableText size="$3">(7hr 50min)</SizableText>
             </XStack>
           </YStack>
         </XStack>
@@ -94,17 +71,17 @@ export default function BatteryCard() {
           vertical
         />
 
-        <TouchableOpacity onPress={() => navigate('SettingsBattery')}>
+        <TouchableOpacity onPress={() => navigate('User.Battery')}>
           <XStack>
-            <YStack rowGap="$2">
+            <YStack rowGap="$1">
               <XStack
                 alignItems="center"
                 columnGap="$1.5"
               >
-                <SizableText>Profile</SizableText>
+                <SizableText size="$3">{t('Profile')}</SizableText>
                 <Cog size="$1" />
               </XStack>
-              <SizableText>self-consumption</SizableText>
+              <SizableText size="$3">{t('Self.Consumption')}</SizableText>
             </YStack>
           </XStack>
         </TouchableOpacity>

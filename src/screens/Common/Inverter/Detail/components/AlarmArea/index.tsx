@@ -20,7 +20,7 @@ const AlarmArea = memo(() => {
           space="$0.5"
         >
           <Circle
-            size={16}
+            size={12}
             fill="#ff4d4f"
             color="#ff4d4f"
           />
@@ -40,7 +40,7 @@ const AlarmArea = memo(() => {
           space="$0.5"
         >
           <Circle
-            size={16}
+            size={12}
             fill="#ef4518"
             color="#ef4518"
           />
@@ -60,7 +60,7 @@ const AlarmArea = memo(() => {
           space="$0.5"
         >
           <Circle
-            size={16}
+            size={12}
             fill="#ff6600"
             color="#ff6600"
           />

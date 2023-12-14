@@ -15,8 +15,13 @@ export default function TotalCard() {
           columnGap="$2"
         >
           <SVG.Lightning color="#f7d94b" />
-          <SizableText>38.40</SizableText>
-          <SizableText>kWh</SizableText>
+          <SizableText
+            size="$5"
+            fontWeight="$bold"
+          >
+            38.40
+          </SizableText>
+          <SizableText size="$5">kWh</SizableText>
         </XStack>
 
         <Separator
@@ -30,8 +35,13 @@ export default function TotalCard() {
           columnGap="$2"
         >
           <SVG.Leaf color="green" />
-          <SizableText>25.60</SizableText>
-          <SizableText>kg CO₂</SizableText>
+          <SizableText
+            size="$5"
+            fontWeight="$bold"
+          >
+            25.60
+          </SizableText>
+          <SizableText size="$5">kg CO₂</SizableText>
         </XStack>
       </XStack>
     </Card>

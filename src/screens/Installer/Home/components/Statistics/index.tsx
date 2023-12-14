@@ -30,7 +30,7 @@ export default function Statistics() {
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                18.2
+                22.4
               </SizableText>
               <SizableText fontSize="$3">kWp</SizableText>
             </XStack>
@@ -41,13 +41,13 @@ export default function Statistics() {
 
       <Card>
         <XStack justifyContent="space-between">
-          <YStack>
+          <YStack alignItems="center">
             <XStack space="$2">
               <SizableText
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                0.0
+                12.8
               </SizableText>
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
@@ -58,13 +58,13 @@ export default function Statistics() {
             vertical
             marginHorizontal={15}
           />
-          <YStack>
+          <YStack alignItems="center">
             <XStack space="$2">
               <SizableText
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                0.0
+                358.6
               </SizableText>
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
@@ -75,13 +75,13 @@ export default function Statistics() {
             vertical
             marginHorizontal={15}
           />
-          <YStack>
+          <YStack alignItems="center">
             <XStack space="$2">
               <SizableText
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                0.0
+                2984.2
               </SizableText>
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>

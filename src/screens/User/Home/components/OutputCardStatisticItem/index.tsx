@@ -18,7 +18,12 @@ export default function OutputCardStatisticItem({
         rowGap="$2"
       >
         {icon}
-        <SizableText>{text}</SizableText>
+        <SizableText
+          size="$4"
+          fontWeight="$bold"
+        >
+          {text}
+        </SizableText>
       </YStack>
     )
   }
@@ -31,6 +36,8 @@ export default function OutputCardStatisticItem({
     >
       {icon}
       <SizableText
+        size="$4"
+        fontWeight="$bold"
         position="absolute"
         right={-80}
         justifyContent="center"

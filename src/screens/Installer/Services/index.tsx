@@ -39,19 +39,41 @@ export default function DemoScreen() {
             <HeadingTitle title={t('Household.PV.Services')} />
             <XStack space="$2">
               <ServiceItem
-                icon={<Siren size="$2" />}
+                icon={
+                  <Siren
+                    size="$1.5"
+                    color="$gray12"
+                  />
+                }
                 text={t('Alarm.Process')}
               />
               <ServiceItem
-                icon={<Laptop size="$2" />}
+                icon={
+                  <Laptop
+                    size="$1.5"
+                    color="$gray12"
+                  />
+                }
                 text={t('Remote.Configuration')}
               />
+            </XStack>
+            <XStack space="$2">
               <ServiceItem
-                icon={<ShieldCheck size="$2" />}
+                icon={
+                  <ShieldCheck
+                    size="$1.5"
+                    color="$gray12"
+                  />
+                }
                 text={t('Warranty.Check')}
               />
               <ServiceItem
-                icon={<Siren size="$2" />}
+                icon={
+                  <Siren
+                    size="$1.5"
+                    color="$gray12"
+                  />
+                }
                 text={t('Plant.Transfer')}
               />
             </XStack>
@@ -61,15 +83,24 @@ export default function DemoScreen() {
             <HeadingTitle title={t('Common.Services')} />
             <XStack
               space="$2"
-              width="50%"
               paddingRight="$2"
             >
               <ServiceItem
-                icon={<Users2 size="$2" />}
+                icon={
+                  <Users2
+                    size="$1.5"
+                    color="$gray12"
+                  />
+                }
                 text={t('My.Customers')}
               />
               <ServiceItem
-                icon={<Settings size="$2" />}
+                icon={
+                  <Settings
+                    size="$1.5"
+                    color="$gray12"
+                  />
+                }
                 text={t('Electricity.Tariff.Settings')}
               />
             </XStack>

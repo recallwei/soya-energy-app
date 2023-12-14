@@ -53,7 +53,12 @@ const PlantItem = memo((props: Props) => {
           space="$2"
         >
           <Component size={16} />
-          <SizableText fontWeight="$bold">{props.plantName}</SizableText>
+          <SizableText
+            size="$4"
+            fontWeight="$bold"
+          >
+            {props.plantName}
+          </SizableText>
         </XStack>
         <XStack
           alignItems="center"
@@ -116,7 +121,7 @@ const PlantItem = memo((props: Props) => {
           space="$2"
         >
           <MapPin size={16} />
-          <SizableText size="$3">{props.address ?? '-'}</SizableText>
+          <SizableText size="$2">{props.address ?? '-'}</SizableText>
         </XStack>
       </YStack>
     </Card>

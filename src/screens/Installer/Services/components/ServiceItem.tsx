@@ -17,20 +17,21 @@ const ServiceItem = memo((props: Props) => {
   return (
     <Card
       flex={1}
-      padding="$2"
+      padding="$3"
       animation="bouncy"
       onPress={handlePress}
       pressStyle={{ scale: 0.9 }}
     >
       <YStack
         alignItems="center"
-        space="$2.5"
+        space="$2"
       >
         {props.icon}
         <SizableText
-          fontSize="$3"
+          size="$3"
           textAlign="center"
           lineHeight="$1"
+          fontWeight="$medium"
         >
           {props.text}
         </SizableText>
@@ -38,5 +39,4 @@ const ServiceItem = memo((props: Props) => {
     </Card>
   )
 })
-
 export default ServiceItem
