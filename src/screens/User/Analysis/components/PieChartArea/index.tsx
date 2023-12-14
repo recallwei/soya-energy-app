@@ -1,5 +1,6 @@
-import { PieChart } from 'react-native-gifted-charts'
-import { Card, Square, Text, View, XStack, YStack } from 'tamagui'
+import { Card, Text, View, XStack, YStack } from 'tamagui'
+
+import { PieChart } from '@/charts'
 
 interface ChartItem {
   value: number
@@ -18,7 +19,6 @@ interface Props {
 export default function PieChartArea(props: Props) {
   if (!props.data || props.data.length === 0) return null
 
-  const getTotal = () => props.data?.reduce((acc, cur) => acc + cur.value, 0).toFixed(2)
   return (
     <View
       position="relative"
@@ -60,36 +60,21 @@ export default function PieChartArea(props: Props) {
             </YStack>
           </XStack>
         </Card.Header>
-      </Card>
-      <Square
-        position="absolute"
-        left={0}
-        right={0}
-        top={0}
-        bottom={0}
-        zIndex={1}
-      >
         <PieChart
-          strokeWidth={2}
-          strokeColor="white"
-          data={props.data}
-          donut
-          radius={70}
-          textColor="black"
-          innerRadius={0}
-          showTextBackground
-          showValuesAsLabels
-          showGradient={false}
-          focusOnPress
-          sectionAutoFocus
-          centerLabelComponent={() => (
-            <YStack alignItems="center">
-              <Text fontFamily="$body">{getTotal()}</Text>
-              <Text fontFamily="$body">{props.unit}</Text>
-            </YStack>
-          )}
+          title="123"
+          subtext="123"
+          data={[
+            {
+              name: '123',
+              value: 20
+            },
+            {
+              name: '123',
+              value: 20
+            }
+          ]}
         />
-      </Square>
+      </Card>
     </View>
   )
 }

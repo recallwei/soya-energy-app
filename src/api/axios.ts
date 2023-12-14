@@ -38,7 +38,7 @@ class Request {
     }
   }
 
-  REFRESH_API_URL = `${globalEnvConfig.BASE_API_URL}/auth/refresh-token`
+  REFRESH_API_URL = `${globalEnvConfig.BASE_INSTALLER_API_URL}/auth/refresh-token`
 
   public constructor() {
     this.instance = axios.create(this.config)
@@ -46,7 +46,7 @@ class Request {
     this.instance.interceptors.request.use(
       async (req: InternalAxiosRequestConfig) => {
         const { url } = req
-        if (url?.startsWith(globalEnvConfig.BASE_API_URL)) {
+        if (url?.startsWith(globalEnvConfig.BASE_INSTALLER_API_URL)) {
           // req.headers['Tenant-Id'] = '000000'
           /* cspell:disable-next-line */
           req.headers.Authorization = 'Basic cmFpcGlvdDpyYWlwaW90X3NlY3JldA=='

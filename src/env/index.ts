@@ -1,7 +1,7 @@
 class GlobalEnvConfig {
   readonly APP_ENVIRONMENT: 'DEV' | 'STAGING' | 'PROD'
 
-  readonly BASE_API_URL: string
+  readonly BASE_INSTALLER_API_URL: string
 
   readonly APP_VERSION: string
 
@@ -17,20 +17,20 @@ class GlobalEnvConfig {
     switch (config.type) {
       case 'PROD':
         this.APP_ENVIRONMENT = 'PROD'
-        this.BASE_API_URL = 'https://soyaenergy.com/api/raipiot-installer'
+        this.BASE_INSTALLER_API_URL = 'https://soyaenergy.com/api/raipiot-installer'
         this.APP_VERSION = '3.0.0'
         this.AMAZON_S3_BUCKET_URL = 'https://soya-inner-uat.s3.eu-central-1.amazonaws.com/picture'
         break
       case 'STAGING':
         this.APP_ENVIRONMENT = 'STAGING'
-        this.BASE_API_URL = 'https://soya-uat.soyaenergy.com/api/raipiot-installer'
+        this.BASE_INSTALLER_API_URL = 'https://soya-uat.soyaenergy.com/api/raipiot-installer'
         this.APP_VERSION = '3.0.0'
         this.AMAZON_S3_BUCKET_URL = 'https://soya-inner-uat.s3.eu-central-1.amazonaws.com/picture'
         break
       case 'DEV':
       default:
         this.APP_ENVIRONMENT = 'DEV'
-        this.BASE_API_URL = 'http://192.168.2.231:1001/raipiot-installer'
+        this.BASE_INSTALLER_API_URL = 'http://192.168.2.231:1001/raipiot-installer'
         this.APP_VERSION = '3.0.0'
         this.AMAZON_S3_BUCKET_URL = 'https://soya-inner-uat.s3.eu-central-1.amazonaws.com/picture'
         break

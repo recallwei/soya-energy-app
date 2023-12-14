@@ -166,11 +166,11 @@ export default function Navigation() {
                       switch (tabStore.userCurrentTab) {
                         case 'User.Home':
                           if (authStore.isInstaller()) {
-                            return <SizableText>{plantStore.currentPlant.plantName}</SizableText>
+                            return <SizableText>{plantStore.currentPlant?.plantName}</SizableText>
                           }
                           return (
                             <DropDownMenu
-                              text={plantStore.currentPlant.plantName}
+                              text={plantStore.currentPlant?.plantName}
                               sheetMenu={{
                                 sheet: {
                                   open: homePlantSheetOpen,

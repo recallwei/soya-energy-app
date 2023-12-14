@@ -11,7 +11,7 @@ import type {
 import httpRequest from './axios'
 
 export class AuthAPI {
-  private static AUTH_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/auth`
+  private static AUTH_API_PREFIX = `${globalEnvConfig.BASE_INSTALLER_API_URL}/auth`
 
   /**
    * 登录

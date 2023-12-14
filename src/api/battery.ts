@@ -4,7 +4,7 @@ import type { Battery, Page, PlantPageModel, R } from '@/types'
 import httpRequest from './axios'
 
 export class BatteryAPI {
-  private static BATTERY_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/inverter`
+  private static BATTERY_API_PREFIX = `${globalEnvConfig.BASE_INSTALLER_API_URL}/inverter`
 
   static LIST_QUERY_KEY = 'INVERTER_LIST'
 

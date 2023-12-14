@@ -4,7 +4,7 @@ import type { Page, Plant, PlantPageModel, R } from '@/types'
 import httpRequest from './axios'
 
 export class PlantAPI {
-  private static PLANT_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/installer`
+  private static PLANT_API_PREFIX = `${globalEnvConfig.BASE_INSTALLER_API_URL}/installer`
 
   static LIST_QUERY_KEY = 'PLANT_LIST'
 

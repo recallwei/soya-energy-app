@@ -5,6 +5,7 @@ brucesong
 cocoapods
 codepush
 commitlint
+echarts
 ellipsize
 flatlist
 Gantt
@@ -25,6 +26,7 @@ Raipiot
 Signup
 tamagui
 tanstack
+wuba
 xcodeproj
 Zipcode
 Zustand

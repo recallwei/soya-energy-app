@@ -10,6 +10,7 @@ import { SizableText, XStack, YStack } from 'tamagui'
 import { Card } from '@/components'
 import { SYSTEM_RESOURCE } from '@/constants'
 import type { ManagementTab } from '@/screens/Installer/Management/enums'
+import { usePlantStore } from '@/store'
 import type { Plant } from '@/types'
 import { CacheUtils } from '@/utils'
 
@@ -23,12 +24,16 @@ interface Props extends Plant {
 const PlantItem = memo((props: Props) => {
   const { t } = useTranslation('Installer.Management')
   const { navigate } = useNavigation()
+  const plantStore = usePlantStore()
 
   useAsyncEffect(async () => {
     await CacheUtils.fetchBlob(props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL)
   }, [props.projectPic])
 
-  const navToDetail = () => navigate('User.Tabs', { screen: 'User.Home', params: { id: props.id } })
+  const navToDetail = () => {
+    navigate('User.Tabs', { screen: 'User.Home', params: { id: props.id } })
+    plantStore.setCurrentPlant({ ...props })
+  }
 
   return (
     <Card onPress={navToDetail}>

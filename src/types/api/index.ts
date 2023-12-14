@@ -1,6 +1,7 @@
 export * from './auth'
 export * from './axios'
 export * from './battery'
+export * from './device'
 export * from './inverter'
 export * from './plant'
 export * from './user'

@@ -3,7 +3,7 @@ import { create } from 'zustand'
 import type { Plant } from '@/types'
 
 interface State {
-  currentPlant: Plant
+  currentPlant: Plant | null
   plantList: Plant[]
 }
 
@@ -13,20 +13,8 @@ interface Actions {
 }
 
 const initialState: State = {
-  currentPlant: {
-    id: '123',
-    plantName: '阿姆斯特丹 - 电站'
-  },
-  plantList: [
-    {
-      id: '123',
-      plantName: '阿姆斯特丹 - 电站'
-    },
-    {
-      id: '1234',
-      plantName: '法兰克福 - 电站'
-    }
-  ]
+  currentPlant: null,
+  plantList: []
 }
 
 export const usePlantStore = create<State & Actions>()((set) => ({

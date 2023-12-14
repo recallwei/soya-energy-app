@@ -4,7 +4,7 @@ import type { Inverter, InverterPageModel, Page, R } from '@/types'
 import httpRequest from './axios'
 
 export class InverterAPI {
-  private static INVERTER_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/site`
+  private static INVERTER_API_PREFIX = `${globalEnvConfig.BASE_INSTALLER_API_URL}/site`
 
   static LIST_QUERY_KEY = 'INVERTER_LIST'
 

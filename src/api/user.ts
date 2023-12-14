@@ -4,7 +4,7 @@ import type { R, UserInfo } from '@/types'
 import httpRequest from './axios'
 
 export class UserAPI {
-  private static USER_API_PREFIX = `${globalEnvConfig.BASE_API_URL}/base`
+  private static USER_API_PREFIX = `${globalEnvConfig.BASE_INSTALLER_API_URL}/base`
 
   static ME_QUERY_KEY = 'ME'
 
