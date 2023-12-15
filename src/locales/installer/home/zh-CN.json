@@ -9,5 +9,8 @@
   "Normal": "正常",
   "Alarm": "告警",
   "Offline": "离线",
-  "Not.Monitored": "未监控"
+  "Not.Monitored": "未监控",
+  "Plant": "电站",
+  "Inverter": "逆变器",
+  "Battery": "电池"
 }

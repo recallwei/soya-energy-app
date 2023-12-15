@@ -1,0 +1,21 @@
+{
+  "Energy": "Energy",
+  "Energy.Consumption": "Energy consumption",
+  "Self.Consumption": "Self Consumption",
+  "Export.Energy": "Export Energy",
+  "Self.Sufficiency": "Self Sufficiency",
+  "Import.Energy": "Import Energy",
+  "Energy.Balance": "Energy Balance",
+  "PV.Power": "PV Power",
+  "Load.Power": "Load Power",
+  "Import.Power": "Import Power",
+  "Export.Power": "Export Power",
+  "Battery.Charge": "Charge",
+  "Battery.Discharge": "Discharge",
+  "Day": "Day",
+  "Month": "Month",
+  "Year": "Year",
+  "Life.Time": "Life Time",
+  "Trees": "Trees",
+  "Environment.Impact": "Environment Impact"
+}

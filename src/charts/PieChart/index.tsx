@@ -1,24 +1,26 @@
 import SvgChart from '@wuba/react-native-echarts/svgChart'
 import { memo, useEffect, useRef } from 'react'
-import { View } from 'tamagui'
+import type { StackProps } from 'tamagui'
+import { Stack } from 'tamagui'
 
-import type { BaseChartItem, ECharts } from '@/charts'
-import echarts from '@/charts'
-import { useThemeStore } from '@/store'
+import type { BaseChartItem, ECharts, ECOption } from '@/charts'
+import { useLangStore, useThemeStore } from '@/store'
 
-interface Props {
-  title: string
-  subtext: string
+import echarts from '../charts'
+
+interface Props extends StackProps {
+  title?: string
   data?: BaseChartItem[]
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
 }
 
 const PieChart = memo((props: Props) => {
-  const { title, subtext, data = [], width = 200, height = 200 } = props
+  const { title, data = [], width = 200, height = 200, ...rest } = props
   const svgRef = useRef<any>(null)
   const chart = useRef<ECharts | null>(null)
   const themeStore = useThemeStore()
+  const langStore = useLangStore()
 
   useEffect(() => {
     initChart()
@@ -29,19 +31,20 @@ const PieChart = memo((props: Props) => {
     chart.current = echarts.init(svgRef.current!, themeStore.theme, {
       renderer: 'svg',
       width,
-      height
+      height,
+      locale: langStore.lang
     })
     getChartData()
   }
 
   function getChartData() {
-    const option = {
+    const option: ECOption = {
       title: {
         text: title,
-        subtext,
         left: 'center'
       },
       tooltip: {
+        confine: true,
         trigger: 'item'
       },
       legend: {
@@ -50,8 +53,16 @@ const PieChart = memo((props: Props) => {
         data: data.map((item) => item.name)
       },
       series: {
+        radius: ['40%', '70%'],
         type: 'pie',
-        radius: '50%',
+        avoidLabelOverlap: false,
+        label: {
+          show: false,
+          position: 'center'
+        },
+        labelLine: {
+          show: false
+        },
         data: props.data,
         emphasis: {
           itemStyle: {
@@ -65,10 +76,14 @@ const PieChart = memo((props: Props) => {
     chart.current!.setOption(option)
   }
 
+  useEffect(() => {
+    getChartData()
+  }, [data, title, themeStore.theme])
+
   return (
-    <View>
+    <Stack {...rest}>
       <SvgChart ref={svgRef} />
-    </View>
+    </Stack>
   )
 })
 export default PieChart

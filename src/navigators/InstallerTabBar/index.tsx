@@ -6,6 +6,7 @@ import { Platform } from 'react-native'
 import { View } from 'tamagui'
 
 import { PlantAPI } from '@/api'
+import { globalStyles } from '@/constants'
 import {
   InstallerGuideScreen,
   InstallerHomeScreen,
@@ -40,7 +41,7 @@ export default function InstallerTabBar() {
           backgroundColor: themeStore.getBgColor(),
           ...(Platform.OS === 'android' && { paddingBottom: 6 })
         },
-        tabBarActiveTintColor: themeStore.getTextColor(),
+        tabBarActiveTintColor: globalStyles.primaryColor,
         tabBarInactiveTintColor: '#999999'
       })}
     >

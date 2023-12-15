@@ -1188,6 +1188,8 @@ PODS:
     - React-Core
   - RNCClipboard (1.13.0):
     - React-Core
+  - RNDateTimePicker (7.6.2):
+    - React-Core
   - RNGestureHandler (2.14.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1227,7 +1229,7 @@ PODS:
     - React-Core
     - SPAlert (= 4.2.0)
   - TOCropViewController (2.6.1)
-  - VisionCamera (3.6.16):
+  - VisionCamera (3.6.17):
     - React
     - React-callinvoker
     - React-Core
@@ -1323,6 +1325,7 @@ DEPENDENCIES:
   - ReactNativeFileAccess (from `../node_modules/react-native-file-access`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -1489,6 +1492,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCClipboard:
     :path: "../node_modules/@react-native-clipboard/clipboard"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNImageCropPicker:
@@ -1590,6 +1595,7 @@ SPEC CHECKSUMS:
   ReactNativeFileAccess: 4530e3be4d5069454c6c6389096d8cb78c897f2c
   RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNCClipboard: 204b94473a99932e314b730a81363e0bf795a60d
+  RNDateTimePicker: fc2e4f2795877d45e84d85659bebe627eba5c931
   RNGestureHandler: 61bfdfc05db9b79dd61f894dcd29d3dcc6db3c02
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNReanimated: 57f436e7aa3d277fbfed05e003230b43428157c0
@@ -1603,7 +1609,7 @@ SPEC CHECKSUMS:
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Ting: 8f31e1ea5195095e69645fb574b8038511a19d35
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  VisionCamera: b236f548d6507923857dade542c7e0a148ed3492
+  VisionCamera: 3cb14dbbf94962e123f56b3f6afe6c6fe5dac955
   Yoga: 20d6a900dcc8d61d5e3b799bbf627cc34474a8c4
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 

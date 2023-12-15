@@ -11,63 +11,22 @@ import { ManagementTab } from '@/screens/Installer/Management/enums'
 import { useThemeStore } from '@/store'
 import { CacheUtils } from '@/utils'
 
+import { useHomeDeviceStatisticQuery } from '../../hooks'
 import ProgressBar from '../ProgressBar'
-
-interface Item {
-  id: string
-  name: string
-  url: string
-  total: number
-  normal: number
-  offline: number
-  normalRunningRate: number
-  alarm: number
-  notMonitored: number
-}
-
-const mockData: Item[] = [
-  {
-    id: '1',
-    name: '户用电站',
-    url: SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL,
-    total: 300,
-    normal: 24,
-    offline: 13,
-    normalRunningRate: 75,
-    alarm: 24,
-    notMonitored: 3
-  },
-  {
-    id: '2',
-    name: '逆变器',
-    url: SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL,
-    total: 400,
-    normal: 245,
-    offline: 56,
-    normalRunningRate: 33,
-    alarm: 1,
-    notMonitored: 24
-  },
-  {
-    id: '3',
-    name: '电池',
-    url: SYSTEM_RESOURCE.BATTERY_DEFAULT_IMAGE_URL,
-    total: 500,
-    normal: 123,
-    offline: 14,
-    normalRunningRate: 99,
-    alarm: 24,
-    notMonitored: 3
-  }
-]
 
 export default function List() {
   const { t } = useTranslation('Installer.Home')
   const themeStore = useThemeStore()
   const { navigate } = useNavigation()
 
+  const { statisticData } = useHomeDeviceStatisticQuery()
+
   useAsyncEffect(async () => {
-    await CacheUtils.fetchBlob(mockData.map((item) => item.url))
+    await CacheUtils.fetchBlob([
+      SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL,
+      SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL,
+      SYSTEM_RESOURCE.BATTERY_DEFAULT_IMAGE_URL
+    ])
   }, [])
 
   const StatisticCard = styled(View, {
@@ -102,196 +61,201 @@ export default function List() {
       contentContainerStyle={{ gap: 6 }}
       numColumns={1}
       scrollEnabled={false}
-      data={mockData}
-      keyExtractor={({ id }: Item) => id}
-      renderItem={({ item }) => (
-        <Card onPress={() => handleClickCard(item.id)}>
-          <YStack
-            space="$2"
-            width="100%"
-          >
-            <XStack
+      data={statisticData}
+      keyExtractor={(_, index) => index.toString()}
+      renderItem={({ item }) => {
+        if (!item) {
+          return null
+        }
+        return (
+          <Card onPress={() => handleClickCard(item.id)}>
+            <YStack
               space="$2"
-              justifyContent="space-between"
+              width="100%"
             >
-              <YStack
-                justifyContent="space-between"
-                alignItems="center"
-                width="20%"
-              >
-                <Stack />
-                <SizableText
-                  marginTop="$2.5"
-                  fontWeight="$semiBold"
-                  fontSize="$4"
-                >
-                  {item.name}
-                </SizableText>
-
-                <CachedImage
-                  source={item.url}
-                  style={{
-                    width: 60,
-                    height: 60,
-                    overflow: 'hidden',
-                    shadowRadius: 4,
-                    shadowOpacity: 0.05,
-                    borderRadius: 8,
-                    marginBottom: 10
-                  }}
-                  resizeMode="cover"
-                />
-                <Stack />
-              </YStack>
-
-              <YStack
+              <XStack
                 space="$2"
-                width="100%"
+                justifyContent="space-between"
               >
-                <XStack
-                  width="75%"
-                  space="$2"
+                <YStack
+                  justifyContent="space-between"
+                  alignItems="center"
+                  width="20%"
                 >
-                  <StatisticCard>
-                    <SizableText
-                      fontSize="$6"
-                      fontWeight="$bold"
-                    >
-                      {item.total}
-                    </SizableText>
-                    <SizableText
-                      lineHeight={16}
-                      fontSize={10}
-                    >
-                      {t('Total')}
-                    </SizableText>
-                  </StatisticCard>
-                  <StatisticCard>
-                    <SizableText
-                      fontSize="$6"
-                      fontWeight="$bold"
-                    >
-                      {item.normalRunningRate}%
-                    </SizableText>
-                    <SizableText
-                      lineHeight={16}
-                      fontSize={10}
-                    >
-                      {t('Normal.Running.Rate')}
-                    </SizableText>
-                  </StatisticCard>
-                </XStack>
-                <XStack
-                  width="75%"
+                  <Stack />
+                  <SizableText
+                    marginTop="$2.5"
+                    fontWeight="$semiBold"
+                    fontSize="$4"
+                  >
+                    {t('Plant')}
+                  </SizableText>
+
+                  <CachedImage
+                    source={item?.url}
+                    style={{
+                      width: 60,
+                      height: 60,
+                      overflow: 'hidden',
+                      shadowRadius: 4,
+                      shadowOpacity: 0.05,
+                      borderRadius: 8,
+                      marginBottom: 10
+                    }}
+                    resizeMode="cover"
+                  />
+                  <Stack />
+                </YStack>
+
+                <YStack
                   space="$2"
+                  width="100%"
                 >
-                  <StatisticCard>
-                    <SizableText
-                      fontSize="$6"
-                      fontWeight="$bold"
-                    >
-                      {item.normal}
-                    </SizableText>
-                    <SizableText
-                      lineHeight={16}
-                      fontSize={10}
-                    >
-                      {t('Normal')}
-                    </SizableText>
-                    <Circle
-                      size="$0.75"
-                      backgroundColor="green"
-                      position="absolute"
-                      right={10}
-                      top={10}
-                      margin="auto"
-                    />
-                  </StatisticCard>
-                  <StatisticCard>
-                    <SizableText
-                      fontSize="$6"
-                      fontWeight="$bold"
-                    >
-                      {item.alarm}
-                    </SizableText>
-                    <SizableText
-                      lineHeight={16}
-                      fontSize={10}
-                    >
-                      {t('Alarm')}
-                    </SizableText>
-                    <Circle
-                      size="$0.75"
-                      backgroundColor="red"
-                      position="absolute"
-                      right={10}
-                      top={10}
-                      margin="auto"
-                    />
-                  </StatisticCard>
-                </XStack>
-                <XStack
-                  width="75%"
-                  space="$2"
-                >
-                  <StatisticCard>
-                    <SizableText
-                      fontSize="$6"
-                      fontWeight="$bold"
-                    >
-                      {item.offline}
-                    </SizableText>
-                    <SizableText
-                      lineHeight={16}
-                      fontSize={10}
-                    >
-                      {t('Offline')}
-                    </SizableText>
-                    <Circle
-                      size="$0.75"
-                      backgroundColor="gray"
-                      position="absolute"
-                      right={10}
-                      top={10}
-                      margin="auto"
-                    />
-                  </StatisticCard>
-                  <StatisticCard>
-                    <SizableText
-                      fontSize="$6"
-                      fontWeight="$bold"
-                    >
-                      {item.notMonitored}
-                    </SizableText>
-                    <SizableText
-                      lineHeight={16}
-                      fontSize={10}
-                    >
-                      {t('Not.Monitored')}
-                    </SizableText>
-                    <Circle
-                      size="$0.75"
-                      backgroundColor="orange"
-                      position="absolute"
-                      right={10}
-                      top={10}
-                      margin="auto"
-                    />
-                  </StatisticCard>
-                </XStack>
-              </YStack>
-            </XStack>
-            <ProgressBar
-              {...{
-                normal: Math.floor(Math.random() * 100) * 10,
-                alarm: Math.floor(Math.random() * 100),
-                notMonitored: Math.floor(Math.random() * 100),
-                offline: Math.floor(Math.random() * 100)
-              }}
-            />
-          </YStack>
-        </Card>
-      )}
+                  <XStack
+                    width="75%"
+                    space="$2"
+                  >
+                    <StatisticCard>
+                      <SizableText
+                        fontSize="$6"
+                        fontWeight="$bold"
+                      >
+                        {item.total ?? '0'}
+                      </SizableText>
+                      <SizableText
+                        lineHeight={16}
+                        fontSize={10}
+                      >
+                        {t('Total')}
+                      </SizableText>
+                    </StatisticCard>
+                    <StatisticCard>
+                      <SizableText
+                        fontSize="$6"
+                        fontWeight="$bold"
+                      >
+                        {item.normalRate}%
+                      </SizableText>
+                      <SizableText
+                        lineHeight={16}
+                        fontSize={10}
+                      >
+                        {t('Normal.Running.Rate')}
+                      </SizableText>
+                    </StatisticCard>
+                  </XStack>
+                  <XStack
+                    width="75%"
+                    space="$2"
+                  >
+                    <StatisticCard>
+                      <SizableText
+                        fontSize="$6"
+                        fontWeight="$bold"
+                      >
+                        {item.normal ?? '0'}
+                      </SizableText>
+                      <SizableText
+                        lineHeight={16}
+                        fontSize={10}
+                      >
+                        {t('Normal')}
+                      </SizableText>
+                      <Circle
+                        size="$0.75"
+                        backgroundColor="green"
+                        position="absolute"
+                        right={10}
+                        top={10}
+                        margin="auto"
+                      />
+                    </StatisticCard>
+                    <StatisticCard>
+                      <SizableText
+                        fontSize="$6"
+                        fontWeight="$bold"
+                      >
+                        {item.alarm ?? '0'}
+                      </SizableText>
+                      <SizableText
+                        lineHeight={16}
+                        fontSize={10}
+                      >
+                        {t('Alarm')}
+                      </SizableText>
+                      <Circle
+                        size="$0.75"
+                        backgroundColor="red"
+                        position="absolute"
+                        right={10}
+                        top={10}
+                        margin="auto"
+                      />
+                    </StatisticCard>
+                  </XStack>
+                  <XStack
+                    width="75%"
+                    space="$2"
+                  >
+                    <StatisticCard>
+                      <SizableText
+                        fontSize="$6"
+                        fontWeight="$bold"
+                      >
+                        {item.offline ?? '0'}
+                      </SizableText>
+                      <SizableText
+                        lineHeight={16}
+                        fontSize={10}
+                      >
+                        {t('Offline')}
+                      </SizableText>
+                      <Circle
+                        size="$0.75"
+                        backgroundColor="gray"
+                        position="absolute"
+                        right={10}
+                        top={10}
+                        margin="auto"
+                      />
+                    </StatisticCard>
+                    <StatisticCard>
+                      <SizableText
+                        fontSize="$6"
+                        fontWeight="$bold"
+                      >
+                        {item.unmonitored ?? '0'}
+                      </SizableText>
+                      <SizableText
+                        lineHeight={16}
+                        fontSize={10}
+                      >
+                        {t('Not.Monitored')}
+                      </SizableText>
+                      <Circle
+                        size="$0.75"
+                        backgroundColor="orange"
+                        position="absolute"
+                        right={10}
+                        top={10}
+                        margin="auto"
+                      />
+                    </StatisticCard>
+                  </XStack>
+                </YStack>
+              </XStack>
+              <ProgressBar
+                {...{
+                  normal: item.normalRate,
+                  alarm: item.alarmRate,
+                  notMonitored: item.unmonitored,
+                  offline: item.offlineRate
+                }}
+              />
+            </YStack>
+          </Card>
+        )
+      }}
     />
   )
 }

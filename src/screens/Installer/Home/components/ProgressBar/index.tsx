@@ -4,10 +4,10 @@ import { View } from 'tamagui'
 import { globalStyles } from '@/constants'
 
 interface Props {
-  normal: number
-  offline: number
-  alarm: number
-  notMonitored: number
+  normal?: number
+  offline?: number
+  alarm?: number
+  notMonitored?: number
 }
 
 const ProgressBar = memo((props: Props) => (

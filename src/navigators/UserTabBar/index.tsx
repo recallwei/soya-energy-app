@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Platform } from 'react-native'
 import { View } from 'tamagui'
 
+import { globalStyles } from '@/constants'
 import {
   CommonMyScreen,
   UserAnalysisScreen,
@@ -39,7 +40,7 @@ export default function UserTabBar() {
           backgroundColor: themeStore.getBgColor(),
           ...(Platform.OS === 'android' && { paddingBottom: 6 })
         },
-        tabBarActiveTintColor: themeStore.getTextColor(),
+        tabBarActiveTintColor: globalStyles.primaryColor,
         tabBarInactiveTintColor: '#999999'
       })}
     >

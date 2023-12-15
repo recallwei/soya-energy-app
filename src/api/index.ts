@@ -1,6 +1,7 @@
 export * from './auth'
 export * from './battery'
 export * from './device'
+export * from './home'
 export * from './inverter'
 export * from './plant'
 export * from './user'

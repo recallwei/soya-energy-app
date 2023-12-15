@@ -2,6 +2,8 @@ import { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SizableText, YStack } from 'tamagui'
 
+import { GaugeChart } from '@/charts'
+
 import ProgressRing from './ProgressRing'
 
 const HeaderArea = memo(() => {
@@ -21,6 +23,8 @@ const HeaderArea = memo(() => {
   return (
     <YStack alignItems="center">
       <ProgressRing percentage={percentage} />
+
+      <GaugeChart />
 
       <SizableText>{t('On.Standby')}</SizableText>
       <SizableText

@@ -9,5 +9,8 @@
   "Normal": "Normal",
   "Alarm": "Alarm",
   "Offline": "Offline",
-  "Not.Monitored": "Not Monitored"
+  "Not.Monitored": "Not Monitored",
+  "Plant": "Plant",
+  "Inverter": "Inverter",
+  "Battery": "Battery"
 }

@@ -1,0 +1,21 @@
+{
+  "Energy": "发电量",
+  "Energy.Consumption": "用电量",
+  "Self.Consumption": "自发自用",
+  "Export.Energy": "卖电量",
+  "Self.Sufficiency": "自给自足",
+  "Import.Energy": "买电量",
+  "Energy.Balance": "能量平衡",
+  "PV.Power": "PV 发电量",
+  "Load.Power": "负载用电量",
+  "Import.Power": "买电量",
+  "Export.Power": "卖电量",
+  "Battery.Charge": "充电",
+  "Battery.Discharge": "放电",
+  "Day": "日",
+  "Month": "月",
+  "Year": "年",
+  "Life.Time": "累计",
+  "Trees": "树",
+  "Environment.Impact": "环境影响"
+}

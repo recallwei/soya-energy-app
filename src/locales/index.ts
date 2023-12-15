@@ -22,6 +22,8 @@ import screen_en_us from './screen/en-US.json'
 import screen_zh_cn from './screen/zh-CN.json'
 import temp_en_us from './temp/en-US.json'
 import temp_zh_cn from './temp/zh-CN.json'
+import user_analysis_en_us from './user/analysis/en-US.json'
+import user_analysis_zh_cn from './user/analysis/zh-CN.json'
 import user_battery_en_us from './user/battery/en-US.json'
 import user_battery_zh_cn from './user/battery/zh-CN.json'
 import user_home_en_us from './user/home/en-US.json'
@@ -44,6 +46,7 @@ export const EN_US = {
   'Common.Battery': common_battery_en_us,
   'User.Home': user_home_en_us,
   'User.Battery': user_battery_en_us,
+  'User.Analysis': user_analysis_en_us,
   Temp: temp_en_us
 } as const
 
@@ -62,5 +65,6 @@ export const ZH_CN = {
   'Common.Battery': common_battery_zh_cn,
   'User.Home': user_home_zh_cn,
   'User.Battery': user_battery_zh_cn,
+  'User.Analysis': user_analysis_zh_cn,
   Temp: temp_zh_cn
 } as const

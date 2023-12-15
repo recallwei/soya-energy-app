@@ -1,10 +1,12 @@
 ahooks
 appcenter
 baronha
+boxplot
 brucesong
 cocoapods
 codepush
 commitlint
+datetimepicker
 echarts
 ellipsize
 flatlist
@@ -23,6 +25,8 @@ Nunito
 preinstall
 pressable
 Raipiot
+rgba
+sankey
 Signup
 tamagui
 tanstack

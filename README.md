@@ -11,7 +11,7 @@
 - Global State Management: Zustand
 - i18n: react-i18next
 - Local Storage: @react-native-async-storage/async-storage
-- Chart: react-native-gifted-charts
+- Chart: react-native-echarts
 - SVG: react-native-svg
 - Form Validation: react-hook-form & yup
 - Time & Date: day.js

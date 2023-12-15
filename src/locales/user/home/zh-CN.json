@@ -1,6 +1,6 @@
 {
   "Normal": "正常",
-  "On.Grid": "在网",
+  "On.Grid": "并网",
   "Time.Updated.Min.Ago": "更新于 {{num}} 分钟前",
   "Live.Status": "实时状态",
   "Grid": "电网",
