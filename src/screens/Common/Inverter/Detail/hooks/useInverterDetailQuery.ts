@@ -14,7 +14,7 @@ export const useInverterDetailQuery = (props: Props) => {
   })
 
   return {
-    detail: data ?? {},
+    detail: data,
     isLoading: isFetching,
     refetch
   }

@@ -18,7 +18,7 @@ const Sheet = memo((props: SheetProps) => {
       onOpenChange={setOpen}
       snapPointsMode="fit"
       dismissOnSnapToBottom
-      zIndex={100_000}
+      zIndex={999_999}
       modal
       animation="medium"
     >

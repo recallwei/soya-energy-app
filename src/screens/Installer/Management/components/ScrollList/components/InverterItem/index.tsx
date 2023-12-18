@@ -1,8 +1,10 @@
 import { CachedImage } from '@georstat/react-native-image-cache'
 import { useNavigation } from '@react-navigation/native'
+import { MoreHorizontal } from '@tamagui/lucide-icons'
 import { useAsyncEffect } from 'ahooks'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { TouchableOpacity } from 'react-native'
 import { SizableText, View, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
@@ -14,7 +16,9 @@ import { CacheUtils, TimeUtils } from '@/utils'
 import StatusBadge from '../StatusBadge'
 
 interface Props extends Inverter {
+  handleOpenSheet: (id: string) => void
   currentTab: ManagementTab
+  actionBtn?: boolean
 }
 
 const InverterItem = memo((props: Props) => {
@@ -30,26 +34,38 @@ const InverterItem = memo((props: Props) => {
   return (
     <Card onPress={navToDetail}>
       <YStack space="$1">
-        <XStack alignItems="center">
-          <View
-            width={60}
-            marginRight="$3"
-          >
+        <XStack
+          alignItems="center"
+          space="$4"
+        >
+          <View width={60}>
             <StatusBadge
               status={props.status}
               currentTab={props.currentTab}
             />
           </View>
-          <SizableText
-            size="$4"
-            fontWeight="$bold"
+          <XStack
+            justifyContent="space-between"
+            alignItems="center"
+            flex={1}
           >
-            {props.deviceSN}
-          </SizableText>
+            <SizableText
+              size="$4"
+              fontWeight="$bold"
+            >
+              {props.deviceSN}
+            </SizableText>
+
+            {props.actionBtn && (
+              <TouchableOpacity onPress={() => props.handleOpenSheet(props.id)}>
+                <MoreHorizontal size={20} />
+              </TouchableOpacity>
+            )}
+          </XStack>
         </XStack>
         <XStack
           alignItems="center"
-          space="$3"
+          space="$4"
         >
           <CachedImage
             source={props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}

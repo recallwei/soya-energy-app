@@ -48,5 +48,12 @@
   },
   "Company.Logo": {
     "Invalid": "公司 Logo 不符合要求"
+  },
+  "Device.Component.Power": {
+    "Not.Null": "请输入接入组件功率"
+  },
+  "Device.Alias": {
+    "Max.Length": "设备别名不得大于 30 个字符",
+    "Not.Null": "请输入设备别名"
   }
 }

@@ -39,7 +39,12 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.Plant.Create.Form']: { code: string }
 
     ['Common.Inverter.Detail']: { id: string }
+    ['Common.Inverter.Edit']: { id: string }
+    ['Common.Inverter.Create']: undefined
+
     ['Common.Battery.Detail']: { id: string }
+    ['Common.Battery.Edit']: { id: string }
+    ['Common.Battery.Create']: undefined
 
     ['Common.My.Personal_Info']: undefined
     ['Common.My.Personal_Info.Change_Username']: undefined
@@ -66,12 +71,6 @@ export type RootStackParamList = InstallerTabParamList &
     ['User.Home.Select_Location']: { longitude: number; latitude: number }
     ['User.Plant.Management']: undefined
     ['User.Devices']: undefined
-
-    // Temp
-    ['Temp.Dev_Menu']: undefined
-    ['Temp.Demo']: undefined
-    ['Temp.WebView_Demo']: undefined
-    ['Temp.Image_Cache_Test']: undefined
   }
 
 export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

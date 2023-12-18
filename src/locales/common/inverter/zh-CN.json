@@ -21,5 +21,7 @@
   "Module.Firmware.Version.No": "模块软件版本号",
   "Display.Board.Version": "显示版本号",
   "Control.Board.Version": "控制版本号",
-  "Device.Owner": "设备所有人"
+  "Device.Owner": "设备所有人",
+  "Access.Component.Power": "接入组件功率",
+  "Inverter.Alias": "设备别名"
 }

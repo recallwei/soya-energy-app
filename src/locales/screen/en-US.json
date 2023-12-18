@@ -33,10 +33,14 @@
     "Monthly.Report": "Plant Monthly Report"
   },
   "Common.Inverter": {
-    "Detail": "Inverter Detail"
+    "Detail": "Inverter Detail",
+    "Edit": "Edit Inverter",
+    "Create": "Add Inverter"
   },
   "Common.Battery": {
-    "Detail": "Battery Detail"
+    "Detail": "Battery Detail",
+    "Edit": "Edit Battery",
+    "Create": "Add Battery"
   },
   "Installer.Tabs": {
     "Guide": "Guide",
@@ -45,11 +49,6 @@
     "My": "My",
     "Services": "Services"
   },
-  "Temp.Demo": "Demo",
-  "Temp.Dev.Menu": "Dev Menu",
-  "Temp.Image.Cache.Test": "Image Cache Test",
-  "Temp.Image.Picker": "Image Picker",
-  "Temp.WebView.Demo": "WebView Demo",
   "User": {
     "Tabs": {
       "Home": "Home",

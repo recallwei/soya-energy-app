@@ -74,5 +74,7 @@
   "Warranty.Effective.Date": "Warranty Effective Date",
   "Expiration.Time": "Expiration time",
   "Expand": "(Expand)",
-  "BuiltIn": "(Built-in)"
+  "BuiltIn": "(Built-in)",
+  "Inverter.Menu.Edit": "Edit inverter",
+  "Inverter.Menu.Delete": "Delete inverter"
 }

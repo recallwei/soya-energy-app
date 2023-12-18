@@ -3,7 +3,9 @@ import CryptoJS from 'crypto-js'
 import { useState } from 'react'
 import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, SizableText, Spinner, View, XStack, YStack } from 'tamagui'
+import { Button, Input, Spinner, View, XStack, YStack } from 'tamagui'
+
+import { InputTitle } from '@/components'
 
 import { useChangePasswordForm, useChangePasswordMutation } from './hooks'
 
@@ -29,7 +31,7 @@ export default function ForgotPasswordScreen() {
         control={control}
         render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
           <YStack>
-            <SizableText>{t('Old.Password')}</SizableText>
+            <InputTitle required>{t('Old.Password')}</InputTitle>
             <XStack
               width="100%"
               position="relative"
@@ -67,7 +69,7 @@ export default function ForgotPasswordScreen() {
         control={control}
         render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
           <YStack>
-            <SizableText>{t('New.Password')}</SizableText>
+            <InputTitle required>{t('New.Password')}</InputTitle>
             <XStack
               width="100%"
               position="relative"
@@ -105,7 +107,7 @@ export default function ForgotPasswordScreen() {
         control={control}
         render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
           <YStack>
-            <SizableText>{t('Confirm.Password')}</SizableText>
+            <InputTitle required>{t('Confirm.Password')}</InputTitle>
             <XStack
               width="100%"
               position="relative"

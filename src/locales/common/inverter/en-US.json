@@ -21,5 +21,7 @@
   "Module.Firmware.Version.No": "Module Firmware Version No.",
   "Display.Board.Version": "Display Board Version",
   "Control.Board.Version": "Control Board Version",
-  "Device.Owner": "Device Owner"
+  "Device.Owner": "Device Owner",
+  "Access.Component.Power": "Access Component Power",
+  "Inverter.Alias": "Inverter Alias"
 }

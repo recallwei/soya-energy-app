@@ -43,13 +43,13 @@ export default function Screen() {
               customRight={
                 <StatusBadge
                   currentTab={ManagementTab.Inverter}
-                  status={detail.status}
+                  status={detail?.status}
                 />
               }
             />
             <FieldRow
               leftText={t('Current.Power')}
-              rightText={`${detail.power ?? '--'}W`}
+              rightText={`${detail?.power ?? '--'}W`}
               stripe
             />
           </YStack>
@@ -67,12 +67,12 @@ export default function Screen() {
             <YStack>
               <FieldRow
                 leftText={t('Model')}
-                rightText={detail.deviceModel || '--'}
+                rightText={detail?.deviceModel || '--'}
               />
 
               <FieldRow
                 leftText={t('Rated.Power')}
-                rightText={detail.ratedPower ?? '--'}
+                rightText={detail?.ratedPower ?? '--'}
                 stripe
               />
 
@@ -88,7 +88,7 @@ export default function Screen() {
                         size="$3"
                         fontWeight="$bold"
                       >
-                        {detail.deviceAlias || '--'}
+                        {detail?.deviceAlias || '--'}
                       </SizableText>
                       <ChevronRight size="$1" />
                     </XStack>
@@ -115,7 +115,7 @@ export default function Screen() {
                         fontSize="$3"
                         fontWeight="$bold"
                       >
-                        {detail.plantName || '--'}
+                        {detail?.plantName || '--'}
                       </SizableText>
                       <ChevronRight size="$1" />
                     </XStack>
@@ -131,9 +131,9 @@ export default function Screen() {
                       fontSize="$3"
                       fontWeight="$bold"
                     >
-                      {detail.plantName || '--'}
+                      {detail?.plantName || '--'}
                     </SizableText>
-                    <CopyButton copyText={detail.plantName} />
+                    <CopyButton copyText={detail?.plantName} />
                   </YStack>
                 }
               />
@@ -147,32 +147,32 @@ export default function Screen() {
                       fontSize="$3"
                       fontWeight="$bold"
                     >
-                      {detail.plantName || '--'}
+                      {detail?.plantName || '--'}
                     </SizableText>
-                    <CopyButton copyText={detail.plantName} />
+                    <CopyButton copyText={detail?.plantName} />
                   </YStack>
                 }
               />
 
               <FieldRow
                 leftText={t('Module.Firmware.Version.No')}
-                rightText={detail.plantName || '--'}
+                rightText={detail?.plantName || '--'}
               />
 
               <FieldRow
                 leftText={t('Display.Board.Version')}
-                rightText={detail.plantName || '--'}
+                rightText={detail?.plantName || '--'}
                 stripe
               />
 
               <FieldRow
                 leftText={t('Control.Board.Version')}
-                rightText={detail.plantName || '--'}
+                rightText={detail?.plantName || '--'}
               />
 
               <FieldRow
                 leftText={t('Device.Owner')}
-                rightText={detail.plantName || '--'}
+                rightText={detail?.plantName || '--'}
                 stripe
               />
             </YStack>

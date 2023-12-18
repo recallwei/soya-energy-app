@@ -1,29 +1,57 @@
 import { useTranslation } from 'react-i18next'
 import { FlatList, RefreshControl } from 'react-native'
-import { SizableStack, SizableText, Spinner, View } from 'tamagui'
+import { SizableText, Spinner, YStack } from 'tamagui'
 
+import { SheetMenu } from '@/components'
 import { globalStyles } from '@/constants'
 import { useRefresh } from '@/hooks'
+import {
+  BatteryItem,
+  InverterItem
+} from '@/screens/Installer/Management/components/ScrollList/components'
+import { ManagementTab } from '@/screens/Installer/Management/enums'
 
-import { useInfiniteDevices } from './hooks'
+import { DeviceType } from './enums'
+import { useDevicesQuery, useSheet } from './hooks'
 
 export default function Screen() {
-  const { t } = useTranslation('Global')
-  const { devicesInfiniteQuery, devices, loadedAll, refetch } = useInfiniteDevices()
-  const { refreshing, onRefresh } = useRefresh(async () => refetch())
-  // const { sheetMenuData, sheetOpen, setSheetOpen, handleOpenSheet } = usePlantSheet()
+  const { t } = useTranslation()
+  const { queryResult, devices } = useDevicesQuery()
+  const { refreshing, onRefresh } = useRefresh(queryResult.refetch)
+  const { handleOpenSheet, sheetOpen, setSheetOpen, sheetMenuData } = useSheet()
 
   return (
-    <View>
+    <YStack minHeight="100%">
       <FlatList
         contentContainerStyle={{
           gap: 8,
           paddingHorizontal: 18,
-          paddingBottom: 18
+          paddingVertical: 18
         }}
         data={devices}
         keyExtractor={({ id }) => id}
-        renderItem={({ item }) => <SizableStack>{item.id}</SizableStack>}
+        renderItem={({ item }) => {
+          switch (item.type) {
+            case DeviceType.Inverter:
+              return (
+                <InverterItem
+                  handleOpenSheet={handleOpenSheet}
+                  actionBtn
+                  currentTab={ManagementTab.Inverter}
+                  {...item}
+                />
+              )
+            case DeviceType.Battery:
+              return (
+                <BatteryItem
+                  currentTab={ManagementTab.Battery}
+                  {...item}
+                />
+              )
+            default:
+              return null
+          }
+        }}
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl
@@ -34,13 +62,13 @@ export default function Screen() {
         progressViewOffset={30}
         ListFooterComponent={
           <>
-            {devicesInfiniteQuery.isFetchingNextPage && (
+            {queryResult.isFetching && (
               <Spinner
                 style={{ marginTop: 10 }}
                 color={globalStyles.primaryColor}
               />
             )}
-            {loadedAll && (
+            {queryResult.isFetched && (
               <SizableText
                 textAlign="center"
                 marginTop="$2"
@@ -50,7 +78,25 @@ export default function Screen() {
             )}
           </>
         }
+        ListHeaderComponent={
+          <SheetMenu
+            data={sheetMenuData}
+            sheet={{
+              open: sheetOpen,
+              setOpen: setSheetOpen
+            }}
+            autoClose
+          />
+        }
       />
-    </View>
+      <SheetMenu
+        data={sheetMenuData}
+        sheet={{
+          open: sheetOpen,
+          setOpen: setSheetOpen
+        }}
+        autoClose
+      />
+    </YStack>
   )
 }

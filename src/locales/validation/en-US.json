@@ -48,5 +48,12 @@
   },
   "Company.Logo": {
     "Invalid": "Company logo does not meet the requirements"
+  },
+  "Device.Component.Power": {
+    "Not.Null": "Please enter the device component power"
+  },
+  "Device.Alias": {
+    "Max.Length": "Device alias must not be longer than 30 characters",
+    "Not.Null": "Please enter the device alias"
   }
 }

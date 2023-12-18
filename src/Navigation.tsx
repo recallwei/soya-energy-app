@@ -13,8 +13,12 @@ import {
   AuthSignUpScreen,
   AuthSignUpSelectRoleScreen,
   AuthSplashScreen,
+  CommonBatteryCreateScreen,
   CommonBatteryDetailScreen,
+  CommonBatteryEditScreen,
+  CommonInverterCreateScreen,
   CommonInverterDetailScreen,
+  CommonInverterEditScreen,
   CommonMessageDetailScreen,
   CommonMessageListScreen,
   CommonMessageScreen,
@@ -37,14 +41,10 @@ import {
   CommonPlantCreateScanSNScreen,
   CommonPlantDetailScreen,
   CommonPlantEditScreen,
-  DemoScreen,
-  DevMenuScreen,
-  ImageCacheTestScreen,
   UserHomeLiveStatusScreen,
   UserHomeSelectLocationScreen,
   UserHomeWeatherForecastSettingsScreen,
-  UserPlantManagementScreen,
-  WebViewDemoScreen
+  UserPlantManagementScreen
 } from '@/screens'
 import { useAuthStore, usePlantStore, useTabsStore, useThemeStore } from '@/store'
 import type { RootStackParamList } from '@/types'
@@ -313,9 +313,29 @@ export default function Navigation() {
                   options={{ title: t('Common.Inverter.Detail') }}
                 />
                 <Stack.Screen
+                  name="Common.Inverter.Edit"
+                  component={CommonInverterEditScreen}
+                  options={{ title: t('Common.Inverter.Edit') }}
+                />
+                <Stack.Screen
+                  name="Common.Inverter.Create"
+                  component={CommonInverterCreateScreen}
+                  options={{ title: t('Common.Inverter.Create') }}
+                />
+                <Stack.Screen
                   name="Common.Battery.Detail"
                   component={CommonBatteryDetailScreen}
                   options={{ title: t('Common.Battery.Detail') }}
+                />
+                <Stack.Screen
+                  name="Common.Battery.Edit"
+                  component={CommonBatteryEditScreen}
+                  options={{ title: t('Common.Battery.Edit') }}
+                />
+                <Stack.Screen
+                  name="Common.Battery.Create"
+                  component={CommonBatteryCreateScreen}
+                  options={{ title: t('Common.Battery.Create') }}
                 />
                 <Stack.Screen
                   name="Common.My.Privacy_Management"
@@ -413,27 +433,6 @@ export default function Navigation() {
                   name="User.Plant.Management"
                   component={UserPlantManagementScreen}
                   options={{ title: t('User.Plant.Management') }}
-                />
-                {/* Temp */}
-                <Stack.Screen
-                  name="Temp.Dev_Menu"
-                  component={DevMenuScreen}
-                  options={{ title: t('Temp.Dev.Menu') }}
-                />
-                <Stack.Screen
-                  name="Temp.Demo"
-                  component={DemoScreen}
-                  options={{ title: t('Temp.Demo') }}
-                />
-                <Stack.Screen
-                  name="Temp.WebView_Demo"
-                  component={WebViewDemoScreen}
-                  options={{ title: t('Temp.WebView.Demo') }}
-                />
-                <Stack.Screen
-                  name="Temp.Image_Cache_Test"
-                  component={ImageCacheTestScreen}
-                  options={{ title: t('Temp.Image.Cache.Test') }}
                 />
               </>
             )}

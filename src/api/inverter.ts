@@ -1,5 +1,5 @@
 import { globalEnvConfig } from '@/env'
-import type { Inverter, InverterPageModel, Page, R } from '@/types'
+import type { Inverter, InverterEditModel, InverterPageModel, Page, R } from '@/types'
 
 import httpRequest from './axios'
 
@@ -18,5 +18,9 @@ export class InverterAPI {
 
   static detail(id: string) {
     return httpRequest.get<R<Inverter>>(`${this.INVERTER_API_PREFIX}/query-inverter-info`, { id })
+  }
+
+  static edit(params: InverterEditModel) {
+    return httpRequest.post(`${this.INVERTER_API_PREFIX}/update-inverter`, { ...params })
   }
 }

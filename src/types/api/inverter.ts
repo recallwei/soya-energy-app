@@ -4,7 +4,7 @@ export interface Inverter {
   /**
    * 创建时间
    */
-  createTime?: Date
+  createTime?: string
   /**
    * 设备别名
    */
@@ -24,7 +24,7 @@ export interface Inverter {
   /**
    * 主键
    */
-  id?: string
+  id: string
   /**
    * 电站名称
    */
@@ -69,4 +69,10 @@ export interface InverterPageModel extends BasePageModel {
   inverterType?: string
   ratePowerMin?: string
   ratePowerMax?: string
+}
+
+export interface InverterEditModel {
+  id: string
+  deviceComponentPower: string
+  deviceAlias?: string
 }

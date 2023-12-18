@@ -19,19 +19,19 @@ const ProgressBar = memo((props: Props) => (
     overflow="hidden"
   >
     <View
-      flex={parseInt(props.normal, 10) || 0}
+      flex={Number(props.normal) || 0}
       backgroundColor={globalStyles.successColor}
     />
     <View
-      flex={parseInt(props.alarm, 10) || 0}
+      flex={Number(props.alarm) || 0}
       backgroundColor={globalStyles.errorColor}
     />
     <View
-      flex={parseInt(props.offline, 10) || 0}
+      flex={Number(props.offline) || 0}
       backgroundColor={globalStyles.warningColor}
     />
     <View
-      flex={parseInt(props.notMonitored, 10) || 0}
+      flex={Number(props.notMonitored) || 0}
       backgroundColor={globalStyles.muteColor}
     />
   </View>

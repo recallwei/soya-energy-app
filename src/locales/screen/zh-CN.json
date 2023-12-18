@@ -33,10 +33,14 @@
     "Monthly.Report": "电站月报"
   },
   "Common.Inverter": {
-    "Detail": "逆变器详情"
+    "Detail": "逆变器详情",
+    "Edit": "编辑逆变器",
+    "Create": "添加逆变器"
   },
   "Common.Battery": {
-    "Detail": "电池详情"
+    "Detail": "电池详情",
+    "Edit": "编辑电池",
+    "Create": "添加电池"
   },
   "Installer.Tabs": {
     "Guide": "指引",
@@ -45,11 +49,6 @@
     "My": "我的",
     "Services": "服务"
   },
-  "Temp.Demo": "Demo",
-  "Temp.Dev.Menu": "开发者菜单",
-  "Temp.Image.Cache.Test": "图片缓存测试",
-  "Temp.Image.Picker": "图片上传",
-  "Temp.WebView.Demo": "WebView Demo",
   "User": {
     "Tabs": {
       "Home": "主页",

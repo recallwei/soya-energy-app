@@ -1,11 +1,10 @@
 import { useNavigation } from '@react-navigation/native'
-import { BadgeInfo, Code, FolderLock, Settings } from '@tamagui/lucide-icons'
+import { BadgeInfo, FolderLock, Settings } from '@tamagui/lucide-icons'
 import { useTranslation } from 'react-i18next'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ScrollView, View, YStack } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
-import { globalEnvConfig } from '@/env'
 import { useAuthStore } from '@/store'
 
 import { UserAvatar } from './components'
@@ -45,14 +44,6 @@ export default function Screen() {
             icon={Settings}
             onPress={() => navigate('Common.My.Settings')}
           />
-          {globalEnvConfig.APP_ENVIRONMENT !== 'PROD' && (
-            <MenuItemCard
-              title={t('Dev.Menu.Title')}
-              description={t('Dev.Menu.Description')}
-              icon={Code}
-              onPress={() => navigate('Temp.Dev_Menu')}
-            />
-          )}
         </YStack>
       </ScrollView>
     </View>

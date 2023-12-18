@@ -74,5 +74,7 @@
   "Warranty.Effective.Date": "质保开始",
   "Expiration.Time": "质保结束",
   "Expand": "（扩展）",
-  "BuiltIn": "（内置）"
+  "BuiltIn": "（内置）",
+  "Inverter.Menu.Edit": "编辑信息",
+  "Inverter.Menu.Delete": "删除逆变器"
 }

@@ -11,7 +11,7 @@ import { globalStyles } from '@/constants'
 import { DateRange } from '@/enums'
 import { useRefresh } from '@/hooks'
 
-import { DateRangeSelector, SwitchGroup } from './components'
+import { DatePicker, DateRangeSelector, SwitchGroup } from './components'
 import { pieChartData1, pieChartData2 } from './mock'
 import type { EnergyBalanceParams } from './types'
 
@@ -51,6 +51,8 @@ export default function Screen() {
         >
           <DateRangeSelector {...{ currentTab, setCurrentTab }} />
 
+          <DatePicker />
+
           <HeadingTitle title={t('Energy')} />
 
           <Card
@@ -58,15 +60,12 @@ export default function Screen() {
             bordered
             animation="bouncy"
             pressStyle={{ scale: 0.95 }}
-            padded
             overflow="visible"
             alignItems="center"
           >
             <PieChart
-              width={200}
-              height={250}
-              borderRadius={12}
-              overflow="hidden"
+              width={Dimensions.get('window').width - 32}
+              height={200}
               data={pieChartData1}
             />
           </Card>
@@ -78,13 +77,12 @@ export default function Screen() {
             bordered
             animation="bouncy"
             pressStyle={{ scale: 0.95 }}
-            padded
             overflow="visible"
             alignItems="center"
           >
             <PieChart
-              width={200}
-              height={250}
+              width={Dimensions.get('window').width - 32}
+              height={200}
               data={pieChartData2}
             />
           </Card>
@@ -108,9 +106,20 @@ export default function Screen() {
           </Card>
 
           <SwitchGroup {...{ energyBalanceParams, setEnergyBalanceParams }} />
-
-          <Card>
-            <SizableText>123</SizableText>
+          <Card
+            size="$4"
+            bordered
+            animation="bouncy"
+            pressStyle={{ scale: 0.95 }}
+            padded
+            overflow="visible"
+            alignItems="center"
+          >
+            <BarChart
+              title="123"
+              width={Dimensions.get('window').width - 32}
+              height={250}
+            />
           </Card>
 
           <HeadingTitle title={t('Environment.Impact')} />
@@ -127,7 +136,7 @@ export default function Screen() {
                   gap="$1"
                   width="50%"
                 >
-                  <SizableText color="#333333">26.0 KG</SizableText>
+                  <SizableText>26.0 KG</SizableText>
                   <SizableText size="$3">CO₂</SizableText>
                 </YStack>
                 <YStack
@@ -140,7 +149,7 @@ export default function Screen() {
                     alignItems="center"
                     space="$1"
                   >
-                    <SizableText color="#333333">35.9</SizableText>
+                    <SizableText>35.9</SizableText>
                     <TreePine
                       size="$1"
                       color={globalStyles.primaryColor}

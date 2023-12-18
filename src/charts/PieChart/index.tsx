@@ -1,7 +1,6 @@
 import SvgChart from '@wuba/react-native-echarts/svgChart'
 import { memo, useEffect, useRef } from 'react'
-import type { StackProps } from 'tamagui'
-import { Stack } from 'tamagui'
+import { type StackProps, View } from 'tamagui'
 
 import type { BaseChartItem, ECharts, ECOption } from '@/charts'
 import { useLangStore, useThemeStore } from '@/store'
@@ -11,8 +10,8 @@ import echarts from '../charts'
 interface Props extends StackProps {
   title?: string
   data?: BaseChartItem[]
-  width?: number | string
-  height?: number | string
+  width?: number
+  height?: number
 }
 
 const PieChart = memo((props: Props) => {
@@ -80,10 +79,14 @@ const PieChart = memo((props: Props) => {
     getChartData()
   }, [data, title, themeStore.theme])
 
+  useEffect(() => {
+    chart.current?.resize({ width, height })
+  }, [height, width])
+
   return (
-    <Stack {...rest}>
+    <View {...rest}>
       <SvgChart ref={svgRef} />
-    </Stack>
+    </View>
   )
 })
 export default PieChart

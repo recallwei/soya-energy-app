@@ -18,10 +18,14 @@ export { default as CommonPlantDetailScreen } from './Common/Plant/Detail'
 export { default as CommonPlantEditScreen } from './Common/Plant/Edit'
 
 // Inverter
+export { default as CommonInverterCreateScreen } from './Common/Inverter/Create'
 export { default as CommonInverterDetailScreen } from './Common/Inverter/Detail'
+export { default as CommonInverterEditScreen } from './Common/Inverter/Edit'
 
 // Battery
+export { default as CommonBatteryCreateScreen } from './Common/Battery/Create'
 export { default as CommonBatteryDetailScreen } from './Common/Battery/Detail'
+export { default as CommonBatteryEditScreen } from './Common/Battery/Edit'
 // My
 export { default as CommonMyScreen } from './Common/My'
 export { default as CommonMyAboutUsScreen } from './Common/My/AboutUs'
@@ -60,9 +64,3 @@ export { default as UserHomeWeatherForecastSettingsScreen } from './User/Home/We
 
 // Plant
 export { default as UserPlantManagementScreen } from './User/Plant/Management'
-
-// ------ Temp screens ------
-export { default as DemoScreen } from './Temp/Demo'
-export { default as DevMenuScreen } from './Temp/DevMenu'
-export { default as ImageCacheTestScreen } from './Temp/ImageCacheTest'
-export { default as WebViewDemoScreen } from './Temp/WebView'

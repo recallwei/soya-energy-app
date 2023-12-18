@@ -8,13 +8,13 @@ import { getStatusMeta } from '../../../../utils'
 
 interface Props {
   status?: string
-  currentTab: ManagementTab
+  currentTab?: ManagementTab
 }
 
 const StatusBadge = memo((props: Props) => {
   const { i18n } = useTranslation()
 
-  if (!props.status?.toString() || props.status?.toString() === '0') {
+  if (!props.status?.toString() || props.status?.toString() === '0' || !props.currentTab) {
     return null
   }
 
@@ -23,12 +23,12 @@ const StatusBadge = memo((props: Props) => {
   return (
     <XStack
       alignItems="center"
-      space="$2"
+      space="$1.5"
       key={i18n.language}
     >
       {color && (
         <Circle
-          size={16}
+          size={14}
           fill={color}
           color={color}
         />
