@@ -3,8 +3,11 @@ import { Separator, SizableText, XStack, YStack } from 'tamagui'
 
 import { Card } from '@/components'
 
+import { useHomeStatisticQuery } from '../../hooks'
+
 export default function Statistics() {
   const { t } = useTranslation('Installer.Home')
+  const { data } = useHomeStatisticQuery()
 
   return (
     <YStack space="$2">
@@ -16,7 +19,7 @@ export default function Statistics() {
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                18.2
+                {data?.totalPowerGeneration ?? '0'}
               </SizableText>
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
@@ -30,7 +33,7 @@ export default function Statistics() {
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                22.4
+                {data?.totalInstalledCapacity ?? '0'}
               </SizableText>
               <SizableText fontSize="$3">kWp</SizableText>
             </XStack>
@@ -47,7 +50,7 @@ export default function Statistics() {
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                12.8
+                {data?.todayPowerGeneration ?? '0'}
               </SizableText>
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
@@ -64,7 +67,7 @@ export default function Statistics() {
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                358.6
+                {data?.monthPowerGeneration ?? '0'}
               </SizableText>
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
@@ -81,7 +84,7 @@ export default function Statistics() {
                 fontSize="$7"
                 fontWeight="$bold"
               >
-                2984.2
+                {data?.yearPowerGeneration ?? '0'}
               </SizableText>
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>

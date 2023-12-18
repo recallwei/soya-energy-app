@@ -21,10 +21,11 @@ export const useHomeDeviceStatisticQuery = () => {
             offline,
             unmonitored,
             total,
-            normalRate: normal && total ? (normal / total) * 100 : 0,
-            alarmRate: alarm && total ? (alarm / total) * 100 : 0,
-            unmonitoredRate: unmonitored && total ? (unmonitored / total) * 100 : 0,
-            offlineRate: offline && total ? (offline / total) * 100 : 0,
+            normalRate: normal && total ? Number((normal / total) * 100).toFixed(1) : 0,
+            alarmRate: alarm && total ? Number((alarm / total) * 100).toFixed(1) : 0,
+            unmonitoredRate:
+              unmonitored && total ? Number((unmonitored / total) * 100).toFixed(1) : 0,
+            offlineRate: offline && total ? Number((offline / total) * 100).toFixed(1) : 0,
             url: SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL
           }
         }
@@ -41,10 +42,11 @@ export const useHomeDeviceStatisticQuery = () => {
             offline,
             unmonitored,
             total,
-            normalRate: normal && total ? (normal / total) * 100 : 0,
-            alarmRate: alarm && total ? (alarm / total) * 100 : 0,
-            unmonitoredRate: unmonitored && total ? (unmonitored / total) * 100 : 0,
-            offlineRate: offline && total ? (offline / total) * 100 : 0,
+            normalRate: normal && total ? Number((normal / total) * 100).toFixed(1) : 0,
+            alarmRate: alarm && total ? Number((alarm / total) * 100).toFixed(1) : 0,
+            unmonitoredRate:
+              unmonitored && total ? Number((unmonitored / total) * 100).toFixed(1) : 0,
+            offlineRate: offline && total ? Number((offline / total) * 100).toFixed(1) : 0,
             url: SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL
           }
         }
@@ -61,10 +63,11 @@ export const useHomeDeviceStatisticQuery = () => {
             offline,
             unmonitored,
             total,
-            normalRate: normal && total ? (normal / total) * 100 : 0,
-            alarmRate: alarm && total ? (alarm / total) * 100 : 0,
-            unmonitoredRate: unmonitored && total ? (unmonitored / total) * 100 : 0,
-            offlineRate: offline && total ? (offline / total) * 100 : 0,
+            normalRate: normal && total ? Number((normal / total) * 100).toFixed(1) : 0,
+            alarmRate: alarm && total ? Number((alarm / total) * 100).toFixed(1) : 0,
+            unmonitoredRate:
+              unmonitored && total ? Number((unmonitored / total) * 100).toFixed(1) : 0,
+            offlineRate: offline && total ? Number((offline / total) * 100).toFixed(1) : 0,
             url: SYSTEM_RESOURCE.BATTERY_DEFAULT_IMAGE_URL
           }
         }
