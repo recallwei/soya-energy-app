@@ -16,11 +16,11 @@ export const useHomeStatisticQuery = () => {
         totalPowerGeneration
       } = res.data
       return {
-        totalPowerGeneration: Number(totalPowerGeneration).toFixed(0),
-        todayPowerGeneration: Number(todayPowerGeneration).toFixed(0),
-        yearPowerGeneration: Number(yearPowerGeneration).toFixed(0),
-        monthPowerGeneration: Number(monthPowerGeneration).toFixed(0),
-        totalInstalledCapacity: Number(totalInstalledCapacity).toFixed(0)
+        totalPowerGeneration: Number(totalPowerGeneration ?? 0).toFixed(0),
+        todayPowerGeneration: Number(todayPowerGeneration ?? 0).toFixed(0),
+        yearPowerGeneration: Number(yearPowerGeneration ?? 0).toFixed(0),
+        monthPowerGeneration: Number(monthPowerGeneration ?? 0).toFixed(0),
+        totalInstalledCapacity: Number(totalInstalledCapacity ?? 0).toFixed(0)
       }
     }
   })

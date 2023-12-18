@@ -44,7 +44,10 @@ export default function Statistics() {
 
       <Card>
         <XStack justifyContent="space-between">
-          <YStack alignItems="center">
+          <YStack
+            alignItems="center"
+            flex={1}
+          >
             <XStack space="$2">
               <SizableText
                 fontSize="$7"
@@ -61,7 +64,10 @@ export default function Statistics() {
             vertical
             marginHorizontal={15}
           />
-          <YStack alignItems="center">
+          <YStack
+            alignItems="center"
+            flex={1}
+          >
             <XStack space="$2">
               <SizableText
                 fontSize="$7"
@@ -78,7 +84,10 @@ export default function Statistics() {
             vertical
             marginHorizontal={15}
           />
-          <YStack alignItems="center">
+          <YStack
+            alignItems="center"
+            flex={1}
+          >
             <XStack space="$2">
               <SizableText
                 fontSize="$7"

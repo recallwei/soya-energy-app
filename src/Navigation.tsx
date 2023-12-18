@@ -16,12 +16,14 @@ import {
   CommonBatteryCreateScreen,
   CommonBatteryDetailScreen,
   CommonBatteryEditScreen,
+  CommonEVChargerCreateScreen,
   CommonInverterCreateScreen,
   CommonInverterDetailScreen,
   CommonInverterEditScreen,
   CommonMessageDetailScreen,
   CommonMessageListScreen,
   CommonMessageScreen,
+  CommonMobileStorageCreateScreen,
   CommonMyAboutUsScreen,
   CommonMyPersonalInfoChangeEmailScreen,
   CommonMyPersonalInfoChangePasswordScreen,
@@ -66,10 +68,15 @@ export default function Navigation() {
 
   useAuthGuard(fetchUserInfo)
 
-  const { getHomeSheetMenuData, getInstallerTabTitleI18nText, getUserTabTitleI18nText } =
-    useNavigationData()
+  const {
+    getHomeSheetMenuData,
+    getDevicesSheetMenuData,
+    getInstallerTabTitleI18nText,
+    getUserTabTitleI18nText
+  } = useNavigationData()
   const [homePlantSheetOpen, setHomePlantSheetOpen] = useState(false)
   const [homeSheetOpen, setHomeSheetOpen] = useState(false)
+  const [devicesSheetOpen, setDevicesSheetOpen] = useState(false)
 
   return (
     <NavigationContainer theme={DefaultTheme}>
@@ -234,26 +241,44 @@ export default function Navigation() {
                       switch (tabStore.userCurrentTab) {
                         case 'User.Home':
                           return (
-                            <XStack space="$3">
-                              {authStore.isUser() && (
-                                <TouchableOpacity
-                                  onPress={() => navigation.navigate('Common.Message')}
-                                >
-                                  <BellRing size="$1" />
+                            <>
+                              <XStack space="$3">
+                                {authStore.isUser() && (
+                                  <TouchableOpacity
+                                    onPress={() => navigation.navigate('Common.Message')}
+                                  >
+                                    <BellRing size="$1" />
+                                  </TouchableOpacity>
+                                )}
+                                <TouchableOpacity onPress={() => setHomeSheetOpen(true)}>
+                                  <MoreHorizontal size="$1" />
                                 </TouchableOpacity>
-                              )}
-                              <TouchableOpacity onPress={() => setHomeSheetOpen(true)}>
-                                <MoreHorizontal size="$1" />
-                                <SheetMenu
-                                  data={getHomeSheetMenuData(navigation)}
-                                  sheet={{
-                                    open: homeSheetOpen,
-                                    setOpen: setHomeSheetOpen
-                                  }}
-                                  autoClose
-                                />
+                              </XStack>
+                              <SheetMenu
+                                data={getHomeSheetMenuData(navigation)}
+                                sheet={{
+                                  open: homeSheetOpen,
+                                  setOpen: setHomeSheetOpen
+                                }}
+                                autoClose
+                              />
+                            </>
+                          )
+                        case 'User.Devices':
+                          return (
+                            <>
+                              <TouchableOpacity onPress={() => setDevicesSheetOpen(true)}>
+                                <PlusCircle size="$1" />
                               </TouchableOpacity>
-                            </XStack>
+                              <SheetMenu
+                                data={getDevicesSheetMenuData(navigation)}
+                                sheet={{
+                                  open: devicesSheetOpen,
+                                  setOpen: setDevicesSheetOpen
+                                }}
+                                autoClose
+                              />
+                            </>
                           )
                         default:
                           return null
@@ -336,6 +361,16 @@ export default function Navigation() {
                   name="Common.Battery.Create"
                   component={CommonBatteryCreateScreen}
                   options={{ title: t('Common.Battery.Create') }}
+                />
+                <Stack.Screen
+                  name="Common.EV.Charger.Create"
+                  component={CommonEVChargerCreateScreen}
+                  options={{ title: t('Common.EV.Charger.Create') }}
+                />
+                <Stack.Screen
+                  name="Common.Mobile.Storage.Create"
+                  component={CommonMobileStorageCreateScreen}
+                  options={{ title: t('Common.Mobile.Storage.Create') }}
                 />
                 <Stack.Screen
                   name="Common.My.Privacy_Management"

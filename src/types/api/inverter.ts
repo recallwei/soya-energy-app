@@ -76,3 +76,10 @@ export interface InverterEditModel {
   deviceComponentPower: string
   deviceAlias?: string
 }
+
+export interface InverterCreateModel {
+  plantId: string
+  deviceSN: string
+  deviceComponentPower: string
+  deviceAlias?: string
+}

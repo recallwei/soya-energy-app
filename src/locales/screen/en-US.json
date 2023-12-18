@@ -42,6 +42,12 @@
     "Edit": "Edit Battery",
     "Create": "Add Battery"
   },
+  "Common.EV.Charger": {
+    "Create": "Add EV Charger"
+  },
+  "Common.Mobile.Storage": {
+    "Create": "Add Mobile Storage"
+  },
   "Installer.Tabs": {
     "Guide": "Guide",
     "Home": "Home",

@@ -46,6 +46,9 @@ export type RootStackParamList = InstallerTabParamList &
     ['Common.Battery.Edit']: { id: string }
     ['Common.Battery.Create']: undefined
 
+    ['Common.EV.Charger.Create']: undefined
+    ['Common.Mobile.Storage.Create']: undefined
+
     ['Common.My.Personal_Info']: undefined
     ['Common.My.Personal_Info.Change_Username']: undefined
     ['Common.My.Personal_Info.Change_Password']: undefined

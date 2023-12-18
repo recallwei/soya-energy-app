@@ -55,5 +55,9 @@
   "Device.Alias": {
     "Max.Length": "设备别名不得大于 30 个字符",
     "Not.Null": "请输入设备别名"
+  },
+  "Inverter.SN": {
+    "Max.Length": "逆变器 SN 不得大于 30 个字符",
+    "Not.Null": "请输入逆变器 SN"
   }
 }

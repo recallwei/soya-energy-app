@@ -4,7 +4,7 @@ import type { SheetMenuListItem } from '@/components'
 import type { InstallerTabParamList, UserTabParamList } from '@/types'
 
 export const useNavigationData = () => {
-  const { t } = useTranslation(['Screen', 'Global'])
+  const { t } = useTranslation(['Screen', 'Global', 'Installer.Management'])
 
   const getHomeSheetMenuData = ({ navigate }: { navigate: any }): SheetMenuListItem[] => [
     { text: t('Global:Weather'), onPress: () => navigate('User.Home.Weather_Forecast_Settings') },
@@ -16,6 +16,18 @@ export const useNavigationData = () => {
     { text: t('Common.Plant.View'), onPress: () => navigate('Common.Plant.Detail') },
     { text: t('Common.Plant.Map'), onPress: () => navigate('Common.Plant.Detail') },
     { text: t('Global:Share'), onPress: () => navigate('Common.Plant.Detail') }
+  ]
+
+  const getDevicesSheetMenuData = ({ navigate }: { navigate: any }): SheetMenuListItem[] => [
+    { text: t('Installer.Management:Inverter'), onPress: () => navigate('Common.Inverter.Create') },
+    {
+      text: t('Installer.Management:Plant.Menu.EV.Charger'),
+      onPress: () => navigate('Common.EV.Charger.Create')
+    },
+    {
+      text: t('Installer.Management:Plant.Menu.Mobile.Storage'),
+      onPress: () => navigate('Common.Mobile.Storage.Create')
+    }
   ]
 
   function getInstallerTabTitleI18nText(tabName: keyof InstallerTabParamList): string {
@@ -54,6 +66,7 @@ export const useNavigationData = () => {
 
   return {
     getHomeSheetMenuData,
+    getDevicesSheetMenuData,
     getInstallerTabTitleI18nText,
     getUserTabTitleI18nText
   }

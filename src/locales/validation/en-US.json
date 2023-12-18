@@ -55,5 +55,9 @@
   "Device.Alias": {
     "Max.Length": "Device alias must not be longer than 30 characters",
     "Not.Null": "Please enter the device alias"
+  },
+  "Inverter.SN": {
+    "Max.Length": "Inverter SN must not be longer than 30 characters",
+    "Not.Null": "Please enter the inverter SN"
   }
 }

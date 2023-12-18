@@ -42,6 +42,12 @@
     "Edit": "编辑电池",
     "Create": "添加电池"
   },
+  "Common.EV.Charger": {
+    "Create": "添加充电桩"
+  },
+  "Common.Mobile.Storage": {
+    "Create": "添加移动储能"
+  },
   "Installer.Tabs": {
     "Guide": "指引",
     "Home": "主页",

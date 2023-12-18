@@ -26,6 +26,12 @@ export { default as CommonInverterEditScreen } from './Common/Inverter/Edit'
 export { default as CommonBatteryCreateScreen } from './Common/Battery/Create'
 export { default as CommonBatteryDetailScreen } from './Common/Battery/Detail'
 export { default as CommonBatteryEditScreen } from './Common/Battery/Edit'
+
+// PV Charger
+export { default as CommonEVChargerCreateScreen } from './Common/EVCharger/Create'
+// Mobile Storage
+export { default as CommonMobileStorageCreateScreen } from './Common/MobileStorage/Create'
+
 // My
 export { default as CommonMyScreen } from './Common/My'
 export { default as CommonMyAboutUsScreen } from './Common/My/AboutUs'

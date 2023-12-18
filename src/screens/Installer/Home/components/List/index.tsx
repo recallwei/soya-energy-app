@@ -244,7 +244,7 @@ export default function List() {
               {...{
                 normal: item?.normal,
                 alarm: item?.alarm,
-                notMonitored: item?.notMonitored,
+                notMonitored: item?.unmonitored,
                 offline: item?.offline
               }}
             />
