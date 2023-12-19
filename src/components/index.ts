@@ -1,4 +1,5 @@
 export { default as AlertDialog } from './AlertDialog'
+export { default as AnimationNumber } from './AnimationNumber'
 export { default as Card } from './Card'
 export { default as Checkbox } from './Checkbox'
 export { default as CopyButton } from './CopyButton'

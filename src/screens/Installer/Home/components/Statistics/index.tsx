@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Separator, SizableText, XStack, YStack } from 'tamagui'
 
-import { Card } from '@/components'
+import { AnimationNumber, Card } from '@/components'
 
 import { useHomeStatisticQuery } from '../../hooks'
 
@@ -15,12 +15,11 @@ export default function Statistics() {
         <Card width="49%">
           <YStack>
             <XStack space="$2">
-              <SizableText
+              <AnimationNumber
                 fontSize="$7"
                 fontWeight="$bold"
-              >
-                {data?.totalPowerGeneration ?? '0'}
-              </SizableText>
+                value={data?.totalPowerGeneration}
+              />
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
             <SizableText fontSize="$2">{t('Total.Energy.Generated')}</SizableText>
@@ -29,12 +28,11 @@ export default function Statistics() {
         <Card width="49%">
           <YStack>
             <XStack space="$2">
-              <SizableText
+              <AnimationNumber
                 fontSize="$7"
                 fontWeight="$bold"
-              >
-                {data?.totalInstalledCapacity ?? '0'}
-              </SizableText>
+                value={data?.totalInstalledCapacity}
+              />
               <SizableText fontSize="$3">kWp</SizableText>
             </XStack>
             <SizableText fontSize="$2">{t('Total.Installed.Capacity')}</SizableText>
@@ -49,12 +47,11 @@ export default function Statistics() {
             flex={1}
           >
             <XStack space="$2">
-              <SizableText
+              <AnimationNumber
                 fontSize="$7"
                 fontWeight="$bold"
-              >
-                {data?.todayPowerGeneration ?? '0'}
-              </SizableText>
+                value={data?.todayPowerGeneration}
+              />
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
             <SizableText fontSize="$2">{t('Today')}</SizableText>
@@ -69,12 +66,11 @@ export default function Statistics() {
             flex={1}
           >
             <XStack space="$2">
-              <SizableText
+              <AnimationNumber
                 fontSize="$7"
                 fontWeight="$bold"
-              >
-                {data?.monthPowerGeneration ?? '0'}
-              </SizableText>
+                value={data?.monthPowerGeneration}
+              />
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
             <SizableText fontSize="$2">{t('This.Month')}</SizableText>
@@ -89,12 +85,11 @@ export default function Statistics() {
             flex={1}
           >
             <XStack space="$2">
-              <SizableText
+              <AnimationNumber
                 fontSize="$7"
                 fontWeight="$bold"
-              >
-                {data?.yearPowerGeneration ?? '0'}
-              </SizableText>
+                value={data?.yearPowerGeneration}
+              />
               <SizableText fontSize="$3">kWh</SizableText>
             </XStack>
             <SizableText fontSize="$2">{t('Current.Year')}</SizableText>

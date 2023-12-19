@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { toNumber } from 'lodash'
 
 import { HomeAPI } from '@/api'
 import type { HomeStatistic, R } from '@/types'
@@ -16,14 +17,20 @@ export const useHomeStatisticQuery = () => {
         totalPowerGeneration
       } = res.data
       return {
-        totalPowerGeneration: Number(totalPowerGeneration ?? 0).toFixed(0),
-        todayPowerGeneration: Number(todayPowerGeneration ?? 0).toFixed(0),
-        yearPowerGeneration: Number(yearPowerGeneration ?? 0).toFixed(0),
-        monthPowerGeneration: Number(monthPowerGeneration ?? 0).toFixed(0),
-        totalInstalledCapacity: Number(totalInstalledCapacity ?? 0).toFixed(0)
+        totalPowerGeneration: formatValue(totalPowerGeneration),
+        todayPowerGeneration: formatValue(todayPowerGeneration),
+        yearPowerGeneration: formatValue(yearPowerGeneration),
+        monthPowerGeneration: formatValue(monthPowerGeneration),
+        totalInstalledCapacity: formatValue(totalInstalledCapacity)
       }
     }
   })
+
+  function formatValue(value?: number | string) {
+    if (!value) return 0
+    return toNumber(toNumber(value).toFixed(0)) || 0
+  }
+
   return {
     data
   }

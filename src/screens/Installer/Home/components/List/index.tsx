@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
 import { Circle, SizableText, Stack, styled, View, XStack, YStack } from 'tamagui'
 
-import { Card } from '@/components'
+import { AnimationNumber, Card } from '@/components'
 import { SYSTEM_RESOURCE } from '@/constants'
 import { ManagementTab } from '@/screens/Installer/Management/enums'
 import { useThemeStore } from '@/store'
@@ -112,12 +112,11 @@ export default function List() {
                   space="$2"
                 >
                   <StatisticCard>
-                    <SizableText
+                    <AnimationNumber
                       fontSize="$6"
                       fontWeight="$bold"
-                    >
-                      {item?.total ?? '0'}
-                    </SizableText>
+                      value={item?.total}
+                    />
                     <SizableText
                       lineHeight={16}
                       fontSize={10}
@@ -126,12 +125,11 @@ export default function List() {
                     </SizableText>
                   </StatisticCard>
                   <StatisticCard>
-                    <SizableText
+                    <AnimationNumber
                       fontSize="$6"
                       fontWeight="$bold"
-                    >
-                      {item?.normalRate}%
-                    </SizableText>
+                      value={item?.normalRate}
+                    />
                     <SizableText
                       lineHeight={16}
                       fontSize={10}
@@ -145,12 +143,11 @@ export default function List() {
                   space="$2"
                 >
                   <StatisticCard>
-                    <SizableText
+                    <AnimationNumber
                       fontSize="$6"
                       fontWeight="$bold"
-                    >
-                      {item?.normal ?? '0'}
-                    </SizableText>
+                      value={item?.normal}
+                    />
                     <SizableText
                       lineHeight={16}
                       fontSize={10}
@@ -167,12 +164,11 @@ export default function List() {
                     />
                   </StatisticCard>
                   <StatisticCard>
-                    <SizableText
+                    <AnimationNumber
                       fontSize="$6"
                       fontWeight="$bold"
-                    >
-                      {item?.alarm ?? '0'}
-                    </SizableText>
+                      value={item?.alarm}
+                    />
                     <SizableText
                       lineHeight={16}
                       fontSize={10}
@@ -194,12 +190,11 @@ export default function List() {
                   space="$2"
                 >
                   <StatisticCard>
-                    <SizableText
+                    <AnimationNumber
                       fontSize="$6"
                       fontWeight="$bold"
-                    >
-                      {item?.offline ?? '0'}
-                    </SizableText>
+                      value={item?.offline}
+                    />
                     <SizableText
                       lineHeight={16}
                       fontSize={10}
@@ -216,12 +211,11 @@ export default function List() {
                     />
                   </StatisticCard>
                   <StatisticCard>
-                    <SizableText
+                    <AnimationNumber
                       fontSize="$6"
                       fontWeight="$bold"
-                    >
-                      {item?.unmonitored ?? '0'}
-                    </SizableText>
+                      value={item?.unmonitored}
+                    />
                     <SizableText
                       lineHeight={16}
                       fontSize={10}

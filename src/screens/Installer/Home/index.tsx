@@ -12,8 +12,10 @@ export default function Screen() {
   const insets = useSafeAreaInsets()
   const queryClient = useQueryClient()
   const { refreshing, onRefresh } = useRefresh(() =>
-    queryClient.invalidateQueries({
-      queryKey: [HomeAPI.DEVICE_STATISTIC_QUERY_KEY]
+    queryClient.refetchQueries({
+      predicate: (query) =>
+        query.queryKey.includes(HomeAPI.DEVICE_STATISTIC_QUERY_KEY) ||
+        query.queryKey.includes(HomeAPI.STATISTIC_QUERY_KEY)
     })
   )
 

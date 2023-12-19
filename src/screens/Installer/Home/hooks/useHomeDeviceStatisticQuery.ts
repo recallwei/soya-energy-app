@@ -1,4 +1,5 @@
 import { useQueries } from '@tanstack/react-query'
+import { toNumber } from 'lodash'
 
 import { HomeAPI } from '@/api'
 import { SYSTEM_RESOURCE } from '@/constants'
@@ -21,11 +22,10 @@ export const useHomeDeviceStatisticQuery = () => {
             offline,
             unmonitored,
             total,
-            normalRate: normal && total ? Number((normal / total) * 100).toFixed(1) : 0,
-            alarmRate: alarm && total ? Number((alarm / total) * 100).toFixed(1) : 0,
-            unmonitoredRate:
-              unmonitored && total ? Number((unmonitored / total) * 100).toFixed(1) : 0,
-            offlineRate: offline && total ? Number((offline / total) * 100).toFixed(1) : 0,
+            normalRate: getRate(normal, total),
+            alarmRate: getRate(alarm, total),
+            unmonitoredRate: getRate(unmonitored, total),
+            offlineRate: getRate(offline, total),
             url: SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL
           }
         }
@@ -42,11 +42,10 @@ export const useHomeDeviceStatisticQuery = () => {
             offline,
             unmonitored,
             total,
-            normalRate: normal && total ? Number((normal / total) * 100).toFixed(1) : 0,
-            alarmRate: alarm && total ? Number((alarm / total) * 100).toFixed(1) : 0,
-            unmonitoredRate:
-              unmonitored && total ? Number((unmonitored / total) * 100).toFixed(1) : 0,
-            offlineRate: offline && total ? Number((offline / total) * 100).toFixed(1) : 0,
+            normalRate: getRate(normal, total),
+            alarmRate: getRate(alarm, total),
+            unmonitoredRate: getRate(unmonitored, total),
+            offlineRate: getRate(offline, total),
             url: SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL
           }
         }
@@ -63,17 +62,22 @@ export const useHomeDeviceStatisticQuery = () => {
             offline,
             unmonitored,
             total,
-            normalRate: normal && total ? Number((normal / total) * 100).toFixed(1) : 0,
-            alarmRate: alarm && total ? Number((alarm / total) * 100).toFixed(1) : 0,
-            unmonitoredRate:
-              unmonitored && total ? Number((unmonitored / total) * 100).toFixed(1) : 0,
-            offlineRate: offline && total ? Number((offline / total) * 100).toFixed(1) : 0,
+            normalRate: getRate(normal, total),
+            alarmRate: getRate(alarm, total),
+            unmonitoredRate: getRate(unmonitored, total),
+            offlineRate: getRate(offline, total),
             url: SYSTEM_RESOURCE.BATTERY_DEFAULT_IMAGE_URL
           }
         }
       }
     ]
   })
+
+  function getRate(value?: number | string, total?: number | string) {
+    if (!value || !total) return 0
+    const rate = (toNumber(value) / toNumber(total)) * 100
+    return toNumber(rate.toFixed(1))
+  }
 
   return {
     statisticData: (results.map((result) => result.data) ?? []) as HomeDeviceStatistic[]
