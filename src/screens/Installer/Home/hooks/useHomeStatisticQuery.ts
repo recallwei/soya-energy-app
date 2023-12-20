@@ -28,7 +28,7 @@ export const useHomeStatisticQuery = () => {
 
   function formatValue(value?: number | string) {
     if (!value) return 0
-    return toNumber(toNumber(value).toFixed(0)) || 0
+    return toNumber(toNumber(value).toFixed(0))
   }
 
   return {

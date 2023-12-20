@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, YStack } from 'tamagui'
+import { Button, Input, XStack, YStack } from 'tamagui'
 
 import { InputTitle } from '@/components'
 
@@ -29,11 +29,14 @@ export default function ForgotPasswordScreen() {
 
       <YStack>
         <InputTitle required>{t('Verification.Code')}</InputTitle>
-        <Input
-          autoCapitalize="none"
-          clearButtonMode="while-editing"
-          placeholder={t('Validation:Verification.Code.Not.Null')}
-        />
+        <XStack space="$2">
+          <Input
+            autoCapitalize="none"
+            clearButtonMode="while-editing"
+            placeholder={t('Validation:Verification.Code.Not.Null')}
+          />
+          <Button>{}</Button>
+        </XStack>
       </YStack>
 
       <YStack>

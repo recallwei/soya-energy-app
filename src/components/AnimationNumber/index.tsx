@@ -6,18 +6,21 @@ interface Props extends SizableTextProps {
   value?: number
   duration?: number
   delay?: number
+  prefix?: string
+  suffix?: string
 }
 
 const AnimationNumber = memo((props: Props) => {
-  const { value = 0, duration = 2000, delay = 500, ...rest } = props
+  const { value = 0, duration = 2000, delay = 300, prefix, suffix, ...rest } = props
   const lastValue = useRef(value)
   const [currentValue, setCurrentValue] = useState(0)
-  let interval: NodeJS.Timeout
 
-  const start = () => {
+  useEffect(() => {
+    let interval: NodeJS.Timeout
     setTimeout(() => {
       clearInterval(interval)
-      let increment = Math.floor(((value - lastValue.current) / duration) * 5)
+      const currentLastValue = lastValue.current
+      let increment = Math.floor(((value - currentLastValue) / duration) * 5)
       lastValue.current = value
       increment = increment < 1 ? 1 : increment
       interval = setInterval(() => {
@@ -31,13 +34,15 @@ const AnimationNumber = memo((props: Props) => {
         })
       }, 5)
     }, delay)
-  }
-
-  useEffect(() => {
-    start()
     return () => clearInterval(interval)
-  }, [value])
+  }, [value, delay, duration])
 
-  return <SizableText {...rest}>{currentValue}</SizableText>
+  return (
+    <SizableText {...rest}>
+      {prefix}
+      {currentValue}
+      {suffix}
+    </SizableText>
+  )
 })
 export default AnimationNumber

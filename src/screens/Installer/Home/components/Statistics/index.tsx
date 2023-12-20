@@ -13,7 +13,7 @@ export default function Statistics() {
     <YStack space="$2">
       <XStack justifyContent="space-between">
         <Card width="49%">
-          <YStack>
+          <YStack alignItems="center">
             <XStack space="$2">
               <AnimationNumber
                 fontSize="$7"
@@ -26,7 +26,7 @@ export default function Statistics() {
           </YStack>
         </Card>
         <Card width="49%">
-          <YStack>
+          <YStack alignItems="center">
             <XStack space="$2">
               <AnimationNumber
                 fontSize="$7"

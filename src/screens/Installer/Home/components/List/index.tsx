@@ -129,6 +129,7 @@ export default function List() {
                       fontSize="$6"
                       fontWeight="$bold"
                       value={item?.normalRate}
+                      suffix="%"
                     />
                     <SizableText
                       lineHeight={16}
@@ -236,10 +237,10 @@ export default function List() {
             </XStack>
             <ProgressBar
               {...{
-                normal: item?.normal,
-                alarm: item?.alarm,
-                notMonitored: item?.unmonitored,
-                offline: item?.offline
+                normal: item?.normalRate,
+                alarm: item?.alarmRate,
+                notMonitored: item?.unmonitoredRate,
+                offline: item?.offlineRate
               }}
             />
           </YStack>

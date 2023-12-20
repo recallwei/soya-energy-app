@@ -1,5 +1,5 @@
 import { useQueries } from '@tanstack/react-query'
-import { toNumber } from 'lodash'
+import { isNaN, toNumber } from 'lodash'
 
 import { HomeAPI } from '@/api'
 import { SYSTEM_RESOURCE } from '@/constants'
@@ -74,12 +74,14 @@ export const useHomeDeviceStatisticQuery = () => {
   })
 
   function getRate(value?: number | string, total?: number | string) {
-    if (!value || !total) return 0
     const rate = (toNumber(value) / toNumber(total)) * 100
+    if (isNaN(rate)) {
+      return 0
+    }
     return toNumber(rate.toFixed(1))
   }
 
   return {
-    statisticData: (results.map((result) => result.data) ?? []) as HomeDeviceStatistic[]
+    statisticData: (results.map((result) => result.data) || []) as HomeDeviceStatistic[]
   }
 }

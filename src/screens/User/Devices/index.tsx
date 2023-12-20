@@ -24,9 +24,9 @@ export default function Screen() {
     <YStack minHeight="100%">
       <FlatList
         contentContainerStyle={{
-          gap: 8,
+          gap: 12,
           paddingHorizontal: 18,
-          paddingVertical: 18
+          paddingVertical: 12
         }}
         data={devices}
         keyExtractor={({ id }) => id}

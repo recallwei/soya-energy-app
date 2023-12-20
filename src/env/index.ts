@@ -44,5 +44,5 @@ class GlobalEnvConfig {
 }
 
 export const globalEnvConfig = new GlobalEnvConfig({
-  type: 'STAGING'
+  type: 'DEV'
 })
