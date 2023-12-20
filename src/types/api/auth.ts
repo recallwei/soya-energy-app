@@ -5,15 +5,18 @@ export interface LoginInputModel extends Record<string, unknown> {
 
 export interface SignupInputModel extends Record<string, unknown> {
   account: string
-  avatar: string
-  birthday: string
+  avatar?: string
+  birthday?: string
   email: string
   emailCode: string
-  name: string
+  name?: string
   password: string
-  phone: string
-  realName: string
-  sex: string
+  phone?: string
+  realName?: string
+  sex?: string
+  type: string
+  country?: string
+  timezone?: string
 }
 
 export interface ChangePasswordInputModel extends Record<string, unknown> {

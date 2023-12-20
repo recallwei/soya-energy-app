@@ -59,5 +59,14 @@
   "Inverter.SN": {
     "Max.Length": "Inverter SN must not be longer than 30 characters",
     "Not.Null": "Please enter the inverter SN"
+  },
+  "Agreement": {
+    "Not.Null": "Please agree to the terms of service"
+  },
+  "Country.Region": {
+    "Not.Null": "Please select the country/region"
+  },
+  "Time.Zone": {
+    "Not.Null": "Please select the time zone"
   }
 }

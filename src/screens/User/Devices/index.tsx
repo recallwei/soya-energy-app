@@ -40,6 +40,7 @@ export default function Screen() {
                   actionBtn
                   currentTab={ManagementTab.Inverter}
                   {...item}
+                  id={item.inverterId}
                 />
               )
             case DeviceType.Battery:

@@ -13,6 +13,7 @@ import { Button, Image, Input, Label, SizableText, Spinner, View, XStack, YStack
 
 import { AuthAPI } from '@/api'
 import { Checkbox } from '@/components'
+import { UserRole } from '@/enums'
 import { globalEnvConfig } from '@/env'
 import { useUserInfoQuery } from '@/hooks'
 import { useAuthStore, useThemeStore } from '@/store'
@@ -170,11 +171,6 @@ export default function Screen() {
         <Controller
           name="password"
           control={control}
-          rules={{
-            required: true,
-            min: 6,
-            max: 20
-          }}
           render={({ field: { onChange, onBlur, value } }) => (
             <XStack
               width="100%"
@@ -241,7 +237,7 @@ export default function Screen() {
           <TouchableOpacity onPress={() => navigate('Auth.Forgot_Password')}>
             <SizableText>{t('Forgot.Password')}</SizableText>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate('Auth.SignUp.SelectRole')}>
+          <TouchableOpacity onPress={() => navigate('Auth.SignUp', { role: UserRole.USER })}>
             <SizableText>{t('Signup')}</SizableText>
           </TouchableOpacity>
         </XStack>

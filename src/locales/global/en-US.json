@@ -35,6 +35,7 @@
   "Go.To.Set": "Go to set",
   "Edit": "Edit",
   "Login.Success": "Login success",
+  "Signup.Success": "Signup success",
   "Create.Success": "Create success",
   "Operate.Success": "Operate success",
   "Delete.Success": "Delete success",
@@ -55,5 +56,7 @@
   "Weather": "Weather",
   "Real.Time.Status": "Real-time Status",
   "Copy": "Copy",
-  "Copy.Success": "Copy success"
+  "Copy.Success": "Copy success",
+  "Send": "Send",
+  "Send.Success": "Send success"
 }

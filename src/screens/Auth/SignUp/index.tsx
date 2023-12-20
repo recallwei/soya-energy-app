@@ -1,10 +1,8 @@
-import { yupResolver } from '@hookform/resolvers/yup'
 import { useRoute } from '@react-navigation/native'
 import { Eye, EyeOff } from '@tamagui/lucide-icons'
-import { useMutation } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
-import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
-import { Controller, useForm } from 'react-hook-form'
+import type { SubmitHandler } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native'
 import type { Image } from 'react-native-image-crop-picker'
@@ -23,78 +21,50 @@ import {
   XStack,
   YStack
 } from 'tamagui'
+import { useImmer } from 'use-immer'
 
-import { Checkbox } from '@/components'
+import { Checkbox, InputTitle } from '@/components'
 import { globalStyles } from '@/constants'
-import { UserRole } from '@/enums'
-import { useAuthStore } from '@/store'
+import { SendEmailType, UserRole } from '@/enums'
+import { useSendEmailCodeMutation } from '@/hooks'
 import type { RouteProp } from '@/types'
 import { DeviceUtils, ToastUtils } from '@/utils'
 
-import { signupSchema } from './constants'
+import { useSignupForm, useSignupMutation } from './hooks'
 import type { SignUpForm } from './types'
 
 export default function Screen() {
   const { t } = useTranslation(['Auth', 'Global', 'Validation'])
   const route = useRoute<RouteProp<'Auth.SignUp'>>()
   const insets = useSafeAreaInsets()
-  const authStore = useAuthStore()
-
-  const { control, handleSubmit } = useForm<SignUpForm>({
-    resolver: yupResolver(signupSchema),
-    defaultValues: {
-      username: '',
-      password: '',
-      confirmPassword: ''
-    }
-  })
 
   const [role, setRole] = useState<UserRole>(UserRole.USER)
   const [selectedImage, setSelectedImage] = useState<Image | null>(null)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
-  const [formData, setFormData] = useState({
+  const [agreementData, setAgreementData] = useImmer({
     userAgreement: false,
     privacyAgreement: false,
     emailAgreement: false
   })
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: (data: SignUpForm) =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(data)
-        }, 1000)
-      }),
-    // AuthAPI.signup()
-    onSuccess: () => {
-      authStore.login()
-      ImagePicker.cleanSingle(selectedImage!.path).catch(() => {})
-    },
-    onError: () => authStore.login()
-  })
+  const { handleSignup, isSignupLoading } = useSignupMutation()
+  const { handleSendEmailCode, isSendEmailCodeLoading } = useSendEmailCodeMutation(
+    SendEmailType.Signup
+  )
+  const { control, handleSubmit, handleSubmitError, getEmail, errors } = useSignupForm()
 
   useEffect(() => {
     setRole(route.params.role)
   }, [route.params.role])
 
-  const handleChangeUserAgreement = (value: boolean) =>
-    setFormData((val) => ({ ...val, userAgreement: value }))
-
-  const handleChangePrivacyAgreement = (value: boolean) =>
-    setFormData((val) => ({ ...val, privacyAgreement: value }))
-
-  const handleChangeEmailAgreement = (value: boolean) =>
-    setFormData((val) => ({ ...val, emailAgreement: value }))
-
-  const handleSignup: SubmitHandler<SignUpForm> = (data) => mutate(data)
-
-  const handleSubmitError: SubmitErrorHandler<SignUpForm> = (errs) => {
-    const message = Object.values(errs).map((item) => item.message)[0]
-    if (message) {
-      ToastUtils.error({ title: message })
+  const handleClickSubmit: SubmitHandler<SignUpForm> = (data) => {
+    if (Object.values(agreementData).some((item) => !item)) {
+      ToastUtils.error({ message: t('Validation:Agreement.Not.Null') })
+      return
     }
+    handleSignup(data)
   }
 
   const handleSelectFile = () => {
@@ -139,51 +109,86 @@ export default function Screen() {
             <Input
               autoCapitalize="none"
               clearButtonMode="while-editing"
+              value={role === UserRole.USER ? t('Role.Type.Owner') : t('Role.Type.Installer')}
+              disabled
             />
           </YStack>
 
           <YStack>
-            <SizableText>{t('Username')}</SizableText>
-            <Input
-              autoCapitalize="none"
-              clearButtonMode="while-editing"
+            <InputTitle required>{t('Account')}</InputTitle>
+            <Controller
+              name="account"
+              control={control}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <Input
+                  autoCapitalize="none"
+                  clearButtonMode="while-editing"
+                  placeholder={t('Validation:Account.Not.Null')}
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  disabled={isSignupLoading}
+                  borderColor={errors.account ? 'red' : undefined}
+                />
+              )}
             />
           </YStack>
 
           <YStack>
-            <SizableText>{t('Country.Region')}</SizableText>
-            <Input
-              autoCapitalize="none"
-              clearButtonMode="while-editing"
+            <InputTitle required>{t('Email')}</InputTitle>
+            <XStack space="$2">
+              <Controller
+                name="email"
+                control={control}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    autoCapitalize="none"
+                    clearButtonMode="while-editing"
+                    placeholder={t('Validation:Email.Not.Null')}
+                    flex={1}
+                    value={value}
+                    onChangeText={onChange}
+                    onBlur={onBlur}
+                    disabled={isSignupLoading}
+                    borderColor={errors.email ? 'red' : undefined}
+                  />
+                )}
+              />
+              <Button
+                icon={isSendEmailCodeLoading ? <Spinner /> : undefined}
+                disabled={isSendEmailCodeLoading}
+                onPress={() => handleSendEmailCode(getEmail())}
+              >
+                {t('Global:Send')}
+              </Button>
+            </XStack>
+          </YStack>
+
+          <YStack>
+            <InputTitle required>{t('Verification.Code')}</InputTitle>
+            <Controller
+              name="emailCode"
+              control={control}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <Input
+                  autoCapitalize="none"
+                  clearButtonMode="while-editing"
+                  placeholder={t('Validation:Verification.Code.Not.Null')}
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  disabled={isSignupLoading}
+                  borderColor={errors.emailCode ? 'red' : undefined}
+                />
+              )}
             />
           </YStack>
 
           <YStack>
-            <SizableText>{t('Time.Zone')}</SizableText>
-            <Input
-              autoCapitalize="none"
-              clearButtonMode="while-editing"
-            />
-          </YStack>
-
-          <YStack>
-            <SizableText>{t('Email')}</SizableText>
-            <Input
-              autoCapitalize="none"
-              clearButtonMode="while-editing"
-            />
-          </YStack>
-
-          <YStack>
-            <SizableText>{t('Validation:Password.Not.Null')}</SizableText>
+            <InputTitle required>{t('Password')}</InputTitle>
             <Controller
               name="password"
               control={control}
-              rules={{
-                required: true,
-                min: 6,
-                max: 20
-              }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <XStack
                   width="100%"
@@ -197,6 +202,8 @@ export default function Screen() {
                     secureTextEntry={!showPassword}
                     clearButtonMode="never"
                     autoCapitalize="none"
+                    placeholder={t('Validation:Password.Not.Null')}
+                    borderColor={errors.password ? 'red' : undefined}
                   />
                   {value.length > 0 && (
                     <View
@@ -214,16 +221,11 @@ export default function Screen() {
             />
           </YStack>
 
-          <YStack marginBottom="$3">
-            <SizableText>{t('Validation:Confirm.Password.Not.Null')}</SizableText>
+          <YStack>
+            <InputTitle required>{t('Confirm.Password')}</InputTitle>
             <Controller
               name="confirmPassword"
               control={control}
-              rules={{
-                required: true,
-                min: 6,
-                max: 20
-              }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <XStack
                   width="100%"
@@ -237,6 +239,8 @@ export default function Screen() {
                     secureTextEntry={!showConfirmPassword}
                     clearButtonMode="never"
                     autoCapitalize="none"
+                    placeholder={t('Validation:Confirm.Password.Not.Null')}
+                    borderColor={errors.confirmPassword ? 'red' : undefined}
                   />
                   {value.length > 0 && (
                     <View
@@ -251,6 +255,24 @@ export default function Screen() {
                   )}
                 </XStack>
               )}
+            />
+          </YStack>
+
+          <YStack>
+            <SizableText>{t('Country.Region')}</SizableText>
+            <Input
+              autoCapitalize="none"
+              clearButtonMode="while-editing"
+              placeholder={t('Validation:Country.Region.Not.Null')}
+            />
+          </YStack>
+
+          <YStack marginBottom="$3">
+            <SizableText>{t('Time.Zone')}</SizableText>
+            <Input
+              autoCapitalize="none"
+              clearButtonMode="while-editing"
+              placeholder={t('Validation:Time.Zone.Not.Null')}
             />
           </YStack>
 
@@ -341,26 +363,38 @@ export default function Screen() {
           <Checkbox
             marginTop="$3"
             label={t('Agree.User.Registration.Agreement')}
-            checked={formData.userAgreement}
-            onCheckedChange={handleChangeUserAgreement}
+            checked={agreementData.userAgreement}
+            onCheckedChange={(checked: boolean) => {
+              setAgreementData((draft) => {
+                draft.userAgreement = checked
+              })
+            }}
           />
           <Checkbox
             label={t('Agree.Owner.Privacy.Policy')}
-            checked={formData.privacyAgreement}
-            onCheckedChange={handleChangePrivacyAgreement}
+            checked={agreementData.privacyAgreement}
+            onCheckedChange={(checked: boolean) => {
+              setAgreementData((draft) => {
+                draft.privacyAgreement = checked
+              })
+            }}
           />
           <Checkbox
             label={t('Agree.Enterprise.Policy')}
-            checked={formData.emailAgreement}
-            onCheckedChange={handleChangeEmailAgreement}
+            checked={agreementData.emailAgreement}
+            onCheckedChange={(checked: boolean) => {
+              setAgreementData((draft) => {
+                draft.emailAgreement = checked
+              })
+            }}
           />
 
           <Button
             width="100%"
             marginVertical="$4"
-            onPress={handleSubmit(handleSignup, handleSubmitError)}
-            disabled={isPending}
-            icon={isPending ? <Spinner /> : undefined}
+            onPress={handleSubmit(handleClickSubmit, handleSubmitError)}
+            disabled={isSignupLoading}
+            icon={isSignupLoading ? <Spinner /> : undefined}
           >
             {t('Global:Submit')}
           </Button>

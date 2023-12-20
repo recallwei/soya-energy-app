@@ -35,6 +35,7 @@
   "Go.To.Set": "前往设置",
   "Edit": "编辑",
   "Login.Success": "登录成功",
+  "Signup.Success": "注册成功",
   "Create.Success": "创建成功",
   "Operate.Success": "操作成功",
   "Delete.Success": "删除成功",
@@ -54,5 +55,7 @@
   "Weather": "天气",
   "Real.Time.Status": "实时状态",
   "Copy": "复制",
-  "Copy.Success": "复制成功"
+  "Copy.Success": "复制成功",
+  "Send": "发送",
+  "Send.Success": "发送成功"
 }

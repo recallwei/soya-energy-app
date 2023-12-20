@@ -59,5 +59,14 @@
   "Inverter.SN": {
     "Max.Length": "逆变器 SN 不得大于 30 个字符",
     "Not.Null": "请输入逆变器 SN"
+  },
+  "Agreement": {
+    "Not.Null": "请阅读并同意协议"
+  },
+  "Country.Region": {
+    "Not.Null": "请选择国家/地区"
+  },
+  "Time.Zone": {
+    "Not.Null": "请选择时区"
   }
 }

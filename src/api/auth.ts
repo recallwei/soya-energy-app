@@ -16,35 +16,28 @@ export class AuthAPI {
   /**
    * 登录
    */
-  static login(data: LoginInputModel): Promise<R<Token>> {
+  static login(data: LoginInputModel) {
     return httpRequest.post<R<Token>>(`${this.AUTH_API_PREFIX}/login`, data)
   }
 
   /**
    * 注册
    */
-  static signup(data: SignupInputModel): Promise<R<Token>> {
-    return httpRequest.post<R<Token>>(`${this.AUTH_API_PREFIX}/register`, data)
+  static signup(data: SignupInputModel) {
+    return httpRequest.post(`${this.AUTH_API_PREFIX}/register`, data)
   }
 
   /**
    * 修改密码
    */
-  static changePassword(data: ChangePasswordInputModel): Promise<R> {
+  static changePassword(data: ChangePasswordInputModel) {
     return httpRequest.post(`${this.AUTH_API_PREFIX}/change-password`, data)
   }
 
   /**
    * 忘记密码
    */
-  static forgotPassword(data: ForgotPasswordInputModel): Promise<R> {
+  static forgotPassword(data: ForgotPasswordInputModel) {
     return httpRequest.post(`${this.AUTH_API_PREFIX}/forget-password`, data)
-  }
-
-  /**
-   * 退出
-   */
-  static logout() {
-    return httpRequest.post(`${this.AUTH_API_PREFIX}/logout`)
   }
 }
