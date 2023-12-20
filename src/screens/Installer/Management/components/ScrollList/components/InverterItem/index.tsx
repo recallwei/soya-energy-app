@@ -57,7 +57,13 @@ const InverterItem = memo((props: Props) => {
             </SizableText>
 
             {props.actionBtn && (
-              <TouchableOpacity onPress={() => props.handleOpenSheet(props.id)}>
+              <TouchableOpacity
+                onPress={() => {
+                  if (props.id) {
+                    props.handleOpenSheet(props.id)
+                  }
+                }}
+              >
                 <MoreHorizontal size={20} />
               </TouchableOpacity>
             )}

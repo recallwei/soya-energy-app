@@ -2,6 +2,10 @@ import type { BasePageModel } from '.'
 
 export interface Inverter {
   /**
+   * 安装商名称
+   */
+  clientName?: string
+  /**
    * 创建时间
    */
   createTime?: string
@@ -10,9 +14,13 @@ export interface Inverter {
    */
   deviceAlias?: string
   /**
+   * 接入组件功率
+   */
+  deviceComponentPower?: string
+  /**
    * 设备ID
    */
-  deviceId?: number
+  deviceId?: string
   /**
    * 设备型号
    */
@@ -22,41 +30,69 @@ export interface Inverter {
    */
   deviceSN?: string
   /**
+   * 机器类型：[0并网，1储能，3交流耦合]
+   */
+  deviceType?: string
+  /**
+   * 显示板软件版本
+   */
+  dfw?: string
+  /**
    * 主键
    */
-  id: string
+  id?: string
   /**
-   * 电站名称
+   * Inverter PC code
+   */
+  invPC?: string
+  /**
+   * 主机软件版本
+   */
+  mfw?: string
+  /**
+   * 模块SN
+   */
+  moduleSN?: string
+  /**
+   * 站点ID
+   */
+  plantId?: string
+  /**
+   * 站点名称
    */
   plantName?: string
   /**
-   * 当前功率-额外
+   * 当前功率
    */
-  power?: number
+  power?: string
   /**
-   * 设备额度功率
+   * 额定功率
    */
   ratedPower?: number
   /**
-   * 逆变器状态:(1:正常 2:告警 3:离线 4:未监控)
+   * 从机软件版本
+   */
+  sfw?: string
+  /**
+   * 状态 1:正常 2:告警 3:离线 4:未监控
    */
   status?: string
   /**
-   * 当日发电-额外
+   * 当日发电
    */
   todayPower?: number
   /**
-   * 累计发电-额外
+   * 累计发电
    */
   totalPower?: number
   /**
-   * 逆变器类型[0并网，1储能，3交流耦合]
+   * 业主名称
    */
-  type?: string
+  userName?: string
   /**
-   * 质保日期-额外
+   * 质保日期
    */
-  warrantyDate?: number
+  warrantyDate?: string
   /**
    * 图片
    */

@@ -126,14 +126,17 @@ export default function Screen() {
               <FieldRow
                 leftText={t('Inverter.SN')}
                 customRight={
-                  <YStack space="$2">
+                  <YStack
+                    space="$2"
+                    alignItems="flex-end"
+                  >
                     <SizableText
                       fontSize="$3"
                       fontWeight="$bold"
                     >
-                      {detail?.plantName || '--'}
+                      {detail?.deviceSN || '--'}
                     </SizableText>
-                    <CopyButton copyText={detail?.plantName} />
+                    {detail?.deviceSN && <CopyButton copyText={detail.deviceSN} />}
                   </YStack>
                 }
               />
@@ -142,37 +145,40 @@ export default function Screen() {
                 leftText={t('Module.SN')}
                 stripe
                 customRight={
-                  <YStack space="$2">
+                  <YStack
+                    space="$2"
+                    alignItems="flex-end"
+                  >
                     <SizableText
                       fontSize="$3"
                       fontWeight="$bold"
                     >
-                      {detail?.plantName || '--'}
+                      {detail?.moduleSN || '--'}
                     </SizableText>
-                    <CopyButton copyText={detail?.plantName} />
+                    {detail?.moduleSN && <CopyButton copyText={detail.moduleSN} />}
                   </YStack>
                 }
               />
 
               <FieldRow
                 leftText={t('Module.Firmware.Version.No')}
-                rightText={detail?.plantName || '--'}
+                rightText={detail?.moduleSN || '--'}
               />
 
               <FieldRow
                 leftText={t('Display.Board.Version')}
-                rightText={detail?.plantName || '--'}
+                rightText={detail?.moduleSN || '--'}
                 stripe
               />
 
               <FieldRow
                 leftText={t('Control.Board.Version')}
-                rightText={detail?.plantName || '--'}
+                rightText={detail?.moduleSN || '--'}
               />
 
               <FieldRow
                 leftText={t('Device.Owner')}
-                rightText={detail?.plantName || '--'}
+                rightText={detail?.userName || '--'}
                 stripe
               />
             </YStack>

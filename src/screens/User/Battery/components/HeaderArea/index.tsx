@@ -55,13 +55,13 @@ const HeaderArea = memo(() => {
       </View>
 
       <SizableText size="$7">{t('On.Standby')}</SizableText>
-      <SizableText
+      <AnimationNumber
         size="$9"
         lineHeight="$9"
         fontWeight="$bold"
-      >
-        0.7kWh
-      </SizableText>
+        value={0.7}
+        suffix="kWh"
+      />
     </YStack>
   )
 })

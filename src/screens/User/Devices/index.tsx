@@ -10,6 +10,7 @@ import {
   InverterItem
 } from '@/screens/Installer/Management/components/ScrollList/components'
 import { ManagementTab } from '@/screens/Installer/Management/enums'
+import type { Battery } from '@/types'
 
 import { DeviceType } from './enums'
 import { useDevicesQuery, useSheet } from './hooks'
@@ -29,7 +30,7 @@ export default function Screen() {
           paddingVertical: 12
         }}
         data={devices}
-        keyExtractor={({ id }) => id}
+        keyExtractor={({ id }) => id!}
         renderItem={({ item }) => {
           switch (item.type) {
             case DeviceType.Inverter:
@@ -45,7 +46,7 @@ export default function Screen() {
               return (
                 <BatteryItem
                   currentTab={ManagementTab.Battery}
-                  {...item}
+                  {...(item as Battery)}
                 />
               )
             default:
