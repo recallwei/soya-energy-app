@@ -36,6 +36,6 @@ export class InverterAPI {
   }
 
   static create(params: InverterCreateModel) {
-    return httpRequest.get(`${this.INVERTER_API_PREFIX}/save-inverter`, { ...params })
+    return httpRequest.post(`${this.INVERTER_API_PREFIX}/save-inverter`, { ...params })
   }
 }

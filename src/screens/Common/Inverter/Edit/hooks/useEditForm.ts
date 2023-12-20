@@ -8,7 +8,7 @@ import { editInverterSchema } from '../constants'
 import type { EditInverterForm } from '../types'
 
 export const useEditForm = () => {
-  const { control, handleSubmit, reset } = useForm<EditInverterForm>({
+  const { control, handleSubmit, reset, setValue } = useForm<EditInverterForm>({
     resolver: yupResolver(editInverterSchema),
     defaultValues: {
       deviceAlias: '',
@@ -25,5 +25,5 @@ export const useEditForm = () => {
     }
   }
 
-  return { control, handleResetForm, handleSubmit, handleSubmitError }
+  return { control, handleResetForm, handleSubmit, handleSubmitError, setValue }
 }

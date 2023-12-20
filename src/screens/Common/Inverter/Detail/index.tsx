@@ -76,7 +76,13 @@ export default function Screen() {
                 stripe
               />
 
-              <TouchableOpacity onPress={() => {}}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigate('Common.Inverter.Edit', {
+                    id: detail.id!
+                  })
+                }
+              >
                 <FieldRow
                   leftText={t('Alias')}
                   customRight={
