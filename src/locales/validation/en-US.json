@@ -68,5 +68,26 @@
   },
   "Time.Zone": {
     "Not.Null": "Please select the time zone"
+  },
+  "Capacity": {
+    "Not.Null": "Please enter the capacity"
+  },
+  "Plant.Type": {
+    "Not.Null": "Please select the plant type"
+  },
+  "Address": {
+    "Not.Null": "Please enter the address"
+  },
+  "Plant.Name": {
+    "Not.Null": "Please enter the plant name"
+  },
+  "Component.Num": {
+    "Not.Null": "Please enter the component num"
+  },
+  "PV.Panel.Azimuth": {
+    "Not.Null": "Please enter the PV panel azimuth"
+  },
+  "PV.Panel.Inclination": {
+    "Not.Null": "Please enter the PV panel inclination"
   }
 }

@@ -2,6 +2,7 @@ import { globalEnvConfig } from '@/env'
 import type {
   Inverter,
   InverterCreateModel,
+  InverterDetailModel,
   InverterEditModel,
   InverterPageModel,
   Page,
@@ -23,8 +24,10 @@ export class InverterAPI {
     })
   }
 
-  static detail(id: string) {
-    return httpRequest.get<R<Inverter>>(`${this.INVERTER_API_PREFIX}/query-inverter-info`, { id })
+  static detail(params: InverterDetailModel) {
+    return httpRequest.get<R<Inverter>>(`${this.INVERTER_API_PREFIX}/query-inverter-info`, {
+      ...params
+    })
   }
 
   static edit(params: InverterEditModel) {

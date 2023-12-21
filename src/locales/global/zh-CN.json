@@ -57,5 +57,7 @@
   "Copy": "复制",
   "Copy.Success": "复制成功",
   "Send": "发送",
-  "Send.Success": "发送成功"
+  "Send.Success": "发送成功",
+  "Next.Step": "下一步",
+  "Query": "查询"
 }

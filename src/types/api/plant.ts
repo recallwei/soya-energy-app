@@ -81,3 +81,118 @@ export interface PlantPageModel extends BasePageModel {
   systemPowerMax?: string
   systemPowerMin?: string
 }
+
+export interface CreatePlantModel {
+  /**
+   * 详细地址
+   */
+  address?: string
+  /**
+   * 城市名
+   */
+  city?: string
+  /**
+   * 城市编码
+   */
+  cityCode?: string
+  /**
+   * 国家名称
+   */
+  country?: string
+  /**
+   * 国家编码
+   */
+  countryCode?: string
+  /**
+   * 区/县名称
+   */
+  county?: string
+  /**
+   * 区/县编码
+   */
+  countyCode?: string
+  /**
+   * 完整地址
+   */
+  fullAddress?: string
+  /**
+   * 逆变器器SN
+   */
+  inverterSn?: string
+  /**
+   * 纬度
+   */
+  latitude?: number
+  /**
+   * 经度
+   */
+  longitude?: number
+  /**
+   * 电表序列号NMI
+   */
+  meterId?: string
+  /**
+   * 组件数量
+   */
+  moduleNum?: string
+  /**
+   * 电站名称
+   */
+  plantName?: string
+  /**
+   * 电站编码
+   */
+  plantNo?: string
+  /**
+   * 电站图片
+   */
+  projectPic?: string
+  /**
+   * 省份名称
+   */
+  province?: string
+  /**
+   * 省份编码
+   */
+  provinceCode?: string
+  /**
+   * 光伏板倾角，单位°
+   */
+  pvPanelAngle?: string
+  /**
+   * 光伏板方位角，单位°
+   */
+  pvPanelAzimuth?: string
+  /**
+   * 街道/镇名称
+   */
+  street?: string
+  /**
+   * 街道类型
+   */
+  streetType?: string
+  /**
+   * 电站装机容量
+   */
+  systemPower?: string
+  /**
+   * 时区ID
+   */
+  timeZone?: string
+  /**
+   * 时区名称
+   */
+  timeZoneName?: string
+  /**
+   * 电站类型，0并网，1储能，3交流耦合
+   */
+  type?: string
+  /**
+   * 邮政编码
+   */
+  zipCode?: string
+  /**
+   * 用户 ID：代建电站时使用
+   */
+  userId?: string
+}

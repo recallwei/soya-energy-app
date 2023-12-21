@@ -1,21 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 
 import { InverterAPI } from '@/api'
+import type { InverterDetailModel } from '@/types'
 
-interface Props {
-  id: string
-}
-
-export const useInverterDetailQuery = (props: Props) => {
+export const useInverterDetailQuery = (props: InverterDetailModel) => {
   const { data, isFetching, refetch } = useQuery({
-    queryKey: [InverterAPI.DETAIL_QUERY_KEY, props.id],
-    queryFn: () => InverterAPI.detail(props.id),
-    select: (res) => res.data
+    queryKey: [InverterAPI.DETAIL_QUERY_KEY, props],
+    queryFn: () => InverterAPI.detail(props),
+    select: (res) => res.data,
+    enabled: !!props.id || !!props.deviceSN
   })
 
-  return {
-    detail: data,
-    isLoading: isFetching,
-    refetch
-  }
+  return { detail: data, isLoading: isFetching, refetch }
 }

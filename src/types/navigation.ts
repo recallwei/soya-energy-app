@@ -35,8 +35,9 @@ export type RootStackParamList = InstallerTabParamList &
 
     ['Common.Plant.Detail']: { id: string }
     ['Common.Plant.Edit']: { id: string }
-    ['Common.Plant.Create.Scan_SN']: undefined
-    ['Common.Plant.Create.Form']: { code: string }
+    ['Common.Plant.Create.Inverter']: { userId?: string }
+    ['Common.Plant.Create']: { inverterSn: string; userId?: string }
+    ['Common.Plant.Customers']: undefined
 
     ['Common.Inverter.Detail']: { id: string }
     ['Common.Inverter.Edit']: { id: string }

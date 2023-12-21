@@ -114,8 +114,13 @@ export interface InverterEditModel {
 }
 
 export interface InverterCreateModel {
-  plantId: string
+  plantId?: string
   deviceSN: string
   deviceComponentPower: string
   deviceAlias?: string
+}
+
+export interface InverterDetailModel {
+  id?: string
+  deviceSN?: string
 }

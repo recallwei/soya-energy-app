@@ -1,0 +1,13 @@
+{
+  "Name": "名称",
+  "Capacity": "容量",
+  "Country.Region": "国家/地区",
+  "Time.Zone": "时区",
+  "Address": "地址",
+  "Type": "类型",
+  "Components.Number": "组件数量",
+  "PV.Panel.Azimuth": "光伏板方位角",
+  "PV.Panel.Inclination": "光伏板倾角",
+  "I.Have.Obtained.User.Authorization": "我已获得用户授权",
+  "Plant.Logo": "电站 Logo"
+}

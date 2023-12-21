@@ -39,8 +39,9 @@ import {
   CommonMySettingsCancelAccountScreen,
   CommonMySettingsScreen,
   CommonMySettingsSystemUnitsScreen,
-  CommonPlantCreateFormScreen,
-  CommonPlantCreateScanSNScreen,
+  CommonPlantCreateInverterScreen,
+  CommonPlantCreateScreen,
+  CommonPlantCustomersScreen,
   CommonPlantDetailScreen,
   CommonPlantEditScreen,
   UserHomeLiveStatusScreen,
@@ -318,14 +319,19 @@ export default function Navigation() {
                   options={{ title: t('Common.Plant.Detail') }}
                 />
                 <Stack.Screen
-                  name="Common.Plant.Create.Scan_SN"
-                  component={CommonPlantCreateScanSNScreen}
-                  options={{ title: t('Common.Plant.Create.Scan.SN') }}
+                  name="Common.Plant.Create"
+                  component={CommonPlantCreateScreen}
+                  options={{ title: t('Common.Plant.Create') }}
                 />
                 <Stack.Screen
-                  name="Common.Plant.Create.Form"
-                  component={CommonPlantCreateFormScreen}
-                  options={{ title: t('Common.Plant.Create.Form') }}
+                  name="Common.Plant.Create.Inverter"
+                  component={CommonPlantCreateInverterScreen}
+                  options={{ title: t('Common.Plant.Create.Inverter') }}
+                />
+                <Stack.Screen
+                  name="Common.Plant.Customers"
+                  component={CommonPlantCustomersScreen}
+                  options={{ title: t('Common.Plant.Customers') }}
                 />
                 <Stack.Screen
                   name="Common.Plant.Edit"

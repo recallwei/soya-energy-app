@@ -1,5 +1,5 @@
 import { globalEnvConfig } from '@/env'
-import type { Page, Plant, PlantPageModel, R } from '@/types'
+import type { CreatePlantModel, Page, Plant, PlantPageModel, R } from '@/types'
 
 import httpRequest from './axios'
 
@@ -16,5 +16,27 @@ export class PlantAPI {
 
   static detail(id: string) {
     return httpRequest.get<R<Plant>>(`${this.PLANT_API_PREFIX}/query-plant-info`, { id })
+  }
+
+  /**
+   * 自建电站
+   */
+  static create(params: CreatePlantModel) {
+    return httpRequest.post(`${this.PLANT_API_PREFIX}/add-plant`, { ...params })
+  }
+
+  /**
+   * 代建电站
+   */
+  static createProxy(params: CreatePlantModel) {
+    return httpRequest.post(`${this.PLANT_API_PREFIX}/add-plant-by-proxy`, { ...params })
+  }
+
+  static update(params: CreatePlantModel) {
+    return httpRequest.post(`${this.PLANT_API_PREFIX}/update-plant`, { ...params })
+  }
+
+  static remove(id: string) {
+    return httpRequest.post(`${this.PLANT_API_PREFIX}/remove-plant`, { ids: [id] })
   }
 }

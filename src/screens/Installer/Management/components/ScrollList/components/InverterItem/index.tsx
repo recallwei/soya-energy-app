@@ -26,7 +26,7 @@ const InverterItem = memo((props: Props) => {
   const { navigate } = useNavigation()
 
   useAsyncEffect(async () => {
-    await CacheUtils.fetchBlob(props.projectPic ?? SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL)
+    await CacheUtils.fetchBlob(props.projectPic || SYSTEM_RESOURCE.INVERTER_DEFAULT_IMAGE_URL)
   }, [props.projectPic])
 
   const navToDetail = () => navigate('Common.Inverter.Detail', { id: props.id! })
@@ -74,7 +74,7 @@ const InverterItem = memo((props: Props) => {
           space="$4"
         >
           <CachedImage
-            source={props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}
+            source={props.projectPic || SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}
             style={{
               width: 60,
               height: 60,

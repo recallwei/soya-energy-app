@@ -58,5 +58,7 @@
   "Copy": "Copy",
   "Copy.Success": "Copy success",
   "Send": "Send",
-  "Send.Success": "Send success"
+  "Send.Success": "Send success",
+  "Next.Step": "Next step",
+  "Query": "Query"
 }

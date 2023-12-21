@@ -68,5 +68,26 @@
   },
   "Time.Zone": {
     "Not.Null": "请选择时区"
+  },
+  "Capacity": {
+    "Not.Null": "请输入容量"
+  },
+  "Plant.Type": {
+    "Not.Null": "请选择电站类型"
+  },
+  "Address": {
+    "Not.Null": "请输入地址"
+  },
+  "Plant.Name": {
+    "Not.Null": "请输入电站名称"
+  },
+  "Component.Num": {
+    "Not.Null": "请输入组件数量"
+  },
+  "PV.Panel.Azimuth": {
+    "Not.Null": "请输入光伏板方位角"
+  },
+  "PV.Panel.Inclination": {
+    "Not.Null": "请输入光伏板倾角"
   }
 }

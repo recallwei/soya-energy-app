@@ -23,10 +23,9 @@
   "Common.My.Settings.System.Units": "System Units",
   "Common.Plant": {
     "Detail": "Plant Detail",
-    "Create": {
-      "Scan.SN": "Create Plant",
-      "Form": "Create Plant"
-    },
+    "Create": "Create Plant",
+    "Create.Inverter": "Add Inverter",
+    "Customers": "Customers",
     "Edit": "Edit Plant",
     "View": "Plant View",
     "Map": "Plant Map",

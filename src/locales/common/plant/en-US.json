@@ -1,0 +1,13 @@
+{
+  "Name": "Name",
+  "Capacity": "Capacity",
+  "Country.Region": "Country/Region",
+  "Time.Zone": "Time Zone",
+  "Address": "Address",
+  "Type": "Type",
+  "Components.Number": "Number of Components",
+  "PV.Panel.Azimuth": "PV Panel Azimuth",
+  "PV.Panel.Inclination": "PV Panel Inclination",
+  "I.Have.Obtained.User.Authorization": "I have obtained user authorization",
+  "Plant.Logo": "Plant Logo"
+}

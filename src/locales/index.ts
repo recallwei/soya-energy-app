@@ -10,6 +10,8 @@ import common_my_privacy_management_zh_cn from './common/my/privacy-management/z
 import common_my_settings_en_us from './common/my/settings/en-US.json'
 import common_my_settings_zh_cn from './common/my/settings/zh-CN.json'
 import common_my_zh_cn from './common/my/zh-CN.json'
+import common_plant_en_us from './common/plant/en-US.json'
+import common_plant_zh_cn from './common/plant/zh-CN.json'
 import global_en_us from './global/en-US.json'
 import global_zh_cn from './global/zh-CN.json'
 import installer_home_en_us from './installer/home/en-US.json'
@@ -40,6 +42,7 @@ export const EN_US = {
   'Common.My': common_my_en_us,
   'Common.My.Settings': common_my_settings_en_us,
   'Common.My.Privacy_Management': common_my_privacy_management_en_us,
+  'Common.Plant': common_plant_en_us,
   'Common.Inverter': common_inverter_en_us,
   'Common.Battery': common_battery_en_us,
   'User.Home': user_home_en_us,
@@ -58,6 +61,7 @@ export const ZH_CN = {
   'Common.My': common_my_zh_cn,
   'Common.My.Settings': common_my_settings_zh_cn,
   'Common.My.Privacy_Management': common_my_privacy_management_zh_cn,
+  'Common.Plant': common_plant_zh_cn,
   'Common.Inverter': common_inverter_zh_cn,
   'Common.Battery': common_battery_zh_cn,
   'User.Home': user_home_zh_cn,

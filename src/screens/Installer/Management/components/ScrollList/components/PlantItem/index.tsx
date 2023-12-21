@@ -27,7 +27,7 @@ const PlantItem = memo((props: Props) => {
   const plantStore = usePlantStore()
 
   useAsyncEffect(async () => {
-    await CacheUtils.fetchBlob(props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL)
+    await CacheUtils.fetchBlob(props.projectPic || SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL)
   }, [props.projectPic])
 
   const navToDetail = () => {
@@ -70,7 +70,7 @@ const PlantItem = memo((props: Props) => {
           space="$3"
         >
           <CachedImage
-            source={props.projectPic ?? SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}
+            source={props.projectPic || SYSTEM_RESOURCE.PLANT_DEFAULT_IMAGE_URL}
             style={{
               width: 60,
               height: 60,

@@ -23,10 +23,9 @@
   "Common.My.Settings.System.Units": "系统单位",
   "Common.Plant": {
     "Detail": "电站详情",
-    "Create": {
-      "Scan.SN": "创建电站",
-      "Form": "创建电站"
-    },
+    "Create": "创建电站",
+    "Create.Inverter": "添加逆变器",
+    "Customers": "客户",
     "Edit": "编辑电站",
     "View": "电站视图",
     "Map": "电站地图",
