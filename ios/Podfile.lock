@@ -1186,7 +1186,7 @@ PODS:
     - ZIPFoundation (= 0.9.11)
   - RNCAsyncStorage (1.21.0):
     - React-Core
-  - RNCClipboard (1.13.1):
+  - RNCClipboard (1.13.2):
     - React-Core
   - RNDateTimePicker (7.6.2):
     - React-Core
@@ -1594,7 +1594,7 @@ SPEC CHECKSUMS:
   ReactCommon: ddb128564dcbfa0287d3d1a2d10f8c7457c971f6
   ReactNativeFileAccess: 4530e3be4d5069454c6c6389096d8cb78c897f2c
   RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
-  RNCClipboard: 90e241893de33a2f5962fc34d76ada4576033e49
+  RNCClipboard: 60fed4b71560d7bfe40e9d35dea9762b024da86d
   RNDateTimePicker: fc2e4f2795877d45e84d85659bebe627eba5c931
   RNGestureHandler: 61bfdfc05db9b79dd61f894dcd29d3dcc6db3c02
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5

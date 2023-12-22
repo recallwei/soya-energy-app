@@ -1,24 +1,25 @@
 import { Zap } from '@tamagui/lucide-icons'
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SizableText, View, XStack, YStack } from 'tamagui'
 
 import { AnimationNumber } from '@/components'
 import { globalStyles } from '@/constants'
+import type { BatteryAnalysis } from '@/types'
 
 import ProgressRing from './ProgressRing'
 
-const HeaderArea = memo(() => {
+interface Props {
+  data?: BatteryAnalysis
+}
+
+const HeaderArea = memo((props: Props) => {
   const { t } = useTranslation('User.Battery')
 
-  const [percentage, setPercentage] = useState(90)
-
-  useEffect(() => {
-    const i = setInterval(() => {
-      setPercentage(Math.random() * 100)
-    }, 10000)
-    return () => clearInterval(i)
-  }, [])
+  const getPercentage = () => {
+    if (!props.data?.soc) return 0
+    return Number(Number(props.data.soc).toFixed(0))
+  }
 
   return (
     <YStack
@@ -27,7 +28,7 @@ const HeaderArea = memo(() => {
       mb="$3"
     >
       <View position="relative">
-        <ProgressRing percentage={percentage} />
+        <ProgressRing percentage={getPercentage()} />
         <YStack
           space="$2"
           alignItems="center"
@@ -46,7 +47,7 @@ const HeaderArea = memo(() => {
           <XStack alignItems="center">
             <AnimationNumber
               size="$11"
-              value={Number(percentage.toFixed(0))}
+              value={getPercentage()}
               duration={1000}
             />
             <SizableText size="$6">%</SizableText>
@@ -59,7 +60,7 @@ const HeaderArea = memo(() => {
         size="$9"
         lineHeight="$9"
         fontWeight="$bold"
-        value={0.7}
+        value={Number(props.data?.capacity)}
         suffix="kWh"
       />
     </YStack>

@@ -4,14 +4,32 @@ import { useTranslation } from 'react-i18next'
 import { SizableText } from 'tamagui'
 
 import { MenuItemCard } from '@/components'
-import { TimeUtils } from '@/utils'
+import { WorkMode } from '@/enums'
+import type { BatteryAnalysis } from '@/types'
 
-const MenuList = memo(() => {
+interface Props {
+  data?: BatteryAnalysis
+}
+
+const MenuList = memo((props: Props) => {
   const { t } = useTranslation('User.Battery')
+
+  const getWorkMode = () => {
+    switch (props.data?.workMode?.toString()) {
+      case WorkMode.Free:
+        return t('Free.Mode')
+      case WorkMode.TimeShare:
+        return t('Time.Share.Mode')
+      default:
+        return props.data?.workMode ?? '--'
+    }
+  }
+
   return (
     <>
       <MenuItemCard
         title={t('Working.Modes')}
+        description={`${getWorkMode() ?? '--'}`}
         icon={Leaf}
       />
       <MenuItemCard
@@ -20,15 +38,14 @@ const MenuList = memo(() => {
       />
       <MenuItemCard
         title={t('Battery.Info')}
-        description={`${t('Quantity')} ${1}`}
+        description={`${t('Quantity')} ${props.data?.count ?? '--'}`}
         icon={Info}
       />
-
       <SizableText
         textAlign="center"
         fontSize="$3"
       >
-        {`${t('Update.On')} ${TimeUtils.formatTime(Date.now(), 'YYYY-MM-DD hh:mm:ss')}`}
+        {`${t('Update.On')} ${props.data!.updatedAt}`}
       </SizableText>
     </>
   )

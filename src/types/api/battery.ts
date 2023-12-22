@@ -74,3 +74,44 @@ export interface BatteryPageModel extends BasePageModel {
   order?: string
   batteryType?: string
 }
+
+export interface BatteryAnalysis {
+  /**
+   * 当前容量
+   */
+  capacity?: string
+  /**
+   * 电池数量
+   */
+  count?: number
+  /**
+   * 设计容量
+   */
+  designCapacity?: string
+  /**
+   * 健康状态（1：优秀 2：良好 3：一般 4：较差）
+   */
+  healthStatus?: string
+  /**
+   * 电池功率
+   */
+  power?: string
+  /**
+   * 电池SOC
+   */
+  soc?: string
+  /**
+   * 电池状态[1:充电中 2:放电中 3:待机 4:离线]
+   */
+  status?: number
+  /**
+   * 温度
+   */
+  temperature?: string
+  /**
+   * 工作模式(1:自由模式 2:分时模式)
+   */
+  workMode?: number
+
+  updatedAt?: string
+}

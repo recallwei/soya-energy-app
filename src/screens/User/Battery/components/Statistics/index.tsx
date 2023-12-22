@@ -2,21 +2,43 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { XStack, YStack } from 'tamagui'
 
+import { HealthStatus } from '@/enums'
+import type { BatteryAnalysis } from '@/types'
+
 import CardItem from './CardItem'
 
-const Statistics = memo(() => {
+interface Props {
+  data?: BatteryAnalysis
+}
+
+const Statistics = memo((props: Props) => {
   const { t } = useTranslation('User.Battery')
+
+  const getHealthStatus = () => {
+    switch (props.data?.healthStatus?.toString()) {
+      case HealthStatus.Excellent:
+        return t('Excellent')
+      case HealthStatus.Good:
+        return t('Good')
+      case HealthStatus.Normal:
+        return t('Normal')
+      case HealthStatus.Poor:
+        return t('Poor')
+      default:
+        return props.data?.healthStatus ?? '--'
+    }
+  }
 
   return (
     <YStack space="$2">
       <XStack justifyContent="space-between">
         <CardItem
           title={t('Battery.Power')}
-          value="0.0 W"
+          value={`${props.data?.power || '--'} W`}
         />
         <CardItem
           title={t('Design.Capacity')}
-          value="5.12 kWh"
+          value={`${props.data?.designCapacity || '--'} kWh`}
         />
       </XStack>
 
@@ -34,11 +56,11 @@ const Statistics = memo(() => {
       <XStack justifyContent="space-between">
         <CardItem
           title={t('Battery.Temperature')}
-          value="23.0 ℃"
+          value={`${props.data?.temperature || '--'} ℃`}
         />
         <CardItem
           title={t('SOH')}
-          value={t('Good')}
+          value={getHealthStatus()}
         />
       </XStack>
     </YStack>
