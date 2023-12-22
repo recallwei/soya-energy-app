@@ -12,6 +12,7 @@ interface Props extends ButtonProps {
 
 const CopyButton = memo((props: Props) => {
   const { t } = useTranslation()
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const { onPress, copyText, ...rest } = props
 
   const copyToClipboard = () => {

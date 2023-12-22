@@ -77,6 +77,7 @@ const PieChart = memo((props: Props) => {
 
   useEffect(() => {
     getChartData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, title, themeStore.theme])
 
   useEffect(() => {

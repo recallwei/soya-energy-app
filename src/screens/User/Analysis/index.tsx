@@ -11,8 +11,8 @@ import { globalStyles } from '@/constants'
 import { DateRange } from '@/enums'
 import { useRefresh } from '@/hooks'
 
-import { DatePicker, DateRangeSelector, SwitchGroup } from './components'
-import { pieChartData1, pieChartData2 } from './mock'
+import { DateRangeSelector, SwitchGroup } from './components'
+import { useEnergyStatisticsQuery } from './hooks'
 import type { EnergyBalanceParams } from './types'
 
 export default function Screen() {
@@ -25,14 +25,15 @@ export default function Screen() {
     enableBattery: true
   })
 
-  const { refreshing, onRefresh } = useRefresh(
-    () =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          resolve('')
-        }, 1000)
-      })
-  )
+  const {
+    queryResult: statisticQueryResult,
+    energyData,
+    energyBalanceData,
+    environmentImpactData,
+    energyConsumptionData
+  } = useEnergyStatisticsQuery()
+
+  const { refreshing, onRefresh } = useRefresh(statisticQueryResult.refetch)
 
   return (
     <View>
@@ -51,7 +52,7 @@ export default function Screen() {
         >
           <DateRangeSelector {...{ currentTab, setCurrentTab }} />
 
-          <DatePicker />
+          {/* <DatePicker /> */}
 
           <HeadingTitle title={t('Energy')} />
 
@@ -66,7 +67,16 @@ export default function Screen() {
             <PieChart
               width={Dimensions.get('window').width - 32}
               height={200}
-              data={pieChartData1}
+              data={[
+                {
+                  name: t('Self.Consumption'),
+                  value: energyData.selfConsumptionPower
+                },
+                {
+                  name: t('Export.Energy'),
+                  value: energyData.onlinePower
+                }
+              ]}
             />
           </Card>
 
@@ -83,7 +93,16 @@ export default function Screen() {
             <PieChart
               width={Dimensions.get('window').width - 32}
               height={200}
-              data={pieChartData2}
+              data={[
+                {
+                  name: t('Self.Sufficiency'),
+                  value: energyConsumptionData.selfUsePower
+                },
+                {
+                  name: t('Import.Energy'),
+                  value: energyConsumptionData.purchasePower
+                }
+              ]}
             />
           </Card>
 
@@ -102,10 +121,50 @@ export default function Screen() {
               title="123"
               width={Dimensions.get('window').width - 32}
               height={250}
+              xAxis={energyBalanceData.xAxis}
+              series={[
+                {
+                  name: t('Self.Consumption'),
+                  type: 'bar',
+                  stack: 'A',
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: energyBalanceData.loadPower
+                },
+                {
+                  name: t('Export.Energy'),
+                  type: 'bar',
+                  stack: 'A',
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: energyBalanceData.pvPower
+                },
+                {
+                  name: t('Self.Sufficiency'),
+                  type: 'bar',
+                  stack: 'A',
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: energyBalanceData.batteryPower
+                },
+                {
+                  name: t('Import.Energy'),
+                  type: 'bar',
+                  stack: 'A',
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: energyBalanceData.buyOrSellPower
+                }
+              ]}
             />
           </Card>
 
           <SwitchGroup {...{ energyBalanceParams, setEnergyBalanceParams }} />
+
           <Card
             size="$4"
             bordered
@@ -119,6 +178,18 @@ export default function Screen() {
               title="123"
               width={Dimensions.get('window').width - 32}
               height={250}
+              xAxis={energyBalanceData.xAxis}
+              series={[
+                {
+                  name: t('Import.Energy'),
+                  type: 'bar',
+                  stack: 'A',
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: energyBalanceData.buyOrSellPower
+                }
+              ]}
             />
           </Card>
 
@@ -136,7 +207,7 @@ export default function Screen() {
                   gap="$1"
                   width="50%"
                 >
-                  <SizableText>26.0 KG</SizableText>
+                  <SizableText>{environmentImpactData.co2 || '--'} KG</SizableText>
                   <SizableText size="$3">CO₂</SizableText>
                 </YStack>
                 <YStack
@@ -149,7 +220,7 @@ export default function Screen() {
                     alignItems="center"
                     space="$1"
                   >
-                    <SizableText>35.9</SizableText>
+                    <SizableText>{environmentImpactData.tree || '--'}</SizableText>
                     <TreePine
                       size="$1"
                       color={globalStyles.primaryColor}

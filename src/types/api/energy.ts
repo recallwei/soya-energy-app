@@ -48,27 +48,37 @@ export interface EnergyStatistics {
   /**
    * CO2
    */
-  co2?: string
+  co2?: number
   /**
    * 上网电量
    */
-  onlinePower?: string
+  onlinePower?: number
   /**
    * 购买电量
    */
-  purchasePower?: string
+  purchasePower?: number
   /**
    * 自己自足
    */
-  selfConsumptionPower?: string
+  selfConsumptionPower?: number
   /**
    * 自发自用
    */
-  selfUsePower?: string
+  selfUsePower?: number
   /**
    * tree
    */
-  tree?: string
+  tree?: number
+
+  barChar?: {
+    xaxis: number[]
+    yaxis: {
+      batteryPower: number[]
+      buyOrSellPower: number[]
+      loadPower: number[]
+      pvPower: number[]
+    }
+  }
 }
 
 export interface EnergyQueryModel {

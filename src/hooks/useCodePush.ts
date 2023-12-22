@@ -67,5 +67,5 @@ export const useCodePush = () => {
       appListener = AppState.addEventListener('change', syncCode)
     }
     return () => appListener?.remove()
-  }, [])
+  }, [authStore])
 }
