@@ -1,14 +1,3 @@
 {
-  "extends": ["@brucesong/eslint-config-react-native"],
-  "rules": {
-    "global-require": "off", // 图片引入使用的是 require
-    "no-param-reassign": [
-      "error",
-      {
-        "props": true,
-        "ignorePropertyModificationsFor": ["draft", "req"],
-        "ignorePropertyModificationsForRegex": ["^item", "Item$"]
-      } // useImmer 需要直接修改参数值，不受此限制，尽量通过 draft = xxx 的方式修改
-    ]
-  }
+  "extends": ["@brucesong/eslint-config-react-native"]
 }
